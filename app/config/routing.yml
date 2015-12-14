@@ -1,3 +1,7 @@
-core:
-    resource: "@CoreBundle/Resources/config/routing.yml"
+commu:
+    resource: "@CommuBundle/Resources/config/routing.yml"
     prefix:   /
+
+core_home:
+    resource: "@CoreBundle/Resources/config/routing.yml"
+    prefix:   /home

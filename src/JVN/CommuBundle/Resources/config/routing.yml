@@ -1,0 +1,3 @@
+commu_homepage:
+    path:     /
+    defaults: { _controller: CommuBundle:Default:index }
