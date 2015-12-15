@@ -3,15 +3,59 @@
 <head>
   <meta charset="utf-8" />
   <title>{% block title %}JVN-Network.fr - Là où la communauté prend les commandes{% endblock %}</title>
-  {% block stylesheet %}
-  <link href="#" rel="stylesheet" />
-  <link href="#" rel="stylesheet" />
+  {% block stylesheets %}
+  <link href="{{ asset('bundles/core/css/bootsrap.css')}}" rel="stylesheet" />
+  <link href="{{ asset('bundles/core/css/main.css')}}" rel="stylesheet" />
   {% endblock %}
 </head>
 <body>
+  <div class="navbar navbar-default">
+  			<div class="container">
+  				<div class="navbar-header">
+  					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+  						<span class="sr-only">Toggle navigation</span>
+  						<span class="icon-bar"></span>
+  						<span class="icon-bar"></span>
+  						<span class="icon-bar"></span>
+  					</button>
+  					<a class="navbar-brand page-scroll" href="index.php">Accueil</a>
+  				</div>
+  				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  					<ul class="nav navbar-nav navbar-right">
+  							<li class="dropdown">
+  							<a data-toggle="dropdown" href="#">Membres<b class="caret"></b></a>
+  							<ul class="dropdown-menu">
+  								<li>
+  									<a href="inscription.php">S'inscrire</a>
+  								</li>
+  								<li>
+  									<a href="connexion.php">Se Connecter</a>
+  								</li>
+  							</ul>
+  							</li>
+  						<li>
+  							<a href="Blog.php">Blog</a>
+  						</li>
+  						<li>
+  							<a href="#Commu.php">Communauté</a>
+  						</li>
+  						<li>
+  							<a href="#Forums.php">Forums</a>
+  						</li>
+  						<li>
+  							<a href="Boutique.php">Boutique</a>
+  						</li>
+  					</ul>
+  				</div>
+  		</div>
+  </div>
 
 
 {% block javascript %}
+<script src="{{asset('bundles/core/js/bootstrap.js')}}"></script>
+<script src="{{asset('bundles/core/js/vendor/jquery-1.11.3.min.js')}}"></script>
+<script src="{{asset('bundles/core/js/vendor/modernizr-2.8.3.min.js')}}"></script>
+<script src="{{asset('bundles/core/js/main.js')}}"></script>
 {% endblock %}
 </body>
 </html>

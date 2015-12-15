@@ -1,3 +1,3 @@
-commu_homepage:
+jvn_network_commu:
     path:     /
-    defaults: { _controller: CommuBundle:Default:index }
+    defaults: { _controller: CommuBundle:Commu:index }

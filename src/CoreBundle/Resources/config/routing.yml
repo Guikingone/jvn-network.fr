@@ -1,3 +1,7 @@
 core_home:
     path:     /
     defaults: { _controller: CoreBundle:Home:index, page: 1 }
+
+core_boutique:
+    path:    /boutique
+    defaults: { _controller: CoreBundle:Home:boutique }
