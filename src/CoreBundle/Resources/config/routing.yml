@@ -10,18 +10,22 @@ core_connexion:
     path:     /connexion
     defaults: { _controller: CoreBundle:CNX:index, page: 3 }
 
+core_deconnexion:
+    path:     /deconnexion
+    defaults: { _controller: CoreBundle:DCNX:index, page 4 }
+
 core_blog:
     path:     /blog
-    defaults: { _controller: CoreBundle:Blog:index, page: 4 }
+    defaults: { _controller: CoreBundle:Blog:index, page: 5 }
 
 core_commu:
     path:     /commu
-    defaults: { _controller: CoreBundle:Commu:index, page: 5 }
+    defaults: { _controller: CoreBundle:Commu:index, page: 6 }
 
 core_forums:
     path:     /forums
-    defaults: { _controller: CoreBundle:Forums:index, page: 6 }
+    defaults: { _controller: CoreBundle:Forums:index, page: 7 }
 
 core_boutique:
     path:    /boutique
-    defaults: { _controller: CoreBundle:Home:boutique }
+    defaults: { _controller: CoreBundle:Boutique:index, page: 8 }
