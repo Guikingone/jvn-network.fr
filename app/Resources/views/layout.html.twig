@@ -7,6 +7,7 @@
   <link href="{{ asset('bundles/core/css/bootsrap.css')}}" rel="stylesheet" />
   <link href="{{ asset('bundles/core/css/main.css')}}" rel="stylesheet" />
   {% endblock %}
+  <script src="{{ asset('bundles/core/js/vendor/modernizr-2.8.3.min.js')}}"></script>
 </head>
 <body>
   <div class="navbar navbar-default">
@@ -18,7 +19,7 @@
   						<span class="icon-bar"></span>
   						<span class="icon-bar"></span>
   					</button>
-  					<a class="navbar-brand page-scroll" href="index.php">Accueil</a>
+  					<a class="navbar-brand page-scroll" href="{{path('core_home')}}">Accueil</a>
   				</div>
   				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
   					<ul class="nav navbar-nav navbar-right">
@@ -26,36 +27,36 @@
   							<a data-toggle="dropdown" href="#">Membres<b class="caret"></b></a>
   							<ul class="dropdown-menu">
   								<li>
-  									<a href="inscription.php">S'inscrire</a>
+  									<a href="{{path('core_inscription')}}">S'inscrire</a>
   								</li>
   								<li>
-  									<a href="connexion.php">Se Connecter</a>
+  									<a href="{{path('core_connexion')}}">Se Connecter</a>
   								</li>
   							</ul>
   							</li>
   						<li>
-  							<a href="Blog.php">Blog</a>
+  							<a href="{{path('core_blog')}}">Blog</a>
   						</li>
   						<li>
-  							<a href="#Commu.php">Communauté</a>
+  							<a href="{{path('core_commu')}}">Communauté</a>
   						</li>
   						<li>
-  							<a href="#Forums.php">Forums</a>
+  							<a href="{{path('core_forums')}}">Forums</a>
   						</li>
   						<li>
-  							<a href="Boutique.php">Boutique</a>
+  							<a href="{{path('core_boutique')}}">Boutique</a>
   						</li>
   					</ul>
   				</div>
   		</div>
   </div>
-
+{% block body %}
+{% endblock %}
 
 {% block javascript %}
-<script src="{{asset('bundles/core/js/bootstrap.js')}}"></script>
-<script src="{{asset('bundles/core/js/vendor/jquery-1.11.3.min.js')}}"></script>
-<script src="{{asset('bundles/core/js/vendor/modernizr-2.8.3.min.js')}}"></script>
-<script src="{{asset('bundles/core/js/main.js')}}"></script>
+<script src="{{ asset('bundles/core/js/vendor/jquery-1.11.3.min.js')}}"></script>
+<script src="{{ asset('bundles/core/js/bootstrap.js')}}"></script>
+<script src="{{ asset('bundles/core/js/main.js')}}"></script>
 {% endblock %}
 </body>
 </html>
