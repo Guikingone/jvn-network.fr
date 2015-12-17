@@ -10,6 +10,32 @@
   <script src="{{ asset('bundles/core/js/vendor/modernizr-2.8.3.min.js')}}"></script>
 </head>
 <body>
+  <!-- Navbar Utilisateur -->
+  <div id="wrapper">
+    <div id="topBar">
+      <div class="container">
+        <ul class="top-links list-inline pull-right">
+          <li class="text-welcome hidden-xs">Bienvenue sur JVN, <strong>Utilisateur</strong></li>
+          <li>
+            <a class="dropdown-toggle no-text-underline" data-toggle="dropdown" href="#">Mon compte</a>
+            <ul class="dropdown-menu pull-right">
+              <li><a tabindex="-1" href="#"></i>Mon profil</a></li>
+              <li class="divider"></li>
+              <li><a tabindex="-1" href="#">Mes commandes</a></li>
+              <li><a tabindex="-1" href="#">Ma liste de souhait</a></li>
+              <li><a tabindex="-1" href="#">Mes paramètres</a></li>
+              <li class="divider"></li>
+              <li><a tabindex="-1" href="{{path('core_deconnexion')}}">Se déconnecter</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="top-links list-inline">
+          <li class="hidden-xs"><a href="{{path('core_contact')}}">CONTACT</a></li>
+          <li class="hidden-xs"><a href="#">Mention légales</a></li>
+        </ul>
+      </div>
+    </div>
+  <!-- Navbar Default -->
   <div class="navbar navbar-default">
   			<div class="container">
   				<div class="navbar-header">

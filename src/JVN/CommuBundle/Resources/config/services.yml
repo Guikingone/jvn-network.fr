@@ -1,4 +1,0 @@
-services:
-#    commu.example:
-#        class: JVN\CommuBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]

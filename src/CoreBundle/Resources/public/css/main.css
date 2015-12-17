@@ -94,17 +94,23 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-
-/* ================ // Style JVN.org \\ =============== */
-
-	/* ===== Style principal ===== */
+/* ==========================================================================
+    JVN-Network Style
+   ========================================================================== */
 
 	body {
 		overflow-x: hidden;
 		font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
 	}
+  .btn-theme{
+    background-color: transparent;
+    border-radius: 5px;
+    border: 2.2px solid red;
+  }
 
-		/* ======= Style Navbar ====== */
+/* ==========================================================================
+      Navbar Style
+   ========================================================================== */
 
 		.navbar-default {
 			border-color: transparent;
@@ -158,8 +164,105 @@ textarea {
 			color: #fff;
 			background-color: #9d9696;
 		}
+/* ==========================================================================
+    Topbar User style
+   ========================================================================== */
+   #topBar {
+   		display:block;
+   		background-color:#fff;
+   		border-bottom:rgba(0,0,0,0.05) 1px solid;
+   	}
+   	#topBar>.border-bottom {
+   		border-bottom:rgba(0,0,0,0.05) 1px solid;
+   	}
+   	#topBar>.border-top {
+   		border-top:rgba(0,0,0,0.05) 1px solid;
+   	}
+   	#topBar ul.top-links {
+   		float:left;
+   		margin:0;
+   	}
+   	#topBar ul.top-links>li {
+   		padding:0;
+   		display:inline-block;
+   		margin-left:-3px;
+   		position:relative;
+   		border-right:rgba(0,0,0,0.1) 1px solid;
 
-/* ========== Style Index.php ========== */
+   	}
+   	#topBar ul.top-links>li:hover >.dropdown-menu,
+   	#mainMenu ul.top-links>li:hover >.dropdown-menu {
+   		display:block !important;
+   	}
+   	#topBar ul.top-links>li .dropdown-menu {
+   		z-index:3000;
+   	}
+   	#topBar ul.top-links>li>a {
+   		padding:10px;
+   		font-size:12px;
+   		color:#151515;
+   		display:block;
+   		text-decoration:none;
+   	}
+   	#topBar ul.top-links>li>a:hover {
+   		background-color:rgba(0,0,0,0.01);
+   	}
+   	#topBar ul.top-links>li>a>i {
+   		margin-right:5px;
+   		filter: alpha(opacity=30);
+   		opacity:0.3;
+   	}
+   	@media only screen and (max-width: 768px) {
+   		#topBar {
+   			text-align:center;
+   		}
+   		#topBar ul.top-links {
+   			display:inline-block;
+   			float:none;
+   			margin:0 auto;
+   		}
+   		#topBar ul.top-links>li:last-child>a {
+   			border-right:0;
+   		}
+   	}
+   	#topBar ul.top-links li.text-welcome {
+   		padding:0 15px;
+   		font-size:12px;
+   	}
+   	#topBar ul.dropdown-menu {
+   		min-width:50px;
+   		margin:0; padding:0;
+   		margin-left:-1px;
+   	}
+   	#topBar ul.dropdown-menu>li>a {
+   		padding:8px 6px;
+   		font-size:12px;
+   	}
+   	#topBar ul.dropdown-langs>li>a {
+   		padding:3px 6px;
+   		font-size:12px;
+   	}
+   	#topBar ul.top-links>li>a>img.flag-lang {
+   		float:left;
+   		margin-top:3px;
+   		margin-right:6px;
+   	}
+   	#topBar ul.dropdown-menu>li>a>i {
+   		margin-right:6px;
+   	}
+   	#topBar ul.dropdown-langs>li:hover>a {
+   		color:#000 !important;
+   		background-color:#eee;
+   	}
+   	#topBar ul.dropdown-menu>li.divider {
+   		margin:0; padding:0;
+   		border-bottom:0;
+   		height:1px;
+   	}
+
+/* ==========================================================================
+    Style layout.html.twig
+   ========================================================================== */
 
 /* ====== Style header ====== */
 

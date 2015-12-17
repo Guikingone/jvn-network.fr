@@ -9,6 +9,6 @@ class HomeController extends Controller{
       if($page < 1){
         throw new NotFoundHttpException("La page . $page . est inexistante");
       }
-      return $this->render('::layout.html.twig');
+      return $this->render('CoreBundle::home.html.twig');
     }
 }
