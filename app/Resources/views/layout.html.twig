@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <title>{% block title %}JVN-Network.fr - Là où la communauté prend les commandes{% endblock %}</title>
   {% block stylesheets %}
-  <link href="{{ asset('bundles/core/css/bootsrap.css')}}" rel="stylesheet" />
+  <link href="{{ asset('bundles/core/css/Bootstrap/bootstrap.css')}}" rel="stylesheet" />
   <link href="{{ asset('bundles/core/css/main.css')}}" rel="stylesheet" />
   {% endblock %}
   <script src="{{ asset('bundles/core/js/vendor/modernizr-2.8.3.min.js')}}"></script>
@@ -14,21 +14,32 @@
   <div id="wrapper">
     <div id="topBar">
       <div class="container">
-        <ul class="top-links list-inline pull-right">
-          <li class="text-welcome hidden-xs">Bienvenue sur JVN, <strong>Utilisateur</strong></li>
-          <li>
-            <a class="dropdown-toggle no-text-underline" data-toggle="dropdown" href="#">Mon compte</a>
-            <ul class="dropdown-menu pull-right">
-              <li><a tabindex="-1" href="#"></i>Mon profil</a></li>
-              <li class="divider"></li>
-              <li><a tabindex="-1" href="#">Mes commandes</a></li>
-              <li><a tabindex="-1" href="#">Ma liste de souhait</a></li>
-              <li><a tabindex="-1" href="#">Mes paramètres</a></li>
-              <li class="divider"></li>
-              <li><a tabindex="-1" href="{{path('core_deconnexion')}}">Se déconnecter</a></li>
-            </ul>
-          </li>
-        </ul>
+        {% if is_granted('IS_AUTHENTIFICATED_REMEMBERED') %}
+          <ul class="top-links list-inline pull-right">
+            <li class="text-welcome hidden-xs">Bienvenue sur JVN, <strong>{{app.user.username}}</strong></li>
+            <li>
+              <a class="dropdown-toggle no-text-underline" data-toggle="dropdown" href="#">Mon compte</a>
+              <ul class="dropdown-menu pull-right">
+                <li><a tabindex="-1" href="#"></i>Mon profil</a></li>
+                <li class="divider"></li>
+                <li><a tabindex="-1" href="#">Mes commandes</a></li>
+                <li><a tabindex="-1" href="#">Ma liste de souhait</a></li>
+                <li><a tabindex="-1" href="#">Mes paramètres</a></li>
+                <li class="divider"></li>
+                <li><a tabindex="-1" href="{{path('core_deconnexion')}}">Se déconnecter</a></li>
+              </ul>
+            </li>
+          </ul>
+        {% else %}
+          <ul class="top-links list-inline pull-right">
+            <li>
+              <a href="#">S'inscrire</a>
+            </li>
+            <li>
+              <a href="#">Se connecter</a>
+            </li>
+          </ul>
+        {% endif %}
         <ul class="top-links list-inline">
           <li class="hidden-xs"><a href="{{path('core_contact')}}">CONTACT</a></li>
           <li class="hidden-xs"><a href="#">Mention légales</a></li>
