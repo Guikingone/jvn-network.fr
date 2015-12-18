@@ -37,3 +37,7 @@ core_forums:
 core_boutique:
     path:    /boutique
     defaults: { _controller: CoreBundle:Boutique:index }
+
+krmatv_home:
+    path:    /krmatv
+    defaults: { _controller: CoreBundle:Krma:index }

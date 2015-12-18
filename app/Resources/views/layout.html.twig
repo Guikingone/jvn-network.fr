@@ -60,8 +60,19 @@
   				</div>
   				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
   					<ul class="nav navbar-nav navbar-right">
-  						<li>
-  							<a href="{{path('core_blog')}}">Blog</a>
+              <li class="dropdown">
+  							<a data-toggle="dropdown" href="#">Blog<b class="caret"></b></a>
+  							<ul class="dropdown-menu">
+  								<li>
+ 									<a href="#">L'Equipe</a>
+  								</li>
+  								<li>
+  									<a href="{{path('krmatv_home')}}">Krma TV</a>
+  								</li>
+                  <li>
+                    <a href="#">Les Membres</a>
+                  </li>
+							  </ul>
   						</li>
   						<li>
   							<a href="{{path('core_commu')}}">Communauté</a>
