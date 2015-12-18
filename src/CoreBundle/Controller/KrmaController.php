@@ -10,4 +10,16 @@ class KrmaController extends Controller{
   public function indexAction(){
     return $this->render('CoreBundle::krma.html.twig');
   }
+
+  public function addAction(){
+
+  }
+
+  public function deleteAction(){
+
+  }
+
+  public function updatAction(){
+    
+  }
 }
