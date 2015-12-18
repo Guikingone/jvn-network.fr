@@ -1,35 +1,39 @@
 core_home:
     path:     /
-    defaults: { _controller: CoreBundle:Home:index, page: 1 }
+    defaults: { _controller: CoreBundle:Home:index }
 
 core_contact:
     path:     /contact
-    defaults: { _controller: Corebundle:Contact:index, page: 2 }
+    defaults: { _controller: CoreBundle:Home:contact }
+
+core_mentions:
+    path:     /mentions
+    defaults: { _controller: CoreBundle:Home:mentions }
 
 core_inscription:
     path:     /inscription
-    defaults: { _controller: CoreBundle:INCP:index, page: 3 }
+    defaults: { _controller: CoreBundle:INCP:index }
 
 core_connexion:
     path:     /connexion
-    defaults: { _controller: CoreBundle:CNX:index, page: 4 }
+    defaults: { _controller: CoreBundle:CNX:index }
 
 core_deconnexion:
     path:     /deconnexion
-    defaults: { _controller: CoreBundle:DCNX:index, page 5 }
+    defaults: { _controller: CoreBundle:DCNX:index }
 
 core_blog:
     path:     /blog
-    defaults: { _controller: CoreBundle:Blog:index, page: 6 }
+    defaults: { _controller: CoreBundle:Blog:index }
 
 core_commu:
     path:     /commu
-    defaults: { _controller: CoreBundle:Commu:index, page: 7 }
+    defaults: { _controller: CoreBundle:Commu:index }
 
 core_forums:
     path:     /forums
-    defaults: { _controller: CoreBundle:Forums:index, page: 8 }
+    defaults: { _controller: CoreBundle:Forums:index }
 
 core_boutique:
     path:    /boutique
-    defaults: { _controller: CoreBundle:Boutique:index, page: 9 }
+    defaults: { _controller: CoreBundle:Boutique:index }

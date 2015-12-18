@@ -102,14 +102,9 @@ textarea {
 		overflow-x: hidden;
 		font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
 	}
-  .btn-theme{
-    background-color: transparent;
-    border-radius: 5px;
-    border: 2.2px solid red;
-  }
 
 /* ==========================================================================
-      Navbar Style
+    Navbar Style
    ========================================================================== */
 
 		.navbar-default {
@@ -264,8 +259,58 @@ textarea {
     Style layout.html.twig
    ========================================================================== */
 
-/* ====== Style header ====== */
+/* ==========================================================================
+    Style InfoBar
+   ========================================================================== */
 
+.info-bar {
+	margin:0;
+	border:0;
+	color:#000;
+	background-color:rgba(0,0,0,0.05);
+	padding:10px 0;
+}
+.info-bar div.row>div {
+	padding-top:20px;
+	padding-bottom:20px;
+	margin:0 !important;
+	border-right:rgba(0,0,0,0.1) 1px solid;
+}
+.info-bar div.row>div:last-child {
+	border:0;
+}
+.info-bar div.row>div i {
+	color:#333;
+	font-size:32px;
+	line-height: 1.2;
+	margin-right:10px;
+	float:left;
+}
+.info-bar h1,
+.info-bar h2,
+.info-bar h3,
+.info-bar h4,
+.info-bar h5,
+.info-bar h6,
+.info-bar p {
+	color:#333;
+	font-size:16px;
+	line-height:1.5;
+	margin:0;
+	padding:0;
+}
+.info-bar p {
+	font-size: 12px;
+	line-height:1;
+}
+.info-bar.info-bar-clean {
+	background-color:#fff;
+	border-bottom: rgba(0,0,0,0.1) 1px solid;
+}
+
+/* ==========================================================================
+
+   ========================================================================== */
 header {
     text-align: center;
     color: #d04040;
@@ -567,13 +612,6 @@ section h3.section-subheading {
 	margin-top: 200px;
 	margin-bottom: 50px;
 }
-
-/* =========== Style Blog_inscrit.php =========== */
-
-
-
-
-/* ========== Style Boutique.php =========== */
 
 /* ===== Style Slider ===== */
 
@@ -1276,17 +1314,6 @@ fieldset[disabled] .btn-xl.active {
   background: -o-linear-gradient(37deg, rgba(255, 255, 255, 0) 50%, rgba(247, 248, 240, 0.025) 50%, rgba(250, 245, 252, 0.08));
   background: linear-gradient(53deg, rgba(255, 255, 255, 0) 50%, rgba(247, 248, 240, 0.025) 50%, rgba(250, 245, 252, 0.08));
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /* ==========================================================================
    Helper classes
