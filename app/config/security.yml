@@ -2,10 +2,14 @@
 # http://symfony.com/doc/current/book/security.html
 security:
 
+    encoders:
+      UserBundle\Entity\Membre: sha512
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
         in_memory:
             memory: ~
+        main:
+            id: fos_user.user_provider.username
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -23,6 +27,8 @@ security:
             logout:
                 path:    logout
                 target: /home
+            remember_me:
+                secret:    %secret%
 
             # http_basic: ~
             # http://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
