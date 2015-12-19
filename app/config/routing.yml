@@ -2,6 +2,10 @@ core_home:
     resource: "@CoreBundle/Resources/config/routing.yml"
     prefix:   /home
 
+commu_home:
+    resource: "@CommuBundle/Resources/config/routing.yml"
+    prefix:   /commu
+
 krma_home:
     resource: "@KrmaBundle/Resources/config/routing.yml"
     prefix:   /krma
@@ -13,3 +17,17 @@ forums_home:
 boutique_home:
     resource: "@BoutiqueBundle/Resources/config/routing.yml"
     prefix:   /shop
+
+# Définition path login / logout
+
+core_login:
+    resource:  "@UserBundle/Resources/config/routing.yml"
+    prefix:    /login
+
+core_login_check:
+    resource:  "@UserBundle/Resources/config/routing.yml"
+    prefix:    /login_check
+
+core_logout:
+    resource:  "@UserBundle/Resources/config/routing.yml"
+    prefix:    /logout
