@@ -29,11 +29,3 @@ core_blog:
 core_commu:
     path:     /commu
     defaults: { _controller: CoreBundle:Commu:index }
-
-core_forums:
-    path:     /forums
-    defaults: { _controller: CoreBundle:Forums:index }
-
-core_boutique:
-    path:    /boutique
-    defaults: { _controller: CoreBundle:Boutique:index }

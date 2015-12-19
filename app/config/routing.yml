@@ -5,3 +5,11 @@ core_home:
 krma_home:
     resource: "@KrmaBundle/Resources/config/routing.yml"
     prefix:   /krma
+
+forums_home:
+    resource: "@ForumsBundle/Resources/config/routing.yml"
+    prefix:   /forums
+
+boutique_home:
+    resource: "@BoutiqueBundle/Resources/config/routing.yml"
+    prefix:   /shop
