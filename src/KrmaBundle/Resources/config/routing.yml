@@ -1,0 +1,3 @@
+krma_home:
+    path:     /
+    defaults: { _controller: KrmaBundle:Home:index }

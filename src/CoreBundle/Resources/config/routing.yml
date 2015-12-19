@@ -2,10 +2,6 @@ core_home:
     path:     /
     defaults: { _controller: CoreBundle:Home:index }
 
-krmatv_home:
-    path:    /krmatv
-    defaults: { _controller: CoreBundle:Krma:index }
-
 core_contact:
     path:     /contact
     defaults: { _controller: CoreBundle:Home:contact }
