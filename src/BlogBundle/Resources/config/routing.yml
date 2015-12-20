@@ -1,0 +1,3 @@
+team_home:
+    path:     /team
+    defaults: { _controller: BlogBundle:Blog:index }

@@ -6,6 +6,10 @@ commu_home:
     resource: "@CommuBundle/Resources/config/routing.yml"
     prefix:   /commu
 
+team_home:
+    resource: "@BlogBundle/Resources/config/routing.yml"
+    prefix:   /team
+
 krma_home:
     resource: "@KrmaBundle/Resources/config/routing.yml"
     prefix:   /krma
