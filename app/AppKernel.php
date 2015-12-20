@@ -20,8 +20,6 @@ class AppKernel extends Kernel
             new ForumsBundle\ForumsBundle(),
             new BoutiqueBundle\BoutiqueBundle(),
             new CommuBundle\CommuBundle(),
-            new UserBundle\UserBundle(),
-            new FOS\UserBundle\FOSUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
