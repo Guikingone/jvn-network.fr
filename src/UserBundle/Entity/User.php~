@@ -223,28 +223,4 @@ class User
     {
         return $this->anniversaire;
     }
-
-    /**
-     * Set articles
-     *
-     * @param \BlogBundle\Entity\Article $articles
-     *
-     * @return User
-     */
-    public function setArticles(\BlogBundle\Entity\Article $articles = null)
-    {
-        $this->articles = $articles;
-
-        return $this;
-    }
-
-    /**
-     * Get articles
-     *
-     * @return \BlogBundle\Entity\Article
-     */
-    public function getArticles()
-    {
-        return $this->articles;
-    }
 }

@@ -4,10 +4,10 @@ namespace ForumsBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class DefaultController extends Controller
+class ForumsController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('ForumsBundle:Default:index.html.twig');
+        return $this->render('ForumsBundle::index.html.twig');
     }
 }
