@@ -21,11 +21,3 @@ core_connexion:
 core_deconnexion:
     path:     /deconnexion
     defaults: { _controller: CoreBundle:DCNX:index }
-
-core_blog:
-    path:     /blog
-    defaults: { _controller: CoreBundle:Blog:index }
-
-core_commu:
-    path:     /commu
-    defaults: { _controller: CoreBundle:Commu:index }

@@ -1,6 +1,6 @@
 core_home:
     resource: "@CoreBundle/Resources/config/routing.yml"
-    prefix:   /home
+    prefix:   /
 
 commu_home:
     resource: "@CommuBundle/Resources/config/routing.yml"

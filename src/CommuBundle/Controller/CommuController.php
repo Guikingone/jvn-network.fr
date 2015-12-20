@@ -4,10 +4,10 @@ namespace CommuBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class DefaultController extends Controller
+class CommuController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('CommuBundle:Default:index.html.twig');
+        return $this->render('CommuBundle::index.html.twig');
     }
 }
