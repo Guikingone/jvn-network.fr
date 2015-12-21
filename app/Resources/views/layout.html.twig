@@ -14,6 +14,7 @@
   <div id="wrapper">
     <div id="topBar">
       <div class="container">
+        <!-- Si l'utilisateur est authentifié, on affiche le menu correspondant à son compte -->
         {% if is_granted('IS_AUTHENTIFICATED_REMEMBERED') %}
           <ul class="top-links list-inline pull-right">
             <li class="text-welcome hidden-xs">Bienvenue sur JVN, <strong>{{app.user.username}}</strong></li>
@@ -31,6 +32,7 @@
             </li>
           </ul>
         {% else %}
+        <!-- Sinon, on affiche un menu de connexion/inscription classique -->
           <ul class="top-links list-inline pull-right">
             <li>
               <a href="#">S'inscrire</a>
