@@ -24,7 +24,7 @@ boutique_home:
 
 # Définition path login / logout
 
-core_login:
+user_login:
     resource:  "@UserBundle/Resources/config/routing.yml"
     prefix:    /login
 

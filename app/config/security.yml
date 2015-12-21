@@ -1,7 +1,9 @@
 # To get started with security, check out the documentation:
 # http://symfony.com/doc/current/book/security.html
 security:
-
+    role_hierarchy:
+        ROLE_ADMIN:       [ROLE_AUTEUR, ROLE_MODERATEUR]
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
         in_memory:
