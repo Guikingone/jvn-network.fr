@@ -1,16 +1,16 @@
 <?php
 
-namespace BlogBundle\Entity;
+namespace KrmaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Article
+ * Articles
  *
- * @ORM\Table(name="article")
- * @ORM\Entity(repositoryClass="BlogBundle\Repository\ArticleRepository")
+ * @ORM\Table(name="articles")
+ * @ORM\Entity(repositoryClass="KrmaBundle\Repository\ArticlesRepository")
  */
-class Article
+class Articles
 {
     /**
      * @var int
@@ -31,9 +31,9 @@ class Article
     /**
      * @var string
      *
-     * @ORM\Column(name="auteur", type="string", length=255)
+     * @ORM\Column(name="content", type="text")
      */
-    private $auteur;
+    private $content;
 
     /**
      * @var \DateTime
@@ -48,20 +48,6 @@ class Article
      * @ORM\Column(name="date_modification", type="datetime")
      */
     private $dateModification;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="contenu", type="text")
-     */
-    private $contenu;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="categorie", type="string", length=255)
-     */
-    private $categorie;
 
 
     /**
@@ -79,7 +65,7 @@ class Article
      *
      * @param string $titre
      *
-     * @return Article
+     * @return Articles
      */
     public function setTitre($titre)
     {
@@ -99,27 +85,27 @@ class Article
     }
 
     /**
-     * Set auteur
+     * Set content
      *
-     * @param string $auteur
+     * @param string $content
      *
-     * @return Article
+     * @return Articles
      */
-    public function setAuteur($auteur)
+    public function setContent($content)
     {
-        $this->auteur = $auteur;
+        $this->content = $content;
 
         return $this;
     }
 
     /**
-     * Get auteur
+     * Get content
      *
      * @return string
      */
-    public function getAuteur()
+    public function getContent()
     {
-        return $this->auteur;
+        return $this->content;
     }
 
     /**
@@ -127,7 +113,7 @@ class Article
      *
      * @param \DateTime $datePublication
      *
-     * @return Article
+     * @return Articles
      */
     public function setDatePublication($datePublication)
     {
@@ -151,7 +137,7 @@ class Article
      *
      * @param \DateTime $dateModification
      *
-     * @return Article
+     * @return Articles
      */
     public function setDateModification($dateModification)
     {
@@ -168,54 +154,6 @@ class Article
     public function getDateModification()
     {
         return $this->dateModification;
-    }
-
-    /**
-     * Set contenu
-     *
-     * @param string $contenu
-     *
-     * @return Article
-     */
-    public function setContenu($contenu)
-    {
-        $this->contenu = $contenu;
-
-        return $this;
-    }
-
-    /**
-     * Get contenu
-     *
-     * @return string
-     */
-    public function getContenu()
-    {
-        return $this->contenu;
-    }
-
-    /**
-     * Set categorie
-     *
-     * @param string $categorie
-     *
-     * @return Article
-     */
-    public function setCategorie($categorie)
-    {
-        $this->categorie = $categorie;
-
-        return $this;
-    }
-
-    /**
-     * Get categorie
-     *
-     * @return string
-     */
-    public function getCategorie()
-    {
-        return $this->categorie;
     }
 }
 
