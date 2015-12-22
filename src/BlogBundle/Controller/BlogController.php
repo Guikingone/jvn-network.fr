@@ -11,22 +11,10 @@ class BlogController extends Controller
 {
     public function indexAction(){
       // On demande à Doctrine de récupérer les articles puis on les affiche via la vue et une boucle
-      $em = $this->getDoctrine()->getManager()->getRepository();
+      $em = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Article');
       $article = $em->findAll();
       return $this->render('BlogBundle::index.html.twig', array(
         'articles' => $article
       ));
-    }
-
-    public function addAction(){
-
-    }
-
-    public function updateAction(){
-
-    }
-
-    public function deleteAction(){
-
     }
 }
