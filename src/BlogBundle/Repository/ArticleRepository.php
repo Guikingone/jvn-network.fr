@@ -2,6 +2,8 @@
 
 namespace BlogBundle\Repository;
 
+use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\QueryBuilder;
 /**
  * ArticleRepository
  *
@@ -10,4 +12,8 @@ namespace BlogBundle\Repository;
  */
 class ArticleRepository extends \Doctrine\ORM\EntityRepository
 {
+  public function getArticles(){
+    $em = $this->getDoctrine()->getManager();
+    $articleManager->getRepository('BlogBundle:Article');
+  }
 }

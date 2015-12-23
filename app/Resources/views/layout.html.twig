@@ -22,7 +22,13 @@
               <a class="dropdown-toggle no-text-underline" data-toggle="dropdown" href="#">Mon compte</a>
               <ul class="dropdown-menu pull-right">
                 <li><a tabindex="-1" href="#"></i>Mon profil</a></li>
+                {% if is_granted('IS_AUTHENTIFICATED_REMEMBERED', ROLE_ADMIN)%}
+                <li><a tabindex="-1" href="{{path('team_admin')}}"></i>TEAM Blog</a></li>
+                {% elseif is_granted('IS_AUTHENTIFICATED_REMEMBERED', ROLE_KRMA)%}
+                <li><a tabindex="-1" href="#"></i>KRMA Blog</a></li>
+                {% endif %}
                 <li class="divider"></li>
+                <!-- Les routes reliées à la boutique seront définies plus tard -->
                 <li><a tabindex="-1" href="#">Mes commandes</a></li>
                 <li><a tabindex="-1" href="#">Ma liste de souhait</a></li>
                 <li><a tabindex="-1" href="#">Mes paramètres</a></li>
