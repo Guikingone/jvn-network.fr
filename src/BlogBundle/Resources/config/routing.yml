@@ -1,5 +1,5 @@
 team_home:
-    path:     /team
+    path:     /team_blog
     defaults: { _controller: BlogBundle:Blog:index }
 
 team_admin:
