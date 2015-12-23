@@ -2,27 +2,76 @@
 {% block body %}
 <div class="container">
   <div class="row">
+    <!-- On affiche les messages flash -->
+    {% for message in app.session.flashbag.get('success') %}
+      <div class="alert alert-success">Message flash : {{message}}</div>
+    {% endfor %}
+
     <div class="col-lg-12">
       <h2 class="text-center">Administrer le blog de l'Equipe</h2>
       <hr />
       <p class="text-center"><strong><em>Note technique</em></strong> : Vérifier toujours votre modification/ajout/suppression avant validation, toute
         requête envoyée étant traitée par le serveur, cette dernière doit-être valide et conforme à la mise en page</p>
         <!-- Formulaire insertion article -->
-      <h3 class="text-center">Liste des articles publiés</h3>
-      <hr />
-      <!-- liste article publiés via une boucle for -->
+        <div class="well">
+          {{ form_start(form) }}
+            {{ form_errors(form) }}
+          <div class="form-group text-center">
+            {{ form_label(form.titre, "Titre de l'article", {'label_attr': {'class': 'control-label'}}) }}
+
+            {{form_errors(form.titre)}}
+
+            {{form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
+          </div>
+          <div class="form-group text-center">
+            {{ form_label(form.auteur, "Auteur", {'label_attr': {'class': 'control-label'}}) }}
+
+            {{form_errors(form.auteur)}}
+
+            {{form_widget(form.auteur, {'attr': {'class': 'form-control'}}) }}
+          </div>
+          <div class="form-group text-center">
+            {{ form_label(form.contenu, "Contenu de l'article", {'label_attr': {'class': 'control-label'}}) }}
+
+            {{form_errors(form.contenu)}}
+
+            {{form_widget(form.contenu, {'attr': {'class': 'form-control'}}) }}
+          </div>
+          <div class="form-group text-center">
+            {{ form_label(form.categorie, "Categories de l'article", {'label_attr': {'class': 'control-label'}}) }}
+
+            {{form_errors(form.categorie)}}
+
+            {{form_widget(form.categorie, {'attr': {'class': 'form-control'}}) }}
+          </div>
+          <div class="form-group text-center">
+            {{ form_label(form.datePublication) }}
+
+            {{form_errors(form.datePublication)}}
+
+            {{form_widget(form.datePublication) }}
+          </div>
+          <div class="text-center">
+            {{form_widget(form.save, {'attr': {'class': 'btn btn-danger'}}) }}
+          </div>
+          {{ form_end(form) }}
+        </div>
         <div class="row">
           <div class="col-lg-6">
             <h3 class="text-center">Modifier un article</h3>
             <hr/>
             <p class="text-center"><strong><em>Note importante</strong></em> : Toute modification commencée est sauvegardée, si suite à un crash ou un soucis de
-              navigateur, vous deviez récupérer la modification, merci d'en faire la demande via ce <a href="#">formulaire</a>.
+              navigateur, vous deviez récupérer la modification, merci d'en faire la demande via ce <a href="#">formulaire</a>.</p>
+              <div class="well">
+              </div>
           </div>
           <div class="col-lg-6">
             <h3 class="text-center">Supprimer un article</h3>
             <hr />
             <p class="text-center"><strong><em>Note importante</strong></em> : Les articles sont sauvegardés de façon quotidienne, veuillez prêter attention
               au fait que toute suppression entre 23H et 03H ne saurait être récupérée.</p>
+              <div class="well">
+              </div>
           </div>
         </div>
     </div>
