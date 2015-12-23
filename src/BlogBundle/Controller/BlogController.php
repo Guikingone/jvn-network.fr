@@ -14,7 +14,7 @@ class BlogController extends Controller
       $em = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Article');
       $article = $em->findAll();
       return $this->render('BlogBundle::index.html.twig', array(
-        'articles' => $article
+        'article' => $article
       ));
     }
 }

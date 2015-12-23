@@ -12,7 +12,8 @@ use Doctrine\ORM\QueryBuilder;
  */
 class ArticleRepository extends \Doctrine\ORM\EntityRepository
 {
-  public function getArticlesWithCategories(){
-    
+  public function getArticles(){
+    $em = $this->getDoctrine()->getManager();
+    $articleManager->getRepository('BlogBundle:Article');
   }
 }

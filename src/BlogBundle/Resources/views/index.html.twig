@@ -8,10 +8,10 @@
     </div>
     <div class="col-lg-12">
       <!-- On affiche les articles récents via la boucle for -->
-      {% for article in articles %}
+      {% for article in article %}
       <article>
-        <h2>{{ article.titre }}</h2>
-        <p>{{ article.content }}</p>
+        <h2 class="text-center">{{ article.titre }}</h2>
+        <p class="text-center">{{ article.contenu }}</p>
       </article>
       {% endfor %}
     </div>

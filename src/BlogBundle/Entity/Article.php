@@ -43,13 +43,6 @@ class Article
     private $datePublication;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date_modification", type="datetime")
-     */
-    private $dateModification;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="contenu", type="text")
@@ -147,30 +140,6 @@ class Article
     }
 
     /**
-     * Set dateModification
-     *
-     * @param \DateTime $dateModification
-     *
-     * @return Article
-     */
-    public function setDateModification($dateModification)
-    {
-        $this->dateModification = $dateModification;
-
-        return $this;
-    }
-
-    /**
-     * Get dateModification
-     *
-     * @return \DateTime
-     */
-    public function getDateModification()
-    {
-        return $this->dateModification;
-    }
-
-    /**
      * Set contenu
      *
      * @param string $contenu
@@ -218,4 +187,3 @@ class Article
         return $this->categorie;
     }
 }
-
