@@ -1,3 +1,7 @@
 krma_home:
     path:     /
     defaults: { _controller: KrmaBundle:Home:index }
+
+krma_admin:
+    path:     /krma_admin
+    defaults: { _controller: KrmaBundle:Admin:admin }

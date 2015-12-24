@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 class BlogController extends Controller
 {
     public function indexAction(){
-      // On demande à Doctrine de récupérer les articles puis on les affiche via la vue et une boucle
+      // On récupére les articles puis on les affiche via une boucle
       $em = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Article');
       $article = $em->findAll();
       return $this->render('BlogBundle::index.html.twig', array(

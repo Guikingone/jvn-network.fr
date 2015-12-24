@@ -32,7 +32,7 @@ class AdminController extends Controller{
           $em->flush();
         }
         // Un fois enregistré, on affiche une annonce flash de succés
-        $request->getSession()->getFlashBag()->add('success', "Annonce enregistré");
+        $request->getSession()->getFlashBag()->add('success', "Article enregistré");
 
     return $this->render('BlogBundle::admin.html.twig', array(
       'form' => $formbuilder->createView(),

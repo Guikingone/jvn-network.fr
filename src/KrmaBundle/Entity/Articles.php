@@ -43,14 +43,6 @@ class Articles
     private $datePublication;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date_modification", type="datetime")
-     */
-    private $dateModification;
-
-
-    /**
      * Get id
      *
      * @return int
@@ -131,29 +123,4 @@ class Articles
     {
         return $this->datePublication;
     }
-
-    /**
-     * Set dateModification
-     *
-     * @param \DateTime $dateModification
-     *
-     * @return Articles
-     */
-    public function setDateModification($dateModification)
-    {
-        $this->dateModification = $dateModification;
-
-        return $this;
-    }
-
-    /**
-     * Get dateModification
-     *
-     * @return \DateTime
-     */
-    public function getDateModification()
-    {
-        return $this->dateModification;
-    }
 }
-
