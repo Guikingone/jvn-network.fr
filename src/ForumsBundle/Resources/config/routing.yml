@@ -1,3 +1,7 @@
 forums_home:
     path:     /forums
     defaults: { _controller: ForumsBundle:Forums:index }
+
+forums_general:
+    path:     /general
+    defaults: { _controller: ForumsBundle:General:index }
