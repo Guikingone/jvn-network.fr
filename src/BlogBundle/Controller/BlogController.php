@@ -17,4 +17,8 @@ class BlogController extends Controller
         'article' => $article
       ));
     }
+
+    public function articleAction(){
+      return $this->render('BlogBundle::article.html.twig');
+    }
 }

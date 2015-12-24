@@ -10,7 +10,7 @@
       <!-- On affiche les articles récents via la boucle for -->
       {% for article in article %}
       <article>
-        <h2 class="text-center">{{ article.titre }}</h2>
+        <h2 class="text-center"><a href="#">{{ article.titre }}</a></h2>
         <p class="text-center">{{ article.contenu }}</p>
         <p class="text-center">Par {{ article.auteur }}</p>
       </article>

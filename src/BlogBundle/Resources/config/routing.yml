@@ -5,3 +5,9 @@ team_home:
 team_admin:
     path:     /team_admin
     defaults: { _controller: BlogBundle:Admin:admin }
+
+#team_article:
+    #path:     /team_blog/article/{id}
+    #defaults: { _controller: BlogBundle:Blog:article }
+    #requirements:
+        #id: \d+
