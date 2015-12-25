@@ -58,6 +58,10 @@ class Article
      */
     private $categorie;
 
+    /**
+    * @ORM\Column(name="published", type="datetime")
+    */
+    private $published;
 
     /**
      * Get id

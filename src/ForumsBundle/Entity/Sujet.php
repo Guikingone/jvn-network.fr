@@ -1,19 +1,17 @@
 <?php
 
-namespace BlogBundle\Entity;
+namespace ForumsBundle\Entity;
 
-use Doctrine\Commom\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Article
+ * Sujet
  *
- * @ORM\Table(name="article")
- * @ORM\Entity(repositoryClass="BlogBundle\Repository\ArticleRepository")
+ * @ORM\Table(name="sujet")
+ * @ORM\Entity(repositoryClass="ForumsBundle\Repository\SujetRepository")
  */
-class Article
+class Sujet
 {
-
     /**
      * @var int
      *
@@ -40,9 +38,9 @@ class Article
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_publication", type="datetime")
+     * @ORM\Column(name="date_creation", type="datetime")
      */
-    private $datePublication;
+    private $dateCreation;
 
     /**
      * @var string
@@ -51,17 +49,6 @@ class Article
      */
     private $contenu;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="categorie", type="string", length=255)
-     */
-    private $categorie;
-
-    /**
-    * @ORM\Column(name="published", type="datetime")
-    */
-    private $published;
 
     /**
      * Get id
@@ -78,7 +65,7 @@ class Article
      *
      * @param string $titre
      *
-     * @return Article
+     * @return Sujet
      */
     public function setTitre($titre)
     {
@@ -102,7 +89,7 @@ class Article
      *
      * @param string $auteur
      *
-     * @return Article
+     * @return Sujet
      */
     public function setAuteur($auteur)
     {
@@ -122,27 +109,27 @@ class Article
     }
 
     /**
-     * Set datePublication
+     * Set dateCreation
      *
-     * @param \DateTime $datePublication
+     * @param \DateTime $dateCreation
      *
-     * @return Article
+     * @return Sujet
      */
-    public function setDatePublication($datePublication)
+    public function setDateCreation($dateCreation)
     {
-        $this->datePublication = $datePublication;
+        $this->dateCreation = $dateCreation;
 
         return $this;
     }
 
     /**
-     * Get datePublication
+     * Get dateCreation
      *
      * @return \DateTime
      */
-    public function getDatePublication()
+    public function getDateCreation()
     {
-        return $this->datePublication;
+        return $this->dateCreation;
     }
 
     /**
@@ -150,7 +137,7 @@ class Article
      *
      * @param string $contenu
      *
-     * @return Article
+     * @return Sujet
      */
     public function setContenu($contenu)
     {
@@ -168,52 +155,5 @@ class Article
     {
         return $this->contenu;
     }
-
-    /**
-     * Set categorie
-     *
-     * @param string $categorie
-     *
-     * @return Article
-     */
-    public function setCategorie($categorie)
-    {
-        $this->categorie = $categorie;
-
-        return $this;
-    }
-
-    /**
-     * Get categorie
-     *
-     * @return string
-     */
-    public function getCategorie()
-    {
-        return $this->categorie;
-    }
-
-    /**
-     * Set published
-     *
-     * @param \DateTime $published
-     *
-     * @return Article
-     */
-    public function setPublished($published)
-    {
-        $this->published = $published;
-
-        return $this;
-    }
-
-    /**
-     * Get published
-     *
-     * @return \DateTime
-     */
-    public function getPublished()
-    {
-        return $this->published;
-    }
 }
+
