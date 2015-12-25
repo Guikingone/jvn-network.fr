@@ -6,8 +6,9 @@ team_admin:
     path:     /team_admin
     defaults: { _controller: BlogBundle:Admin:admin }
 
-#team_article:
-    #path:     /team_blog/article/{id}
-    #defaults: { _controller: BlogBundle:Blog:article }
-    #requirements:
-        #id: \d+
+# La vue article sert uniquement au blog de l'Equipe, Krma possède sa propre vue #
+team_article:
+    path:     /team_blog/article/{id}
+    defaults: { _controller: BlogBundle:Blog:view }
+    requirements:
+        id: \d+

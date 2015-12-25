@@ -64,6 +64,12 @@ class Article
     private $published;
 
     /**
+    * @ORM\OneToOne(targetEntity="BlogBundle\Entity\Article", cascade={"persist"})
+    * Comme on veut pouvoir créer une annonce sans image, on n'ajoute pas nullable=false
+    */
+    private $image;
+
+    /**
      * Get id
      *
      * @return int
@@ -191,5 +197,29 @@ class Article
     public function getCategorie()
     {
         return $this->categorie;
+    }
+
+    /**
+     * Set published
+     *
+     * @param \DateTime $published
+     *
+     * @return Article
+     */
+    public function setPublished($published)
+    {
+        $this->published = $published;
+
+        return $this;
+    }
+
+    /**
+     * Get published
+     *
+     * @return \DateTime
+     */
+    public function getPublished()
+    {
+        return $this->published;
     }
 }
