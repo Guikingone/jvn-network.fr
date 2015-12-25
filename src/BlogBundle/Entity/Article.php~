@@ -52,13 +52,6 @@ class Article
     private $contenu;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="categorie", type="string", length=255)
-     */
-    private $categorie;
-
-    /**
     * @ORM\Column(name="published", type="datetime")
     */
     private $published;
@@ -66,8 +59,15 @@ class Article
     /**
     * @ORM\OneToOne(targetEntity="BlogBundle\Entity\Article", cascade={"persist"})
     * Comme on veut pouvoir créer une annonce sans image, on n'ajoute pas nullable=false
+    * Si on veut que l'annonce puisse exister sans image, on ajouterais nullable=true
     */
     private $image;
+
+    /**
+    * @ORM\ManyToMany(targetEntity="BlogBundle\Entity\Categories", cascade={"persist"})
+    * On récupèrera les catégories selon l'article et non l'inverse !
+    */
+    private $categories;
 
     /**
      * Get id
@@ -176,30 +176,6 @@ class Article
     }
 
     /**
-     * Set categorie
-     *
-     * @param string $categorie
-     *
-     * @return Article
-     */
-    public function setCategorie($categorie)
-    {
-        $this->categorie = $categorie;
-
-        return $this;
-    }
-
-    /**
-     * Get categorie
-     *
-     * @return string
-     */
-    public function getCategorie()
-    {
-        return $this->categorie;
-    }
-
-    /**
      * Set published
      *
      * @param \DateTime $published
@@ -221,5 +197,29 @@ class Article
     public function getPublished()
     {
         return $this->published;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \BlogBundle\Entity\Article $image
+     *
+     * @return Article
+     */
+    public function setImage(\BlogBundle\Entity\Article $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \BlogBundle\Entity\Article
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }

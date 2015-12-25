@@ -8,12 +8,19 @@
     {% if article.image is not null %}
       <img src="{{ image.url }}" alt="{{ image.alt }}">
     {% endif %}
+    <!-- On affiche l'auteur, la date de publication de l'article -->
     <p class="text-center">Par <strong>{{ article.auteur }}</strong>, le {{ article.datePublication|date('d/m/Y')}}</p>
     <hr />
     <p class="text-center">{{ article.contenu }}</p>
     <hr />
-    <!-- On sépare l'article des commentaires et on affiche les commentaires -->
+    <!-- On sépare l'article des commentaires et on affiche les commentaires via une boucle for -->
     <div class="row">
+      {% for commentaire in article %}
+        <div class="text-center">
+          <h3>{{ commentaire.auteur }}, le {{ commentaire.date_creation }} :</h3>
+          <p class="text-center">{{ commentaire.contenu }}</p>
+        </div>
+      {% endfor %}
     </div>
   </div>
 </div>

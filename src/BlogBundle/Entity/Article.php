@@ -52,13 +52,6 @@ class Article
     private $contenu;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="categorie", type="string", length=255)
-     */
-    private $categorie;
-
-    /**
     * @ORM\Column(name="published", type="datetime")
     */
     private $published;
@@ -69,6 +62,12 @@ class Article
     * Si on veut que l'annonce puisse exister sans image, on ajouterais nullable=true
     */
     private $image;
+
+    /**
+    * @ORM\ManyToMany(targetEntity="BlogBundle\Entity\Categories", cascade={"persist"})
+    * On récupèrera les catégories selon l'article et non l'inverse !
+    */
+    private $categories;
 
     /**
      * Get id
@@ -177,30 +176,6 @@ class Article
     }
 
     /**
-     * Set categorie
-     *
-     * @param string $categorie
-     *
-     * @return Article
-     */
-    public function setCategorie($categorie)
-    {
-        $this->categorie = $categorie;
-
-        return $this;
-    }
-
-    /**
-     * Get categorie
-     *
-     * @return string
-     */
-    public function getCategorie()
-    {
-        return $this->categorie;
-    }
-
-    /**
      * Set published
      *
      * @param \DateTime $published
@@ -246,5 +221,46 @@ class Article
     public function getImage()
     {
         return $this->image;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add category
+     *
+     * @param \BlogBundle\Entity\Categories $category
+     *
+     * @return Article
+     */
+    public function addCategory(\BlogBundle\Entity\Categories $category)
+    {
+        $this->categories[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \BlogBundle\Entity\Categories $category
+     */
+    public function removeCategory(\BlogBundle\Entity\Categories $category)
+    {
+        $this->categories->removeElement($category);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
     }
 }
