@@ -6,10 +6,12 @@ security:
         ROLE_MODERATEUR:  [ROLE_MODERATEUR]
         ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
         ROLE_KRMA:        [ROLE_AUTEUR]
+    encoders:
+        UserBundle\Entity\User: sha512
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory:
-            memory: ~
+        main:
+          id: fos_user.user_provider.username
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -20,7 +22,7 @@ security:
         main:
             pattern: ^/
             anonymous: true
-            provider: in_memory
+            provider: main
             form_login:
                 login_path: login
                 check_path: login_check
