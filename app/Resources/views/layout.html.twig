@@ -15,16 +15,16 @@
     <div id="topBar">
       <div class="container">
         <!-- Si l'utilisateur est authentifié, on affiche le menu correspondant à son compte -->
-        {% if is_granted('IS_AUTHENTIFICATED_REMEMBERED') %}
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
           <ul class="top-links list-inline pull-right">
             <li class="text-welcome hidden-xs">Bienvenue sur JVN, <strong>{{app.user.username}}</strong></li>
             <li>
               <a class="dropdown-toggle no-text-underline" data-toggle="dropdown" href="#">Mon compte</a>
               <ul class="dropdown-menu pull-right">
                 <li><a tabindex="-1" href="#"></i>Mon profil</a></li>
-                {% if is_granted('IS_AUTHENTIFICATED_REMEMBERED', ROLE_ADMIN)%}
+                {% if is_granted('IS_AUTHENTICATED_REMEMBERED')%}
                 <li><a tabindex="-1" href="{{path('team_admin')}}"></i>TEAM Blog</a></li>
-                {% elseif is_granted('IS_AUTHENTIFICATED_REMEMBERED', ROLE_KRMA)%}
+                {% elseif is_granted('IS_AUTHENTICATED_REMEMBERED)%}
                 <li><a tabindex="-1" href="#"></i>KRMA Blog</a></li>
                 {% endif %}
                 <li class="divider"></li>
@@ -44,7 +44,7 @@
               <a href="#">S'inscrire</a>
             </li>
             <li>
-              <a href="{{path('user_login')}}">Se connecter</a>
+              <a href="{{ path('fos_user_security_login') }}">Se connecter</a>
             </li>
           </ul>
         {% endif %}
@@ -54,7 +54,6 @@
         </ul>
       </div>
     </div>
-  <!-- Navbar Default -->
   <div class="navbar navbar-default">
   			<div class="container">
   				<div class="navbar-header">
