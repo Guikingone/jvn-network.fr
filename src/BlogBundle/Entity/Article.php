@@ -75,6 +75,11 @@ class Article
     private $commentaires;
 
     /**
+    * @ORM\Column (name="updated_at", type="datetime", nullable=true)
+    */
+    private $updatedAt;
+
+    /**
      * Get id
      *
      * @return int

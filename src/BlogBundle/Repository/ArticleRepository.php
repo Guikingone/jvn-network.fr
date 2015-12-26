@@ -27,4 +27,11 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
     ->getQuery()
     ->getResult();
   }
+
+  public function findLimitDql(){
+    /* On créer une méthode limitant les résultats à 10 articles via DQL, cela permettra de paginer
+    les résultats et de fluidifier la navigation */
+    $dql = $this->_em->createQuery("SELECT a FROM BlogBundle:Article a WHERE a.id <= 10");
+    $dql->getResult();
+  }
 }

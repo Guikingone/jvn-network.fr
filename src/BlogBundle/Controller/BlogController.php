@@ -12,10 +12,11 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class BlogController extends Controller
 {
     public function indexAction(){
-      /** On récupére les articles via le repository Article et la fonction myFindAll
-      puis on redirige vers la vue correspondate, on pagine pas car on ressort tout les articles */
+      /** On récupére les articles via le repository Article et la fonction findLimitDql, cette dernière
+      limite les résultats à 10 articles, on paginera à chaque fois que 10 articles s'affichent sur la même
+      page, la vue affichera le menu en bas de page */
       $repository = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Article');
-      $listArticle = $repository->myFindAll();
+      $listArticle = $repository->findLimitDql();
       return $this->render('BlogBundle::index.html.twig', array(
         'article' => $listArticle
       ));
