@@ -70,6 +70,11 @@ class Article
     private $categories;
 
     /**
+    * @ORM\OneToMany(targetEntity="BlogBundle\Entity\Commentaire", mappedBy="article")
+    */
+    private $commentaires;
+
+    /**
      * Get id
      *
      * @return int
@@ -221,5 +226,46 @@ class Article
     public function getImage()
     {
         return $this->image;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add category
+     *
+     * @param \BlogBundle\Entity\Categories $category
+     *
+     * @return Article
+     */
+    public function addCategory(\BlogBundle\Entity\Categories $category)
+    {
+        $this->categories[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \BlogBundle\Entity\Categories $category
+     */
+    public function removeCategory(\BlogBundle\Entity\Categories $category)
+    {
+        $this->categories->removeElement($category);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
     }
 }

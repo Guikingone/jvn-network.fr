@@ -12,12 +12,12 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class BlogController extends Controller
 {
     public function indexAction(){
-      /** On récupére les articles, on affiche les 10 derniers (on paginera le reste) puis on
-      redirige vers la vue correspondate */
-      $em = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Article');
-      $article = $em->findAll();
+      /** On récupére les articles via le repository Article et la fonction myFindAll
+      puis on redirige vers la vue correspondate, on pagine pas car on ressort tout les articles */
+      $repository = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Article');
+      $listArticle = $repository->myFindAll();
       return $this->render('BlogBundle::index.html.twig', array(
-        'article' => $article
+        'article' => $listArticle
       ));
     }
 
@@ -31,11 +31,12 @@ class BlogController extends Controller
           ->find($id);
 
       if(null === $vue){
-          throw new NotFoundHttpException("L'article avec l'id " . $id . " n'existe pas ou a été supprimé");
+          throw new NotFoundHttpException("L'article avec l'id " . $id . " n'existe pas ou a été supprimée,
+          si l'erreur vous semble inadaptée à la situation, veuillez contacter l'administrateur");
       }
 
       /** On récupère les commentaires liés à l'article via l'article et on y joint les
-      commentaires afin de pouvoir faire commentaires->getArticle(), une fois effectuée,
+      commentaires afin de pouvoir faire article->getCommentaires(), une fois effectuée,
       on affichera tout ceci via une boucle for dans la vue */
       $comm = $view
         ->getRepository('BlogBundle:Commentaire')

@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Commentaire
 {
     /**
-    * @ORM\ManyToOne(targetEntity="BlogBundle\Entity\Article", cascade={"persist"})
+    * @ORM\ManyToOne(targetEntity="BlogBundle\Entity\Article", cascade={"persist"}, inversedBy="commentaires")
     * @ORM\JoinColumn(nullable=false)
     * On force la présence d'un article pour la création d'un commentaire
     */

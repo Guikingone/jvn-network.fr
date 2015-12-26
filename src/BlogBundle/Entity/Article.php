@@ -70,6 +70,11 @@ class Article
     private $categories;
 
     /**
+    * @ORM\OneToMany(targetEntity="BlogBundle\Entity\Commentaire", mappedBy="article")
+    */
+    private $commentaires;
+
+    /**
      * Get id
      *
      * @return int
@@ -228,6 +233,7 @@ class Article
     public function __construct()
     {
         $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->commentaires = new ArrayCollection();
     }
 
     /**
@@ -262,5 +268,46 @@ class Article
     public function getCategories()
     {
         return $this->categories;
+    }
+
+    /**
+     * Add commentaire
+     *
+     * @param \BlogBundle\Entity\Commentaire $commentaire
+     *
+     * @return Article
+     */
+    public function addCommentaire(\BlogBundle\Entity\Commentaire $commentaire)
+    {
+        $this->commentaires[] = $commentaire;
+
+        // On lie l'article au commentaire
+        $commentaire->setArticle($this);
+
+        return $this;
+        /* Si la relation était falcutative (nullable=true), on aurait effectué
+        $commentaires->setArticle(null), autre point important, étant donné la relation définie plius tôt,
+        on pourra faire $article->addCommentaire() mais pas $Commentaire->setArticle() !!!
+        De cette façon, on conserve la logique établie plus tôt */
+    }
+
+    /**
+     * Remove commentaire
+     *
+     * @param \BlogBundle\Entity\Commentaire $commentaire
+     */
+    public function removeCommentaire(\BlogBundle\Entity\Commentaire $commentaire)
+    {
+        $this->commentaires->removeElement($commentaire);
+    }
+
+    /**
+     * Get commentaires
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCommentaires()
+    {
+        return $this->commentaires;
     }
 }

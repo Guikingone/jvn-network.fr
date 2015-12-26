@@ -16,4 +16,15 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
     $em = $this->getDoctrine()->getManager();
     $articleManager->getRepository('BlogBundle:Article');
   }
+
+  public function myFindAll()
+  {
+    /* Comment on veut effectuer une recherche dans Article, on se positionne dans son repository,
+    puis on créer un alias via ('a'), on récupère la Query puis les résultats et on retourne le tout,
+    le résultat sera affiché par le controleur BlogController.*/
+    return $this
+    ->createQueryBuilder('a')
+    ->getQuery()
+    ->getResult();
+  }
 }
