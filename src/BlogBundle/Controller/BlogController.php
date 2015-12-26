@@ -14,8 +14,8 @@ class BlogController extends Controller
     public function indexAction($page){
       /** On récupére les articles via le repository Article et la fonction getArticle puis
       on calcule le nombre d'article par page afin qu'il match avec $nbrPerPage, si la page
-      est plus grande que le nombres de pages, on affiche une erreur sinon, on retourne la vue
-      avec les variables transmises */
+      est introuvable ou plus grandes que le nombre d'articles par page, on affiche une erreur sinon,
+      on retourne la vue avec les variables transmises */
       if ($page < 1) {
           throw $this->createNotFoundException("La page ".$page." n'existe pas.");
       }

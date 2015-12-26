@@ -53,11 +53,6 @@ class Article
     private $contenu;
 
     /**
-    * @ORM\Column(name="published", type="datetime")
-    */
-    private $published;
-
-    /**
     * @ORM\OneToOne(targetEntity="BlogBundle\Entity\Article", cascade={"persist"})
     * Comme on veut pouvoir créer une annonce sans image, on n'ajoute pas nullable=false
     * Si on veut que l'annonce puisse exister sans image, on ajouterais nullable=true
@@ -184,30 +179,6 @@ class Article
     public function getContenu()
     {
         return $this->contenu;
-    }
-
-    /**
-     * Set published
-     *
-     * @param \DateTime $published
-     *
-     * @return Article
-     */
-    public function setPublished($published)
-    {
-        $this->published = $published;
-
-        return $this;
-    }
-
-    /**
-     * Get published
-     *
-     * @return \DateTime
-     */
-    public function getPublished()
-    {
-        return $this->published;
     }
 
     /**

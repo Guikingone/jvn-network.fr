@@ -24,7 +24,7 @@ class AdminController extends Controller{
         ->add('auteur', TextType::class)
         ->add('contenu', TextareaType::class)
         ->add('datePublication', DateType::class)
-        ->add('categorie', TextType::class)
+        ->add('categories', TextType::class)
         ->add('save', SubmitType::class, array('label' => 'Créer un article'))
         ->getForm();
         $formbuilder->handleRequest($request);

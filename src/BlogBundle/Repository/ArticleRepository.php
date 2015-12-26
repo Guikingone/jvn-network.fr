@@ -22,7 +22,7 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
       ->orderBy('a.datePublication', 'DESC')
       ->getQuery();
 
-    /* On définit la pagination, on commence part l'article d'où partira la pagination,
+    /* On définit la pagination, on commence par l'article d'où partira la pagination,
     puis on définit le nombre maximum d'article par page */
     $query
       ->setFirstResult(($page-1) * $nbPerPpage)
