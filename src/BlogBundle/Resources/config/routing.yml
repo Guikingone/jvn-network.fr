@@ -1,6 +1,6 @@
 team_home:
     path:     /team_blog
-    defaults: { _controller: BlogBundle:Blog:index }
+    defaults: { _controller: BlogBundle:Blog:index, page: 1 }
 
 team_admin:
     path:     /team_admin

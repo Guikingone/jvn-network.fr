@@ -11,14 +11,31 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class BlogController extends Controller
 {
-    public function indexAction(){
-      /** On récupére les articles via le repository Article et la fonction findLimitDql, cette dernière
-      limite les résultats à 10 articles, on paginera à chaque fois que 10 articles s'affichent sur la même
-      page, la vue affichera le menu en bas de page */
-      $repository = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Article');
-      $listArticle = $repository->findLimitDql();
+    public function indexAction($page){
+      /** On récupére les articles via le repository Article et la fonction getArticle puis
+      on calcule le nombre d'article par page afin qu'il match avec $nbrPerPage, si la page
+      est plus grande que le nombres de pages, on affiche une erreur sinon, on retourne la vue
+      avec les variables transmises */
+      if ($page < 1) {
+          throw $this->createNotFoundException("La page ".$page." n'existe pas.");
+      }
+
+      $nbrPerPage = 10;
+
+      $listArticle = $this->getDoctrine()
+                          ->getManager()
+                          ->getRepository('BlogBundle:Article')
+                          ->getArticle($page, $nbrPerPage);
+      $nbPages = ceil(count($listArticle)/$nbrPerPage);
+
+      if($page > $nbPages){
+        throw $this->CreateNotFoundException("La page . $page . n'existe pas");
+      }
+
       return $this->render('BlogBundle::index.html.twig', array(
-        'article' => $listArticle
+        'article' => $listArticle,
+        'nbPages' => $nbPages,
+        'page' => $page
       ));
     }
 

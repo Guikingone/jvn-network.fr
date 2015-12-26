@@ -4,6 +4,7 @@ namespace BlogBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\QueryBuilder;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 /**
  * ArticleRepository
  *
@@ -12,26 +13,21 @@ use Doctrine\ORM\QueryBuilder;
  */
 class ArticleRepository extends \Doctrine\ORM\EntityRepository
 {
-  public function getArticles(){
-    $em = $this->getDoctrine()->getManager();
-    $articleManager->getRepository('BlogBundle:Article');
-  }
-
-  public function myFindAll()
+  public function getArticle($page, $nbPerPpage)
   {
-    /* Comment on veut effectuer une recherche dans Article, on se positionne dans son repository,
-    puis on créer un alias via ('a'), on récupère la Query puis les résultats et on retourne le tout,
-    le résultat sera affiché par le controleur BlogController.*/
-    return $this
-    ->createQueryBuilder('a')
-    ->getQuery()
-    ->getResult();
-  }
+    $query = $this->createQueryBuilder('a')
+      // On joint les images à chaque article
+      ->leftJoin('a.image', 'i')
+        ->addSelect('i')
+      ->orderBy('a.datePublication', 'DESC')
+      ->getQuery();
 
-  public function findLimitDql(){
-    /* On créer une méthode limitant les résultats à 10 articles via DQL, cela permettra de paginer
-    les résultats et de fluidifier la navigation */
-    $dql = $this->_em->createQuery("SELECT a FROM BlogBundle:Article a WHERE a.id <= 10");
-    $dql->getResult();
+    /* On définit la pagination, on commence part l'article d'où partira la pagination,
+    puis on définit le nombre maximum d'article par page */
+    $query
+      ->setFirstResult(($page-1) * $nbPerPpage)
+      ->setMaxResults($nbPerPpage);
+
+    return new Paginator($query, true);
   }
 }

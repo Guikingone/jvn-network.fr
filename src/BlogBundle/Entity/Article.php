@@ -239,7 +239,6 @@ class Article
     public function __construct()
     {
         $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->commentaires = new ArrayCollection();
     }
 
     /**
