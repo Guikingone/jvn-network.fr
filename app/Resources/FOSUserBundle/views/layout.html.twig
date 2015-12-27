@@ -1,8 +1,8 @@
-{% extends ('::layout.html.twig')%}
+{% extends ('CoreBundle::layout.html.twig')%}
 
 {% block body %}
   {% for key, message in app.session.flashbag.all() %}
-    <div class="alert alert-danger">
+    <div class="alert alert-{{key}}">
       {{message|trans({}, 'FOSUserBundle')}}
     </div>
   {% endfor %}
