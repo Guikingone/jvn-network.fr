@@ -2,7 +2,7 @@
 
 {% block body %}
   {% for key, message in app.session.flashbag.all() %}
-    <div class="alert alert-{{key}}">
+    <div class="alert alert-danger">
       {{message|trans({}, 'FOSUserBundle')}}
     </div>
   {% endfor %}
