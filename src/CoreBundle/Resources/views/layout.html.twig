@@ -31,7 +31,7 @@
                 <!-- Les routes reliées à la boutique seront définies plus tard -->
                 <li><a tabindex="-1" href="#">Mes commandes</a></li>
                 <li><a tabindex="-1" href="#">Ma liste de souhait</a></li>
-                <li><a tabindex="-1" href="{{path('fos_user_profile_edit')}}">Mes paramètres</a></li>
+                <li><a tabindex="-1" href="#">Mes articles</a></li>
                 <li class="divider"></li>
                 <li><a tabindex="-1" href="{{path('fos_user_security_logout')}}">Se déconnecter</a></li>
               </ul>
@@ -54,7 +54,7 @@
         </ul>
       </div>
     </div>
-  <div class="navbar navbar-default">
+  <nav class="navbar navbar-default">
   			<div class="container">
   				<div class="navbar-header">
   					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -93,9 +93,11 @@
   					</ul>
   				</div>
   		</div>
+    </nav>
   </div>
 {% block body %}
 {% endblock %}
+
 
 {% block javascript %}
 <script src="{{ asset('bundles/core/js/vendor/jquery-1.11.3.min.js')}}"></script>
