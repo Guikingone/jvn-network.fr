@@ -15,7 +15,10 @@ class AdminController extends Controller{
   public function adminAction(Request $request){
     // On crée un nouvel article
     $art_krma = new Articles();
-    // On appelle le formulaire et on le fait hydrater $art
+    /* On appelle le formulaire et on le fait hydrater $art_krma, on sélectionne les champs à remplir puis
+    on les définit avec leur type, on ajoute le bouton de soumission, on obtient la forme du formulaire puis on
+    fait la relation formulaire <-> requête, on vérifie que les champs sont valides, on persist les données puis
+    on les enregistre dans la BDD */
     $form = $this->createFormBuilder($art_krma)
         ->add('titre', TextType::class)
         ->add('content', TextareaType::class)
@@ -28,7 +31,8 @@ class AdminController extends Controller{
           $em->persist($art_krma);
           $em->flush();
         }
-        // Un fois enregistré, on affiche une annonce flash de succés
+        /* Un fois enregistré, on affiche une annonce flash de succés personnalisé afin que les message
+        ne s'affichent pas si ce n'est pas le bon formulaire */
         $request->getSession()->getFlashBag()->add('info_krma', "Article enregistré");
 
     return $this->render('KrmaBundle::admin.html.twig', array(

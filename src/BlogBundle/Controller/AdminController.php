@@ -5,44 +5,43 @@ use BlogBundle\Entity\Article;
 // Si on veut ajouter une image, use BlogBundle\Entity\Commentaires;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use BlogBundle\Form\ArticleType;
 
-class AdminController extends Controller{
+class AdminController extends Controller
+{
 
   public function adminAction(Request $request)
   {
-    // On crée un nouvel article
+    /* On créer un nouvel article, si on veut ajouter une image, on utilise new Image(), de plus,
+    on définit la date en fonction du jour afin de faciliter le travail de l'auteur,
+    si besoin, il pourra la modifier via le formulaire */
     $art = new Article();
-    // Si on veut ajouter une image, on utilise new Image();
+    $art->setDatePublication(new \Datetime);
 
-    // On appelle le formulaire et on le fait hydrater $art
-    $formbuilder = $this->createFormBuilder($art)
-        ->add('titre', TextType::class)
-        ->add('auteur', TextType::class)
-        ->add('contenu', TextareaType::class)
-        ->add('datePublication', DateType::class)
-        ->add('categories', TextType::class)
-        ->add('save', SubmitType::class, array('label' => 'Créer un article'))
-        ->getForm();
-        $formbuilder->handleRequest($request);
+    /* On appelle le formulaire depuis le namespace Form, on définit l'objet qui l'appelle puis on fait le lien
+    requête <-> formulaire */
+    $formbuilder = $this->createForm(ArticleType::class, $art);
+    $formbuilder->handleRequest($request);
+    /* On vérifie que les données sont valides, on les persist, on enregistre le tout et on renvoit un message
+    flash afin de valider l'enregistrement de l'article */
         if($formbuilder->isValid()){
           $em = $this->getDoctrine()->getManager();
           $em->persist($art);
           $em->flush();
+          $request->getSession()->getFlashBag()->add('success', "Article enregistré");
         }
-        // Un fois enregistré, on affiche une annonce flash de succés
-        $request->getSession()->getFlashBag()->add('success', "Article enregistré");
-
     return $this->render('BlogBundle::admin.html.twig', array(
       'form' => $formbuilder->createView(),
     ));
   }
 
-  public function deletAction(Request $request)
+  public function deleteAction(Request $request)
   {
     // On récupère l'entité, puis on effectue un ->remove() afin de supprimer l'article.
   }
+
+  public function updateAction(Request $request)
+  {
+    /* On récupère l'entité puis on créer le formulaire de modification */
+    }
 }

@@ -15,12 +15,12 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
 {
   public function getArticle($page, $nbPerPpage)
   {
+    /* On joint les images à chaque article et on trie le tout par order descendant */
     $query = $this->createQueryBuilder('a')
-      // On joint les images à chaque article
-      ->leftJoin('a.image', 'i')
-        ->addSelect('i')
-      ->orderBy('a.datePublication', 'DESC')
-      ->getQuery();
+                  ->leftJoin('a.image', 'i')
+                    ->addSelect('i')
+                  ->orderBy('a.datePublication', 'DESC')
+                  ->getQuery();
 
     /* On définit la pagination, on commence par l'article d'où partira la pagination,
     puis on définit le nombre maximum d'article par page */

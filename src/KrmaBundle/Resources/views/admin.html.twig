@@ -4,7 +4,7 @@
   <div class="row">
     <!-- On affiche les messages flash -->
     {% for message in app.session.flashbag.get('info_krma') %}
-      <div class="alert alert-success">Message flash : {{message}}</div>
+      <div class="alert alert-success">Message flash : {{ message }}</div>
     {% endfor %}
 
     <div class="col-lg-12">
