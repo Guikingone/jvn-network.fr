@@ -2,7 +2,6 @@
 namespace BlogBundle\Controller;
 
 use BlogBundle\Entity\Article;
-// Si on veut ajouter une image, use BlogBundle\Entity\Commentaires;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use BlogBundle\Form\ArticleType;
@@ -21,7 +20,7 @@ class AdminController extends Controller
     requête <-> formulaire */
     $formbuilder = $this->createForm(ArticleType::class, $art);
     $formbuilder->handleRequest($request);
-    
+
     /* On vérifie que les données sont valides, on les persist, on enregistre le tout et on renvoit un message
     flash afin de valider l'enregistrement de l'article */
         if($formbuilder->isValid()){
