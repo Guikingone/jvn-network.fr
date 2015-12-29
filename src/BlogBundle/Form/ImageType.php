@@ -19,7 +19,7 @@ class ImageType extends AbstractType
             ->add('alt')
         ;
     }
-    
+
     /**
      * @param OptionsResolver $resolver
      */

@@ -26,6 +26,8 @@
                   <li><a tabindex="-1" href="{{path('team_admin')}}"></i>TEAM Blog</a></li>
                 {% elseif is_granted('ROLE_KRMA')%}
                   <li><a tabindex="-1" href="#"></i>KRMA Blog</a></li>
+                {% elseif is_granted('ROLE_AUTEUR')%}
+                  <li><a tabindex="-1" href="#"></i>MEMBRE Blog</a></li>
                 {% endif %}
                 <li class="divider"></li>
                 <!-- Les routes reliées à la boutique seront définies plus tard -->
