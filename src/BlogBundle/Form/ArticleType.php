@@ -20,7 +20,6 @@ class ArticleType extends AbstractType
             ->add('auteur')
             ->add('datePublication')
             ->add('contenu')
-            ->add('category', CategoryType::class)
             ->add('save', SubmitType::class)
         ;
     }

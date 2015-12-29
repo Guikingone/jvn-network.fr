@@ -45,13 +45,6 @@
 
             {{ form_widget(form.datePublication) }}
           </div>
-          <div class="form-group text-center">
-            {{ form_label(form.category, "Ajouter une catégorie", {'label_attr': {'class': 'control-label'}}) }}
-
-            {{ form_errors(form.category) }}
-
-            {{ form_widget(form.category) }}
-          </div>
           <div class="text-center">
             {{form_widget(form.save, {'attr': {'class': 'btn btn-danger'}}) }}
           </div>
