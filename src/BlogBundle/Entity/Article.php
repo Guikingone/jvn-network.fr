@@ -60,10 +60,10 @@ class Article
     private $image;
 
     /**
-    * @ORM\ManyToMany(targetEntity="BlogBundle\Entity\Categories", cascade={"persist"})
+    * @ORM\ManyToMany(targetEntity="BlogBundle\Entity\Category", cascade={"persist"})
     * On récupèrera les catégories selon l'article et non l'inverse !
     */
-    private $categories;
+    private $category;
 
     /**
     * @ORM\OneToMany(targetEntity="BlogBundle\Entity\Commentaire", mappedBy="article")
@@ -209,19 +209,19 @@ class Article
      */
     public function __construct()
     {
-        $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
      * Add category
      *
-     * @param \BlogBundle\Entity\Categories $category
+     * @param \BlogBundle\Entity\Category $category
      *
      * @return Article
      */
-    public function addCategory(\BlogBundle\Entity\Categories $category)
+    public function addCategory(\BlogBundle\Entity\Category $category)
     {
-        $this->categories[] = $category;
+        $this->category[] = $category;
 
         return $this;
     }
@@ -229,21 +229,21 @@ class Article
     /**
      * Remove category
      *
-     * @param \BlogBundle\Entity\Categories $category
+     * @param \BlogBundle\Entity\Category $category
      */
-    public function removeCategory(\BlogBundle\Entity\Categories $category)
+    public function removeCategory(\BlogBundle\Entity\Category $category)
     {
-        $this->categories->removeElement($category);
+        $this->category->removeElement($category);
     }
 
     /**
-     * Get categories
+     * Get category
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCategories()
+    public function getCategory()
     {
-        return $this->categories;
+        return $this->category;
     }
 
     /**

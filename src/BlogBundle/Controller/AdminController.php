@@ -12,9 +12,8 @@ class AdminController extends Controller
 
   public function adminAction(Request $request)
   {
-    /* On créer un nouvel article, si on veut ajouter une image, on utilise new Image(), de plus,
-    on définit la date en fonction du jour afin de faciliter le travail de l'auteur,
-    si besoin, il pourra la modifier via le formulaire */
+    /* On créer un nouvel article,on définit la date en fonction du jour
+    afin de faciliter le travail de l'auteur, si besoin, il pourra la modifier via le formulaire */
     $art = new Article();
     $art->setDatePublication(new \Datetime);
 
