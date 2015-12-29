@@ -21,6 +21,7 @@ class AdminController extends Controller
     requête <-> formulaire */
     $formbuilder = $this->createForm(ArticleType::class, $art);
     $formbuilder->handleRequest($request);
+    
     /* On vérifie que les données sont valides, on les persist, on enregistre le tout et on renvoit un message
     flash afin de valider l'enregistrement de l'article */
         if($formbuilder->isValid()){
@@ -41,6 +42,6 @@ class AdminController extends Controller
 
   public function updateAction(Request $request)
   {
-    /* On récupère l'entité puis on créer le formulaire de modification */
+
     }
 }

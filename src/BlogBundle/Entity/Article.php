@@ -53,9 +53,10 @@ class Article
     private $contenu;
 
     /**
-    * @ORM\OneToOne(targetEntity="BlogBundle\Entity\Image", cascade={"persist"})
+    * @ORM\OneToOne(targetEntity="BlogBundle\Entity\Image", cascade={"persist", "remove"})
     * Comme on veut pouvoir créer une annonce sans image, on n'ajoute pas nullable=false
     * Si on veut que l'annonce puisse exister sans image, on ajouterais nullable=true
+    * On rajoute "remove" afin que tout suppressiond d'article entraîne la suppression de l'image liée
     */
     private $image;
 

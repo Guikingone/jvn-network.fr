@@ -45,6 +45,11 @@
 
             {{ form_widget(form.datePublication) }}
           </div>
+          <div class="form-group text-center">
+            {{ form_label(form.image, "Ajouter une image") }}
+            {{ form_errors(form.image) }}
+            {{ form_widget(form.image) }}
+          </div>
           <div class="text-center">
             {{form_widget(form.save, {'attr': {'class': 'btn btn-danger'}}) }}
           </div>
