@@ -3,6 +3,7 @@
 namespace UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use FOS\UserBundle\Model\User as BaseUser;
 
 /**
@@ -10,6 +11,7 @@ use FOS\UserBundle\Model\User as BaseUser;
  *
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="UserBundle\Repository\UserRepository")
+ * @UniqueEntity(fields="email", message="Cette adresse mail est déjà utilisée !")
  */
 class User extends BaseUser
 {

@@ -4,6 +4,9 @@ namespace BlogBundle\Entity;
 
 use Doctrine\Commom\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+// Ce use définit les contraintes via l'outil Validator ! A conserver !
+use CoreBundle\Validator\AntiFlood;
 
 /**
  * Article
@@ -28,6 +31,7 @@ class Article
      * @var string
      *
      * @ORM\Column(name="titre", type="string", length=255)
+     * @Assert\length(min=15)
      */
     private $titre;
 
@@ -35,6 +39,7 @@ class Article
      * @var string
      *
      * @ORM\Column(name="auteur", type="string", length=255)
+     * @Assert\length(min=3)
      */
     private $auteur;
 
@@ -42,6 +47,7 @@ class Article
      * @var \DateTime
      *
      * @ORM\Column(name="date_publication", type="datetime")
+     * @Assert\Datetime()
      */
     private $datePublication;
 
@@ -49,11 +55,15 @@ class Article
      * @var string
      *
      * @ORM\Column(name="contenu", type="text")
+     * @AntiFlood()
+     * @Assert\NotBlank()
      */
+     // On ajoute le système de validation AntiFlood afin d'éviter les articles à la chaîne
     private $contenu;
 
     /**
-    * @ORM\OneToOne(targetEntity="BlogBundle\Entity\Image", cascade={"persist", "remove"})
+    * @ORM\OneToOne(targetEntity="BlogBundle\Entity\Image", cascade={"persist", "remove
+    * @Assert\Valid()
     * Comme on veut pouvoir créer une annonce sans image, on n'ajoute pas nullable=false
     * Si on veut que l'annonce puisse exister sans image, on ajouterais nullable=true
     * On rajoute "remove" afin que tout suppressiond d'article entraîne la suppression de l'image liée
