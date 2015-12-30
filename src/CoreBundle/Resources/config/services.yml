@@ -1,6 +1,3 @@
 services:
-#    corebundle.validator.antiflood:
-#        class:     CoreBundle\Validator\AntiFloodValidator
-#        arguments: [@request_stack @doctrine.orm.entity_manager]
-#        tags:
-#            - { name: validator.constraint_validator, alias: corebundle_antiflood }
+    core_bundle.beta.html:
+        class: CoreBundle\Beta\BetaHTML
