@@ -47,7 +47,6 @@ class Article
      * @var \DateTime
      *
      * @ORM\Column(name="date_publication", type="datetime")
-     * @Assert\Datetime()
      */
     private $datePublication;
 
@@ -55,7 +54,6 @@ class Article
      * @var string
      *
      * @ORM\Column(name="contenu", type="text")
-     * @AntiFlood()
      * @Assert\NotBlank()
      */
      // On ajoute le système de validation AntiFlood afin d'éviter les articles à la chaîne

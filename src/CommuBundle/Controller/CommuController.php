@@ -10,4 +10,9 @@ class CommuController extends Controller
     {
         return $this->render('CommuBundle::index.html.twig');
     }
+
+    public function tchatAction()
+    {
+      return $this->render('CommuBundle::index.html.twig');
+    }
 }
