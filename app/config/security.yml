@@ -11,6 +11,7 @@ security:
         ROLE_KRMA:             [ROLE_AUTEUR]
     encoders:
         UserBundle\Entity\User: sha512
+
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
         main:
@@ -22,6 +23,7 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
+        # On définit le pare-feu Main qui s'occupera de sécuriser le site complet
         main:
             pattern: ^/
             anonymous: true

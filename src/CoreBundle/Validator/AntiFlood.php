@@ -2,12 +2,12 @@
 
 namespace CoreBundle\Validator;
 
-use Symfony\Component\Validator\Constraints;
+use Symfony\Component\Validator\Constraint;
 
 /**
 * @Annotation
 */
-class AntiFlood extends Constraints {
+class AntiFlood extends Constraint {
 
   public $message = "Vous avez déjà posté un message depuis moins de 15 secondes";
 
