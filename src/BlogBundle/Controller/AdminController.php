@@ -6,6 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use BlogBundle\Form\ArticleType;
 
+use CoreBundle\BigBrother\BigBrotherEvent;
+use CoreBundle\BigBrother\MessagePostEvents;
+
 class AdminController extends Controller
 {
 
@@ -21,9 +24,16 @@ class AdminController extends Controller
     $formbuilder = $this->createForm(ArticleType::class, $art);
     $formbuilder->handleRequest($request);
 
-    /* On vérifie que les données sont valides, on les persist, on enregistre le tout et on renvoit un message
+    /* On vérifie que les données sont valides, on appelle BigBrother qui écoutera les articles postés,
+    on les persist, on enregistre le tout et on renvoit un message
     flash afin de valider l'enregistrement de l'article */
         if($formbuilder->isValid()){
+          $event = new MessagePostEvents($art->getContent());
+          $this
+            ->getEvent('event_dispatcher')
+            ->dispatch(BigBrotherEvent::onMessagePost, $event);
+
+          $em->setContent($event->getMessage());
           $em = $this->getDoctrine()->getManager();
           $em->persist($art);
           $em->flush();
