@@ -1,0 +1,18 @@
+{% extends ('CoreBundle::layout.html.twig')%}
+
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="text-center">Mais ?! Serait-ce une erreur ?</h1>
+      <h2>Effectivement, le serveur nous a signalé une erreur :"{{ status_code }} {{ status_text }}".</h2>
+
+      <div>
+        Maintenant que rien ne fonctionne, nous vous présentons nos plus plates excuses et vous prions
+        d'accepter nos plus sincères salutations, si cette page vous pose soucis, veuillez nous contacter
+        à cette adresse [mail] ou via Twitter afin que nous révolvions le soucis dans les plus bref délais.
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
