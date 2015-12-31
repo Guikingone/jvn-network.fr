@@ -39,19 +39,14 @@ class BlogController extends Controller
       ));
     }
 
-    public function viewAction($id)
+    public function viewAction(Article $article)
     {
       /* On va chercher l'article en fonction de son ID, si article inexistant, alors
-      on retourne un message d'erreur, sinon, on affiche l'article puis les commentaires liés */
+      on retourne un message d'erreur 404, sinon, on affiche l'article puis les commentaires liés */
       $view = $this->getDoctrine()->getManager();
       $vue = $view
           ->getRepository('BlogBundle:Article')
-          ->find($id);
-
-      if(null === $vue){
-          throw new NotFoundHttpException("L'article avec l'id " . $id . " n'existe pas ou a été supprimé,
-          si l'erreur vous semble inadaptée à la situation, veuillez contacter l'administrateur");
-      }
+          ->find($article);
 
       /** On récupère les commentaires liés à l'article via l'article et on y joint les
       commentaires afin de pouvoir faire article->getCommentaires(), une fois effectuée,
