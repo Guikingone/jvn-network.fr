@@ -4,5 +4,5 @@ namespace CoreBundle\BigBrother;
 
 final class BigBrother {
 
-  const onMessagePost = 'corebundle.bigbrother.post_message';
+  const ONMESSAGEPOST = 'corebundle.bigbrother.post_message';
 }

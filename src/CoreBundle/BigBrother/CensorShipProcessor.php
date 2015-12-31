@@ -20,7 +20,7 @@ class CensorShipProcessor {
                 ->setSubject("Nouveau message d'un utilisateur surveillé")
                 ->setFrom('admon@votresite.com')
                 ->setTo('admin@votresite.com')
-                ->setBody("l'utilisateur surveillé ".$user->getUsername()." à poster le message suivant ".$message".");
+                ->setBody('l\'utilisateur surveillé' . $user->getUsername() . ' à poster le message suivant ' . $message. ".");
 
     $this->mailer->send($message);
   }

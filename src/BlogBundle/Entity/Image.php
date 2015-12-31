@@ -149,7 +149,7 @@ class Image
       }
 
       // Si on avait un anien fichier, on le supprime
-      if(null != $this->tempfilename){
+      if(null !== $this->tempfilename){
         $oldfile = $this->getUploadRootDir().'/'.$this->id.'.'.$this->tempfilename;
         if(file_exists($oldfile)){
           unlink($oldfile);
