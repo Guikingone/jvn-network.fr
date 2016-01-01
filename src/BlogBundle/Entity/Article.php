@@ -197,11 +197,11 @@ class Article
      *
      * @return Article
      */
-    public function setImage(\BlogBundle\Entity\Article $image = null)
+    public function setImage($image)
     {
         $this->image = $image;
 
-        return $this;
+        return $image;
     }
 
     /**
@@ -271,7 +271,7 @@ class Article
 
         return $this;
         /* Si la relation était falcutative (nullable=true), on aurait effectué
-        $commentaires->setArticle(null), autre point important, étant donné la relation définie plius tôt,
+        $commentaires->setArticle(null), autre point important, étant donné la relation définie plus tôt,
         on pourra faire $article->addCommentaire() mais pas $Commentaire->setArticle() !!!
         De cette façon, on conserve la logique établie plus tôt */
     }

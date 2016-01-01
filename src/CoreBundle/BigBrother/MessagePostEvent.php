@@ -1,8 +1,10 @@
 <?php
 
-namespace CoreBundle\BogBrother;
+namespace CoreBundle\BigBrother;
 
 use Symfony\Component\EventDispatcher\Event;
+
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class MessagePostEvent extends Event {
 
@@ -10,7 +12,7 @@ class MessagePostEvent extends Event {
 
   protected $user;
 
-  public function __construct($message, UserInterface $user)
+  public function __construct($message, $user)
   {
     $this->message = $message;
     $this->user    = $user;
@@ -24,6 +26,11 @@ class MessagePostEvent extends Event {
   public function setMessage($message)
   {
     return $this->message = $message;
+  }
+
+  public function setUser($user)
+  {
+    return $this->user = $user;
   }
 
   public function getUser()
