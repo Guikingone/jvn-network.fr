@@ -8,6 +8,7 @@
       <link href="{{ asset_url }}" rel="stylesheet" />
     {% endstylesheets %}
   {% endblock %}
+  <script src="{{ asset('bundles/core/js/vendor/modernizr-2.8.3.min.js')}}"></script>
 </head>
 <body>
   <!-- Navbar Utilisateur -->
@@ -105,9 +106,9 @@
 
 
 {% block javascript %}
-  {% javascripts '@CoreBundle/Resources/public/js/*' %}
-    <script src="{{ asset_url }}"></script>
-  {% endjavascripts %}
+<script src="{{ asset('bundles/core/js/vendor/jquery-1.11.3.min.js')}}"></script>
+<script src="{{ asset('bundles/core/js/bootstrap.js')}}"></script>
+<script src="{{ asset('bundles/core/js/main.js')}}"></script>
 {% endblock %}
 </body>
 </html>
