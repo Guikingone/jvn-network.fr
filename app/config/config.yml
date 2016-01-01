@@ -82,3 +82,10 @@ fos_user:
     user_class:    UserBundle\Entity\User
     group:
         group-class: UserBundle\Entity\Group
+
+# AsseticBundle
+assetic:
+    debug:          '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    filters:
+        cssrewrite: ~
