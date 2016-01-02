@@ -1,12 +1,14 @@
 <?php
 
-namespace BlogBundle\Form;
+namespace BlogBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
-class CategoryType extends AbstractType
+class ArticleType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,17 +17,22 @@ class CategoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
+            ->add('titre')
+            ->add('auteur')
+            ->add('datePublication')
+            ->add('contenu')
+            // ->add('image', FileType::class)
+            ->add('save', SubmitType::class)
         ;
     }
-    
+
     /**
      * @param OptionsResolver $resolver
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'BlogBundle\Entity\Category'
+            'data_class' => 'BlogBundle\Entity\Article'
         ));
     }
 }

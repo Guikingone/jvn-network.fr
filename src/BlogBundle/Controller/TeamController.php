@@ -4,15 +4,24 @@ namespace BlogBundle\Controller;
 use BlogBundle\Entity\Article;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use BlogBundle\Form\ArticleType;
-
+use BlogBundle\Form\Type\ArticleType;
 use CoreBundle\BigBrother\BigBrotherEvent;
 use CoreBundle\BigBrother\MessagePostEvent;
 
-class AdminController extends Controller
+class TeamController extends Controller
 {
-
   public function adminAction(Request $request)
+  {
+    $article = $this->getDoctrine()->getManager()
+                    ->getRepository('BlogBundle:Article')
+                    ->getArticleAll();
+
+    return $this->render('BlogBundle::admin_dev.html.twig', array(
+      'article' => $article
+    ));
+  }
+
+  public function addAction(Request $request)
   {
     /* On créer un nouvel article,on définit la date en fonction du jour
     afin de faciliter le travail de l'auteur, si besoin, il pourra la modifier via le formulaire */
@@ -28,29 +37,25 @@ class AdminController extends Controller
     on les persist, on enregistre le tout et on renvoit un message
     flash afin de valider l'enregistrement de l'article */
         if($formbuilder->isValid()){
-          $event = new MessagePostEvent($art->getContenu());
-          $this
-            ->getEvent('event_dispatcher')
-            ->dispatch(BigBrotherEvent::ONMESSAGEPOST, $event);
-
-          $em->setContenu($event->getMessage());
           $em = $this->getDoctrine()->getManager();
           $em->persist($art);
           $em->flush();
           $request->getSession()->getFlashBag()->add('success', "Article enregistré");
         }
-    return $this->render('BlogBundle::admin.html.twig', array(
-      'form' => $formbuilder->createView(),
+    return $this->render('BlogBundle::team_add.html.twig', array(
+      'form' =>$formbuilder->createView()
     ));
   }
 
-  public function deleteAction(Request $request)
+  public function deleteAction(Request $request, $id)
   {
-    // On récupère l'entité, puis on effectue un ->remove() afin de supprimer l'article.
+    // On récupère l'entité via son ID, puis on effectue un ->remove() afin de supprimer l'article.
+    
+    return $this->redirect($this->generateURL('team_admin'));
   }
 
   public function updateAction(Request $request)
   {
-
-    }
+    return $this->render('BlogBundle::admin_dev.html.twig');
+  }
 }

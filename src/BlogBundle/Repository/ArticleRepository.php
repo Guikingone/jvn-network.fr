@@ -30,4 +30,13 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
 
     return new Paginator($query, true);
   }
+
+  public function getArticleAll()
+  {
+    /* On joint les images à chaque article et on trie le tout par order descendant, on récupère le tout
+    via $query */
+    return $this->createQueryBuilder('a')
+                  ->getQuery()
+                  ->getResult();
+  }
 }

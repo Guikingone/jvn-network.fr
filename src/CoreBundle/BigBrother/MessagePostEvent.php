@@ -9,12 +9,12 @@ class MessagePostEvent extends Event {
 
   protected $message;
 
-  protected $user;
+  protected $auteur;
 
-  public function __construct($message, $user)
+  public function __construct($message, $auteur)
   {
     $this->message = $message;
-    $this->user    = $user;
+    $this->auteur    = $auteur;
   }
 
   public function getMessage()
@@ -27,13 +27,13 @@ class MessagePostEvent extends Event {
     return $this->message = $message;
   }
 
-  public function setUser($user)
+  public function setUser($auteur)
   {
-    return $this->user = $user;
+    return $this->auteur = $auteur;
   }
 
   public function getUser()
   {
-    return $this->user;
+    return $this->auteur;
   }
 }
