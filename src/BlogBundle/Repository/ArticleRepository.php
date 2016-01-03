@@ -36,7 +36,23 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
     /* On joint les images à chaque article et on trie le tout par order descendant, on récupère le tout
     via $query */
     return $this->createQueryBuilder('a')
+                ->leftJoin('a.image', 'i')
+                  ->addSelect('i')
                   ->getQuery()
                   ->getResult();
+  }
+
+  public function removeArticle($id)
+  {
+    /* On sélectionne l'article selon ID, on y joint les images afin de ne pas laisser d'image
+    sans article puis on supprimer l'article */
+    return $this->createQueryBuilder('a')
+                ->leftJoin('a.image', 'i')
+                  ->addSelect('i')
+                ->where('a.id = :id')
+                  ->setParameter('id', $id)
+                ->delete()
+                ->getQuery()
+                ->getResult();
   }
 }

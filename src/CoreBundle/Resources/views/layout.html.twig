@@ -24,10 +24,9 @@
               <ul class="dropdown-menu pull-right">
                 <li><a tabindex="-1" href="{{path('fos_user_profile_show')}}"></i>Mon profil</a></li>
                 {% if is_granted('ROLE_TEAM')%}
-                  <li><a tabindex="-1" href="{{path('team_admin')}}"></i>TEAM Blog</a></li>
-                  <li><a tabindex="-1" href="#"></i>Back Office</a></li>
+                  <li><a tabindex="-1" href="{{path('team_admin')}}"></i>Back Office</a></li>
                 {% elseif is_granted('ROLE_ADMIN')%}
-                  <li><a tabindex="-1" href="{{path('team_admin')}}"></i>TEAM Blog</a></li>
+                  <li><a tabindex="-1" href="#"></i>Administration</a></li>
                 {% elseif is_granted('ROLE_KRMA')%}
                   <li><a tabindex="-1" href="#"></i>KRMA Blog</a></li>
                 {% elseif is_granted('ROLE_AUTEUR')%}
