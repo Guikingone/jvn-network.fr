@@ -20,4 +20,24 @@ class KrmaController extends Controller
     {
 
     }
+
+    public function adminAction()
+    {
+      
+    }
+
+    public function addAction()
+    {
+
+    }
+
+    public function updateAction()
+    {
+
+    }
+
+    public function deleteAction()
+    {
+
+    }
 }

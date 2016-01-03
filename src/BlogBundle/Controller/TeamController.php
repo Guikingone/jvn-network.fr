@@ -19,7 +19,7 @@ class TeamController extends Controller {
                     ->getRepository('BlogBundle:Article')
                     ->getArticleAll();
 
-    return $this->render('BlogBundle::admin_dev.html.twig', array(
+    return $this->render('BlogBundle:Team:admin.html.twig', array(
       'article' => $article
     ));
   }
@@ -45,7 +45,7 @@ class TeamController extends Controller {
           $em->flush();
           $request->getSession()->getFlashBag()->add('success', "Article enregistré");
         }
-    return $this->render('BlogBundle::team_add.html.twig', array(
+    return $this->render('BlogBundle:Team:team_add.html.twig', array(
       'form' =>$formbuilder->createView()
     ));
   }
@@ -92,7 +92,7 @@ class TeamController extends Controller {
       return $this->redirectToRoute('team_article', array('id' =>
         $um->getId()));
     }
-    return $this->render('BlogBundle::team_update.html.twig', array(
+    return $this->render('BlogBundle:Team:team_update.html.twig', array(
       'form' => $form->createView(),
       'article' => $um
     ));
@@ -121,7 +121,7 @@ class TeamController extends Controller {
       throw $this->CreateNotFoundException("La page" . $page . "n'existe pas");
     }
 
-    return $this->render('BlogBundle::index.html.twig', array(
+    return $this->render('BlogBundle:Team:index.html.twig', array(
       'article' => $listArticle,
       'nbPages' => $nbPages,
       'page' => $page
@@ -150,7 +150,7 @@ class TeamController extends Controller {
     $commentaire->setdateCreation(new \Datetime);
     $formCommentaire = $this->createForm(CommentaireType::class, $commentaire);
 
-    return $this->render('BlogBundle::view.html.twig', array(
+    return $this->render('BlogBundle:Team:view.html.twig', array(
       'article' => $vue,
       'commentaire' => $comm,
       'form' => $formCommentaire->createView()
