@@ -5,6 +5,7 @@ use BlogBundle\Entity\Article;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use BlogBundle\Form\Type\ArticleType;
+use BlogBundle\Form\Type\ArticleEditType;
 use BlogBundle\Entity\Commentaires;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Doctrine\ORM\EntityManagerInterface;
@@ -57,20 +58,43 @@ class TeamController extends Controller
     $em->removeArticle($id);
 
     $request->getSession()->getFlashBag()
-            ->add('success', "L'article avec l'id. $id . a été supprimé");
+            ->add('success', "L'article avec l'id " . $id . "a été supprimé");
 
     return $this->redirectToRoute('team_admin');
   }
 
-  public function updateAction(Request $request)
+  public function updateAction(Request $request, $id)
   {
     /* On récupère l'entité via l'ID, on fait appel à la méthode updateArticle qui renvoit l'article
-    selon son ID, on ouvre le formulaire de modification, on valide, on affiche un message d'info afin
+    selon son ID, si l'article n'existe pas, on renvoit un message d'erreur,
+    on ouvre le formulaire de modification, on valide, on affiche un message d'info afin
     de valider l'opération et on redirige vers la page d'administration */
-    return $this->render('BlogBundle::admin_dev.html.twig');
+    $um = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Article');
+    $um->getUpdateArticle($id);
+
+    if(null === $um)
+    {
+      throw new NotFoundHttpException("L'annonce avec l'id" . $id . "n'existe pas ou a été supprimée");
+    }
+    $form = $this->createForm(ArticleEditType::class);
+
+    /* Ici, on se contente de vérifier que tout est valide, on ne persise pas car Doctrine connaît l'entité,
+    une fois que tout est terminé, on affiche un message de succés et on redirige vers l'article en question */
+    if($form->handleRequest($request)->isValid())
+    {
+      $um->flush();
+      $request->getSession()->getFlashBag()->add('success', "L'annonce" . $id . "a bien été modifiée");
+      return $this->redirectToRoute('team_article', array('id' =>
+        $um->getId()));
+    }
+    return $this->render('BlogBundle::update.html.twig', array(
+      'form' => $form->createView(),
+      'article' => $um
+    ));
   }
 
-  public function indexAction($page){
+  public function indexAction($page)
+  {
     /** On récupére les articles via le repository Article et la fonction getArticle puis
     on calcule le nombre d'article par page afin qu'il match avec $nbrPerPage, si la page
     est introuvable ou plus grande que le nombre d'articles par page, on affiche une erreur sinon,
@@ -88,7 +112,7 @@ class TeamController extends Controller
     $nbPages = ceil(count($listArticle)/$nbrPerPage);
 
     if($page > $nbPages){
-      throw $this->CreateNotFoundException("La page . $page . n'existe pas");
+      throw $this->CreateNotFoundException("La page" . $page . "n'existe pas");
     }
 
     return $this->render('BlogBundle::index.html.twig', array(

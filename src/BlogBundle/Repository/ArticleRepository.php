@@ -55,4 +55,15 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
                 ->getQuery()
                 ->getResult();
   }
+
+  public function getUpdateArticle($id)
+  {
+    return $this->createQueryBuilder('a')
+                ->leftJoin('a.image', 'i')
+                  ->addSelect('i')
+                ->where('a.id = :id')
+                  ->setParameter('id', $id)
+                ->getQuery()
+                ->getResult();
+  }
 }
