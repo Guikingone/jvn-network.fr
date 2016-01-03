@@ -14,4 +14,9 @@ class BoutiqueController extends Controller
               vagues d'invitations.");
         return $this->redirectToRoute('core_home');
     }
+
+    public function panierAction()
+    {
+      
+    }
 }

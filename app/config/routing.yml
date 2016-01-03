@@ -8,7 +8,7 @@ commu_home:
 
 team_home:
     resource: "@BlogBundle/Resources/config/routing.yml"
-    prefix:   /team
+    prefix:   /Blog
 
 krma_home:
     resource: "@KrmaBundle/Resources/config/routing.yml"

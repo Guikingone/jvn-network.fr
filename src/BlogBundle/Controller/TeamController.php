@@ -11,8 +11,8 @@ use BlogBundle\Form\Type\CommentaireType;
 use BlogBundle\Entity\Article;
 use BlogBundle\Entity\Commentaire;
 
-class TeamController extends Controller
-{
+class TeamController extends Controller {
+
   public function adminAction(Request $request)
   {
     $article = $this->getDoctrine()->getManager()
@@ -55,6 +55,7 @@ class TeamController extends Controller
     /* On récupère l'entité via son ID, on fait appel à removeArticle qui effectue un ->delete()
     en fonction de l'ID, une fois effectué, on affiche un message d'info afin de valider la procédure
     et on redirige vers l'espace d'administration */
+
     $em = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Article');
     $em->removeArticle($id);
 
@@ -70,6 +71,7 @@ class TeamController extends Controller
     selon son ID, si l'article n'existe pas, on renvoit un message d'erreur,
     on ouvre le formulaire de modification, on valide, on affiche un message d'info afin
     de valider l'opération et on redirige vers la page d'administration */
+
     $um = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Article');
     $um->getUpdateArticle($id);
 
@@ -82,6 +84,7 @@ class TeamController extends Controller
 
     /* Ici, on se contente de vérifier que tout est valide, on ne persise pas car Doctrine connaît l'entité,
     une fois que tout est terminé, on affiche un message de succés et on redirige vers l'article en question */
+
     if($form->handleRequest($request)->isValid())
     {
       $um->flush();
@@ -101,6 +104,7 @@ class TeamController extends Controller
     on calcule le nombre d'article par page afin qu'il match avec $nbrPerPage, si la page
     est introuvable ou plus grande que le nombre d'articles par page, on affiche une erreur sinon,
     on retourne la vue avec les variables transmises */
+
     if ($page < 1) {
         throw $this->createNotFoundException("La page ".$page." n'existe pas.");
     }
@@ -128,6 +132,7 @@ class TeamController extends Controller
   {
     /* On va chercher l'article en fonction de son ID, si article inexistant, alors
     on retourne un message d'erreur 404, sinon, on affiche l'article puis les commentaires liés */
+
     $view = $this->getDoctrine()->getManager();
     $vue = $view
         ->getRepository('BlogBundle:Article')
@@ -136,6 +141,7 @@ class TeamController extends Controller
     /** On récupère les commentaires liés à l'article via l'article et on y joint les
     commentaires afin de pouvoir faire article->getCommentaires(), une fois effectuée,
     on affichera tout ceci via une boucle for dans la vue */
+
     $comm = $view
       ->getRepository('BlogBundle:Commentaire')
       ->findBy(array('article' => $vue));

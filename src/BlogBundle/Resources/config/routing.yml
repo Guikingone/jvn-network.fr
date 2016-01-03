@@ -1,3 +1,5 @@
+# Déclaration des routes TEAM #
+
 team_home:
     path:     /team_blog
     defaults: { _controller: BlogBundle:Team:index, page: 1 }
@@ -28,8 +30,7 @@ team_article:
     requirements:
         id: \d+
 
-# La vue article sert uniquement au blog de l'Equipe, Krma ainsi que les membres possèdent leur propre vue #
-# On déclare les routes pour le blog Membre #
+# Déclaration des routes MEMBRE #
 
 membre_blog:
     path:     /membre_blog
@@ -42,3 +43,29 @@ membre_admin:
 membre_add:
     path:     /membre_add
     defaults: { _controller: BlogBundle:Membre:add }
+
+membre_article:
+    path:     /membre_blog/article/{id}
+    defaults: { _controller: BlogBundle:Membre:view }
+    requirements:
+        id: \d+
+
+# Déclaration des routes KRMA #
+
+krma_blog:
+    path:     /krma_blog
+    defaults: { _controller: BlogBundle:Krma:index }
+
+krma_admin:
+    path:     /krma_admin
+    defaults: { _controller: BlogBundle:Krma:admin }
+
+krma_view:
+    path:     /krma_blog/article/{id}
+    defaults: { _controller: BlogBundle:Krma:view }
+    requirements:
+        id: \d+
+
+krma_add:
+    path:     /krma_add
+    defaults: { _controller: BlogBundle:Krma:add }

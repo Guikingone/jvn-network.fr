@@ -70,9 +70,11 @@ class Article
 
     /**
     * @ORM\ManyToMany(targetEntity="BlogBundle\Entity\Category", cascade={"persist"})
-    * On récupèrera les catégories selon l'article et non l'inverse !
     */
     private $category;
+    /* Category gère les différents blogs, cet attributs contient la "signature" du blog qui demande l'article,
+    si l'article est demandé depuis Team, on fera pointer la catégorie vers Team et ainsi de suite pour chaque
+    blog, cela permet de conserver un code propre et non dupliqué */
 
     /**
     * @ORM\OneToMany(targetEntity="BlogBundle\Entity\Commentaire", mappedBy="article")

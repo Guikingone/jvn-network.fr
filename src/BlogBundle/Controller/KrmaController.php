@@ -7,16 +7,17 @@ use BlogBundle\Entity\Commentaires;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+// Bien penser à HttpKernel pour afficher l'erreur d'ID
 
-class MembreController extends Controller {
+class KrmaController extends Controller
+{
+    public function indexAction($page)
+    {
 
-  public function indexAction()
-  {
-    return $this->render('BlogBundle::index_membre.html.twig');
-  }
+    }
 
-  public function adminAction()
-  {
-    return $this->render('BlogBundle::admin_membre.html.twig');
-  }
+    public function viewAction(Article $article)
+    {
+
+    }
 }
