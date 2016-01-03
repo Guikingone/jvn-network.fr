@@ -1,14 +1,15 @@
 <?php
 namespace BlogBundle\Controller;
 
-use BlogBundle\Entity\Article;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use BlogBundle\Form\Type\ArticleType;
-use BlogBundle\Form\Type\ArticleEditType;
-use BlogBundle\Entity\Commentaires;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Doctrine\ORM\EntityManagerInterface;
+use BlogBundle\Form\Type\ArticleType;
+use BlogBundle\Form\Type\ArticleEditType;
+use BlogBundle\Form\Type\CommentaireType;
+use BlogBundle\Entity\Article;
+use BlogBundle\Entity\Commentaire;
 
 class TeamController extends Controller
 {
@@ -76,6 +77,7 @@ class TeamController extends Controller
     {
       throw new NotFoundHttpException("L'annonce avec l'id" . $id . "n'existe pas ou a été supprimée");
     }
+
     $form = $this->createForm(ArticleEditType::class);
 
     /* Ici, on se contente de vérifier que tout est valide, on ne persise pas car Doctrine connaît l'entité,
@@ -87,7 +89,7 @@ class TeamController extends Controller
       return $this->redirectToRoute('team_article', array('id' =>
         $um->getId()));
     }
-    return $this->render('BlogBundle::update.html.twig', array(
+    return $this->render('BlogBundle::team_update.html.twig', array(
       'form' => $form->createView(),
       'article' => $um
     ));
@@ -138,9 +140,14 @@ class TeamController extends Controller
       ->getRepository('BlogBundle:Commentaire')
       ->findBy(array('article' => $vue));
 
+    $commentaire = new Commentaire();
+    $commentaire->setdateCreation(new \Datetime);
+    $formCommentaire = $this->createForm(CommentaireType::class, $commentaire);
+
     return $this->render('BlogBundle::view.html.twig', array(
       'article' => $vue,
-      'commentaire' => $comm
+      'commentaire' => $comm,
+      'form' => $formCommentaire->createView()
     ));
   }
 }

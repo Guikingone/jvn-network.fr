@@ -38,3 +38,7 @@ membre_blog:
 membre_admin:
     path:     /membre_admin
     defaults: { _controller: BlogBundle:Membre:admin }
+
+membre_add:
+    path:     /membre_add
+    defaults: { _controller: BlogBundle:Membre:add }
