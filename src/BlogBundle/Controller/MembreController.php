@@ -13,11 +13,11 @@ class MembreController extends Controller{
 
   public function indexAction()
   {
-
+    return $this->render('BlogBundle::index_membre.html.twig');
   }
 
   public function adminAction()
   {
-    
+    return $this->render('BlogBundle::admin_membre.html.twig');
   }
 }

@@ -59,12 +59,14 @@ class TeamController extends Controller
     $request->getSession()->getFlashBag()
             ->add('success', "L'article avec l'id. $id . a été supprimé");
 
-
     return $this->redirectToRoute('team_admin');
   }
 
   public function updateAction(Request $request)
   {
+    /* On récupère l'entité via l'ID, on fait appel à la méthode updateArticle qui renvoit l'article
+    selon son ID, on ouvre le formulaire de modification, on valide, on affiche un message d'info afin
+    de valider l'opération et on redirige vers la page d'administration */
     return $this->render('BlogBundle::admin_dev.html.twig');
   }
 
