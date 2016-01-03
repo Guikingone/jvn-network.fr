@@ -103,6 +103,13 @@ textarea {
 		font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
 	}
 
+  .hero{
+    background: url('../images/hero_image.jpg') center no-repeat top;
+    height: auto;
+    background-attachment: relative;
+    width: 100%;
+  }
+
 /* ==========================================================================
     Navbar Style
    ========================================================================== */

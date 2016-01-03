@@ -11,6 +11,7 @@
   <script src="{{ asset('bundles/core/js/vendor/modernizr-2.8.3.min.js')}}"></script>
 </head>
 <body>
+  <header>
   <!-- Navbar Utilisateur -->
   <div id="wrapper">
     <div id="topBar">
@@ -100,6 +101,7 @@
   		</div>
     </nav>
   </div>
+</header>
   <!-- On affiche les messages flash -->
   {% for message in app.session.flashbag.get('info') %}
     <div class="alert alert-info text-center">Message flash : {{message}}</div>
