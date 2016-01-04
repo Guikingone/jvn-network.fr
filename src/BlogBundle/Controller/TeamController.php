@@ -30,6 +30,7 @@ class TeamController extends Controller {
     afin de faciliter le travail de l'auteur, si besoin, il pourra la modifier via le formulaire */
     $art = new Article();
     $art->setDatePublication(new \Datetime);
+    $art->setCategorie('TEAM');
 
     /* On appelle le formulaire depuis le namespace Form, on définit l'objet qui l'appelle puis on fait le lien
     requête <-> formulaire */

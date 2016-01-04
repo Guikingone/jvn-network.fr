@@ -44,6 +44,18 @@ membre_add:
     path:     /membre_add
     defaults: { _controller: BlogBundle:Membre:add }
 
+membre_update:
+    path:     /membre_update/{id}
+    defaults: { _controller: BlogBundle:Membre:update }
+    requirements:
+        id: \d+
+
+membre_delete:
+    path:     /membre_delete/{id}
+    defaults: { _controller: BlogBundle:Membre:delete }
+    requirements:
+        id: \d+
+
 membre_article:
     path:     /membre_blog/article/{id}
     defaults: { _controller: BlogBundle:Membre:view }

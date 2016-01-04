@@ -4,6 +4,9 @@ namespace BlogBundle\Entity;
 
 use Doctrine\Commom\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+// Ce use définit les contraintes via l'outil Validator ! A conserver !
+use CoreBundle\Validator\AntiFlood;
 
 /**
  * Article
@@ -28,6 +31,7 @@ class Article
      * @var string
      *
      * @ORM\Column(name="titre", type="string", length=255)
+     * @Assert\length(min=15)
      */
     private $titre;
 
@@ -35,6 +39,7 @@ class Article
      * @var string
      *
      * @ORM\Column(name="auteur", type="string", length=255)
+     * @Assert\length(min=3)
      */
     private $auteur;
 
@@ -49,26 +54,27 @@ class Article
      * @var string
      *
      * @ORM\Column(name="contenu", type="text")
+     * @Assert\NotBlank()
      */
+     // On ajoute le système de validation AntiFlood afin d'éviter les articles à la chaîne
     private $contenu;
 
     /**
-    * @ORM\Column(name="published", type="datetime")
-    */
-    private $published;
-
-    /**
-    * @ORM\OneToOne(targetEntity="BlogBundle\Entity\Article", cascade={"persist"})
+    * @ORM\OneToOne(targetEntity="BlogBundle\Entity\Image", cascade={"persist", "remove"})
+    * @Assert\Valid()
     * Comme on veut pouvoir créer une annonce sans image, on n'ajoute pas nullable=false
     * Si on veut que l'annonce puisse exister sans image, on ajouterais nullable=true
+    * On rajoute "remove" afin que tout suppression d'article entraîne la suppression de l'image liée
     */
     private $image;
 
     /**
-    * @ORM\ManyToMany(targetEntity="BlogBundle\Entity\Categories", cascade={"persist"})
-    * On récupèrera les catégories selon l'article et non l'inverse !
+    * @ORM\ManyToMany(targetEntity="BlogBundle\Entity\Category", cascade={"persist"})
     */
-    private $categories;
+    private $category;
+    /* Category gère les différents blogs, cet attributs contient la "signature" du blog qui demande l'article,
+    si l'article est demandé depuis Team, on fera pointer la catégorie vers Team et ainsi de suite pour chaque
+    blog, cela permet de conserver un code propre et non dupliqué */
 
     /**
     * @ORM\OneToMany(targetEntity="BlogBundle\Entity\Commentaire", mappedBy="article")
@@ -79,6 +85,11 @@ class Article
     * @ORM\Column (name="updated_at", type="datetime", nullable=true)
     */
     private $updatedAt;
+
+    /**
+    * @ORM\Column (name="categories", type="string", length=255)
+    */
+    private $categorie;
 
     /**
      * Get id
@@ -187,41 +198,17 @@ class Article
     }
 
     /**
-     * Set published
-     *
-     * @param \DateTime $published
-     *
-     * @return Article
-     */
-    public function setPublished($published)
-    {
-        $this->published = $published;
-
-        return $this;
-    }
-
-    /**
-     * Get published
-     *
-     * @return \DateTime
-     */
-    public function getPublished()
-    {
-        return $this->published;
-    }
-
-    /**
      * Set image
      *
      * @param \BlogBundle\Entity\Article $image
      *
      * @return Article
      */
-    public function setImage(\BlogBundle\Entity\Article $image = null)
+    public function setImage($image)
     {
         $this->image = $image;
 
-        return $this;
+        return $image;
     }
 
     /**
@@ -238,20 +225,19 @@ class Article
      */
     public function __construct()
     {
-        $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->commentaires = new ArrayCollection();
+        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
      * Add category
      *
-     * @param \BlogBundle\Entity\Categories $category
+     * @param \BlogBundle\Entity\Category $category
      *
      * @return Article
      */
-    public function addCategory(\BlogBundle\Entity\Categories $category)
+    public function addCategory(\BlogBundle\Entity\Category $category)
     {
-        $this->categories[] = $category;
+        $this->category[] = $category;
 
         return $this;
     }
@@ -259,21 +245,21 @@ class Article
     /**
      * Remove category
      *
-     * @param \BlogBundle\Entity\Categories $category
+     * @param \BlogBundle\Entity\Category $category
      */
-    public function removeCategory(\BlogBundle\Entity\Categories $category)
+    public function removeCategory(\BlogBundle\Entity\Category $category)
     {
-        $this->categories->removeElement($category);
+        $this->category->removeElement($category);
     }
 
     /**
-     * Get categories
+     * Get category
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCategories()
+    public function getCategory()
     {
-        return $this->categories;
+        return $this->category;
     }
 
     /**
@@ -292,7 +278,7 @@ class Article
 
         return $this;
         /* Si la relation était falcutative (nullable=true), on aurait effectué
-        $commentaires->setArticle(null), autre point important, étant donné la relation définie plius tôt,
+        $commentaires->setArticle(null), autre point important, étant donné la relation définie plus tôt,
         on pourra faire $article->addCommentaire() mais pas $Commentaire->setArticle() !!!
         De cette façon, on conserve la logique établie plus tôt */
     }
@@ -317,7 +303,35 @@ class Article
         return $this->commentaires;
     }
 
-    public function updatedAt(){
-      return $this->updatedAt;
+    /**
+    * @ORM\PreUpdate
+    */
+    public function updateDate()
+    {
+      $this->setUpdatedAt(new \Datetime);
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return Article
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
     }
 }

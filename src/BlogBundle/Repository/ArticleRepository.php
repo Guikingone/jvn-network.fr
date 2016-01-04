@@ -13,9 +13,51 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
  */
 class ArticleRepository extends \Doctrine\ORM\EntityRepository
 {
+
+  public function getArticleTeam()
+  {
+    /* On récupère les articles avec les images en les triant par catégories, on sélectionne uniquement ceux
+    qui viennent du blog de l'Equipe, on trie par ordre descendant et on retourne le tout */
+    return $this->createQueryBuilder('a')
+                ->leftJoin('a.image', 'i')
+                  ->addSelect('i')
+                ->where('a.categorie = :categorie')
+                  ->setParameter('categorie', 'TEAM')
+                ->orderBy('a.datePublication', 'DESC')
+                ->getQuery()
+                ->getResult();
+  }
+
+  public function getArticleMembre()
+  {
+    /* On récupère les articles avec les images en les triant par catégories, on sélectionne uniquement ceux
+    qui viennent du blog des Membres, on trie par ordre descendant et on retourne le tout */
+    return $this->createQueryBuilder('a')
+                ->leftJoin('a.image', 'i')
+                  ->addSelect('i')
+                ->where('a.categorie = :categorie')
+                  ->setParameter('categorie', 'MEMBRE')
+                ->orderBy('a.datePublication', 'DESC')
+                ->getQuery()
+                ->getResult();
+  }
+
+  public function getArticleKrma()
+  {
+    /* On récupère les articles avec les images en les triant par catégories, on sélectionne uniquement ceux
+    qui viennent du blog de Krma, on trie par ordre descendant et on retourne le tout */
+    return $this->createQueryBuilder('a')
+                ->leftJoin('a.image', 'i')
+                  ->addSelect('i')
+                ->where('a.categorie = :categorie')
+                  ->setParameter('categorie', 'KRMA')
+                ->getQuery()
+                ->getResult();
+  }
+
   public function getArticle($page, $nbPerPpage)
   {
-    /* On joint les images à chaque article et on trie le tout par order descendant */
+    /* On joint les images à chaque article et on trie le tout par ordre descendant */
     $query = $this->createQueryBuilder('a')
                   ->leftJoin('a.image', 'i')
                     ->addSelect('i')
