@@ -1,0 +1,62 @@
+{% extends ('CoreBundle::layout.html.twig')%}
+
+{% block body %}
+<div class="container">
+  <!-- On affiche les messages flash -->
+  {% for message in app.session.flashbag.get('success') %}
+    <div class="alert alert-success">Message flash : {{message}}</div>
+  {% endfor %}
+  <div class="row">
+    <p class="text-center">Note importante : Tout modification doit être vérifiée avant validation,
+    toute modification est récupérable 24H après son application, veillez donc à vérifier attentivement
+    vos actions !</p>
+    <hr />
+    <br>
+      <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+          <ul class="nav nav-tabs nav-justified">
+              <li class="active"><a href="#articles" data-toggle="tab">Articles</a></li>
+              <li><a href="#comments" data-toggle="tab">Commentaires</a></li>
+          </ul>
+      </div>
+  </div>
+  <div class="tab-content">
+      <div class="tab-pane fade in active adminTable" id="articles">
+        <!-- On créer une boucle afin de savoir si des articles sont trouvés, si oui, on affiche le menu
+        d'édition, sinon on affiche un message d'erreur -->
+        {% if article is not null %}
+          <div class="table-responsive">
+              <table class="table table-hover table-condensed">
+                <br>
+                  <thead>
+                      <tr>
+                          <th>Titre</th>
+                          <th>Contenu</th>
+                          <th>Date de publication</th>
+                          <th>Auteur</th>
+                          <th>Options</th>
+                      </tr>
+                  </thead>
+                  {% for article in article %}
+                  <!-- On affiche les articles en affichant le titre, le contenu (limité à 45 caractères),
+                  la date de publication ainsi que son auteur -->
+                  <tr>
+                    <td>{{ article.titre }}</td>
+                    <td>{{ article.contenu[:45] }}</td>
+                    <td>{{ article.datePublication | date('d/m/Y')}}</td>
+                    <td>{{ article.auteur }}</td>
+                    <td><a href="{{ path('membre_delete', {'id': article.id }) }}" class="btn btn-danger">Supprimer</a> <a class="btn btn-primary" href="{{ path('membre_update', {'id': article.id }) }}">Modifier</a></td>
+                  </tr>
+                  {% endfor %}
+              </table>
+          </div>
+          <a href="{{ path('membre_add') }}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Ajouter un article</button></a>
+      </div>
+      {% else %}
+        <div class="alert alert-danger"><p>Articles introuvable</p></div>
+      {% endif %}
+      <div class="tab-pane fade adminTable" id="comments">
+        <!-- On affichera les commentaires du blog afin de pouvoir les modifier -->
+      </div>
+  </div>
+</div>
+{% endblock %}

@@ -34,7 +34,7 @@ team_article:
 
 membre_blog:
     path:     /membre_blog
-    defaults: { _controller: BlogBundle:Membre:index }
+    defaults: { _controller: BlogBundle:Membre:index, page: 3 }
 
 membre_admin:
     path:     /membre_admin
@@ -66,7 +66,7 @@ membre_delete:
 
 krma_blog:
     path:     /krma_blog
-    defaults: { _controller: BlogBundle:Krma:index }
+    defaults: { _controller: BlogBundle:Krma:index, page: 2 }
 
 krma_admin:
     path:     /krma_admin

@@ -16,7 +16,6 @@
           <ul class="nav nav-tabs nav-justified">
               <li class="active"><a href="#articles" data-toggle="tab">Articles</a></li>
               <li><a href="#comments" data-toggle="tab">Commentaires</a></li>
-              <li><a href="#users" data-toggle="tab">Utilisateurs</a></li>
           </ul>
       </div>
   </div>
@@ -45,12 +44,12 @@
                     <td>{{ article.contenu[:45] }}</td>
                     <td>{{ article.datePublication | date('d/m/Y')}}</td>
                     <td>{{ article.auteur }}</td>
-                    <td><a href="{{ path('team_delete', {'id': article.id }) }}" class="btn btn-danger">Supprimer</a> <a class="btn btn-primary" href="{{ path('team_update', {'id': article.id }) }}">Modifier</a></td>
+                    <td><a href="{{ path('krma_delete', {'id': article.id }) }}" class="btn btn-danger">Supprimer</a> <a class="btn btn-primary" href="{{ path('krma_update', {'id': article.id }) }}">Modifier</a></td>
                   </tr>
                   {% endfor %}
               </table>
           </div>
-          <a href="{{ path('team_add') }}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Ajouter un article</button></a>
+          <a href="{{ path('krma_add') }}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Ajouter un article</button></a>
       </div>
       {% else %}
         <div class="alert alert-danger"><p>Articles introuvable</p></div>
@@ -58,10 +57,6 @@
       <div class="tab-pane fade adminTable" id="comments">
         <!-- On affichera les commentaires du blog afin de pouvoir les modifier -->
       </div>
-      <div class="tab-pane fade adminTable" id="users">
-        <!-- On affichera les utilisateurs inscrits afin de pouvoir les manipuler -->
-      </div>
   </div>
 </div>
-
 {% endblock %}

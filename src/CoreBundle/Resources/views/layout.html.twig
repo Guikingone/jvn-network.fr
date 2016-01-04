@@ -29,9 +29,9 @@
                 {% elseif is_granted('ROLE_ADMIN')%}
                   <li><a tabindex="-1" href="#"></i>Administration</a></li>
                 {% elseif is_granted('ROLE_KRMA')%}
-                  <li><a tabindex="-1" href="#"></i>KRMA Blog</a></li>
+                  <li><a tabindex="-1" href="#"></i>Back Office || KRMA Blog</a></li>
                 {% elseif is_granted('ROLE_AUTEUR')%}
-                  <li><a tabindex="-1" href="#"></i>MEMBRE Blog</a></li>
+                  <li><a tabindex="-1" href="{{path('membre_admin')}}"></i>Back Office || MEMBRE Blog</a></li>
                 {% endif %}
                 <li class="divider"></li>
                 <!-- Les routes reliées à la boutique seront définies plus tard -->
