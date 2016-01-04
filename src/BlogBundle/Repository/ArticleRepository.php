@@ -73,17 +73,6 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
     return new Paginator($query, true);
   }
 
-  public function getArticleAll()
-  {
-    /* On joint les images à chaque article et on trie le tout par order descendant, on récupère le tout
-    via $query */
-    return $this->createQueryBuilder('a')
-                ->leftJoin('a.image', 'i')
-                  ->addSelect('i')
-                  ->getQuery()
-                  ->getResult();
-  }
-
   public function removeArticle($id)
   {
     /* On sélectionne l'article selon ID, on y joint les images afin de ne pas laisser d'image

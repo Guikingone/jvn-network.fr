@@ -10,10 +10,6 @@ team_home:
     resource: "@BlogBundle/Resources/config/routing.yml"
     prefix:   /Blog
 
-krma_home:
-    resource: "@KrmaBundle/Resources/config/routing.yml"
-    prefix:   /krma
-
 forums_home:
     resource: "@ForumsBundle/Resources/config/routing.yml"
     prefix:   /forums

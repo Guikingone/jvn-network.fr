@@ -17,7 +17,7 @@ class TeamController extends Controller {
   {
     $article = $this->getDoctrine()->getManager()
                     ->getRepository('BlogBundle:Article')
-                    ->getArticleAll();
+                    ->getArticleTeam();
 
     return $this->render('BlogBundle:Team:admin.html.twig', array(
       'article' => $article
@@ -27,7 +27,8 @@ class TeamController extends Controller {
   public function addAction(Request $request)
   {
     /* On créer un nouvel article, on définit la date en fonction du jour
-    afin de faciliter le travail de l'auteur, si besoin, il pourra la modifier via le formulaire */
+    afin de faciliter le travail de l'auteur, si besoin, il pourra la modifier via le formulaire, on ajoute aussi
+    la catégorie afin de forcer l'affichage automatique */
     $art = new Article();
     $art->setDatePublication(new \Datetime);
     $art->setCategorie('TEAM');

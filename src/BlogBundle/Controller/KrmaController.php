@@ -11,9 +11,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class KrmaController extends Controller
 {
-    public function indexAction($page)
+    public function indexAction()
     {
-
+      return $this->render('BlogBundle:Krma:index.html.twig');
     }
 
     public function viewAction(Article $article)
@@ -23,7 +23,7 @@ class KrmaController extends Controller
 
     public function adminAction()
     {
-      
+
     }
 
     public function addAction()

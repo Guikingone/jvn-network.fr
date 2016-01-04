@@ -40,6 +40,12 @@ membre_admin:
     path:     /membre_admin
     defaults: { _controller: BlogBundle:Membre:admin }
 
+membre_article:
+    path:     /membre_blog/article/{id}
+    defaults: { _controller: BlogBundle:Membre:view }
+    requirements:
+        id: \d+
+
 membre_add:
     path:     /membre_add
     defaults: { _controller: BlogBundle:Membre:add }
@@ -56,12 +62,6 @@ membre_delete:
     requirements:
         id: \d+
 
-membre_article:
-    path:     /membre_blog/article/{id}
-    defaults: { _controller: BlogBundle:Membre:view }
-    requirements:
-        id: \d+
-
 # Déclaration des routes KRMA #
 
 krma_blog:
@@ -72,7 +72,7 @@ krma_admin:
     path:     /krma_admin
     defaults: { _controller: BlogBundle:Krma:admin }
 
-krma_view:
+krma_article:
     path:     /krma_blog/article/{id}
     defaults: { _controller: BlogBundle:Krma:view }
     requirements:
@@ -81,3 +81,15 @@ krma_view:
 krma_add:
     path:     /krma_add
     defaults: { _controller: BlogBundle:Krma:add }
+
+krma_update:
+    path:     /krma_update/{id}
+    defaults: { _controller: BlogBundle:Krma:update }
+    requirements:
+        id: \d+
+
+krma_delete:
+    path:     /krma_delete/{id}
+    defaults: { _controller: BlogBundle:Krma:delete }
+    requirements:
+        id: \d+
