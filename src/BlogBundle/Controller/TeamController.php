@@ -15,31 +15,15 @@ class TeamController extends Controller {
 
   public function indexAction($page)
   {
-    /** On récupére les articles via le repository Article et la fonction getArticle puis
-    on calcule le nombre d'article par page afin qu'il match avec $nbrPerPage, si la page
-    est introuvable ou plus grande que le nombre d'articles par page, on affiche une erreur sinon,
-    on retourne la vue avec les variables transmises */
-
-    if ($page < 1) {
-        throw $this->createNotFoundException("La page ".$page." n'existe pas.");
-    }
-
-    $nbrPerPage = 10;
-
-    $listArticle = $this->getDoctrine()
-                        ->getManager()
-                        ->getRepository('BlogBundle:Article')
-                        ->getArticle($page, $nbrPerPage);
-    $nbPages = ceil(count($listArticle)/$nbrPerPage);
-
-    if($page > $nbPages){
-      throw $this->CreateNotFoundException("La page" . $page . "n'existe pas");
-    }
+    /** On récupère les articles via le repository Article et la fonction getArticleTeam, puis on retourne le tout
+    dans la vue via une boucle for afin d'afficher les articles */
+    $article = $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository('BlogBundle:Article')
+                    ->getArticleTeam();
 
     return $this->render('BlogBundle:Team:index.html.twig', array(
-      'article' => $listArticle,
-      'nbPages' => $nbPages,
-      'page' => $page
+      'article' => $article
     ));
   }
 

@@ -14,8 +14,15 @@ use BlogBundle\Form\Type\CommentaireType;
 
 class MembreController extends Controller {
 
-  public function indexAction()
+  public function indexAction(Request $request)
   {
+    /** On récupère les articles via le repository Article et la fonction getArticleMembre,  puis on retourne le tout
+    dans la vue via une boucle for afin d'afficher les articles */
+    $article = $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository('BlogBundle:Article')
+                    ->getArticleMembre();
+
     return $this->render('BlogBundle:Membre:index.html.twig', array(
       'article' => $article
     ));

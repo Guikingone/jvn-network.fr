@@ -13,12 +13,21 @@ use BlogBundle\Form\Type\ArticleEditType;
 use BlogBundle\Form\Type\CommentaireType;
 // Bien penser à HttpKernel pour afficher l'erreur d'ID
 
-class KrmaController extends Controller
-{
-    public function indexAction(Request $request)
-    {
-      return $this->render('BlogBundle:Krma:index.html.twig');
-    }
+class KrmaController extends Controller{
+
+  public function indexAction()
+  {
+    /** On récupère les articles via le repository Article et la fonction getArticleKrma, puis on retourne le tout
+    dans la vue via une boucle for afin d'afficher les articles */
+    $article = $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository('BlogBundle:Article')
+                    ->getArticleKrma();
+                    
+    return $this->render('BlogBundle:Krma:index.html.twig', array(
+      'article' => $article
+    ));
+  }
 
     public function viewAction(Article $article)
     {
