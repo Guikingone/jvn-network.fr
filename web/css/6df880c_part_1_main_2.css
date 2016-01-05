@@ -103,13 +103,20 @@ textarea {
 		font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
 	}
 
+  .hero{
+    background: url('../../Resources/public/images/hero_image.jpg') center no-repeat top;
+    height: auto;
+    background-attachment: relative;
+    width: 100%;
+  }
+
 /* ==========================================================================
     Navbar Style
    ========================================================================== */
 
 		.navbar-default {
 			border-color: transparent;
-			background-color: #fff;
+			background-color: transparent;
 		}
 		.navbar-default .navbar-brand {
 			font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
