@@ -13,7 +13,7 @@ use BlogBundle\Entity\Commentaire;
 
 class TeamController extends Controller {
 
-  public function indexAction($page)
+  public function indexAction()
   {
     /** On récupère les articles via le repository Article et la fonction getArticleTeam, puis on retourne le tout
     dans la vue via une boucle for afin d'afficher les articles */
@@ -119,8 +119,10 @@ class TeamController extends Controller {
     on ouvre le formulaire de modification, on valide, on affiche un message d'info afin
     de valider l'opération et on redirige vers la page d'administration */
 
-    $um = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Article');
-    $um->getUpdateArticle($id);
+    $um = $this->getDoctrine()
+               ->getManager()
+               ->getRepository('BlogBundle:Article')
+               ->getUpdateArticle($id);
 
     if(null === $um)
     {
