@@ -10,4 +10,10 @@ namespace ForumsBundle\Repository;
  */
 class ForumsRepository extends \Doctrine\ORM\EntityRepository
 {
+  public function getSujet()
+  {
+    return $this->createQueryBuilder('f')
+                ->getQuery()
+                ->getResult();
+  }
 }
