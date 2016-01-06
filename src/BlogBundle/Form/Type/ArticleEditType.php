@@ -14,7 +14,7 @@ class ArticleEditType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         /* On interdit de modifier la date de publication, cela assure la cohérence dans la BDD */
-        $builder->remove('date');
+        $builder->remove('datePublication', 'datetime');
     }
 
     public function getParent()
