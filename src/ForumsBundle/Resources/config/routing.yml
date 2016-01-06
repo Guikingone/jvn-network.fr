@@ -2,6 +2,10 @@ forums_home:
     path:     /forums
     defaults: { _controller: ForumsBundle:Forums:index }
 
+forums_view:
+    path:     /forums/view/{id}
+    defaults: { _controller: ForumsBundle:Forums:view }
+
 forums_general:
     path:     /general
     defaults: { _controller: ForumsBundle:General:index }

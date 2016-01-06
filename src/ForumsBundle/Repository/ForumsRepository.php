@@ -13,6 +13,9 @@ class ForumsRepository extends \Doctrine\ORM\EntityRepository
   public function getSujet()
   {
     return $this->createQueryBuilder('f')
+                ->leftJoin('f.sujet', 's')
+                ->where('f.sujet = :sujet')
+                  ->setParameter('sujet')
                 ->getQuery()
                 ->getResult();
   }

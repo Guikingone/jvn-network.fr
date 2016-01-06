@@ -10,4 +10,11 @@ class ForumsController extends Controller
     {
         return $this->render('ForumsBundle::index.html.twig');
     }
+
+    public function viewAction()
+    {
+      return $this->render('ForumsBundle::view.html.twig', array(
+        'id' => $id
+      ));
+    }
 }

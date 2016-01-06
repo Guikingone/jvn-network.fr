@@ -49,11 +49,6 @@ class Sujet
      */
     private $contenu;
 
-    /**
-    * @ORM\Column(name="forum", type="string", length=255)
-    */
-    private $forum;
-
 
     /**
      * Get id

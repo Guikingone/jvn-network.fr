@@ -43,6 +43,7 @@ class Forums
     private $nbrMessages;
 
     /**
+    * @ORM\ManyToMany(targetEntity="forumsBundle\Entity\Sujet", cascade={"persist"})
     * @ORM\Column(name="sujets", type="string", length=255)
     */
     private $sujets;
@@ -128,5 +129,29 @@ class Forums
     public function getNbrMessages()
     {
         return $this->nbrMessages;
+    }
+
+    /**
+     * Set sujets
+     *
+     * @param string $sujets
+     *
+     * @return Forums
+     */
+    public function setSujets($sujets)
+    {
+        $this->sujets = $sujets;
+
+        return $this;
+    }
+
+    /**
+     * Get sujets
+     *
+     * @return string
+     */
+    public function getSujets()
+    {
+        return $this->sujets;
     }
 }

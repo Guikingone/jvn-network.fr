@@ -3,6 +3,7 @@
 {% block body %}
 <div class="container">
   <p class="text-center"><a href="{{ path('team_home') }}">Retour au blog</a></p>
+  <p class="text-center"><a href="{{ path('team_admin')}}">Retour à l'espace d'administration</a></p>
   <!-- On affiche les messages flash -->
     {% for message in app.session.flashbag.get('success') %}
       <div class="alert alert-success">Message flash : {{message}}</div>

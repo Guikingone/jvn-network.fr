@@ -43,6 +43,7 @@ class Forums
     private $nbrMessages;
 
     /**
+    * @ORM\ManyToMany(targetEntity="forumsBundle\Entity\Sujet", cascade={"persist"})
     * @ORM\Column(name="sujets", type="string", length=255)
     */
     private $sujets;
