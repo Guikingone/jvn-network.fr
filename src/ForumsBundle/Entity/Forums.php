@@ -43,11 +43,10 @@ class Forums
     private $nbrMessages;
 
     /**
-    * @ORM\ManyToMany(targetEntity="forumsBundle\Entity\Sujet", cascade={"persist"})
+    * @ORM\OneToMany(targetEntity="ForumsBundle\Entity\Sujet", cascade={"persist"})
     * @ORM\Column(name="sujets", type="string", length=255)
     */
     private $sujets;
-
 
     /**
      * Get id
@@ -153,5 +152,29 @@ class Forums
     public function getSujets()
     {
         return $this->sujets;
+    }
+
+    /**
+     * Set messages
+     *
+     * @param string $messages
+     *
+     * @return Forums
+     */
+    public function setMessages($messages)
+    {
+        $this->messages = $messages;
+
+        return $this;
+    }
+
+    /**
+     * Get messages
+     *
+     * @return string
+     */
+    public function getMessages()
+    {
+        return $this->messages;
     }
 }

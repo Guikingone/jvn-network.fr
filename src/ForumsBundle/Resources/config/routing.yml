@@ -8,4 +8,16 @@ forums_view:
 
 forums_general:
     path:     /general
-    defaults: { _controller: ForumsBundle:General:index }
+    defaults: { _controller: ForumsBundle:Forums:general }
+
+forums_consoles:
+    path:     /consoles
+    defaults : { _controller: ForumsBundle:Forums:consoles }
+
+forums_pc:
+    path:     /pc
+    defaults: { _controller: ForumsBundle:Forums:pc }
+
+forums_admin:
+    path:     /admin
+    defaults: { _controller: ForumsBundle:Forums:admin }

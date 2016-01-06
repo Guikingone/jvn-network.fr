@@ -49,6 +49,12 @@ class Sujet
      */
     private $contenu;
 
+    /**
+    * @var string
+    * @ORM\Column(name="category", type="string", length=255)
+    */
+    private $category;
+    
 
     /**
      * Get id

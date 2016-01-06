@@ -10,5 +10,33 @@ namespace ForumsBundle\Repository;
  */
 class SujetRepository extends \Doctrine\ORM\EntityRepository
 {
-  
+  public function getSujetGeneral()
+  {
+    return $this->createQueryBuilder('sg')
+                ->where('sg.category = :category')
+                  ->setParameter('category', 'General')
+                ->orderBy('sg.dateCreation', 'DESC')
+                ->getQuery()
+                ->getResult();
+  }
+
+  public function getSujetConsoles()
+  {
+    return $this->createQueryBuilder('sc')
+                ->where('sc.category = :category')
+                  ->setParameter('category', 'Consoles')
+                ->orderBy('sc.dateCreation', 'DESC')
+                ->getQuery()
+                ->getResult();
+  }
+
+  public function getSujetPC()
+  {
+
+  }
+
+  public function getSujetAdmin()
+  {
+
+  }
 }

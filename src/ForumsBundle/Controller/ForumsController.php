@@ -17,4 +17,41 @@ class ForumsController extends Controller
         'id' => $id
       ));
     }
+
+    public function generalAction()
+    {
+      $general = $this->getDoctrine()
+                      ->getManager()
+                      ->getRepository('ForumsBundle:Sujet')
+                      ->getSujetGeneral();
+
+      return $this->render('ForumsBundle:General:index.html.twig', array(
+        'general' => $general
+      ));
+    }
+
+    public function consolesAction()
+    {
+      $consoles = $this->getDoctrine()
+                       ->getManager()
+                       ->getRepository('ForumsBundle:Sujet')
+                       ->getSujetConsoles();
+      return $this->render('ForumsBundle:Consoles:index.html.twig', array(
+        'consoles' => $consoles
+      ));
+    }
+
+    public function pcAction()
+    {
+      return $this->render('ForumsBundle:PC:index.html.twig', array(
+        'pc' => $pc
+      ));
+    }
+
+    public function adminAction()
+    {
+      return $this->render('ForumsBundle:Admin:index.html.twig', array(
+        'admin' => $admin
+      ));
+    }
 }
