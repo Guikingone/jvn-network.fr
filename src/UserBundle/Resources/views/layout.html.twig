@@ -3,15 +3,18 @@
 {% block body %}
 <div class="container">
   <div class="row">
-    {% for key, message in app.session.flashbag.all() %}
-      <div class="alert alert-{{key}}">
-        {{ message|trans()}}
+    <div clas="col-lg-12">
+      <div class="text-center">
+        <!-- On affiche le message d'informations pour la validation du compte -->
+          {% for message in app.session.flashbag('info') %}
+            <div class="alert alert-info">{{ message }}</div>
+          {% endfor %}
+          {% block fos_user_content %}
+
+
+          {% endblock fos_user_content %}
       </div>
-    {% endfor %}
-    {% block fos_user_content %}
-
-
-    {% endblock fos_user_content %}
+    </div>
   </div>
 </div>
 {% endblock %}

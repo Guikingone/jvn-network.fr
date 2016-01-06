@@ -124,11 +124,6 @@ class TeamController extends Controller {
                ->getRepository('BlogBundle:Article')
                ->getUpdateArticle($id);
 
-    if(null === $um)
-    {
-      throw new NotFoundHttpException("L'annonce avec l'id" . $id . "n'existe pas ou a été supprimée");
-    }
-
     $form = $this->createForm(ArticleEditType::class);
 
     /* Ici, on se contente de vérifier que tout est valide, on ne persise pas car Doctrine connaît l'entité,

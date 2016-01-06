@@ -4,8 +4,9 @@ namespace BlogBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use BlogBundle\Form\Type\ArticleType;
 
-class ArticleEditType extends AbstractType
+class ArticleEditType extends ArticleType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -14,7 +15,7 @@ class ArticleEditType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         /* On interdit de modifier la date de publication, cela assure la cohérence dans la BDD */
-        $builder->remove('datePublication', 'datetime');
+        $builder->remove('datePublication');
     }
 
     public function getParent()
