@@ -49,4 +49,16 @@ class SujetRepository extends \Doctrine\ORM\EntityRepository
                 ->getQuery()
                 ->getResult();
   }
+
+  public function removeSujet($id)
+  {
+    /* On sélectionne l'article selon ID, on y joint les images afin de ne pas laisser d'image
+    sans article puis on supprime l'article */
+    return $this->createQueryBuilder('a')
+                ->where('a.id = :id')
+                  ->setParameter('id', $id)
+                ->delete()
+                ->getQuery()
+                ->getResult();
+  }
 }

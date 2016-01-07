@@ -1,3 +1,4 @@
+# Déclarations des routes globales #
 forums_home:
     path:     /forums
     defaults: { _controller: ForumsBundle:Forums:index }
@@ -8,9 +9,23 @@ forums_view:
     requirements:
         id: \d+
 
+forums_delete:
+    path:     /forums/delete/{id}
+    defaults: { _controller: ForumsBundle:Forums:delete }
+    requirements:
+        id: \d+
+
+# Défintion des routes du forum General #
+
 forums_general:
     path:     /general
-    defaults: { _controller: ForumsBundle:Forums:general }
+    defaults: { _controller: ForumsBundle:General:index }
+
+forums_general_add:
+    path:     /general/Add
+    defaults: { _controller: ForumsBundle:General:add }
+
+
 
 forums_consoles:
     path:     /consoles

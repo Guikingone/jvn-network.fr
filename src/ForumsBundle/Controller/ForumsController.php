@@ -31,6 +31,16 @@ class ForumsController extends Controller
       ));
     }
 
+    public function deleteAction(Request $request)
+    {
+      $delete = $this->get('forumsbundle.forums_purger');
+      $delete->purger($id);
+
+      $request->getSession()->getFlashBag()->add('Success', 'Sujet supprimé !');
+
+      return $this->redirectToRoute('forums_home');
+    }
+
     public function generalAction(Request $request)
     {
       $general = $this->getDoctrine()
