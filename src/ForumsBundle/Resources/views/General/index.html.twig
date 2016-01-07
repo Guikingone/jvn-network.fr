@@ -4,6 +4,9 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
+      {% for message in app.session.flashbag.get('success_forums') %}
+        <div class="alert alert-success">Message flash : {{ message }}</div>
+      {% endfor %}
       <p class="text-center"><a href="{{path('forums_home')}}">Retour à l'index</a></p>
       <h2 class="text-center">Le forum General(iste)</h2>
       <hr />
@@ -14,11 +17,43 @@
         <br>
       {% endfor %}
     </div>
+    {% if is_granted('IS_AUTHENTICATED_REMEMBERED')%}
     <div class="row">
-      <div class="well">
-        <!-- Formulaire de création de sujet -->
+      <div class="col-lg-12">
+        <div class="well">
+          <!-- Formulaire de création de sujet -->
+          <div class="form-group">
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+            <div class="form-group">
+              {{ form_label(form.titre, "Ajouter un titre", {'label_attr': {'class': 'control-label'}}) }}
+              {{ form_errors(form.titre) }}
+              {{ form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+              {{ form_label(form.auteur, "Auteur", {'label_attr': {'class': 'control-label'}}) }}
+              {{ form_errors(form.auteur) }}
+              {{ form_widget(form.auteur, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+              {{ form_label(form.dateCreation, "Date de publication", {'label_attr': {'class': 'control-label'}}) }}
+              {{ form_errors(form.dateCreation) }}
+              {{ form_widget(form.dateCreation, {'attr': {'class': 'control-label'}}) }}
+            </div>
+            <div class="form-group">
+              {{ form_label(form.contenu, "Contenu", {'label_attr': {'class': 'control-label'}}) }}
+              {{ form_errors(form.contenu) }}
+              {{ form_widget(form.contenu, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+              {{ form_widget(form.save, {'attr': {'class': 'btn btn-danger form-control'}})}}
+            </div>
+            {{ form_end(form) }}
+          </div>
+        </div>
       </div>
     </div>
   </div>
+  {% endif %}
 </div>
 {% endblock %}

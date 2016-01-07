@@ -31,51 +31,131 @@ class ForumsController extends Controller
       ));
     }
 
-    public function generalAction()
+    public function generalAction(Request $request)
     {
       $general = $this->getDoctrine()
                       ->getManager()
                       ->getRepository('ForumsBundle:Sujet')
                       ->getSujetGeneral();
 
+      $s_General = new Sujet();
+      $s_General->setDateCreation(new \Datetime);
+      $s_General->setCategory('General');
+
+      /* On appelle le formulaire depuis le namespace Form, on définit l'objet qui l'appelle puis on fait le lien
+      requête <-> formulaire */
+      $form_general = $this->createForm(SujetType::class, $s_General);
+      $form_general->handleRequest($request);
+
+      /* On vérifie que les données sont valides, on les persist, on enregistre le tout et on renvoit un message
+      flash afin de valider l'enregistrement du sujet */
+          if($form_general->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($s_General);
+            $em->flush();
+            $request->getSession()->getFlashBag()->add('success_forums', "Sujet enregistré");
+          }
+
       return $this->render('ForumsBundle:General:index.html.twig', array(
-        'general' => $general
+        'general' => $general,
+        'form' => $form_general->createView()
       ));
     }
 
-    public function consolesAction()
+    public function consolesAction(Request $request)
     {
       $consoles = $this->getDoctrine()
                        ->getManager()
                        ->getRepository('ForumsBundle:Sujet')
                        ->getSujetConsoles();
 
+
+      $s_Consoles = new Sujet();
+      $s_Consoles->setDateCreation(new \Datetime);
+      $s_Consoles->setCategory('Consoles');
+
+      /* On appelle le formulaire depuis le namespace Form, on définit l'objet qui l'appelle puis on fait le lien
+      requête <-> formulaire */
+      $form_consoles = $this->createForm(SujetType::class, $s_Consoles);
+      $form_consoles->handleRequest($request);
+
+      /* On vérifie que les données sont valides, on les persist, on enregistre le tout et on renvoit un message
+      flash afin de valider l'enregistrement du sujet */
+        if($form_consoles->isValid()){
+          $em = $this->getDoctrine()->getManager();
+          $em->persist($s_Consoles);
+          $em->flush();
+          $request->getSession()->getFlashBag()->add('success_forums', "Sujet enregistré");
+        }
+
       return $this->render('ForumsBundle:Consoles:index.html.twig', array(
-        'consoles' => $consoles
+        'consoles' => $consoles,
+        'form' => $form_consoles->createView()
       ));
     }
 
-    public function pcAction()
+    public function pcAction(Request $request)
     {
       $pc = $this->getDoctrine()
                  ->getManager()
                  ->getRepository('ForumsBundle:Sujet')
                  ->getSujetPC();
 
+
+      $s_Pc = new Sujet();
+      $s_Pc->setDateCreation(new \Datetime);
+      $s_Pc->setCategory('Pc');
+
+      /* On appelle le formulaire depuis le namespace Form, on définit l'objet qui l'appelle puis on fait le lien
+      requête <-> formulaire */
+      $form_pc = $this->createForm(SujetType::class, $s_Pc);
+      $form_pc->handleRequest($request);
+
+      /* On vérifie que les données sont valides, on les persist, on enregistre le tout et on renvoit un message
+      flash afin de valider l'enregistrement du sujet */
+          if($form_pc->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($s_Pc);
+            $em->flush();
+            $request->getSession()->getFlashBag()->add('success_forums', "Sujet enregistré");
+          }
+
+
       return $this->render('ForumsBundle:PC:index.html.twig', array(
-        'pc' => $pc
+        'pc' => $pc,
+        'form' => $form_pc->createView()
       ));
     }
 
-    public function adminAction()
+    public function adminAction(Request $request)
     {
       $admin = $this->getDoctrine()
                     ->getManager()
                     ->getRepository('ForumsBundle:Sujet')
                     ->getSujetAdmin();
-                    
+
+      $s_Admin = new Sujet();
+      $s_Admin->setDateCreation(new \Datetime);
+      $s_Admin->setCategory('Admin');
+
+      /* On appelle le formulaire depuis le namespace Form, on définit l'objet qui l'appelle puis on fait le lien
+      requête <-> formulaire */
+      $form_admin = $this->createForm(SujetType::class, $s_Admin);
+      $form_admin->handleRequest($request);
+
+      /* On vérifie que les données sont valides, on les persist, on enregistre le tout et on renvoit un message
+      flash afin de valider l'enregistrement du sujet */
+        if($form_admin->isValid()){
+          $em = $this->getDoctrine()->getManager();
+          $em->persist($s_Admin);
+          $em->flush();
+          $request->getSession()->getFlashBag()->add('success_forums', "Sujet enregistré");
+        }
+
+
       return $this->render('ForumsBundle:Admin:index.html.twig', array(
-        'admin' => $admin
+        'admin' => $admin,
+        'form' => $form_admin->createView()
       ));
     }
 }

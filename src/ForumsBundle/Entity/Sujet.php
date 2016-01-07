@@ -185,4 +185,28 @@ class Sujet
     {
         return $this->forum;
     }
+
+    /**
+     * Set category
+     *
+     * @param string $category
+     *
+     * @return Sujet
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return string
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
 }
