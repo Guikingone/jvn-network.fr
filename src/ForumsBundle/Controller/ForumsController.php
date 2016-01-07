@@ -19,15 +19,20 @@ class ForumsController extends Controller
 
     public function viewAction(Sujet $sujet)
     {
-      /* on récupère le sujet selon son ID, on retourne le tout via une boucle for */
+      /* on récupère le sujet selon son ID, on retourne le tout via une boucle for, par la suite,
+      on recherche les messages affiliés à ce sujet, on les affichera via une boucle for */
       $sujet = $this->getDoctrine()
                    ->getManager()
                    ->getRepository('ForumsBundle:Sujet')
                    ->find($sujet);
 
+      $msg_Sujet = $sujet->getRepository('ForumsBundle:Message')
+                         ->findBy(array('sujet' => $sujet));
+
 
       return $this->render('ForumsBundle::view.html.twig', array(
-        'sujet' => $sujet
+        'sujet' => $sujet,
+        'messages' => $msg_Sujet
       ));
     }
 

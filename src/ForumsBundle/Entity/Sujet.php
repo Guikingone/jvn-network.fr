@@ -54,7 +54,7 @@ class Sujet
     * @ORM\Column(name="category", type="string", length=255)
     */
     private $category;
-    
+
 
     /**
      * Get id
@@ -160,30 +160,6 @@ class Sujet
     public function getContenu()
     {
         return $this->contenu;
-    }
-
-    /**
-     * Set forum
-     *
-     * @param string $forum
-     *
-     * @return Sujet
-     */
-    public function setForum($forum)
-    {
-        $this->forum = $forum;
-
-        return $this;
-    }
-
-    /**
-     * Get forum
-     *
-     * @return string
-     */
-    public function getForum()
-    {
-        return $this->forum;
     }
 
     /**
