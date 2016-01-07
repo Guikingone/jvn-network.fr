@@ -24,20 +24,6 @@ class GeneralController extends Controller {
       ));
   }
 
-  public function viewAction(Sujet $sujet)
-  {
-    /* on récupère le sujet selon son ID, on retourne le tout via une boucle for */
-    $sujet = $this->getDoctrine()
-                 ->getManager()
-                 ->getRepository('ForumsBundle:Sujet')
-                 ->find($sujet);
-
-
-    return $this->render('ForumsBundle:General:view.html.twig', array(
-      'sujet' => $sujet
-    ));
-  }
-
   public function addAction(Request $request)
   {
     $general = $this->getDoctrine()
@@ -54,16 +40,16 @@ class GeneralController extends Controller {
     $form_general = $this->createForm(SujetType::class, $s_General);
     $form_general->handleRequest($request);
 
-    /* On vérifie que les données sont valides, on les persist, on enregistre le tout et on renvoit un message
-    flash afin de valider l'enregistrement du sujet */
+    /* On vérifie que les données sont valides, on les persist, on enregistre le tout
+    et on redirige vers l'index du forums */
         if($form_general->isValid()){
           $em = $this->getDoctrine()->getManager();
           $em->persist($s_General);
           $em->flush();
-          $request->getSession()->getFlashBag()->add('success_forums', "Sujet enregistré");
+          return $this->redirectToRoute('forums_general');
         }
 
-    return $this->render('ForumsBundle:General:index.html.twig', array(
+    return $this->render('ForumsBundle:General:add.html.twig', array(
       'general' => $general,
       'form' => $form_general->createView()
     ));

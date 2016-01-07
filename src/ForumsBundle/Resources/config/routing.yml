@@ -35,7 +35,7 @@ forums_general_add:
 
 forums_consoles:
     path:     /consoles
-    defaults : { _controller: ForumsBundle:Forums:index }
+    defaults : { _controller: ForumsBundle:Console:index }
 
 forums_consoles_add:
     path:     /consoles/add

@@ -18,7 +18,6 @@ class SujetType extends AbstractType
         $builder
             ->add('titre')
             ->add('auteur')
-            ->add('dateCreation')
             ->add('contenu')
             ->add('save', SubmitType::class)
         ;
