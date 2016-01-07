@@ -4,6 +4,11 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
+      <!-- On affiche les messages flash -->
+      {% for message in app.session.flashbag.get('success_forums') %}
+        <div class="alert alert-info text-center">Message flash : {{message}}</div>
+      {% endfor %}
+      <!-- On affiche une barre de présentation -->
       <h2 class="text-center">Bienvenue sur les forums</h2>
       <hr />
       <p class="text-center">Veuillez noter que ces forums sont modérés par les modérateurs désignés <a href="#">ici</a>, tout problème,
@@ -33,6 +38,7 @@
           <hr />
           <br>
           <br>
+          <!-- L'accès à la partie Administration se fait uniquement si l'utilisateur est authentifié comme Modérateur -->
           {% if is_granted('ROLE_MODERATEUR')%}
             <a href="{{path('forums_admin')}}" class="form-group"><p class="text-center">Administration</p></a>
             <p class="text-center">Discussions autour du site, des soucis et des demandes diverses, bref, tout

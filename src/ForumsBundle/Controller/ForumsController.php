@@ -31,45 +31,16 @@ class ForumsController extends Controller
       ));
     }
 
-    public function deleteAction(Request $request)
+    public function deleteAction(Request $request, $id)
     {
+      /* On récupère le service Purge afin de supprimer le sujet selon son ID, une fois supprimé, on renvoit
+      un message flash afin de valider la suppression */
       $delete = $this->get('forumsbundle.forums_purger');
-      $delete->purger($id);
+      $delete->purge($id);
 
-      $request->getSession()->getFlashBag()->add('Success', 'Sujet supprimé !');
+      $request->getSession()->getFlashBag()->add('success_forums', 'Sujet supprimé !');
 
       return $this->redirectToRoute('forums_home');
-    }
-
-    public function generalAction(Request $request)
-    {
-      $general = $this->getDoctrine()
-                      ->getManager()
-                      ->getRepository('ForumsBundle:Sujet')
-                      ->getSujetGeneral();
-
-      $s_General = new Sujet();
-      $s_General->setDateCreation(new \Datetime);
-      $s_General->setCategory('General');
-
-      /* On appelle le formulaire depuis le namespace Form, on définit l'objet qui l'appelle puis on fait le lien
-      requête <-> formulaire */
-      $form_general = $this->createForm(SujetType::class, $s_General);
-      $form_general->handleRequest($request);
-
-      /* On vérifie que les données sont valides, on les persist, on enregistre le tout et on renvoit un message
-      flash afin de valider l'enregistrement du sujet */
-          if($form_general->isValid()){
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($s_General);
-            $em->flush();
-            $request->getSession()->getFlashBag()->add('success_forums', "Sujet enregistré");
-          }
-
-      return $this->render('ForumsBundle:General:index.html.twig', array(
-        'general' => $general,
-        'form' => $form_general->createView()
-      ));
     }
 
     public function consolesAction(Request $request)

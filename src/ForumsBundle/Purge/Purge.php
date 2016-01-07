@@ -20,11 +20,10 @@ class Purge {
   {
     /* On récupère les sujets à supprimer via leur id et l'action removeSujet puis on flush
     afin de valider la suppression */
-    $purge = $this->getDoctrine()
-                  ->getManager()
+    $purge = $this->em
                   ->getRepository('ForumsBundle:Sujet')
                   ->removeSujet($id);
 
-    $this->flush();
+    $this->em->flush();
   }
 }
