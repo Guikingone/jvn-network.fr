@@ -35,8 +35,8 @@ class PcController extends Controller {
     $s_PC->setDateCreation(new \Datetime);
     $s_PC->setCategory('Pc');
 
-    /* On appelle le formulaire depuis le namespace Form, on définit l'objet qui l'appelle puis on fait le lien
-    requête <-> formulaire */
+    /* On appelle le formulaire depuis le namespace Form, on définit l'objet qui l'appelle
+    puis on fait le lien requête <-> formulaire */
     $form_pc = $this->createForm(SujetType::class, $s_PC);
     $form_pc->handleRequest($request);
 

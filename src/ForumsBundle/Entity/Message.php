@@ -130,4 +130,28 @@ class Message
     {
         return $this->dateMessage;
     }
+
+    /**
+     * Set sujet
+     *
+     * @param \ForumsBundle\Entity\Sujet $sujet
+     *
+     * @return Message
+     */
+    public function setSujet(\ForumsBundle\Entity\Sujet $sujet)
+    {
+        $this->sujet = $sujet;
+
+        return $this;
+    }
+
+    /**
+     * Get sujet
+     *
+     * @return \ForumsBundle\Entity\Sujet
+     */
+    public function getSujet()
+    {
+        return $this->sujet;
+    }
 }
