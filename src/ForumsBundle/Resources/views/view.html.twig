@@ -16,6 +16,11 @@
     <div class="row">
       <h4 class="text-center">Commentaires liés</h4>
       <hr />
+      {% for message in messages %}
+      {% endfor %}
+    </div>
+    <div class="row">
+        <a href="#" class="btn btn-info">Ajouter un commentaire</a>
     </div>
     {% if is_granted('ROLE_MODERATEUR')%}
     <div class="row">

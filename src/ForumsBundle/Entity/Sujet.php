@@ -55,6 +55,11 @@ class Sujet
     */
     private $category;
 
+    /**
+    * @ORM\OneToMany(targetEntity="ForumsBundle\Entity\Message", mappedBy="sujet")
+    */
+    private $messages;
+
 
     /**
      * Get id

@@ -18,7 +18,7 @@
     <br>
     <!-- On sépare l'article des commentaires et on affiche les commentaires via une boucle for -->
     <div class="row">
-      {% for comm in commentaire %}
+      {% for commentaire in commentaire %}
         <div class="text-center">
           <h3>{{ commentaire.auteur }}, le {{ commentaire.date_creation }} :</h3>
           <p class="text-center">{{ commentaire.contenu }}</p>

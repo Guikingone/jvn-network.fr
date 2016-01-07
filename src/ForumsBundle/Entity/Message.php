@@ -43,7 +43,8 @@ class Message
     private $dateMessage;
 
     /**
-    * @ORM\ManyToOne(targetEntity="ForumsBundle\Entity\Sujet")
+    * @ORM\ManyToOne(targetEntity="ForumsBundle\Entity\Sujet", cascade={"persist"}, inversedBy="messages")
+    * @ORM\JoinColumn(nullable=false)
     */
     private $sujet;
 
@@ -128,29 +129,5 @@ class Message
     public function getDateMessage()
     {
         return $this->dateMessage;
-    }
-
-    /**
-     * Set sujet
-     *
-     * @param \ForumsBundle\Entity\Sujet $sujet
-     *
-     * @return Message
-     */
-    public function setSujet(\ForumsBundle\Entity\Sujet $sujet = null)
-    {
-        $this->sujet = $sujet;
-
-        return $this;
-    }
-
-    /**
-     * Get sujet
-     *
-     * @return \ForumsBundle\Entity\Sujet
-     */
-    public function getSujet()
-    {
-        return $this->sujet;
     }
 }

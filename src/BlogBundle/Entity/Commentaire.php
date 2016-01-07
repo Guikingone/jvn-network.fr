@@ -12,12 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Commentaire
 {
-    /**
-    * @ORM\ManyToOne(targetEntity="BlogBundle\Entity\Article", cascade={"persist"}, inversedBy="commentaires")
-    * @ORM\JoinColumn(nullable=false)
-    * On force la présence d'un article pour la création d'un commentaire
-    */
-    private $article;
 
     /**
      * @var int
@@ -48,6 +42,13 @@ class Commentaire
      * @ORM\Column(name="contenu", type="text")
      */
     private $contenu;
+
+    /**
+    * @ORM\ManyToOne(targetEntity="BlogBundle\Entity\Article", cascade={"persist"}, inversedBy="commentaires")
+    * @ORM\JoinColumn(nullable=false)
+    * On force la présence d'un article pour la création d'un commentaire
+    */
+    private $article;
 
 
     /**
