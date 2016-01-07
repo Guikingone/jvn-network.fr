@@ -5,6 +5,8 @@ forums_home:
 forums_view:
     path:     /forums/view/{id}
     defaults: { _controller: ForumsBundle:Forums:view }
+    requirements:
+        id: \d+
 
 forums_general:
     path:     /general

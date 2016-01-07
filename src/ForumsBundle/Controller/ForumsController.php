@@ -3,18 +3,31 @@
 namespace ForumsBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpFoundation\Request;
+
+use ForumsBundle\Entity\Sujet;
+use ForumsBundle\Form\Type\SujetType;
 
 class ForumsController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         return $this->render('ForumsBundle::index.html.twig');
     }
 
-    public function viewAction()
+    public function viewAction(Sujet $sujet)
     {
+      /* on récupère le sujet selon son ID, on retourne le tout via une boucle for */
+      $sujet = $this->getDoctrine()
+                   ->getManager()
+                   ->getRepository('ForumsBundle:Sujet')
+                   ->find($sujet);
+
+
       return $this->render('ForumsBundle::view.html.twig', array(
-        'id' => $id
+        'sujet' => $sujet
       ));
     }
 
@@ -36,6 +49,7 @@ class ForumsController extends Controller
                        ->getManager()
                        ->getRepository('ForumsBundle:Sujet')
                        ->getSujetConsoles();
+
       return $this->render('ForumsBundle:Consoles:index.html.twig', array(
         'consoles' => $consoles
       ));
@@ -43,6 +57,11 @@ class ForumsController extends Controller
 
     public function pcAction()
     {
+      $pc = $this->getDoctrine()
+                 ->getManager()
+                 ->getRepository('ForumsBundle:Sujet')
+                 ->getSujetPC();
+
       return $this->render('ForumsBundle:PC:index.html.twig', array(
         'pc' => $pc
       ));
@@ -50,6 +69,11 @@ class ForumsController extends Controller
 
     public function adminAction()
     {
+      $admin = $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository('ForumsBundle:Sujet')
+                    ->getSujetAdmin();
+                    
       return $this->render('ForumsBundle:Admin:index.html.twig', array(
         'admin' => $admin
       ));

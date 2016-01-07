@@ -32,11 +32,21 @@ class SujetRepository extends \Doctrine\ORM\EntityRepository
 
   public function getSujetPC()
   {
-
+    return $this->createQueryBuilder('sp')
+                ->where('sp.category = :category')
+                  ->setParameter('category', 'Pc')
+                ->orderBy('sp.dateCreation', 'DESC')
+                ->getQuery()
+                ->getResult();
   }
 
   public function getSujetAdmin()
   {
-
+    return $this->createQueryBuilder('sa')
+                ->where('sa.category = :category')
+                  ->setParameter('category', 'Admin')
+                ->orderBy('sa.dateCreation', 'DESC')
+                ->getQuery()
+                ->getResult();
   }
 }

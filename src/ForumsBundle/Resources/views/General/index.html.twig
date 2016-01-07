@@ -9,9 +9,15 @@
       <hr />
       <br>
       {% for sujet in general %}
-        <h4 class="text-center"><a href="#">{{ sujet.titre }}</a> par {{ sujet.auteur }}</h4>
+        <h4 class="text-center"><a href="{{ path('forums_view', {'id': sujet.id }) }}">{{ sujet.titre }}</a> par {{ sujet.auteur }}</h4>
         <hr />
+        <br>
       {% endfor %}
+    </div>
+    <div class="row">
+      <div class="well">
+        <!-- Formulaire de création de sujet -->
+      </div>
     </div>
   </div>
 </div>
