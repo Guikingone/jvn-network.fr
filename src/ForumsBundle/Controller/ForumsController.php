@@ -19,51 +19,41 @@ class ForumsController extends Controller
         return $this->render('ForumsBundle::index.html.twig');
     }
 
-    public function viewAction(Sujet $sujet)
+    public function viewAction(Sujet $sujet, Request $request)
     {
-      /* on récupère le sujet selon son ID, on retourne le tout via une boucle for, par la suite,
-      on recherche les messages affiliés à ce sujet, on les affichera via une boucle for */
+      /* On récupère le sujet selon son ID, on retourne le tout via une boucle for, si inexistant, une erreur 404
+      est lancée, par la suite, on recherche les messages affiliés à ce sujet, on les affichera via une boucle for */
       $sujet = $this->getDoctrine()
                     ->getManager()
                     ->getRepository('ForumsBundle:Sujet')
                     ->find($sujet);
 
-      $msg_Sujet = $this->getDoctrine()
-                        ->getManager()
-                        ->getRepository('ForumsBundle:Message')
-                        ->findBy(array('sujet' => $sujet));
+      /** On récupère les messages liés au sujet via le sujet et on y joint les
+      messages afin de pouvoir faire sujet->getMessages(), une fois effectuée,
+      on affichera tout ceci via une boucle for dans la vue */
 
-
-      return $this->render('ForumsBundle::view.html.twig', array(
-        'sujet' => $sujet,
-        'messages' => $msg_Sujet
-      ));
-    }
-
-    public function messageAction(Sujet $sujet, Request $request)
-    {
-      $message = $this->getDoctrine()
-                      ->getManager()
-                      ->getRepository('ForumsBundle:Message');
+      $msg = $this->getDoctrine()
+                  ->getManager()
+                  ->getRepository('ForumsBundle:Message')
+                  ->findBy(array('sujet' => $sujet));
 
       $message = new Message();
       $message->setDateMessage(new \Datetime);
       $message->setSujet($sujet);
+      $formMessage = $this->createForm(MessageType::class, $message);
+      $formMessage->handleRequest($request);
 
-      /* On appelle le formulaire depuis le namespace Form, on définit l'objet qui l'appelle puis on fait le lien
-      requête <-> formulaire */
-      $form_message = $this->createForm(MessageType::class, $message);
-      $form_message->handleRequest($request);
+        if($formMessage->isValid()){
+          $em = $this->getDoctrine()->getManager();
+          $em->persist($message);
+          $em->flush();
+        }
 
-      /* On vérifie que les données sont valides, on les persist, on enregistre le tout
-      et on redirige vers l'index du forums */
-          if($form_message->isValid()){
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($message);
-            $em->flush();
-          }
-      return $this->render('ForumsBundle::add_message.html.twig', array(
-        'form' => $form_message->createView()
+
+      return $this->render('ForumsBundle::view.html.twig', array(
+        'sujet' => $sujet,
+        'message' => $msg,
+        'form' => $formMessage->createView()
       ));
     }
 

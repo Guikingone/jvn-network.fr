@@ -48,6 +48,13 @@ class Message
     */
     private $sujet;
 
+    
+
+    public function __toString()
+    {
+      return $this->message;
+    }
+
 
     /**
      * Get id

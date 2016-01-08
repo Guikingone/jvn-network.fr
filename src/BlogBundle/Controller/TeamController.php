@@ -27,7 +27,7 @@ class TeamController extends Controller {
     ));
   }
 
-  public function viewAction(Article $article)
+  public function viewAction(Article $article, Request $request)
   {
     /* On va chercher l'article en fonction de son ID, si article inexistant, alors
     on retourne un message d'erreur 404, sinon, on affiche l'article puis les commentaires liés */
@@ -47,7 +47,15 @@ class TeamController extends Controller {
 
     $commentaire = new Commentaire();
     $commentaire->setdateCreation(new \Datetime);
+    $commentaire->setArticle($article);
     $formCommentaire = $this->createForm(CommentaireType::class, $commentaire);
+    $formCommentaire->handleRequest($request);
+
+      if($formCommentaire->isValid()){
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($commentaire);
+        $em->flush();
+      }
 
     return $this->render('BlogBundle:Team:view.html.twig', array(
       'article' => $vue,

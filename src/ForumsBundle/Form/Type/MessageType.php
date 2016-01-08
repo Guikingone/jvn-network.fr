@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class MessageType extends AbstractType
 {
@@ -18,7 +19,7 @@ class MessageType extends AbstractType
         $builder
             ->add('auteur')
             ->add('contenu', TextareaType::class, array('required' => false))
-            ->add('sujet')
+            ->add('save', SubmitType::class)
         ;
     }
 

@@ -56,7 +56,7 @@ class Sujet
     private $category;
 
     /**
-    * @ORM\OneToMany(targetEntity="ForumsBundle\Entity\Message", mappedBy="sujet")
+    * @ORM\OneToMany(targetEntity="ForumsBundle\Entity\Message", mappedBy="sujet", cascade={"persist"})
     */
     private $messages;
 

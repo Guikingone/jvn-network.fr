@@ -132,28 +132,4 @@ class Commentaire
     {
         return $this->contenu;
     }
-
-    /**
-     * Set article
-     *
-     * @param \BlogBundle\Entity\Article $article
-     *
-     * @return Commentaire
-     */
-    public function setArticle(\BlogBundle\Entity\Article $article)
-    {
-        $this->article = $article;
-
-        return $this;
-    }
-
-    /**
-     * Get article
-     *
-     * @return \BlogBundle\Entity\Article
-     */
-    public function getArticle()
-    {
-        return $this->article;
-    }
 }
