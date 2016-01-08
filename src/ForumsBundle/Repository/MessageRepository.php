@@ -10,4 +10,14 @@ namespace ForumsBundle\Repository;
  */
 class MessageRepository extends \Doctrine\ORM\EntityRepository
 {
+  public function removeMessage($id)
+  {
+    /* On sélectionne l'article selon ID, on y joint les messages puis on supprime le sujet */
+    return $this->createQueryBuilder('msg')
+                ->where('msg.id = :id')
+                  ->setParameter('id', $id)
+                ->delete()
+                ->getQuery()
+                ->getResult();
+  }
 }

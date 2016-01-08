@@ -59,7 +59,7 @@ class ForumsController extends Controller
 
     public function updateAction()
     {
-
+      
     }
 
     public function deleteAction(Request $request, $id)
@@ -67,9 +67,19 @@ class ForumsController extends Controller
       /* On récupère le service Purge afin de supprimer le sujet selon son ID, une fois supprimé, on renvoit
       un message flash afin de valider la suppression */
       $delete = $this->get('forumsbundle.forums_purger');
-      $delete->purge($id);
+      $delete->purgeSujet($id);
 
       $request->getSession()->getFlashBag()->add('success_forums', 'Sujet supprimé !');
+
+      return $this->redirectToRoute('forums_home');
+    }
+
+    public function deleteMessageAction(Request $request, $id)
+    {
+      $delete = $this->get('forumsbundle.forums_purger');
+      $delete->purgeMessage($id);
+
+      $request->getSession()->getFlashBag()->add('success_forums', 'Message supprimé !');
 
       return $this->redirectToRoute('forums_home');
     }

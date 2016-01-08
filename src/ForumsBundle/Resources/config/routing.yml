@@ -15,6 +15,12 @@ forums_delete:
     requirements:
         id: \d+
 
+forums_delete_message:
+    path:     /forums/delete/message/{id}
+    defaults: { _controller: ForumsBundle:Forums:deleteMessage }
+    requirements:
+        id: \d+
+        
 forums_update:
     path:     /forums/update/{id}
     defaults: { _controller: ForumsBundle:Forums:update }

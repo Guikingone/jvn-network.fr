@@ -5,14 +5,16 @@
   <div class="row">
     <div class="col-lg-12">
       <a href="{{path('forums_home')}}" class="btn btn-info">Retour à l'accueil</a>
+      <!-- Les outils de modération ne s'affiche qu'aux modérateurs -->
       {% if is_granted('ROLE_MODERATEUR')%}
-      <div class="row">
+        <div class="row">
+          <hr />
+          <h4 class="text-center">Outils de modération</h4>
+            <p class="text-center"><a href="{{ path('forums_delete', {'id': sujet.id}) }}" class="btn btn-danger">Supprimer ce sujet</a></p>
+            <p class="text-center"><a href="#" class="btn btn-info">Modifier ce sujet</a></p>
+            <p class="text-center"><a href="#" class="btn btn-success">fermer ce sujet</a></p>
+        </div>
         <hr />
-        <h4 class="text-center">Outils de modération</h4>
-          <a href="{{ path('forums_delete', {'id': sujet.id}) }}" class="btn btn-danger">Supprimer ce sujet</a>
-          <a href="#" class="btn btn-info">Modifier ce sujet</a>
-      </div>
-      <hr />
       {% endif %}
       <h3 class="text-center">{{ sujet.titre }}</h3>
       <br>
@@ -23,22 +25,38 @@
       <br>
     </div>
     <div class="row">
-      <h4 class="text-center">Commentaires liés</h4>
+      <h4 class="text-center">Commentaires</h4>
       <hr />
-      <!-- On affiche les commentaires liés au sujet -->
+      <!-- On affiche les commentaires liés au sujet, si le visiteur est modérateur on affiche une vue adaptée -->
       {% for msg in message %}
         <div class="row">
-          <div class="col-lg-2">
-            <p class="text-center"><strong><a href="#">{{ msg.auteur }}</a></strong></p>
-            <p class="text-center">{{ msg.dateMessage|date('d/m/Y') }}</p>
-          </div>
-          <div class="col-lg-10">
-            <p class="text-center">{{ msg.contenu|raw }}</p>
-          </div>
+          {% if is_granted('ROLE_MODERATEUR')%}
+            <div class="col-lg-2">
+              <p class="text-center"><strong>{{ msg.auteur }}</strong></p>
+              <p class="text-center">{{ msg.dateMessage|date('d/m/Y') }}</p>
+            </div>
+            <div class="col-lg-8">
+              <p class="text-center">{{ msg.contenu|raw }}</p>
+            </div>
+            <div class="col-lg-2">
+              <p class="text-center"><a href="{{path('forums_delete_message', {'id': msg.id} )}}" class="btn btn-danger">Supprimer</a></p>
+              <p class="text-center"><a href="#" class="btn btn-info">Modifier</a></p>
+            </div>
+          {% else %}
+            <div class="col-lg-2">
+              <p class="text-center"><strong>{{ msg.auteur }}</strong></p>
+              <p class="text-center">{{ msg.dateMessage|date('d/m/Y') }}</p>
+            </div>
+            <div class="col-lg-10">
+              <p class="text-center">{{ msg.contenu|raw }}</p>
+            </div>
+          {% endif %}
         </div>
         <hr />
       {% endfor %}
     </div>
+    <!-- Le visiteur ne pourra commenter que si il est connecté -->
+    {% if is_granted('IS_AUTHENTICATED_REMEMBERED')%}
     <div class="row text-center">
       <div class="well">
         {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
@@ -51,11 +69,7 @@
         {{ form_end(form) }}
       </div>
     </div>
-    <div class="row">
-      <hr />
-      <p class="text-center">Outils Sujet</p>
-      <p class="text-center"><a href="#" class="btn btn-success">Fermer ce sujet</a></p>
-    </div>
+    {% endif %}
   </div>
 </div>
 {% endblock %}
