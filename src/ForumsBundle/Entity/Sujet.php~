@@ -54,12 +54,7 @@ class Sujet
     * @ORM\Column(name="category", type="string", length=255)
     */
     private $category;
-
-    /**
-    * @ORM\OneToMany(targetEntity="ForumsBundle\Entity\Message", mappedBy="sujet")
-    */
-    private $messages;
-
+    
 
     /**
      * Get id
@@ -168,26 +163,26 @@ class Sujet
     }
 
     /**
-     * Set category
+     * Set forum
      *
-     * @param string $category
+     * @param string $forum
      *
      * @return Sujet
      */
-    public function setCategory($category)
+    public function setForum($forum)
     {
-        $this->category = $category;
+        $this->forum = $forum;
 
         return $this;
     }
 
     /**
-     * Get category
+     * Get forum
      *
      * @return string
      */
-    public function getCategory()
+    public function getForum()
     {
-        return $this->category;
+        return $this->forum;
     }
 }
