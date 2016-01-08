@@ -48,7 +48,7 @@ class Message
     */
     private $sujet;
 
-    
+
 
     public function __toString()
     {

@@ -5,6 +5,15 @@
   <div class="row">
     <div class="col-lg-12">
       <a href="{{path('forums_home')}}" class="btn btn-info">Retour à l'accueil</a>
+      {% if is_granted('ROLE_MODERATEUR')%}
+      <div class="row">
+        <hr />
+        <h4 class="text-center">Outils de modération</h4>
+          <a href="{{ path('forums_delete', {'id': sujet.id}) }}" class="btn btn-danger">Supprimer ce sujet</a>
+          <a href="#" class="btn btn-info">Modifier ce sujet</a>
+      </div>
+      <hr />
+      {% endif %}
       <h3 class="text-center">{{ sujet.titre }}</h3>
       <br>
       <h4 class="text-center">Par <strong>{{ sujet.auteur }}</strong>, le {{ sujet.dateCreation|date('d/m/Y') }}</h4>
@@ -18,11 +27,16 @@
       <hr />
       <!-- On affiche les commentaires liés au sujet -->
       {% for msg in message %}
-        <div class="text-center">
-          <h3>{{ msg.auteur }}</h3>
-          <p class="text-center">{{ msg.contenu|raw }}</p>
-          <br>
+        <div class="row">
+          <div class="col-lg-2">
+            <p class="text-center"><strong><a href="#">{{ msg.auteur }}</a></strong></p>
+            <p class="text-center">{{ msg.dateMessage|date('d/m/Y') }}</p>
+          </div>
+          <div class="col-lg-10">
+            <p class="text-center">{{ msg.contenu|raw }}</p>
+          </div>
         </div>
+        <hr />
       {% endfor %}
     </div>
     <div class="row text-center">
@@ -37,14 +51,11 @@
         {{ form_end(form) }}
       </div>
     </div>
-    {% if is_granted('ROLE_MODERATEUR')%}
     <div class="row">
       <hr />
-      <h4 class="text-center">Outils de modération</h4>
-        <a href="{{ path('forums_delete', {'id': sujet.id}) }}" class="btn btn-danger">Supprimer ce sujet</a>
-        <a href="#" class="btn btn-info">Modifier ce sujet</a>
+      <p class="text-center">Outils Sujet</p>
+      <p class="text-center"><a href="#" class="btn btn-success">Fermer ce sujet</a></p>
     </div>
-    {% endif %}
   </div>
 </div>
 {% endblock %}

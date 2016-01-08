@@ -52,9 +52,10 @@ class SujetRepository extends \Doctrine\ORM\EntityRepository
 
   public function removeSujet($id)
   {
-    /* On sélectionne l'article selon ID, on y joint les images afin de ne pas laisser d'image
-    sans article puis on supprime l'article */
+    /* On sélectionne l'article selon ID, on y joint les messages puis on supprime le sujet */
     return $this->createQueryBuilder('a')
+                ->leftJoin('a.messages', 'msg')
+                  ->addSelect('msg')
                 ->where('a.id = :id')
                   ->setParameter('id', $id)
                 ->delete()
