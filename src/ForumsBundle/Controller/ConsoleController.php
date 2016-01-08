@@ -50,7 +50,7 @@ class ConsoleController extends Controller {
             return $this->redirectToRoute('forums_pc');
           }
 
-      return $this->render('ForumsBundle:PC:add.html.twig', array(
+      return $this->render('ForumsBundle::add.html.twig', array(
         'console' => $s_Console,
         'form' => $form_console->createView()
       ));

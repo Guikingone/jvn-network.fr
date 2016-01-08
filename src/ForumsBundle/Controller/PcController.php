@@ -49,7 +49,7 @@ class PcController extends Controller {
           return $this->redirectToRoute('forums_pc');
         }
 
-    return $this->render('ForumsBundle:PC:add.html.twig', array(
+    return $this->render('ForumsBundle::add.html.twig', array(
       'pc' => $s_PC,
       'form' => $form_pc->createView()
     ));

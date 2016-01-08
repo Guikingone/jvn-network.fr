@@ -49,7 +49,7 @@ class GeneralController extends Controller {
           return $this->redirectToRoute('forums_general');
         }
 
-    return $this->render('ForumsBundle:General:add.html.twig', array(
+    return $this->render('ForumsBundle::add.html.twig', array(
       'general' => $general,
       'form' => $form_general->createView()
     ));

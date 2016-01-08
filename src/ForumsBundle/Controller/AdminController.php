@@ -49,7 +49,7 @@ class AdminController extends Controller {
           return $this->redirectToRoute('forums_admin');
         }
 
-    return $this->render('ForumsBundle:Admin:add.html.twig', array(
+    return $this->render('ForumsBundle::add.html.twig', array(
       'admin' => $s_Admin,
       'form' => $form_admin->createView()
     ));

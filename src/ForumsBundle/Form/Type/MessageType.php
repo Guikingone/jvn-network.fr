@@ -5,6 +5,7 @@ namespace ForumsBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class MessageType extends AbstractType
 {
@@ -16,7 +17,7 @@ class MessageType extends AbstractType
     {
         $builder
             ->add('auteur')
-            ->add('contenu')
+            ->add('contenu', TextareaType::class, array('required' => false))
             ->add('sujet')
         ;
     }

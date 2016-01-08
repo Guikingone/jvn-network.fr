@@ -1,17 +1,11 @@
 <?php
 
-<<<<<<< HEAD
-namespace ForumsBundle\Form;
-
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
-=======
 namespace ForumsBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
->>>>>>> forums
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class SujetType extends AbstractType
@@ -25,20 +19,11 @@ class SujetType extends AbstractType
         $builder
             ->add('titre')
             ->add('auteur')
-<<<<<<< HEAD
-            ->add('dateCreation', 'datetime')
-            ->add('contenu')
-            ->add('forum')
-        ;
-    }
-    
-=======
-            ->add('contenu')
+            ->add('contenu', TextareaType::class, array('required' => false))
             ->add('save', SubmitType::class)
         ;
     }
 
->>>>>>> forums
     /**
      * @param OptionsResolver $resolver
      */
