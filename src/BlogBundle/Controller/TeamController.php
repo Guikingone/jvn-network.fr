@@ -71,9 +71,17 @@ class TeamController extends Controller {
     $article = $this->getDoctrine()->getManager()
                     ->getRepository('BlogBundle:Article')
                     ->getArticleTeam();
+                    
+    /* On récupère tout les membres ainsi que leur attributs, on les affichent pour pouvoir y intervenir en cas de
+    besoin, si besoin, on paginera */
+    $membre = $this->getDoctrine()
+                   ->getManager()
+                   ->getRepository('UserBundle:User')
+                   ->getUser();
 
     return $this->render('BlogBundle:Team:admin.html.twig', array(
-      'article' => $article
+      'article' => $article,
+      'membre' => $membre
     ));
   }
 
@@ -157,4 +165,7 @@ class TeamController extends Controller {
 
     return $this->redirectToRoute('team_admin');
   }
+  /* ============================================================================================================
+    Back Office Team
+  =============================================================================================================*/
 }
