@@ -34,7 +34,7 @@
                           <th>Contenu</th>
                           <th>Date de publication</th>
                           <th>Auteur</th>
-                          <th>Options</th>
+                          <th>Outils</th>
                       </tr>
                   </thead>
                   {% for article in article %}
@@ -45,7 +45,10 @@
                     <td>{{ article.contenu[:45]|raw }}</td>
                     <td>{{ article.datePublication | date('d/m/Y')}}</td>
                     <td>{{ article.auteur }}</td>
-                    <td><a href="{{ path('krma_delete', {'id': article.id }) }}" class="btn btn-danger">Supprimer</a> <a class="btn btn-primary" href="{{ path('krma_update', {'id': article.id }) }}">Modifier</a></td>
+                    {% if article.commentaires is empty %}
+                      <td><a href="{{ path('krma_delete', {'id': article.id }) }}" class="btn btn-danger">Supprimer</a></td>
+                    {% endif %}
+                    <td><a class="btn btn-primary" href="{{ path('krma_update', {'id': article.id }) }}">Modifier</a></td>
                   </tr>
                   {% endfor %}
               </table>

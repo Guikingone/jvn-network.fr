@@ -145,7 +145,7 @@ class KrmaController extends Controller{
       ));
     }
 
-    public function deleteAction()
+    public function deleteAction(Request $request, $id)
     {
         /* On récupère l'entité via son ID, on fait appel à removeArticle qui effectue un ->delete()
         en fonction de l'ID, une fois effectué, on affiche un message d'info afin de valider la procédure
@@ -160,6 +160,5 @@ class KrmaController extends Controller{
                 ->add('success', "L'article avec l'id " . $id . " a été supprimé");
 
         return $this->redirectToRoute('krma_admin');
-
     }
 }
