@@ -26,6 +26,8 @@
                 <li><a tabindex="-1" href="{{path('fos_user_profile_show')}}"></i>Mon profil</a></li>
                 {% if is_granted('ROLE_TEAM')%}
                   <li><a tabindex="-1" href="{{path('team_admin')}}"></i>Back Office</a></li>
+                  <li><a tabindex="-1" href="{{path('membre_admin')}}"></i>Back Office Membre</a></li>
+                  <li><a tabindex="-1" href="{{path('krma_admin')}}"></i>Back Office Krma</a></li>
                 {% elseif is_granted('ROLE_ADMIN')%}
                   <li><a tabindex="-1" href="#"></i>Administration</a></li>
                 {% elseif is_granted('ROLE_KRMA')%}
@@ -112,11 +114,11 @@
 
 
 {% block javascript %}
-<script src="{{ asset('bundles/core/js/vendor/jquery-1.11.3.min.js')}}"></script>
-<script src="{{ asset('bundles/core/js/bootstrap.js')}}"></script>
-<script src="{{ asset('bundles/core/js/main.js')}}"></script>
-<script src="{{ asset('bundles/core/js/tinymce/tinymce.min.js')}}"></script>
-<script>tinymce.init({ selector:'textarea' })</script>
+  <script src="{{ asset('bundles/core/js/vendor/jquery-1.11.3.min.js')}}"></script>
+  <script src="{{ asset('bundles/core/js/bootstrap.js')}}"></script>
+  <script src="{{ asset('bundles/core/js/main.js')}}"></script>
+  <script src="{{ asset('bundles/core/js/tinymce/tinymce.min.js')}}"></script>
+  <script>tinymce.init({ selector:'textarea' })</script>
 {% endblock %}
 </body>
 </html>

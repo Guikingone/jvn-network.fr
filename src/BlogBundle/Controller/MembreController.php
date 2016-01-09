@@ -28,9 +28,41 @@ class MembreController extends Controller {
     ));
   }
 
-  public function viewAction()
+  public function viewAction(Article $article, Request $request)
   {
+    /* On va chercher l'article en fonction de son ID, si article inexistant, alors
+    on retourne un message d'erreur 404, sinon, on affiche l'article puis les commentaires liés */
 
+    $view = $this->getDoctrine()->getManager();
+    $vue = $view
+        ->getRepository('BlogBundle:Article')
+        ->find($article);
+
+    /** On récupère les commentaires liés à l'article via l'article et on y joint les
+    commentaires afin de pouvoir faire article->getCommentaires(), une fois effectuée,
+    on affichera tout ceci via une boucle for dans la vue */
+
+    $comm = $view
+      ->getRepository('BlogBundle:Commentaire')
+      ->findBy(array('article' => $vue));
+
+    $commentaire = new Commentaire();
+    $commentaire->setdateCreation(new \Datetime);
+    $commentaire->setArticle($article);
+    $formCommentaire = $this->createForm(CommentaireType::class, $commentaire);
+    $formCommentaire->handleRequest($request);
+
+      if($formCommentaire->isValid()){
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($commentaire);
+        $em->flush();
+      }
+
+    return $this->render('BlogBundle:Team:view.html.twig', array(
+      'article' => $vue,
+      'commentaire' => $comm,
+      'form' => $formCommentaire->createView()
+    ));
   }
 
   public function adminAction(Request $request)
@@ -76,9 +108,38 @@ class MembreController extends Controller {
     ));
   }
 
-  public function updateAction()
+  public function updateAction(Request $request, $id)
   {
+    /* On récupère l'entité via l'ID, si l'article n'existe pas, on renvoit un message d'erreur,
+    on ouvre le formulaire, on valide, on affiche un message d'info afin
+    de valider l'opération et on redirige vers la page d'administration */
 
+    $um = $this->getDoctrine()
+               ->getManager()
+               ->getRepository('BlogBundle:Article')
+               ->find($id);
+    if (null === $um) {
+      throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
+    }
+
+    $form = $this->createForm(ArticleType::class, $um);
+    $form->handleRequest($request);
+
+    /* Ici, on se contente de vérifier que tout est valide, on ne persise pas car Doctrine connaît l'entité,
+    une fois que tout est terminé, on affiche un message de succés et on redirige vers l'article en question */
+
+    if($form->isValid())
+    {
+      $um = $this->getDoctrine()
+                 ->getManager()
+                 ->flush();
+      $request->getSession()->getFlashBag()->add('success', "L'annonce" . $id . "a bien été modifiée");
+      return $this->redirectToRoute('membre_admin');
+    }
+    return $this->render('BlogBundle:Membre:update.html.twig', array(
+      'form' => $form->createView(),
+      'article' => $um
+    ));
   }
 
   public function deleteAction(Request $request, $id)

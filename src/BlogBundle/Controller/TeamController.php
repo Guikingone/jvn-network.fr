@@ -105,48 +105,43 @@ class TeamController extends Controller {
     ));
   }
 
-  public function deleteAction(Request $request, $id)
-  {
-    /* On récupère l'entité via son ID, on fait appel à removeArticle qui effectue un ->delete()
-    en fonction de l'ID, une fois effectué, on affiche un message d'info afin de valider la procédure
-    et on redirige vers l'espace d'administration */
-
-    $em = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Article');
-    $em->removeArticle($id);
-
-    $request->getSession()->getFlashBag()
-            ->add('success', "L'article avec l'id " . $id . " a été supprimé");
-
-    return $this->redirectToRoute('team_admin');
-  }
-
   public function updateAction(Request $request, $id)
   {
-    /* On récupère l'entité via l'ID, on fait appel à la méthode updateArticle qui renvoit l'article
-    selon son ID, si l'article n'existe pas, on renvoit un message d'erreur,
-    on ouvre le formulaire de modification, on valide, on affiche un message d'info afin
+    /* On récupère l'entité via l'ID, si l'article n'existe pas, on renvoit un message d'erreur,
+    on ouvre le formulaire, on valide, on affiche un message d'info afin
     de valider l'opération et on redirige vers la page d'administration */
 
     $um = $this->getDoctrine()
                ->getManager()
                ->getRepository('BlogBundle:Article')
-               ->getUpdateArticle($id);
+               ->find($id);
+    if (null === $um) {
+      throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
+    }
 
-    $form = $this->createForm(ArticleEditType::class);
+    $form = $this->createForm(ArticleType::class, $um);
+    $form->handleRequest($request);
+
 
     /* Ici, on se contente de vérifier que tout est valide, on ne persise pas car Doctrine connaît l'entité,
     une fois que tout est terminé, on affiche un message de succés et on redirige vers l'article en question */
 
-    if($form->handleRequest($request)->isValid())
+    if($form->isValid())
     {
-      $um->flush();
+      $um = $this->getDoctrine()
+                 ->getManager()
+                 ->flush();
       $request->getSession()->getFlashBag()->add('success', "L'annonce" . $id . "a bien été modifiée");
-      return $this->redirectToRoute('team_article', array('id' =>
-        $um->getId()));
+      return $this->redirectToRoute('team_admin');
     }
-    return $this->render('BlogBundle:Team:team_update.html.twig', array(
+    return $this->render('BlogBundle:Team:update.html.twig', array(
       'form' => $form->createView(),
       'article' => $um
     ));
+  }
+
+  public function deleteAction(Request $request, $id)
+  {
+    
   }
 }

@@ -2,6 +2,7 @@
 
 {% block body %}
 <div class="container">
+  <p class="text-center"><a href="{{path('membre_blog')}}" class="btn btn-info">Retour au blog</a></p>
   <!-- On affiche les messages flash -->
   {% for message in app.session.flashbag.get('success') %}
     <div class="alert alert-success">Message flash : {{message}}</div>

@@ -2,6 +2,7 @@
 
 {% block body %}
 <div class="container">
+  <p class="text-center"><a href="{{path('team_home')}}" class="btn btn-info">Retour au blog</a></p>
   <!-- On affiche les messages flash -->
   {% for message in app.session.flashbag.get('success') %}
     <div class="alert alert-success">Message flash : {{message}}</div>
@@ -42,7 +43,7 @@
                   la date de publication ainsi que son auteur -->
                   <tr>
                     <td>{{ article.titre }}</td>
-                    <td>{{ article.contenu[:45] }}</td>
+                    <td>{{ article.contenu[:45]|raw }}</td>
                     <td>{{ article.datePublication | date('d/m/Y')}}</td>
                     <td>{{ article.auteur }}</td>
                     <td><a href="{{ path('team_delete', {'id': article.id }) }}" class="btn btn-danger">Supprimer</a> <a class="btn btn-primary" href="{{ path('team_update', {'id': article.id }) }}">Modifier</a></td>

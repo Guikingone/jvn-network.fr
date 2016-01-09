@@ -57,8 +57,8 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
 
   public function removeArticle($id)
   {
-    /* On sélectionne l'article selon ID, on y joint les images afin de ne pas laisser d'image
-    sans article puis on supprime l'article */
+    /* On sélectionne l'article selon ID, on y joint les images ainsi que les commentaires afin
+    de ne pas laisser d'image/commentaires sans article puis on supprime l'article */
     return $this->createQueryBuilder('a')
                 ->leftJoin('a.image', 'i')
                   ->addSelect('i')
