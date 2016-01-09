@@ -99,6 +99,7 @@ class TeamController extends Controller {
           $em->persist($art);
           $em->flush();
           $request->getSession()->getFlashBag()->add('success', "Article enregistré");
+          return $this->redirectToRoute('team_admin');
         }
     return $this->render('BlogBundle:Team:team_add.html.twig', array(
       'form' =>$formbuilder->createView()
@@ -142,6 +143,6 @@ class TeamController extends Controller {
 
   public function deleteAction(Request $request, $id)
   {
-    
+
   }
 }

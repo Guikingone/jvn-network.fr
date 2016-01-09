@@ -101,6 +101,7 @@ class MembreController extends Controller {
           $em->persist($art);
           $em->flush();
           $request->getSession()->getFlashBag()->add('success', "Article enregistré");
+          return $this->redirectToRoute('membre_admin');
         }
 
     return $this->render('BlogBundle:Membre:add.html.twig', array(

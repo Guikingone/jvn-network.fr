@@ -103,6 +103,7 @@ class KrmaController extends Controller{
               $em->persist($art);
               $em->flush();
               $request->getSession()->getFlashBag()->add('success', "Article enregistré");
+              return $this->redirectToRoute('krma_admin');
             }
             return $this->render('BlogBundle:Krma:add.html.twig', array(
               'form' =>$formbuilder->createView()

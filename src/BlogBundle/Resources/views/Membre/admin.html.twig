@@ -42,7 +42,7 @@
                   la date de publication ainsi que son auteur -->
                   <tr>
                     <td>{{ article.titre }}</td>
-                    <td>{{ article.contenu[:45] }}</td>
+                    <td>{{ article.contenu[:45]|raw }}</td>
                     <td>{{ article.datePublication | date('d/m/Y')}}</td>
                     <td>{{ article.auteur }}</td>
                     <td><a href="{{ path('membre_delete', {'id': article.id }) }}" class="btn btn-danger">Supprimer</a> <a class="btn btn-primary" href="{{ path('membre_update', {'id': article.id }) }}">Modifier</a></td>
