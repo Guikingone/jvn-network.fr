@@ -157,21 +157,15 @@ class TeamController extends Controller {
 
   public function deleteAction(Request $request, $id)
   {
-    /* On récupère l'entité via son ID, on fait appel à removeArticle qui effectue un ->delete()
-    en fonction de l'ID, une fois effectué, on affiche un message d'info afin de valider la procédure
-    et on redirige vers l'espace d'administration */
+    /* On récupère le service Purge afin de supprimer selon la méthode propre aux articles, puis
+    on renvoit un message flash et on redirige vers la page d'administration */
+    $em = $this->get('coreBundle.purge_all');
+    $em->purgeArticle($id);
 
-    $em = $this->getDoctrine()
-               ->getManager()
-               ->getRepository('BlogBundle:Article')
-               ->removeArticle($id);
-
-    $request->getSession()->getFlashBag()
+    $request->getSession()
+            ->getFlashBag()
             ->add('success', "L'article avec l'id " . $id . " a été supprimé");
 
     return $this->redirectToRoute('team_admin');
   }
-  /* ============================================================================================================
-    Back Office Team
-  =============================================================================================================*/
 }

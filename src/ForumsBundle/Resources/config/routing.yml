@@ -1,4 +1,5 @@
 # Déclarations des routes globales #
+
 forums_home:
     path:     /forums
     defaults: { _controller: ForumsBundle:Forums:index }
@@ -20,7 +21,7 @@ forums_delete_message:
     defaults: { _controller: ForumsBundle:Forums:deleteMessage }
     requirements:
         id: \d+
-        
+
 forums_update:
     path:     /forums/update/{id}
     defaults: { _controller: ForumsBundle:Forums:update }

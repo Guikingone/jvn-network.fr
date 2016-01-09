@@ -16,4 +16,14 @@ class CommentaireRepository extends \Doctrine\ORM\EntityRepository
                 ->getQuery()
                 ->getResult();
   }
+
+  public function removeCommentaire($id)
+  {
+    return $this->createQueryBuilder('com')
+                ->where('com.id = :id')
+                  ->setParameter('id', $id)
+                ->delete()
+                ->getQuery()
+                ->getResult();
+  }
 }

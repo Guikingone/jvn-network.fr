@@ -55,6 +55,18 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
                 ->getResult();
   }
 
+
+  public function getUpdateArticle($id)
+  {
+      return $this->createQueryBuilder('a')
+                  ->leftJoin('a.image', 'i')
+                    ->addSelect('i')
+                  ->where('a.id = :id')
+                    ->setParameter('id', $id)
+                  ->getQuery()
+                  ->getResult();
+    }
+
   public function removeArticle($id)
   {
     /* On sélectionne l'article selon ID, on y joint les images ainsi que les commentaires afin
@@ -69,13 +81,12 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
                 ->getResult();
   }
 
-  public function getUpdateArticle($id)
+  public function removeCommentaire($id)
   {
-    return $this->createQueryBuilder('a')
-                ->leftJoin('a.image', 'i')
-                  ->addSelect('i')
-                ->where('a.id = :id')
+    return $this->createQueryBuilder('com')
+                ->where('com.id = :id')
                   ->setParameter('id', $id)
+                ->delete()
                 ->getQuery()
                 ->getResult();
   }
