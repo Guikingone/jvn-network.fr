@@ -30,6 +30,7 @@
                   <li><a tabindex="-1" href="{{path('krma_admin')}}"></i>Back Office Krma</a></li>
                 {% elseif is_granted('ROLE_ADMIN')%}
                   <li><a tabindex="-1" href="#"></i>Administration</a></li>
+                  <li><a tabindex="-1" href="{{path('membre_admin')}}"></i>Back Office Membre</a></li>
                 {% elseif is_granted('ROLE_KRMA')%}
                   <li><a tabindex="-1" href="#"></i>Back Office || KRMA Blog</a></li>
                 {% elseif is_granted('ROLE_AUTEUR')%}

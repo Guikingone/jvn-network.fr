@@ -16,4 +16,9 @@ class UserController extends Controller
           'user' => $users
         ));
     }
+
+    public function deleteUser()
+    {
+      
+    }
 }

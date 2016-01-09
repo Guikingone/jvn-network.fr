@@ -10,4 +10,10 @@ namespace BlogBundle\Repository;
  */
 class CommentaireRepository extends \Doctrine\ORM\EntityRepository
 {
+  public function getCommentaires()
+  {
+    return $this->createQueryBuilder('com')
+                ->getQuery()
+                ->getResult();
+  }
 }

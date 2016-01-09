@@ -61,6 +61,34 @@
       {% endif %}
       <div class="tab-pane fade adminTable" id="comments">
         <!-- On affichera les commentaires du blog afin de pouvoir les modifier -->
+        <div class="table-responsive">
+          {% if commentaire is not null %}
+            <table class="table table-hover table-condensed">
+              <br>
+                <thead>
+                    <tr>
+                        <th>Utilisateur</th>
+                        <th>Article</th>
+                        <th>Contenu</th>
+                        <th>Date de création</th>
+                        <th>Outils</th>
+                    </tr>
+                </thead>
+                  {% for commentaire in commentaire %}
+                  <tr>
+                    <td>{{ commentaire.auteur }}</td>
+                    <td>{{ commentaire.article }}</td>
+                    <td>{{ commentaire.contenu[:20]|raw }}</td>
+                    <td>{{ commentaire.dateCreation|date('d/m/Y') }}</td>
+                    <td>
+                      <a href="#" class="btn btn-danger">Supprimer</a>
+                      <a href="#" class="btn btn-info">Modifier</a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+             </table>
+            {% endif %}
+        </div>
       </div>
       <div class="tab-pane fade adminTable" id="users">
         <!-- On affichera les utilisateurs inscrits afin de pouvoir les manipuler -->
@@ -75,6 +103,7 @@
                         <th>Date d'inscription</th>
                         <th>Role</th>
                         <th>Outils</th>
+                        <th>Messagerie</th>
                     </tr>
                 </thead>
                   {% for membre in membre %}
@@ -83,7 +112,12 @@
                     <td>{{ membre.email }}</td>
                     <td></td>
                     <td></td>
-                    <td></td>
+                    <td>
+                      <a href="#" class="btn btn-danger">Supprimer</a>
+                      <a href="#" class="btn btn-info">Modifier</a>
+                      <a href="#" class="btn btn-success">Changer rôle</a>
+                    </td>
+                    <td><a href="#" class="btn btn-primary">Envoyer un mail</a></td>
                   </tr>
                   {% endfor %}
              </table>

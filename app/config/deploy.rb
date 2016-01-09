@@ -1,5 +1,5 @@
-set :application, "set your application name here"
-set :domain,      "#{application}.com"
+set :application, "jvn-network"
+set :domain,      "#{jvn-network}.fr"
 set :deploy_to,   "/var/www/#{domain}"
 set :app_path,    "app"
 set :shared_files, ["app/config/parameters.yml"]
