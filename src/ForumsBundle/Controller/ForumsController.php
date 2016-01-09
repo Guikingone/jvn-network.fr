@@ -57,9 +57,41 @@ class ForumsController extends Controller
       ));
     }
 
-    public function updateAction()
+    public function updateAction(Request $request, $id)
     {
-      
+      /* On récupère l'entité via l'ID, si le sujet n'existe pas, on renvoit un message d'erreur,
+      on ouvre le formulaire, on valide, on affiche un message d'info afin
+      de valider l'opération et on redirige vers la page d'accueil */
+
+      $us = $this->getDoctrine()
+                 ->getManager()
+                 ->getRepository('ForumsBundle:Sujet')
+                 ->find($id);
+
+      if (null === $us) {
+        throw new NotFoundHttpException("Le sujet d'id ".$id." n'existe pas.");
+      }
+
+      $form = $this->createForm(SujetType::class, $us);
+      $form->handleRequest($request);
+
+
+      /* Ici, on se contente de vérifier que tout est valide, on ne persise pas car Doctrine connaît l'entité,
+      une fois que tout est terminé, on affiche un message de succés et on redirige vers l'article en question */
+
+      if($form->isValid())
+      {
+        $us = $this->getDoctrine()
+                   ->getManager()
+                   ->flush();
+
+        $request->getSession()->getFlashBag()->add('success', "Le sujet" . $id . "a bien été modifiée");
+        return $this->redirectToRoute('forums_home');
+      }
+      return $this->render('ForumsBundle::update.html.twig', array(
+        'form' => $form->createView(),
+        'sujet' => $us
+      ));
     }
 
     public function deleteAction(Request $request, $id)

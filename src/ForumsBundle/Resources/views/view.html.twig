@@ -10,9 +10,19 @@
         <div class="row">
           <hr />
           <h4 class="text-center">Outils de modération</h4>
-            <p class="text-center"><a href="{{ path('forums_delete', {'id': sujet.id}) }}" class="btn btn-danger">Supprimer ce sujet</a></p>
-            <p class="text-center"><a href="#" class="btn btn-info">Modifier ce sujet</a></p>
-            <p class="text-center"><a href="#" class="btn btn-success">fermer ce sujet</a></p>
+          <hr />
+          <p class="text-center">
+            <strong>Note Importante : A ce jour, tout sujet contenant des commentaires ne peut être supprimé !</strong>
+          </p>
+              <p class="text-center">
+                <a href="{{ path('forums_delete', {'id': sujet.id}) }}" class="btn btn-danger">Supprimer ce sujet</a>
+              </p>
+            <p class="text-center">
+              <a href="{{path('forums_update', {'id': sujet.id})}}" class="btn btn-info">Modifier ce sujet</a>
+            </p>
+            <p class="text-center">
+              <a href="#" class="btn btn-success">fermer ce sujet</a>
+            </p>
         </div>
         <hr />
       {% endif %}

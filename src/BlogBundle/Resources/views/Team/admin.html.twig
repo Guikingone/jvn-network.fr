@@ -18,6 +18,7 @@
               <li class="active"><a href="#articles" data-toggle="tab">Articles</a></li>
               <li><a href="#comments" data-toggle="tab">Commentaires</a></li>
               <li><a href="#users" data-toggle="tab">Utilisateurs</a></li>
+              <li><a href="#outils" data-toggle="tab">Outils</a></li>
           </ul>
       </div>
   </div>
@@ -47,9 +48,13 @@
                     <td>{{ article.datePublication | date('d/m/Y')}}</td>
                     <td>{{ article.auteur }}</td>
                     {% if article.commentaires is empty %}
-                      <td><a href="{{ path('team_delete', {'id': article.id }) }}" class="btn btn-danger">Supprimer</a></td>
+                      <td>
+                        <a href="{{ path('team_delete', {'id': article.id }) }}" class="btn btn-danger">Supprimer</a>
+                      </td>
                     {% endif %}
-                    <td><a class="btn btn-primary" href="{{ path('team_update', {'id': article.id }) }}">Modifier</a></td>
+                    <td>
+                      <a class="btn btn-primary" href="{{ path('team_update', {'id': article.id }) }}">Modifier</a>
+                    </td>
                   </tr>
                   {% endfor %}
               </table>
@@ -122,6 +127,18 @@
                   {% endfor %}
              </table>
             {% endif %}
+        </div>
+      </div>
+      <div class="tab-pane fane adminTable" id="outils">
+        <!-- On affiche les outils de suivi de l'application -->
+        <br>
+        <div class="col-lg-6">
+          <p class="text-center">Suivi des articles</p>
+          <hr />
+        </div>
+        <div class="col-lg-6">
+          <p class="text-center">Suivi des Forums</p>
+          <hr />
         </div>
       </div>
   </div>
