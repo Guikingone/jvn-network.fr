@@ -31,7 +31,6 @@ class ForumsController extends Controller
       /** On récupère les messages liés au sujet via le sujet et on y joint les
       messages afin de pouvoir faire sujet->getMessages(), une fois effectuée,
       on affichera tout ceci via une boucle for dans la vue */
-
       $msg = $this->getDoctrine()
                   ->getManager()
                   ->getRepository('ForumsBundle:Message')
@@ -48,8 +47,7 @@ class ForumsController extends Controller
           $em->persist($message);
           $em->flush();
         }
-
-
+        
       return $this->render('ForumsBundle::view.html.twig', array(
         'sujet' => $sujet,
         'message' => $msg,
@@ -62,7 +60,6 @@ class ForumsController extends Controller
       /* On récupère l'entité via l'ID, si le sujet n'existe pas, on renvoit un message d'erreur,
       on ouvre le formulaire, on valide, on affiche un message d'info afin
       de valider l'opération et on redirige vers la page d'accueil */
-
       $us = $this->getDoctrine()
                  ->getManager()
                  ->getRepository('ForumsBundle:Sujet')
@@ -98,21 +95,17 @@ class ForumsController extends Controller
     {
       /* On récupère le service Purge afin de supprimer le sujet selon son ID, une fois supprimé, on renvoit
       un message flash afin de valider la suppression */
-      $delete = $this->get('forumsbundle.forums_purger');
+      $delete = $this->get('corebundle.purge_all');
       $delete->purgeSujet($id);
-
       $request->getSession()->getFlashBag()->add('success_forums', 'Sujet supprimé !');
-
       return $this->redirectToRoute('forums_home');
     }
 
     public function deleteMessageAction(Request $request, $id)
     {
-      $delete = $this->get('forumsbundle.forums_purger');
+      $delete = $this->get('corebundle.purge_all');
       $delete->purgeMessage($id);
-
       $request->getSession()->getFlashBag()->add('success_forums', 'Message supprimé !');
-
       return $this->redirectToRoute('forums_home');
     }
 }

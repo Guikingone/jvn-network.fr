@@ -43,7 +43,7 @@ class Message
     private $dateMessage;
 
     /**
-    * @ORM\ManyToOne(targetEntity="ForumsBundle\Entity\Sujet", cascade={"persist"}, inversedBy="messages")
+    * @ORM\ManyToOne(targetEntity="ForumsBundle\Entity\Sujet", cascade={"remove", "persist"}, inversedBy="messages")
     * @ORM\JoinColumn(nullable=false)
     */
     private $sujet;
