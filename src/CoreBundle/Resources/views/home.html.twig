@@ -48,18 +48,21 @@
     </div>
   </div>
   <div class="row">
-    <!-- On appelle la vue des blogs afin de les mettre en première page -->
-    {% include ('BlogBundle::home.html.twig')%}
-  </div>
-      <div class="col-lg-6">
-      </div>
+    <div class="col-lg-12">
+      <h3 class="text-center">Les derniers articles</h3>
+      <hr />
+      {% for article in article %}
+        <h4>{{ article.titre }}</h4>
+        <p>{{ article.contenu[:45]|raw }}</p>
+      {% endfor %}
     </div>
   </div>
-  <hr />
   <div class="row">
     <div class="col-lg-12">
-      <h3 class="text-center">Qui sommes-nous ?</h3>
-      <p class="text-center">Fini les faux-semblants, vous vous demandé surement qui nous sommes, nous voici.</p>
+      <hr />
+      <h3 class="text-center">Ils construisent cette communauté</h3>
+      <p class="text-center">On dit d'eux qu'ils ont vu le potentiel caché, au fond, ne serait-il pas visionnaire ?</p>
+      <!-- On affiche les badges des auteurs -->
     </div>
   </div>
 </div>

@@ -110,13 +110,25 @@ textarea {
     width: 100%;
   }
 
+  .footer{
+    background-color: #545454;
+  }
+
+  .footer h3, p {
+    color: white;
+  }
+
+  .auteur{
+    background-color: #2A2A2A;
+  }
+
 /* ==========================================================================
     Navbar Style
    ========================================================================== */
 
 		.navbar-default {
 			border-color: transparent;
-			background-color: transparent;
+			background-color: #fff;
 		}
 		.navbar-default .navbar-brand {
 			font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;

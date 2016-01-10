@@ -65,30 +65,15 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
                     ->setParameter('id', $id)
                   ->getQuery()
                   ->getResult();
-    }
+  }
 
-  public function removeArticle($id)
+  public function getArticle()
   {
-    /* On sélectionne l'article selon ID, on y joint les images ainsi que les commentaires afin
-    de ne pas laisser d'image/commentaires sans article puis on supprime l'article */
     return $this->createQueryBuilder('a')
                 ->leftJoin('a.image', 'i')
                   ->addSelect('i')
-                ->leftJoin('a.commentaires', 'com')
-                  ->addSelect('com')
-                ->where('a.id = :id')
-                  ->setParameter('id', $id)
-                ->delete()
-                ->getQuery()
-                ->getResult();
-  }
-
-  public function removeCommentaire($id)
-  {
-    return $this->createQueryBuilder('com')
-                ->where('com.id = :id')
-                  ->setParameter('id', $id)
-                ->delete()
+                ->setMaxResults(8)
+                ->orderBy('a.datePublication', 'DESC')
                 ->getQuery()
                 ->getResult();
   }
