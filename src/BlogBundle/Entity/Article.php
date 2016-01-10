@@ -77,7 +77,7 @@ class Article
     blog, cela permet de conserver un code propre et non dupliqué */
 
     /**
-    * @ORM\OneToMany(targetEntity="BlogBundle\Entity\Commentaire", mappedBy="article", cascade={"persist"})
+    * @ORM\OneToMany(targetEntity="BlogBundle\Entity\Commentaire", mappedBy="article", cascade={"remove", "persist"})
     */
     private $commentaires;
 

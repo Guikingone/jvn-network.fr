@@ -22,7 +22,8 @@ class Purge {
     afin de valider la suppression */
     $purge = $this->em
                   ->getRepository('ForumsBundle:Sujet')
-                  ->removeSujet($id);
+                  ->find($id);
+    $this->em->remove($purge);
     $this->em->flush();
   }
 
@@ -32,17 +33,18 @@ class Purge {
     afin de valider la suppression */
     $purge = $this->em
                   ->getRepository('ForumsBundle:Message')
-                  ->removeMessage($id);
+                  ->find($id);
+    $this->em->remove($purge);
     $this->em->flush();
   }
 
   public function purgeArticle($id)
   {
-    /* On récupère les articles à supprimer via leur id et l'action removeArticle puis on flush
-    afin de valider la suppression */
-    $purge = $this->em
-                  ->getRepository('BlogBundle:Article')
-                  ->removeArticle($id);
+    /* On récupère les articles à supprimer via leur id, on boucle sur les commentaires afin de les lier puis
+    on supprime le tout */
+    $purge = $this->em->getRepository('BlogBundle:Article')
+                      ->find($id);
+    $this->em->remove($purge);
     $this->em->flush();
   }
 
@@ -50,9 +52,9 @@ class Purge {
   {
     /* On récupère les commentaires à supprimer via leur id et l'action removeCommentaire puis on flush
     afin de valider la suppression */
-    $purge = $this->em
-                ->getRepository('BlogBundle:Commentaires')
-                ->removeCommentaire($id);
+    $purge = $this->em->getRepository('BlogBundle:Commentaires')
+                      ->find($id);
+    $this->em->remove($purge);
     $this->em->flush();
   }
 
@@ -64,7 +66,8 @@ class Purge {
     la suppression est irréversible et ne saurait être validée sans raison valable */
     $purge = $this->em
                   ->getRepository('UserBundle:User')
-                  ->RemoveUser($id);
+                  ->find($id);
+    $this->em->remove($purge);
     $this->em->flush();
   }
 }

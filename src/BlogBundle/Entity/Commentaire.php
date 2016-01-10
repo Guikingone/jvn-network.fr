@@ -44,7 +44,7 @@ class Commentaire
     private $contenu;
 
     /**
-    * @ORM\ManyToOne(targetEntity="BlogBundle\Entity\Article", cascade={"persist"}, inversedBy="commentaires")
+    * @ORM\ManyToOne(targetEntity="BlogBundle\Entity\Article", cascade={"remove", "persist"}, inversedBy="commentaires")
     * @ORM\JoinColumn(nullable=false)
     * On force la présence d'un article pour la création d'un commentaire
     */

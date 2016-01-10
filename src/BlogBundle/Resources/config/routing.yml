@@ -1,3 +1,5 @@
+# Déclaration des routes globales #
+
 # Déclaration des routes TEAM #
 
 team_home:
@@ -23,6 +25,10 @@ team_delete:
     defaults: { _controller: BlogBundle:Team:delete }
     requirements:
         id: \d+
+
+team_delete_commentaires:
+    path:     /team_delete_commentaires/{id}
+    defaults: { _controller: BlogBundle:Team:deleteMessage }
 
 team_article:
     path:     /team_blog/article/{id}

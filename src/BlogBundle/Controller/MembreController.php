@@ -58,7 +58,7 @@ class MembreController extends Controller {
         $em->flush();
       }
 
-    return $this->render('BlogBundle:Team:view.html.twig', array(
+    return $this->render('BlogBundle:Membre:view.html.twig', array(
       'article' => $vue,
       'commentaire' => $comm,
       'form' => $formCommentaire->createView()
@@ -114,7 +114,6 @@ class MembreController extends Controller {
     /* On récupère l'entité via l'ID, si l'article n'existe pas, on renvoit un message d'erreur,
     on ouvre le formulaire, on valide, on affiche un message d'info afin
     de valider l'opération et on redirige vers la page d'administration */
-
     $um = $this->getDoctrine()
                ->getManager()
                ->getRepository('BlogBundle:Article')

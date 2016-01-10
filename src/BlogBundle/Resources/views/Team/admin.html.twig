@@ -47,11 +47,9 @@
                     <td>{{ article.contenu[:45]|raw }}</td>
                     <td>{{ article.datePublication | date('d/m/Y')}}</td>
                     <td>{{ article.auteur }}</td>
-                    {% if article.commentaires is empty %}
                       <td>
                         <a href="{{ path('team_delete', {'id': article.id }) }}" class="btn btn-danger">Supprimer</a>
                       </td>
-                    {% endif %}
                     <td>
                       <a class="btn btn-primary" href="{{ path('team_update', {'id': article.id }) }}">Modifier</a>
                     </td>
@@ -73,7 +71,6 @@
                 <thead>
                     <tr>
                         <th>Utilisateur</th>
-                        <th>Article</th>
                         <th>Contenu</th>
                         <th>Date de création</th>
                         <th>Outils</th>
@@ -82,11 +79,10 @@
                   {% for commentaire in commentaire %}
                   <tr>
                     <td>{{ commentaire.auteur }}</td>
-                    <td>{{ commentaire.article }}</td>
                     <td>{{ commentaire.contenu[:20]|raw }}</td>
                     <td>{{ commentaire.dateCreation|date('d/m/Y') }}</td>
                     <td>
-                      <a href="#" class="btn btn-danger">Supprimer</a>
+                      <a href="{{path('team_delete_commentaires', {'id': commentaire.id})}}" class="btn btn-danger">Supprimer</a>
                       <a href="#" class="btn btn-info">Modifier</a>
                     </td>
                   </tr>

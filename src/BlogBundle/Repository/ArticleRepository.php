@@ -74,6 +74,8 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
     return $this->createQueryBuilder('a')
                 ->leftJoin('a.image', 'i')
                   ->addSelect('i')
+                ->leftJoin('a.commentaires', 'com')
+                  ->addSelect('com')
                 ->where('a.id = :id')
                   ->setParameter('id', $id)
                 ->delete()

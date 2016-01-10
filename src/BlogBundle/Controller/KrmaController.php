@@ -59,7 +59,7 @@ class KrmaController extends Controller{
           $em->flush();
         }
 
-      return $this->render('BlogBundle:Team:view.html.twig', array(
+      return $this->render('BlogBundle:Krma:view.html.twig', array(
         'article' => $vue,
         'commentaire' => $comm,
         'form' => $formCommentaire->createView()
