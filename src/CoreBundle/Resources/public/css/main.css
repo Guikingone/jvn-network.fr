@@ -102,25 +102,29 @@ textarea {
 		overflow-x: hidden;
 		font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
 	}
-
-  .hero{
-    background: url('../images/hero_image.jpg') center no-repeat top;
-    height: auto;
-    background-attachment: relative;
-    width: 100%;
+  
+  .img_hero{
+    margin-top: -100px;
+    padding-top: -200px;
   }
 
-  .footer{
-    background-color: #545454;
+  .btn-jvn {
+  color: #fff;
+  background-color: transparent;
+  border-color: #fff;
+  border-width: 4px;
+  margin: 20px;
+  margin-top: -800px;
   }
-
-  .footer h3, p {
-    color: white;
-  }
-
-  .auteur{
-    background-color: #2A2A2A;
-  }
+  .btn-jvn:hover,
+  .btn-jvn:focus,
+  .btn-jvn:active,
+  .btn-jvn.active,
+  .open .dropdown-toggle.btn-jvn {
+    color: #fff;
+    background-color: transparent;
+    border-color: grey;
+}
 
 /* ==========================================================================
     Navbar Style
@@ -128,7 +132,7 @@ textarea {
 
 		.navbar-default {
 			border-color: transparent;
-			background-color: #fff;
+			background-color: transparent;
 		}
 		.navbar-default .navbar-brand {
 			font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
@@ -169,13 +173,13 @@ textarea {
 
 		.navbar-default .navbar-nav>.active>a {
 			border-radius: 0;
-			color: #fff;
+			color: transparent;
 			background-color: #9d9696;
 		}
 
 		.navbar-default .navbar-nav>.active>a:hover,
 		.navbar-default .navbar-nav>.active>a:focus {
-			color: #fff;
+			color: transparent;
 			background-color: #9d9696;
 		}
 /* ==========================================================================
