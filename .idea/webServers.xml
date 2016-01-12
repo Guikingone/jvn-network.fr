@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="e3baebba-ab64-4ba8-9673-65462cde404a" name="jvn-network" url="http://jvn-network.fr">
+        <fileTransfer host="jvn-network.fr" port="22" accessType="SFTP" username="u83030699-Guik">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

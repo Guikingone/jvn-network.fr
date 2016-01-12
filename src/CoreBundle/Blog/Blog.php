@@ -14,6 +14,8 @@ class Blog {
   */
   private $em;
 
+  protected $repository;
+
   public function __construct(EntityManagerInterface $em)
   {
     $this->em = $em;
@@ -26,20 +28,6 @@ class Blog {
     $article = new article();
     $article->setDatePublication(new \Datetime);
     $article->setCategorie($categorie);
-
-    /* On appelle le formulaire depuis le namespace Form, on définit l'objet qui l'appelle puis on fait le lien
-    requête <-> formulaire */
-    $formbuilder = $em->createForm(ArticleType::class, $article);
-    $formbuilder->handleRequest($request);
-
-        /* On vérifie que les données sont valides, on les persist, on enregistre le tout et on renvoit un message
-        flash afin de valider l'enregistrement de l'article */
-        if($formbuilder->isValid()){
-           $em = $this->getDoctrine()->getManager();
-           $em->persist($article);
-           $em->flush();
-           $request->getSession()->getFlashBag()->add('success', "Article enregistré");
-         }
   }
 
   public function update(Request $request)
@@ -54,6 +42,12 @@ class Blog {
 
   public function view()
   {
+    /* On va chercher l'article en fonction de son ID, si article inexistant, alors
+    on retourne un message d'erreur 404, sinon, on affiche l'article puis les commentaires liés */
 
+    $view = $this->getDoctrine()->getManager();
+    $vue = $view
+        ->getRepository($repository)
+        ->find($article);
   }
 }
