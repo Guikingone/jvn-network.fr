@@ -12,7 +12,7 @@ class TchatRepository extends \Doctrine\ORM\EntityRepository
 {
   public function getTchat()
   {
-    return $this->createQueryBuilder('tc')
+    return $this->createQueryBuilder('t')
                 ->getQuery()
                 ->getResult();
   }

@@ -5,6 +5,7 @@ namespace CommuBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Doctrine\ORM\EntityManagerInterface;
 
 class CommuController extends Controller
 {
@@ -20,7 +21,7 @@ class CommuController extends Controller
                     ->getRepository('CommuBundle:Tchat')
                     ->getTchat();
 
-      return $this->render('CommuBundle:Tchat:index.html.twig', array(
+      return $this->render('CommuBundle::index.html.twig', array(
         'tchat' => $tchat
       ));
     }
