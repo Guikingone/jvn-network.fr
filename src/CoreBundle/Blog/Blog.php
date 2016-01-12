@@ -12,7 +12,6 @@ class Blog {
   /**
   * @var EntityManagerInterface
   */
-
   private $em;
 
   public function __construct(EntityManagerInterface $em)
@@ -55,6 +54,6 @@ class Blog {
 
   public function view()
   {
-    
+
   }
 }
