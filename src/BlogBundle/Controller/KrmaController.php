@@ -3,13 +3,10 @@
 namespace BlogBundle\Controller;
 
 use BlogBundle\Entity\Article;
-use BlogBundle\Entity\Commentaires;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Doctrine\ORM\EntityManagerInterface;
 use BlogBundle\Form\Type\ArticleType;
-use BlogBundle\Form\Type\ArticleEditType;
 use BlogBundle\Form\Type\CommentaireType;
 // Bien penser à HttpKernel pour afficher l'erreur d'ID
 

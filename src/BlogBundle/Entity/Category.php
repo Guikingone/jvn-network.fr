@@ -2,7 +2,6 @@
 
 namespace BlogBundle\Entity;
 
-use Doctrine\Commom\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

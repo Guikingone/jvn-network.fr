@@ -1,5 +1,6 @@
 {% extends ('CoreBundle::layout.html.twig')%}
 {% block body %}
+<img class="img-responsive img_hero" src="{{ asset('bundles/core/images/hero_image.jpg')}}" alt="hero">
 <div class="container">
   <section class="info-bar info-bar-clean hidden-xs">
       <div class="row">
@@ -47,8 +48,18 @@
       <h3 class="text-center">Les derniers articles</h3>
       <hr />
       {% for article in article %}
-        <h4>{{ article.titre }}</h4>
-        <p>{{ article.contenu[:45]|raw }}</p>
+        <h4 class="text-center"><a href="{% if article.categorie == 'TEAM' %}
+                                          {{path('team_article', {'id': article.id})}}
+                                        {% elseif article.categorie == 'MEMBRE' %}
+                                          {{path('membre_article', {'id': article.id })}}
+                                        {% else %}
+                                          {{path('krma_article', {'id': article.id})}}
+                                        {% endif %}">
+                      {{ article.titre }}
+            </a>
+        </h4>
+        <p class="text-center">par <strong>{{ article.auteur }}</strong>, dans la catégorie <em>{{ article.categorie }}</em></p>
+        <br>
       {% endfor %}
     </div>
   </div>

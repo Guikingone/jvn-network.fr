@@ -2,11 +2,9 @@
 
 namespace BlogBundle\Entity;
 
-use Doctrine\Commom\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 // Ce use définit les contraintes via l'outil Validator ! A conserver !
-use CoreBundle\Validator\AntiFlood;
 
 /**
  * Article

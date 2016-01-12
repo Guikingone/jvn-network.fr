@@ -1,13 +1,4 @@
 services:
-    corebundle.beta.html:
-        class: CoreBundle\Beta\BetaHTML
-
-    corebundle.beta.listerner:
-        class: CoreBundle\Beta\BetaListener
-        arguments: ['@corebundle.beta.html', "2016-30-03"]
-        tags:
-            - { name: kernel.event_listener, event: kernel.reponse, method: processBeta }
-
     corebundle.censorship_processor:
         class: CoreBundle\BigBrother\CensorShipProcessor
         arguments: ['@mailer']
