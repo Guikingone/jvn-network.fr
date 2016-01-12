@@ -12,3 +12,7 @@ services:
     corebundle.purge_all:
         class: CoreBundle\Purge\Purge
         arguments: ['@doctrine.orm.entity_manager']
+
+    corebundle.blog:
+        class: CoreBundle\Blog\Blog
+        arguments: ['@doctrine.orm.entity_manager']
