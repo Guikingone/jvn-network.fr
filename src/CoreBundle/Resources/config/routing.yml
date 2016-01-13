@@ -9,3 +9,7 @@ core_contact:
 core_mentions:
     path:     /mentions
     defaults: { _controller: CoreBundle:Home:mentions }
+
+core_equipe:
+    path:     /equipe
+    defaults: { _controller: CoreBundle:Home:equipe }

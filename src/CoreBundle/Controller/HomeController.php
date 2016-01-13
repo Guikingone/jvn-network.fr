@@ -28,4 +28,9 @@ class HomeController extends Controller{
     {
       return $this->render('CoreBundle::mentions.html.twig');
     }
+
+    public function equipeAction()
+    {
+      return $this->render('CoreBundle::equipe.html.twig');
+    }
 }
