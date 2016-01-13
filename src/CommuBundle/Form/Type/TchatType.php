@@ -17,7 +17,7 @@ class TchatType extends AbstractType
     {
         $builder
             ->add('auteur')
-            ->add('dateCreation', 'datetime')
+            ->add('dateCreation')
             ->add('contenu')
             ->add('save', SubmitType::class)
         ;

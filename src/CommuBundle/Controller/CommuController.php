@@ -18,8 +18,21 @@ class CommuController extends Controller
                     ->getRepository('CommuBundle:Tchat')
                     ->getTchat();
 
+      $add = new Tchat();
+      $add->setDateCreation(new \Datetime);
+
+      $form_add = $this->createForm(TchatType::class, $add);
+      $form_add->handleRequest($request);
+      if($form_add->isValid()){
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($add);
+        $em->flush();
+        return $this->redirectToRoute('commu_home');
+      }
+
         return $this->render('CommuBundle::index.html.twig', array(
-          'tchat' => $tchat
+          'tchat' => $tchat,
+          'form' => $form_add->createView()
         ));
     }
 }

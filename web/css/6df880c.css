@@ -6917,7 +6917,7 @@ textarea {
 
 		.navbar-default {
 			border-color: transparent;
-			background-color: transparent;
+			background-color: #fff;
 		}
 		.navbar-default .navbar-brand {
 			font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
