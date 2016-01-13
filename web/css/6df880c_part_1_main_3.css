@@ -103,27 +103,12 @@ textarea {
 		font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
 	}
 
-  .img_hero{
-    margin-top: -450px;
+  .hero{
+    background: url('../../Resources/public/images/hero_image.jpg') center no-repeat top;
+    height: auto;
+    background-attachment: relative;
+    width: 100%;
   }
-
-  .btn-jvn {
-  color: #fff;
-  background-color: transparent;
-  border-color: #fff;
-  border-width: 4px;
-  margin: 20px;
-  margin-top: -800px;
-  }
-  .btn-jvn:hover,
-  .btn-jvn:focus,
-  .btn-jvn:active,
-  .btn-jvn.active,
-  .open .dropdown-toggle.btn-jvn {
-    color: #fff;
-    background-color: transparent;
-    border-color: grey;
-}
 
 /* ==========================================================================
     Navbar Style
@@ -172,13 +157,13 @@ textarea {
 
 		.navbar-default .navbar-nav>.active>a {
 			border-radius: 0;
-			color: transparent;
+			color: #fff;
 			background-color: #9d9696;
 		}
 
 		.navbar-default .navbar-nav>.active>a:hover,
 		.navbar-default .navbar-nav>.active>a:focus {
-			color: transparent;
+			color: #fff;
 			background-color: #9d9696;
 		}
 /* ==========================================================================

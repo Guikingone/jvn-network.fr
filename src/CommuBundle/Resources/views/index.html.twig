@@ -3,17 +3,66 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
-      <h2 class="text-center">La communauté, la foundation</h2>
+      <h2 class="text-center">La communauté, la fondation</h2>
       <hr />
       <p class="text-center">Amis de bon goût, voici l'heure de vous donner les clés de JVN-Network, vous êtes ici chez vous, libre,
       tout puissant et libéré de toute contraintes, vos propos ne seront pas modérés dans cette section (jusqu'à une certain seuil) et
     vous êtes libre de vaquer à vos occupations, que ce soit la vidéo, le tchat, la webcam ou les "LDS", tout est là pour vous, bonne journée</p>
     </div>
-    <div class="col-lg-12">
-      <!-- Blog Vidéo -->
+    <div class="col-lg-6">
+      <!-- Bloc Twitter -->
+      <h3 class="text-center">Twitter</h3>
+      <hr />
     </div>
-    <div class="col-lg-12">
+    <div class="col-lg-6">
       <!-- Bloc Tchat -->
+      <h3 class="text-center">Le tchat</h3>
+      <hr />
+      {% if is_granted('IS_AUTHENTICATED_REMEMBERED')%}
+      <div class="well">
+        {% for tchat in tchat %}
+          <h5 class="text-center"><strong>{{ tchat.auteur }}</strong></h5>
+          <p class="text-center">{{ tchat.contenu }}</p>
+          <hr />
+        {% endfor %}
+        {% if tchat is not empty %}
+          <p class="text-center"><strong>Merci de rafraîchir votre page si le contenu ne s'affiche pas</strong></p>
+        {% endif %}
+        <a href="{{path('commu_home')}}">Rafraîchir</a>
+      </div>
+      <!-- Formulaire -->
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <div class="form-group">
+          {{ form_label(form.auteur, "Pseudo", {'label_attr': {'class': 'control-label'}})}}
+          {{ form_errors(form.auteur) }}
+          {{ form_widget(form.auteur, {'attr': {'class': 'form-control'}})}}
+        </div>
+        <div class="form-group">
+          {{ form_label(form.contenu, "Contenu", {'label_attr': {'class': 'control-label'}})}}
+          {{ form_errors(form.contenu) }}
+          {{ form_widget(form.contenu, {'attr': {'class': 'form-control'}})}}
+        </div>
+        <div class="form-group">
+          {{ form_label(form.dateCreation, "Date de création", {'label_attr': {'class': 'label-control'}}) }}
+          {{ form_errors(form.dateCreation) }}
+          {{ form_widget(form.dateCreation) }}
+        </div>
+        {{ form_widget(form.save, {'attr': {'class': 'btn btn-danger'}}) }}
+        {{ form_end(form) }}
+      {% endif %}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <!-- Bloc Twitch -->
+      <h3 class="text-center">La chaîne Twitch</h3>
+      <hr />
+    </div>
+    <div class="col-lg-6">
+      <!-- Bloc Webcam -->
+      <h3 class="text-center">La Webcam</h3>
+      <hr />
     </div>
   </div>
 </div>
