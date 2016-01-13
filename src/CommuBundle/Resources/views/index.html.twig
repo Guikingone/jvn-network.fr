@@ -18,8 +18,16 @@
       <!-- Bloc Tchat -->
       <h3 class="text-center">Le tchat</h3>
       <hr />
+      {% if is_granted('IS_AUTHENTICATED_REMEMBERED')%}
       <div class="well">
+        {% for tchat in tchat %}
+          <h5 class="text-center">{{ tchat.auteur }}</h5>
+          <p class="text-center">{{ tchat.contenu }}</p>
+          <br>
+          <hr />
+        {% endfor %}
       </div>
+      {% endif %}
     </div>
   </div>
   <div class="row">

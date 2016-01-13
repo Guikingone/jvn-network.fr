@@ -5,6 +5,7 @@ namespace CommuBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class TchatType extends AbstractType
 {
@@ -18,6 +19,7 @@ class TchatType extends AbstractType
             ->add('auteur')
             ->add('dateCreation', 'datetime')
             ->add('contenu')
+            ->add('save', SubmitType::class)
         ;
     }
 
