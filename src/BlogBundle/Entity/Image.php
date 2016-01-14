@@ -52,6 +52,8 @@ class Image
 
     private $temp;
 
+    private $filename;
+
     /**
      * Get id
      *
@@ -210,9 +212,11 @@ class Image
     public function preUpload()
     {
       /* On génère un nom unique */
-      if( null !== $tjhis->getFile()){
+      if(null !== $this->getFile()){
         $filename = sha1(uniqid(mt_rand(), true));
         $this->path = $filename.'.'.$this->getFile()->guessExtension();
+        $this->url = $this->file->guessExtension();
+        $this->alt = $this->file->getClientOriginalName();
       }
     }
 

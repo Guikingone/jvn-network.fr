@@ -8,6 +8,7 @@ use BlogBundle\Form\Type\ArticleType;
 use BlogBundle\Form\Type\CommentaireType;
 use BlogBundle\Entity\Article;
 use BlogBundle\Entity\Commentaire;
+use BlogBundle\Entity\Image;
 
 class TeamController extends Controller {
 
@@ -97,6 +98,7 @@ class TeamController extends Controller {
     $art = new Article();
     $art->setDatePublication(new \Datetime);
     $art->setCategorie('TEAM');
+    $art->setImage(new Image);
 
     /* On appelle le formulaire depuis le namespace Form, on définit l'objet qui l'appelle puis on fait le lien
     requête <-> formulaire */
