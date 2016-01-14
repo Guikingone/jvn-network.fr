@@ -13,6 +13,17 @@ use Doctrine\ORM\QueryBuilder;
 class ArticleRepository extends \Doctrine\ORM\EntityRepository
 {
 
+  public function getArticleBlog($categorie)
+  {
+    return $this->createQueryBuilder('ab')
+                ->leftJoin('ab.image', 'i')
+                  ->addSelect('i')
+                ->where('ab.categorie = :categorie')
+                  ->setParameter('categorie', $categorie)
+                ->orderBy('ab.datePublication', 'DESC')
+                ->getQuery()
+                ->getResult();
+  }
   public function getArticleTeam()
   {
     /* On récupère les articles avec les images en les triant par catégories, on sélectionne uniquement ceux

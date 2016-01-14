@@ -38,16 +38,6 @@ class Purge {
     $this->em->flush();
   }
 
-  public function purgeArticle($id)
-  {
-    /* On récupère les articles à supprimer via leur id, on boucle sur les commentaires afin de les lier puis
-    on supprime le tout */
-    $purge = $this->em->getRepository('BlogBundle:Article')
-                      ->find($id);
-    $this->em->remove($purge);
-    $this->em->flush();
-  }
-
   public function purgeCommentaires($id)
   {
     /* On récupère les commentaires à supprimer via leur id et l'action removeCommentaire puis on flush

@@ -3,6 +3,7 @@
 namespace BlogBundle\Controller;
 
 use BlogBundle\Entity\Article;
+use BlogBundle\Entity\Commentaire;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -146,9 +147,8 @@ class KrmaController extends Controller{
     {
       /* On récupère le service Purge afin de supprimer selon la méthode propre aux articles, puis
       on renvoit un message flash et on redirige vers la page d'administration */
-
-      $em = $this->get('coreBundle.purge_all');
-      $em->purgeArticle($id);
+      $em = $this->get('corebundle.blog');
+      $em->delete($id);
 
       $request->getSession()
               ->getFlashBag()
