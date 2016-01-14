@@ -149,11 +149,7 @@ class KrmaController extends Controller{
       on renvoit un message flash et on redirige vers la page d'administration */
       $em = $this->get('corebundle.blog');
       $em->delete($id);
-
-      $request->getSession()
-              ->getFlashBag()
-              ->add('success', "L'article avec l'id " . $id . " a été supprimé");
-
+      $request->getSession()->getFlashBag()->add('success', "L'article avec l'id " . $id . " a été supprimé");
       return $this->redirectToRoute('krma_admin');
     }
 }

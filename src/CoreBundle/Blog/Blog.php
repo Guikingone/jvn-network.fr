@@ -28,13 +28,29 @@ class Blog {
                     ->getArticleBlog($categorie);
   }
 
-  public function add(Request $request, $categorie)
+  public function add(Request $request, $categorie, $route)
   {
     /* On créer un nouvel article, on définit la date en fonction du jour
     afin de faciliter le travail de l'auteur, si besoin, il pourra la modifier via le formulaire */
     $article = new article();
     $article->setDatePublication(new \Datetime);
     $article->setCategorie($categorie);
+
+    /* On appelle le formulaire depuis le namespace Form, on définit l'objet qui l'appelle puis on fait le lien
+    requête <-> formulaire */
+    $formbuilder = $this->createForm(ArticleType::class, $article);
+    $formbuilder->handleRequest($request);
+
+    /* On vérifie que les données sont valides, on appelle BigBrother qui écoutera les articles postés,
+    on les persist, on enregistre le tout et on renvoit un message
+    flash afin de valider l'enregistrement de l'article */
+        if($formbuilder->isValid()){
+          $em = $this->getDoctrine()->getManager();
+          $em->persist($article);
+          $em->flush();
+          $request->getSession()->getFlashBag()->add('success', "Article enregistré");
+          return $this->redirectToRoute($route);
+        }
   }
 
   public function update(Request $request, $id, $route)
@@ -69,8 +85,14 @@ class Blog {
     $this->em->flush();
   }
 
-  public function view()
+  public function view($article)
   {
-
+    /* On va chercher l'article en fonction de son ID, si article inexistant, alors
+    on retourne un message d'erreur 404, sinon, on affiche l'article puis on lie les commentaires
+    afin de pouvoir les afficher */
+    $view = $this->em->getRepository('BlogBundle:Article')
+                     ->find($article);
+    $comm = $view->em->getRepository('BlogBundle:Commentaire')
+                     ->findBy(array('article' => $view));
   }
 }

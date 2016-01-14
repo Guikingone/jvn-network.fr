@@ -1,14 +1,4 @@
 services:
-    corebundle.censorship_processor:
-        class: CoreBundle\BigBrother\CensorShipProcessor
-        arguments: ['@mailer']
-
-    corebundle.censorship_listener:
-        class: CoreBundle\BigBrother\CensorShipListener
-        arguments: ['@corebundle.censorship_processor']
-        tags:
-            - { name: kernel.event_listener, event: corebundle.bigbrother.post_message, method: processMessage }
-
     corebundle.purge_all:
         class: CoreBundle\Purge\Purge
         arguments: ['@doctrine.orm.entity_manager']

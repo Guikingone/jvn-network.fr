@@ -155,15 +155,11 @@ class TeamController extends Controller {
 
   public function deleteAction(Request $request, $id)
   {
-    /* On récupère le service Purge afin de supprimer selon la méthode propre aux articles, puis
+    /* On récupère le service Blog afin de supprimer les articles via delete, puis
     on renvoit un message flash et on redirige vers la page d'administration */
     $em = $this->get('coreBundle.blog');
     $em->delete($id);
-
-    $request->getSession()
-            ->getFlashBag()
-            ->add('success', "L'article avec l'id " . $id . " a été supprimé");
-
+    $request->getSession()->getFlashBag()->add('success', "L'article avec l'id " . $id . " a été supprimé");
     return $this->redirectToRoute('team_admin');
   }
 }

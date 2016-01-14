@@ -3,8 +3,6 @@
 namespace ForumsBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\Request;
 
 use ForumsBundle\Entity\Sujet;
