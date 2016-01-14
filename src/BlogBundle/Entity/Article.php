@@ -58,7 +58,7 @@ class Article
     private $contenu;
 
     /**
-    * @ORM\OneToOne(targetEntity="BlogBundle\Entity\Image", cascade={"persist", "remove"})
+    * @ORM\OnetoOne(targetEntity="BlogBundle\Entity\Image", cascade={"persist", "remove"})
     * @Assert\Valid()
     * Comme on veut pouvoir créer une annonce sans image, on n'ajoute pas nullable=false
     * Si on veut que l'annonce puisse exister sans image, on ajouterais nullable=true
