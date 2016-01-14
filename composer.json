@@ -1,5 +1,6 @@
 {
     "name": "guillaume/symfony",
+    "description": "A list of the dependancy use by jvn-network",
     "license": "proprietary",
     "type": "project",
     "autoload": {
