@@ -32,6 +32,8 @@ class PcController extends Controller {
     $s_PC = new Sujet();
     $s_PC->setDateCreation(new \Datetime);
     $s_PC->setCategory('Pc');
+    $user = $this->getUser();
+    $s_PC->setAuteur($user);
 
     /* On appelle le formulaire depuis le namespace Form, on définit l'objet qui l'appelle
     puis on fait le lien requête <-> formulaire */

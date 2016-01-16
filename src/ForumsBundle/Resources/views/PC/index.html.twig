@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-lg-12">
       <p class="text-center"><a href="{{path('forums_home')}}">Retour à l'index</a></p>
-      <h2 class="text-center">Le forum Consoles</h2>
+      <h2 class="text-center">Le forum PC</h2>
       <hr />
       <br>
       {% for sujet in pc %}
@@ -15,7 +15,7 @@
       {% endfor %}
     </div>
   </div>
-  {% if is_granted('IS_AUTHENTICATED_REMEMBERED')%}
+  {% if is_granted('IS_AUTHENTICATED_FULLY')%}
   <div class="row">
     <div class="col-lg-12 text-center">
       <a href="{{path('forums_pc_add')}}" class="btn btn-danger">Créer un sujet</a>

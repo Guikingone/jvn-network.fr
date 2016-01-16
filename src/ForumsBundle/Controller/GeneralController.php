@@ -32,6 +32,8 @@ class GeneralController extends Controller {
     $s_General = new Sujet();
     $s_General->setDateCreation(new \Datetime);
     $s_General->setCategory('General');
+    $user = $this->getUser();
+    $s_General->setAuteur($user);
 
     /* On appelle le formulaire depuis le namespace Form, on définit l'objet qui l'appelle puis on fait le lien
     requête <-> formulaire */

@@ -37,6 +37,8 @@ class ForumsController extends Controller
       $message = new Message();
       $message->setDateMessage(new \Datetime);
       $message->setSujet($sujet);
+      $user = $this->getUser();
+      $message->setAuteur($user);
       $formMessage = $this->createForm(MessageType::class, $message);
       $formMessage->handleRequest($request);
 

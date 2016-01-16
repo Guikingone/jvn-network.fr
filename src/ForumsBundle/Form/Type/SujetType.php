@@ -18,7 +18,6 @@ class SujetType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('auteur')
             ->add('contenu', TextareaType::class, array('required' => false))
             ->add('save', SubmitType::class)
         ;

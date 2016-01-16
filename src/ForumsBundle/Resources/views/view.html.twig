@@ -66,15 +66,18 @@
       {% endfor %}
     </div>
     <!-- Le visiteur ne pourra commenter que si il est connecté -->
-    {% if is_granted('IS_AUTHENTICATED_REMEMBERED')%}
+    {% if is_granted('IS_AUTHENTICATED_FULLY')%}
     <div class="row text-center">
       <div class="well">
         {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
         {{ form_errors(form) }}
         <div class="form-group">
-          {{ form_label(form.auteur, "Auteur", {'label_attr': {'class': 'control-label'}}) }}
-          {{ form_errors(form.auteur) }}
-          {{ form_widget(form.auteur, {'attr': {'class': 'form-control'}}) }}
+          {{ form_label(form.contenu, "Contenu", {'label_attr': {'class': 'control-label'}}) }}
+          {{ form_errors(form.contenu) }}
+          {{ form_widget(form.contenu, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+          {{ form_widget(form.save, {'attr': {'class': 'btn btn-danger'}})}}
         </div>
         {{ form_end(form) }}
       </div>

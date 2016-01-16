@@ -32,6 +32,8 @@ class AdminController extends Controller {
     $s_Admin = new Sujet();
     $s_Admin->setDateCreation(new \Datetime);
     $s_Admin->setCategory('Admin');
+    $user = $this->getUser();
+    $s_Admin->setAuteur($user);
 
     /* On appelle le formulaire depuis le namespace Form, on définit l'objet qui l'appelle puis on fait le lien
     requête <-> formulaire */
