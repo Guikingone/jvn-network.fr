@@ -13,12 +13,9 @@ class MembreController extends Controller {
 
   public function indexAction(Request $request)
   {
-    /** On récupère les articles via le repository Article et la fonction getArticleMembre,  puis on retourne le tout
-    dans la vue via une boucle for afin d'afficher les articles */
-    $article = $this->getDoctrine()
-                    ->getManager()
-                    ->getRepository('BlogBundle:Article')
-                    ->getArticleMembre();
+    /** On récupère les articles via le service Blog, ce dernier récupère les articles via la catégorie et
+    renvoit le tout via la fonction index */
+    $article = $this->get('corebundle.blog')->index('MEMBRE');
 
     return $this->render('BlogBundle:Membre:index.html.twig', array(
       'article' => $article
@@ -66,12 +63,8 @@ class MembreController extends Controller {
 
   public function adminAction(Request $request)
   {
-    /* On récupère les articles via les catégories, on affiche le tout via la boucle for définie dans la vue,
-    au besoin, on paginera le tout pour fluidifier le résultat */
-    $article = $this->getDoctrine()
-                    ->getManager()
-                    ->getRepository('BlogBundle:Article')
-                    ->getArticleMembre();
+    /* On récupère les articles via le service Blog */
+    $article = $this->get('corebundle.blog')->index('MEMBRE');
 
     return $this->render('BlogBundle:Membre:admin.html.twig', array(
       'article' => $article
@@ -86,6 +79,8 @@ class MembreController extends Controller {
     $art = new Article();
     $art->setDatePublication(new \Datetime);
     $art->setCategorie('MEMBRE');
+    $user = $this->getUser();
+    $art->setAuteur($user);
 
     /* On appelle le formulaire depuis le namespace Form, on définit l'objet qui l'appelle puis on fait le lien
     requête <-> formulaire */

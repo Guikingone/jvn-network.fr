@@ -6,6 +6,8 @@ services:
     corebundle.blog:
         class: CoreBundle\Blog\Blog
         arguments: ['@doctrine.orm.entity_manager']
+        tags:
+            - { name: form.type }
 
     corebundle.outils:
         class: CoreBundle\Outils\Outils

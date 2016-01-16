@@ -15,12 +15,9 @@ class KrmaController extends Controller{
 
   public function indexAction()
   {
-    /** On récupère les articles via le repository Article et la fonction getArticleKrma, puis on retourne le tout
-    dans la vue via une boucle for afin d'afficher les articles */
-    $article = $this->getDoctrine()
-                    ->getManager()
-                    ->getRepository('BlogBundle:Article')
-                    ->getArticleKrma();
+    /** On récupère les articles via le service Blog, ce dernier récupère les articles via la catégorie et
+    renvoit le tout via la fonction index */
+    $article = $this->get('corebundle.blog')->index('KRMA');
 
     return $this->render('BlogBundle:Krma:index.html.twig', array(
       'article' => $article
@@ -70,10 +67,7 @@ class KrmaController extends Controller{
     {
       /* On récupère les articles par catégories afin de les afficher via une boucle for dans le back office du blog,
       au besoin, on paginera le tout afin de fluidifier le résultat */
-      $article = $this->getDoctrine()
-                      ->getManager()
-                      ->getRepository('BlogBundle:Article')
-                      ->getArticleKrma();
+      $article = $this->get('corebundle.blog')->index('KRMA');
 
       return $this->render('BlogBundle:Krma:admin.html.twig', array(
         'article' => $article

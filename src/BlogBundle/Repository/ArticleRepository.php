@@ -12,7 +12,7 @@ use Doctrine\ORM\EntityRepository;
 class ArticleRepository extends \Doctrine\ORM\EntityRepository
 {
 
-  public function getArticleBlog($categorie)
+  public function getArticle($categorie)
   {
     return $this->createQueryBuilder('ab')
                 ->leftJoin('ab.image', 'i')
@@ -23,47 +23,6 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
                 ->getQuery()
                 ->getResult();
   }
-  public function getArticleTeam()
-  {
-    /* On récupère les articles avec les images en les triant par catégories, on sélectionne uniquement ceux
-    qui viennent du blog de l'Equipe, on trie par ordre descendant et on retourne le tout */
-    return $this->createQueryBuilder('a')
-                ->leftJoin('a.image', 'i')
-                  ->addSelect('i')
-                ->where('a.categorie = :categorie')
-                  ->setParameter('categorie', 'TEAM')
-                ->orderBy('a.datePublication', 'DESC')
-                ->getQuery()
-                ->getResult();
-  }
-
-  public function getArticleMembre()
-  {
-    /* On récupère les articles avec les images en les triant par catégories, on sélectionne uniquement ceux
-    qui viennent du blog des Membres, on trie par ordre descendant et on retourne le tout */
-    return $this->createQueryBuilder('a')
-                ->leftJoin('a.image', 'i')
-                  ->addSelect('i')
-                ->where('a.categorie = :categorie')
-                  ->setParameter('categorie', 'MEMBRE')
-                ->orderBy('a.datePublication', 'DESC')
-                ->getQuery()
-                ->getResult();
-  }
-
-  public function getArticleKrma()
-  {
-    /* On récupère les articles avec les images en les triant par catégories, on sélectionne uniquement ceux
-    qui viennent du blog de Krma, on trie par ordre descendant et on retourne le tout */
-    return $this->createQueryBuilder('a')
-                ->leftJoin('a.image', 'i')
-                  ->addSelect('i')
-                ->where('a.categorie = :categorie')
-                  ->setParameter('categorie', 'KRMA')
-                ->getQuery()
-                ->getResult();
-  }
-
 
   public function getUpdateArticle($id)
   {
@@ -76,7 +35,7 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
                   ->getResult();
   }
 
-  public function getArticle()
+  public function getArticlooe()
   {
     return $this->createQueryBuilder('a')
                 ->leftJoin('a.image', 'i')

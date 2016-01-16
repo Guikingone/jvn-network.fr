@@ -14,13 +14,9 @@ class TeamController extends Controller {
 
   public function indexAction()
   {
-    /** On récupère les articles via le repository Article et la fonction getArticleTeam, puis on retourne le tout
-    dans la vue via une boucle for afin d'afficher les articles */
-    $article = $this->getDoctrine()
-                    ->getManager()
-                    ->getRepository('BlogBundle:Article')
-                    ->getArticleTeam();
-
+    /** On récupère les articles via le service Blog, ce dernier récupère les articles via la catégorie et
+    renvoit le tout via la fonction index */
+    $article = $this->get('corebundle.blog')->index('TEAM');
     return $this->render('BlogBundle:Team:index.html.twig', array(
       'article' => $article
     ));
@@ -67,11 +63,8 @@ class TeamController extends Controller {
 
   public function adminAction(Request $request)
   {
-    /* On récupère les articles par catégories afin de les afficher via une boucle for dans le back office du blog,
-    au besoin, on paginera le tout afin de fluidifier le résultat */
-    $article = $this->getDoctrine()->getManager()
-                    ->getRepository('BlogBundle:Article')
-                    ->getArticleTeam();
+    /* On récupère les articles via le service Blog */
+    $article = $this->get('corebundle.blog')->index('TEAM');
 
     /* On récupère tout les membres ainsi que leur attributs, on les affichent pour pouvoir y intervenir en cas de
     besoin, si besoin, on paginera */
@@ -125,33 +118,8 @@ class TeamController extends Controller {
 
   public function updateAction(Request $request, $id)
   {
-    /* On récupère l'entité via l'ID, si l'article n'existe pas, on renvoit un message d'erreur,
-    on ouvre le formulaire, on valide, on affiche un message d'info afin
-    de valider l'opération et on redirige vers la page d'administration */
-
-    $um = $this->getDoctrine()
-               ->getManager()
-               ->getRepository('BlogBundle:Article')
-               ->find($id);
-    if (null === $um) {
-      throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
-    }
-
-    $form = $this->createForm(ArticleType::class, $um);
-    $form->handleRequest($request);
-
-
-    /* Ici, on se contente de vérifier que tout est valide, on ne persise pas car Doctrine connaît l'entité,
-    une fois que tout est terminé, on affiche un message de succés et on redirige vers l'article en question */
-
-    if($form->isValid())
-    {
-      $um = $this->getDoctrine()
-                 ->getManager()
-                 ->flush();
-      $request->getSession()->getFlashBag()->add('success', "L'annonce" . $id . "a bien été modifiée");
-      return $this->redirectToRoute('team_admin');
-    }
+    $update = $this->get('corebundle.blog')->update($id, 'team_admin');
+    
     return $this->render('BlogBundle:Team:update.html.twig', array(
       'form' => $form->createView(),
       'article' => $um
