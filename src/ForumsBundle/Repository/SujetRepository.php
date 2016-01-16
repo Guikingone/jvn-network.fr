@@ -49,4 +49,11 @@ class SujetRepository extends \Doctrine\ORM\EntityRepository
                 ->getQuery()
                 ->getResult();
   }
+
+  public function getSujet()
+  {
+    return $this->createQueryBuilder('s')
+                ->getQuery()
+                ->getResult();
+  }
 }

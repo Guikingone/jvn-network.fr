@@ -13,3 +13,9 @@ core_mentions:
 core_equipe:
     path:     /equipe
     defaults: { _controller: CoreBundle:Home:equipe }
+
+# Définition des routes pour le back office #
+
+back_office:
+    path:     /back_office
+    defaults: { _controller: CoreBundle:Back:back }
