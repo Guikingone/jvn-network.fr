@@ -202,7 +202,7 @@ class Image
 
     public function getUploadDir()
     {
-      return 'img/articles';
+      return 'uploads/documents';
     }
 
     /**

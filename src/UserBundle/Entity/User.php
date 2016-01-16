@@ -5,8 +5,6 @@ namespace UserBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use FOS\UserBundle\Model\User as BaseUser;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
@@ -27,12 +25,6 @@ class User extends BaseUser
     protected $id;
 
     /**
-    * @ORM\OneToOne(targetEntity="CoreBundle\Entity\Image", cascade={"persist", "remove"})
-    * @Assert\Valid()
-    */
-    private $image;
-
-    /**
      * Get id
      *
      * @return int
@@ -45,29 +37,5 @@ class User extends BaseUser
     public function eraseCredentials()
     {
 
-    }
-
-    /**
-     * Set image
-     *
-     * @param \CoreBundle\Entity\Image $image
-     *
-     * @return User
-     */
-    public function setImage(\CoreBundle\Entity\Image $image = null)
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * Get image
-     *
-     * @return \CoreBundle\Entity\Image
-     */
-    public function getImage()
-    {
-        return $this->image;
     }
 }
