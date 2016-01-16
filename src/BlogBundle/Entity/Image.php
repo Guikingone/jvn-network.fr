@@ -197,7 +197,7 @@ class Image
 
     public function getUploadRootDir()
     {
-      return __DIR__.'/../../../../web/'.$this->getUploadDir();
+      return __DIR__.'/../../../web/'.$this->getUploadDir();
     }
 
     public function getUploadDir()
@@ -232,8 +232,8 @@ class Image
         return;
       }
 
-      /* Si on rencontre une erreur, move renverra automatiquement un message, on évite donc de persister une entité
-      contenant une erreur */
+      /* Si on rencontre une erreur, move() renverra automatiquement un message,
+      on évite donc de persister une entité contenant une erreur */
       $this->getFile()->move($this->getUploadRootDir(), $this->path);
 
       /* Si on a une ancienne image, on la supprime et on nettoie le chemin */

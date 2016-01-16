@@ -29,7 +29,7 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "coresphere/console-bundle": "dev-master",
-        "symfony/assetic-bundle": "^2.7",
+        "symfony/assetic-bundle": "^2.7"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
