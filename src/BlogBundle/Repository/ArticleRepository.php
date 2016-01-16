@@ -81,7 +81,6 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
     return $this->createQueryBuilder('a')
                 ->leftJoin('a.image', 'i')
                   ->addSelect('i')
-                ->setMaxResults(8)
                 ->orderBy('a.datePublication', 'DESC')
                 ->getQuery()
                 ->getResult();

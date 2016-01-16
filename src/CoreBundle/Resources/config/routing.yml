@@ -19,3 +19,20 @@ core_equipe:
 back_office:
     path:     /back_office
     defaults: { _controller: CoreBundle:Back:back }
+
+back_office_add:
+    path:     /back_office/addAction
+    defaults: { _controller: CoreBundle:Back:add }
+
+
+back_office_update:
+    path:     /back_office/update/{id}
+    defaults: { _controller: CoreBundle:Back:update }
+    requirements:
+        id: \d+
+
+back_office_delete:
+    path:     /back_office/delete/{id}
+    defaults: { _controller: CoreBundle:Back:delete }
+    requirements:
+        id: \d+

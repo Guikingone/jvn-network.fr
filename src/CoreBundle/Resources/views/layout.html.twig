@@ -25,7 +25,8 @@
               <ul class="dropdown-menu pull-right">
                 <li><a tabindex="-1" href="{{path('fos_user_profile_show')}}"></i>Mon profil</a></li>
                 {% if is_granted('ROLE_TEAM')%}
-                  <li><a tabindex="-1" href="{{path('team_admin')}}"></i>Back Office</a></li>
+                  <li><a tabindex="-1" href="{{path('back_office')}}"></i>Administration || En construction</a></li>
+                  <li><a tabindex="-1" href="{{path('team_admin')}}"></i>Back Office Team</a></li>
                   <li><a tabindex="-1" href="{{path('membre_admin')}}"></i>Back Office Membre</a></li>
                   <li><a tabindex="-1" href="{{path('krma_admin')}}"></i>Back Office Krma</a></li>
                 {% elseif is_granted('ROLE_ADMIN')%}

@@ -6,3 +6,7 @@ services:
     corebundle.blog:
         class: CoreBundle\Blog\Blog
         arguments: ['@doctrine.orm.entity_manager']
+
+    corebundle.outils:
+        class: CoreBundle\Outils\Outils
+        arguments: ['@doctrine.orm.entity_manager']

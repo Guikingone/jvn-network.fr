@@ -245,10 +245,11 @@ class Image
     }
 
     /**
-    * @ORM\PostRemove()
+    * @ORM\PreRemove()
     */
     public function removeUpload()
     {
+      /* On détache l'image de l'article afin de pouvoir supprimer sans soucis */
       $file = $this->getAbsolutePath();
       if($file){
         unlink($file);

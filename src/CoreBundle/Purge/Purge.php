@@ -18,8 +18,8 @@ class Purge {
 
   public function purgeSujet($id)
   {
-    /* On récupère les sujets à supprimer via leur id et l'action removeSujet puis on flush
-    afin de valider la suppression */
+    /* On récupère les sujets à supprimer ainsi que les messages liés via leur id
+    et l'action removeSujet puis on flush afin de valider la suppression */
     $purge = $this->em
                   ->getRepository('ForumsBundle:Sujet')
                   ->find($id);
