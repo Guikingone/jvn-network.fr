@@ -48,6 +48,8 @@ class KrmaController extends Controller{
       $commentaire = new Commentaire();
       $commentaire->setdateCreation(new \Datetime);
       $commentaire->setArticle($article);
+      $user = $this->getUser();
+      $commentaire->setAuteur($user);
       $formCommentaire = $this->createForm(CommentaireType::class, $commentaire);
       $formCommentaire->handleRequest($request);
 
@@ -87,6 +89,8 @@ class KrmaController extends Controller{
         $art = new Article();
         $art->setDatePublication(new \Datetime);
         $art->setCategorie('KRMA');
+        $user = $this->getUser();
+        $art->setAuteur($user);
 
         /* On appelle le formulaire depuis le namespace Form, on définit l'objet qui l'appelle puis on fait le lien
         requête <-> formulaire */

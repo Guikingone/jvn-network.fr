@@ -26,20 +26,14 @@
       {% endfor %}
     </div>
     <!-- On affiche le formulaire d'ajout de commentaire sous l'article -->
-    {% if is_granted('IS_AUTHENTICATED_REMEMBERED')%}
+    {% if is_granted('IS_AUTHENTICATED_FULLY')%}
     <div class="row well">
       {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
       {{ form_errors(form) }}
-      <div class="form-group">
-        {{ form_label(form.auteur, "Auteur", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
-        {{ form_errors(form.auteur) }}
-        {{ form_widget(form.auteur, {'attr': {'class': 'form-control'}}) }}
-      </div>
-      <div class="form-group">
-
-      </div>
-      <div class="form-group">
-
+      <div class="form-group text-center">
+          {{ form_label(form.contenu, "Commenter", {'label_attr': {'class': 'control-label'}}) }}
+          {{ form_errors(form.contenu) }}
+          {{ form_widget(form.contenu, {'attr': {'class': 'form-control'}})}}
       </div>
       {{ form_end(form) }}
     </div>

@@ -46,6 +46,8 @@ class MembreController extends Controller {
     $commentaire = new Commentaire();
     $commentaire->setdateCreation(new \Datetime);
     $commentaire->setArticle($article);
+    $user = $this->getUser();
+    $commentaire->setAuteur($user);
     $formCommentaire = $this->createForm(CommentaireType::class, $commentaire);
     $formCommentaire->handleRequest($request);
 
