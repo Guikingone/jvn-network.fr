@@ -5,6 +5,8 @@ namespace UserBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use FOS\UserBundle\Model\User as BaseUser;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
@@ -25,11 +27,10 @@ class User extends BaseUser
     protected $id;
 
     /**
-    * @var datetime
-    *
-    * @ORM\Column(name="date_inscription", type="datetime")
+    * @ORM\OneToOne(targetEntity="CoreBundle\Entity\Image", cascade={"persist", "remove"})
+    * @Assert\Valid()
     */
-    protected $date_inscription;
+    private $image;
 
     /**
      * Get id

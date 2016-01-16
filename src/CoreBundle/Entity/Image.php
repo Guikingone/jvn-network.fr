@@ -1,6 +1,6 @@
 <?php
 
-namespace BlogBundle\Entity;
+namespace CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -10,8 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Image
  *
  * @ORM\Table(name="image")
- * @ORM\Entity(repositoryClass="BlogBundle\Repository\ImageRepository")
- * @ORM\HasLifecycleCallBacks()
+ * @ORM\Entity(repositoryClass="CoreBundle\Repository\ImageRepository")
  */
 class Image
 {
@@ -25,24 +24,17 @@ class Image
     private $id;
 
     /**
-    * @ORM\Column(name="name", type="string", length=255)
-    * @Assert\NotBlank
-    */
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     */
     private $name;
 
     /**
-    * @ORM\Column(name="url", type="string", length=255)
-    */
-    private $url;
-
-    /**
-    * @ORM\Column(name="alt", type="string", length=255)
-    */
-    private $alt;
-
-    /**
-    * @ORM\Column(name="path", type="string", length=255, nullable=true)
-    */
+     * @var string
+     *
+     * @ORM\Column(name="path", type="string", length=255)
+     */
     private $path;
 
     /**
@@ -54,10 +46,11 @@ class Image
 
     private $filename;
 
+
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -86,53 +79,6 @@ class Image
     public function getName()
     {
         return $this->name;
-    }
-    /**
-     * Set url
-     *
-     * @param string $url
-     *
-     * @return Image
-     */
-    public function setUrl($url)
-    {
-        $this->url = $url;
-
-        return $this;
-    }
-
-    /**
-     * Get url
-     *
-     * @return string
-     */
-    public function getUrl()
-    {
-        return $this->url;
-    }
-
-    /**
-     * Set alt
-     *
-     * @param string $alt
-     *
-     * @return Image
-     */
-    public function setAlt($alt)
-    {
-        $this->alt = $alt;
-
-        return $this;
-    }
-
-    /**
-     * Get alt
-     *
-     * @return string
-     */
-    public function getAlt()
-    {
-        return $this->alt;
     }
 
     /**
@@ -202,7 +148,7 @@ class Image
 
     public function getUploadDir()
     {
-      return 'img/articles';
+      return 'img/users';
     }
 
     /**
