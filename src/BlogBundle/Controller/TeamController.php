@@ -22,31 +22,6 @@ class TeamController extends Controller {
     ));
   }
 
-  public function adminAction(Request $request)
-  {
-    /* On récupère les articles par catégories afin de les afficher via une boucle for dans le back office du blog,
-    au besoin, on paginera le tout afin de fluidifier le résultat */
-    $article = $this->get('corebundle.blog')->index('TEAM');
-
-    /* On récupère tout les membres ainsi que leur attributs, on les affichent pour pouvoir y intervenir en cas de
-    besoin, si besoin, on paginera */
-    $membre = $this->getDoctrine()
-                   ->getManager()
-                   ->getRepository('UserBundle:User')
-                   ->getUser();
-
-    $commentaire = $this->getDoctrine()
-                        ->getManager()
-                        ->getRepository('BlogBundle:Commentaire')
-                        ->getCommentaires();
-
-    return $this->render('BlogBundle:Team:admin.html.twig', array(
-      'article' => $article,
-      'membre' => $membre,
-      'commentaire' => $commentaire
-    ));
-  }
-
   public function viewAction(Article $article, Request $request)
   {
     /* On va chercher l'article en fonction de son ID, si article inexistant, alors
@@ -83,6 +58,31 @@ class TeamController extends Controller {
       'article' => $vue,
       'commentaire' => $comm,
       'form' => $formCommentaire->createView()
+    ));
+  }
+
+  public function adminAction(Request $request)
+  {
+    /* On récupère les articles par catégories afin de les afficher via une boucle for dans le back office du blog,
+    au besoin, on paginera le tout afin de fluidifier le résultat */
+    $article = $this->get('corebundle.blog')->index('TEAM');
+
+    /* On récupère tout les membres ainsi que leur attributs, on les affichent pour pouvoir y intervenir en cas de
+    besoin, si besoin, on paginera */
+    $membre = $this->getDoctrine()
+                   ->getManager()
+                   ->getRepository('UserBundle:User')
+                   ->getUser();
+
+    $commentaire = $this->getDoctrine()
+                        ->getManager()
+                        ->getRepository('BlogBundle:Commentaire')
+                        ->getCommentaires();
+
+    return $this->render('BlogBundle:Team:admin.html.twig', array(
+      'article' => $article,
+      'membre' => $membre,
+      'commentaire' => $commentaire
     ));
   }
 

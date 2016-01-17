@@ -35,39 +35,6 @@ class Blog {
     return $this->em->getRepository('BlogBundle:Article')->getArticle($categorie);
   }
 
-  public function add(Request $request)
-  {
-  }
-
-  public function update(Request $request, $id, $route, $render)
-  {
-    /* On récupère l'article selon son ID (si il n'existe pas, on renvoit une erreur) puis on créer le formulaire
-    de modification, on vérifie si la requête est valide puis on enregistre le tout, on envoie un message flash
-    de succés puis on redirige vers la route souhaitée */
-    return $this->em->getRepository('BlogBundle:Article')->find($id);
-    if(null === $id){
-      throw new NotFoundHttpException("L'article " . $id . " n'est pas disponible ou a été supprimé.");
-    }
-    $form = $this->createForm(ArticleType::class);
-    $form->handleRequest($request);
-      if($form->isValid()){
-        $update = $this->getDoctrine()->getManager()->flush();
-        $request->getSession()->getFlashBag()->add('success', "L'annonce " . $id . " a bien été modifiée");
-        return $this->redirectToRoute($route);
-      }
-    return $this->render($render, array(
-      'form' => $form->createView()
-    ));
-  }
-
-  public function delete($id)
-  {
-    /* On récupère les articles à supprimer via leur id puis on supprime le tout */
-    $purge = $this->em->getRepository('BlogBundle:Article')->find($id);
-    $this->em->remove($purge);
-    $this->em->flush();
-  }
-
   public function view(Request $request, $article, $commentaire, $user)
   {
     /* On récupère l'article via son ID, on l'affiche en offrant la possibilité de commenter l'article, on initialise
@@ -86,5 +53,35 @@ class Blog {
       if($formCommentaire->isValid()){
         $em = $this->getDoctrine()->getManager()->persist($commentaire)->flush();
       }
+  }
+
+  public function add(Request $request)
+  {
+  }
+
+  public function update(Request $request, $id, $route, $render, $form)
+  {
+    /* On récupère l'article selon son ID (si il n'existe pas, on renvoit une erreur) puis on créer le formulaire
+    de modification, on vérifie si la requête est valide puis on enregistre le tout, on envoie un message flash
+    de succés puis on redirige vers la route souhaitée */
+    return $this->em->getRepository('BlogBundle:Article')->find($id);
+    if(null === $id){
+      throw new NotFoundHttpException("L'article " . $id . " n'est pas disponible ou a été supprimé.");
+    }
+    $form = $this->createForm(ArticleType::class);
+    $form->handleRequest($request);
+      if($form->isValid()){
+        $update = $this->getDoctrine()->getManager()->flush();
+        $request->getSession()->getFlashBag()->add('success', "L'annonce " . $id . " a bien été modifiée");
+        return $this->redirectToRoute($route);
+      }
+  }
+
+  public function delete($id)
+  {
+    /* On récupère les articles à supprimer via leur id puis on supprime le tout */
+    $purge = $this->em->getRepository('BlogBundle:Article')->find($id);
+    $this->em->remove($purge);
+    $this->em->flush();
   }
 }

@@ -98,8 +98,7 @@ class BackController extends Controller {
   {
     /* On récupère le service Blog afin de supprimer les articles via delete, puis
     on renvoit un message flash et on redirige vers la page d'administration */
-    $em = $this->get('coreBundle.blog');
-    $em->delete($id);
+    $em = $this->get('coreBundle.blog')->delete($id);
     $request->getSession()->getFlashBag()->add('success', "L'article avec l'id " . $id . " a été supprimée.");
     return $this->redirectToRoute('back_office');
   }
