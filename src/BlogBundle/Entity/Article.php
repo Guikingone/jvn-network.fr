@@ -54,7 +54,6 @@ class Article
      * @ORM\Column(name="contenu", type="text")
      * @Assert\NotBlank()
      */
-     // On ajoute le système de validation AntiFlood afin d'éviter les articles à la chaîne
     private $contenu;
 
     /**
@@ -67,9 +66,6 @@ class Article
     * @ORM\ManyToMany(targetEntity="BlogBundle\Entity\Category", cascade={"persist"})
     */
     private $category;
-    /* Category gère les différents blogs, cet attributs contient la "signature" du blog qui demande l'article,
-    si l'article est demandé depuis Team, on fera pointer la catégorie vers Team et ainsi de suite pour chaque
-    blog, cela permet de conserver un code propre et non dupliqué */
 
     /**
     * @ORM\OneToMany(targetEntity="BlogBundle\Entity\Commentaire", mappedBy="article", cascade={"remove", "persist"})
