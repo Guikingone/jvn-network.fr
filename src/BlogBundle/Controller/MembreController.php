@@ -16,7 +16,6 @@ class MembreController extends Controller {
     /** On récupère les articles via le service Blog, ce dernier récupère les articles via la catégorie et
     renvoit le tout via la fonction index */
     $article = $this->get('corebundle.blog')->index('MEMBRE');
-
     return $this->render('BlogBundle:Membre:index.html.twig', array(
       'article' => $article
     ));

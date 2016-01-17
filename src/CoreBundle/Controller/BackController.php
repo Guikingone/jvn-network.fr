@@ -12,9 +12,7 @@ class BackController extends Controller {
   {
     /* On récupère toutes les variables nécessaires au back-office puis on les affiche via la vue correspondante,
     au besoin, on paginera */
-    $article = $this->getDoctrine()->getManager()
-                    ->getRepository('BlogBundle:Article')
-                    ->getArticle();
+    $article = $this->get('corebundle.blog')->index('TEAM', 'KRMA', 'MEMBRE');
 
     $commentaire = $this->getDoctrine()->getManager()
                         ->getRepository('BlogBundle:Commentaire')
@@ -43,6 +41,8 @@ class BackController extends Controller {
     la  sélection de la catégorie afin de ne pas laisser d'article sans catégorie */
     $art = new Article();
     $art->setDatePublication(new \Datetime);
+    $user = $this->getUser();
+    $art->setAuteur($user);
 
     /* On appelle le formulaire depuis le namespace Form, on définit l'objet qui l'appelle puis on fait le lien
     requête <-> formulaire */
@@ -58,7 +58,7 @@ class BackController extends Controller {
       $request->getSession()->getFlashBag()->add('success', "Article enregistré");
       return $this->redirectToRoute('back_office');
     }
-    return $this->render('CoreBundle:Back_Office:add.html.twig', array(
+    return $this->render('CoreBundle:Back_Office:add_article.html.twig', array(
       'form' =>$formbuilder->createView()
     ));
   }

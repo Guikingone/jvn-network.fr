@@ -47,10 +47,8 @@
                     <td>{{ article.contenu[:45]|raw }}</td>
                     <td>{{ article.datePublication | date('d/m/Y')}}</td>
                     <td>{{ article.auteur }}</td>
-                      <td>
-                        <a href="{{ path('team_delete', {'id': article.id }) }}" class="btn btn-danger">Supprimer</a>
-                      </td>
                     <td>
+                      <a href="{{ path('team_delete', {'id': article.id }) }}" class="btn btn-danger">Supprimer</a>
                       <a class="btn btn-primary" href="{{ path('team_update', {'id': article.id }) }}">Modifier</a>
                     </td>
                   </tr>

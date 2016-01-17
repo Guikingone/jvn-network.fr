@@ -11,7 +11,7 @@ class HomeController extends Controller{
       $article = $this->getDoctrine()
                       ->getManager()
                       ->getRepository('BlogBundle:Article')
-                      ->getArticle();
+                      ->getArticle('TEAM', 'MEMBRE', 'KRMA');
 
       return $this->render('CoreBundle::home.html.twig', array(
         'article' => $article
