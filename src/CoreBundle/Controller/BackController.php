@@ -92,12 +92,4 @@ class BackController extends Controller {
     $request->getSession()->getFlashBag()->add('success', "L'article avec l'id " . $id . " a été supprimée.");
     return $this->redirectToRoute('back_office');
   }
-
-  /*=============================================================================================================
-    Modifications User
-  =============================================================================================================*/
-
-  public function lockUser()
-  {
-  }
 }
