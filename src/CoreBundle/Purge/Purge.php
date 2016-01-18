@@ -20,9 +20,7 @@ class Purge {
   {
     /* On récupère les sujets à supprimer ainsi que les messages liés via leur id
     et l'action removeSujet puis on flush afin de valider la suppression */
-    $purge = $this->em
-                  ->getRepository('ForumsBundle:Sujet')
-                  ->find($id);
+    $purge = $this->em->getRepository('ForumsBundle:Sujet')->find($id);
     $this->em->remove($purge);
     $this->em->flush();
   }
@@ -31,9 +29,7 @@ class Purge {
   {
     /* On récupère les messages à supprimer via leur id et l'action removeMessage puis on flush
     afin de valider la suppression */
-    $purge = $this->em
-                  ->getRepository('ForumsBundle:Message')
-                  ->find($id);
+    $purge = $this->em->getRepository('ForumsBundle:Message')->find($id);
     $this->em->remove($purge);
     $this->em->flush();
   }
@@ -42,8 +38,7 @@ class Purge {
   {
     /* On récupère les commentaires à supprimer via leur id et l'action removeCommentaire puis on flush
     afin de valider la suppression */
-    $purge = $this->em->getRepository('BlogBundle:Commentaires')
-                      ->find($id);
+    $purge = $this->em->getRepository('BlogBundle:Commentaires')->find($id);
     $this->em->remove($purge);
     $this->em->flush();
   }
@@ -54,9 +49,7 @@ class Purge {
     afin de valider la suppression */
     /* Attention, cette action n'est à effectuer qu'après validation auprès de l'ensemble de l'équipe,
     la suppression est irréversible et ne saurait être validée sans raison valable */
-    $purge = $this->em
-                  ->getRepository('UserBundle:User')
-                  ->find($id);
+    $purge = $this->em->getRepository('UserBundle:User')->find($id);
     $this->em->remove($purge);
     $this->em->flush();
   }

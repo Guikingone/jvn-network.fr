@@ -16,8 +16,6 @@ class TchatType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('auteur')
-            ->add('dateCreation')
             ->add('contenu')
             ->add('save', SubmitType::class)
         ;

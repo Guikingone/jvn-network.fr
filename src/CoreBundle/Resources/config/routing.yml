@@ -36,3 +36,19 @@ back_office_delete:
     defaults: { _controller: CoreBundle:Back:delete }
     requirements:
         id: \d+
+
+back_office_delete_commentaires:
+    path:     /back_office/delete/commentaires/{id}
+    defaults: { _controller: CoreBundle:Back:delete }
+    requirements:
+        id: \d+
+
+# Définition des routes pour les profils #
+
+back_office_lock_user:
+    path:     /back_office/user/lock
+    defaults: { _controller: CoreBundle:Back:lockUser }
+
+back_office_change_role:
+    path:     /back_office/user/role
+    defaults: { _controller: CoreBundle:Back:roleUser }

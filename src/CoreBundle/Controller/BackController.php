@@ -14,17 +14,11 @@ class BackController extends Controller {
     au besoin, on paginera */
     $article = $this->get('corebundle.blog')->index('TEAM', 'KRMA', 'MEMBRE');
 
-    $commentaire = $this->getDoctrine()->getManager()
-                        ->getRepository('BlogBundle:Commentaire')
-                        ->getCommentaires();
+    $commentaire = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Commentaire')->getCommentaires();
 
-    $sujet = $this->getDoctrine()->getManager()
-                  ->getRepository('ForumsBundle:Sujet')
-                  ->getSujet();
+    $sujet = $this->getDoctrine()->getManager()->getRepository('ForumsBundle:Sujet')->getSujet();
 
-    $user = $this->getDoctrine()->getManager()
-                 ->getRepository('UserBundle:User')
-                 ->getUser();
+    $user = $this->getDoctrine()->getManager()->getRepository('UserBundle:User')->getUser();
 
     return $this->render('CoreBundle:Back_Office:Team.html.twig', array(
       'article' => $article,
@@ -41,6 +35,7 @@ class BackController extends Controller {
     la  sélection de la catégorie afin de ne pas laisser d'article sans catégorie */
     $art = new Article();
     $art->setDatePublication(new \Datetime);
+    $art->setCategorie('TEAM');
     $user = $this->getUser();
     $art->setAuteur($user);
 
@@ -68,23 +63,18 @@ class BackController extends Controller {
     /* On récupère l'entité via l'ID, si l'article n'existe pas, on renvoit un message d'erreur,
     on ouvre le formulaire, on valide, on affiche un message d'info afin
     de valider l'opération et on redirige vers la page d'administration */
-    $um = $this->getDoctrine()
-               ->getManager()
-               ->getRepository('BlogBundle:Article')
-               ->find($id);
-    if (null === $um) {
+    $um = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Article')->find($id);
+    $um->setUpdatedAt(new \Datetime);
+    if (null === $um){
       throw new NotFoundHttpException("L'article d'id " . $id . " n'existe pas ou a été supprimée.");
     }
-
     $form = $this->createForm(ArticleType::class, $um);
     $form->handleRequest($request);
 
     /* Ici, on se contente de vérifier que tout est valide, on ne persiste pas car Doctrine connaît l'entité,
     une fois que tout est terminé, on affiche un message de succés et on redirige vers l'article en question */
     if($form->isValid()){
-      $um = $this->getDoctrine()
-                 ->getManager()
-                 ->flush();
+      $um = $this->getDoctrine()->getManager()->flush();
       $request->getSession()->getFlashBag()->add('success', "L'annonce" . $id . "a bien été modifiée");
       return $this->redirectToRoute('back_office');
     }
@@ -101,5 +91,13 @@ class BackController extends Controller {
     $em = $this->get('coreBundle.blog')->delete($id);
     $request->getSession()->getFlashBag()->add('success', "L'article avec l'id " . $id . " a été supprimée.");
     return $this->redirectToRoute('back_office');
+  }
+
+  /*=============================================================================================================
+    Modifications User
+  =============================================================================================================*/
+
+  public function lockUser()
+  {
   }
 }

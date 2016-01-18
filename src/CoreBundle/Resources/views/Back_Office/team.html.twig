@@ -45,6 +45,7 @@
                           <th>Date de publication</th>
                           <th>Auteur</th>
                           <th>Catégorie</th>
+                          <th>Modifié le</th>
                           <th>Outils</th>
                       </tr>
                   </thead>
@@ -57,13 +58,26 @@
                     <td>{{ article.datePublication | date('d/m/Y')}}</td>
                     <td>{{ article.auteur }}</td>
                     <td>{{ article.categorie }}</td>
+                    <td>{{ article.updatedAt|date('d/m/Y')}}
                     <td>
+                    <!-- On créer une condition se basant sur la catégorie de l'article, cette dernière définit
+                    la route renvoyé -->
                       <a href="{{path('back_office_delete', {'id': article.id}) }}" class="btn btn-danger">
                         Supprimer
                       </a>
+                      {% if article.categorie == 'TEAM' %}
                       <a class="btn btn-primary" href="{{path('back_office_update', {'id': article.id}) }}">
                         Modifier
                       </a>
+                      {% elseif article.categorie == 'KRMA' %}
+                      <a class="btn btn-primary" href="{{path('membre_update', {'id': article.id}) }}">
+                        Modifier
+                      </a>
+                      {% elseif article.categorie == 'MEMBRE' %}
+                      <a class="btn btn-primary" href="{{path('krma_update', {'id': article.id}) }}">
+                        Modifier
+                      </a>
+                      {% endif %}
                     </td>
                   </tr>
                   {% endfor %}
@@ -79,7 +93,6 @@
         <div class="alert alert-danger"><p>Articles introuvable</p></div>
       {% endif %}
       <div class="tab-pane fade adminTable" id="comments">
-        <!-- On affichera les commentaires du blog afin de pouvoir les modifier -->
         <div class="table-responsive">
           {% if commentaire is not null %}
             <table class="table table-hover table-condensed">
@@ -98,8 +111,12 @@
                     <td>{{ commentaire.contenu[:20]|raw }}</td>
                     <td>{{ commentaire.dateCreation|date('d/m/Y') }}</td>
                     <td>
-                      <a href="#" class="btn btn-danger">Supprimer</a>
-                      <a href="#" class="btn btn-info">Modifier</a>
+                      <a href="#" class="btn btn-danger">
+                        Supprimer
+                      </a>
+                      <a href="#" class="btn btn-info">
+                        Modifier
+                      </a>
                     </td>
                   </tr>
                   {% endfor %}
@@ -108,7 +125,6 @@
         </div>
       </div>
       <div class="tab-pane fade adminTable" id="sujet">
-        <!-- On affichera les commentaires du blog afin de pouvoir les modifier -->
         <div class="table-responsive">
           {% if sujet is not null %}
             <table class="table table-hover table-condensed">
@@ -119,6 +135,7 @@
                         <th>Titre</th>
                         <th>Contenu</th>
                         <th>Date Création</th>
+                        <th>Forums</th>
                         <th>Outils</th>
                     </tr>
                 </thead>
@@ -128,15 +145,15 @@
                     <td>{{ sujet.auteur }}</td>
                     <td>{{ sujet.contenu[:20]|raw }}</td>
                     <td>{{ sujet.dateCreation|date('d/m/Y') }}</td>
+                    <td>{{ sujet.category }}</td>
                     <td>
                       <a href="{{path('forums_delete', {'id': sujet.id})}}" class="btn btn-danger">Supprimer</a>
-                      <a href="#" class="btn btn-info">Modifier</a>
+                      <a href="{{path('forums_update', {'id': sujet.id})}}" class="btn btn-info">Modifier</a>
                     </td>
                   </tr>
                   {% endfor %}
              </table>
         </div>
-        <a href="#"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Ajouter un Sujet</button></a>
       </div>
       {% else %}
         <p class="alert alert-danger">Aucun Sujet trouvé</p>
@@ -164,9 +181,10 @@
                     <td></td>
                     <td></td>
                     <td>
-                      <a href="#" class="btn btn-danger">Supprimer</a>
+                      <a href="#" class="btn btn-warning">Bloquer</a>
                       <a href="#" class="btn btn-info">Modifier</a>
                       <a href="#" class="btn btn-success">Changer rôle</a>
+                      <a href="#" class="btn btn-danger">Supprimer</a>
                     </td>
                     <td><a href="#" class="btn btn-primary">Envoyer un mail</a></td>
                   </tr>

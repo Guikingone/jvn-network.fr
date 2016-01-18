@@ -11,13 +11,12 @@ class CommuController extends Controller
 {
     public function indexAction(Request $request)
     {
-      $tchat = $this->getDoctrine()
-                    ->getManager()
-                    ->getRepository('CommuBundle:Tchat')
-                    ->getTchat();
+      $tchat = $this->getDoctrine()->getManager()->getRepository('CommuBundle:Tchat')->getTchat();
+      $user = $this->getUser();
 
       $add = new Tchat();
       $add->setDateCreation(new \Datetime);
+      $add->setAuteur($user);
 
       $form_add = $this->createForm(TchatType::class, $add);
       $form_add->handleRequest($request);

@@ -21,10 +21,7 @@ class ForumsController extends Controller
     {
       /* On récupère le sujet selon son ID, on retourne le tout via une boucle for, si inexistant, une erreur 404
       est lancée, par la suite, on recherche les messages affiliés à ce sujet, on les affichera via une boucle for */
-      $sujet = $this->getDoctrine()
-                    ->getManager()
-                    ->getRepository('ForumsBundle:Sujet')
-                    ->find($sujet);
+      $sujet = $this->getDoctrine()->getManager()->getRepository('ForumsBundle:Sujet')->find($sujet);
 
       /** On récupère les messages liés au sujet via le sujet et on y joint les
       messages afin de pouvoir faire sujet->getMessages(), une fois effectuée,
@@ -71,7 +68,6 @@ class ForumsController extends Controller
 
       $form = $this->createForm(SujetType::class, $us);
       $form->handleRequest($request);
-
 
       /* Ici, on se contente de vérifier que tout est valide, on ne persise pas car Doctrine connaît l'entité,
       une fois que tout est terminé, on affiche un message de succés et on redirige vers l'article en question */

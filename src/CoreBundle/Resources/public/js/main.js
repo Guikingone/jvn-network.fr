@@ -1,1 +1,2 @@
 // Main.js //
+$(document).ready();

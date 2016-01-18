@@ -16,4 +16,11 @@ class UserController extends Controller
           'user' => $users
         ));
     }
+
+    public function deleteAction($id)
+    {
+      $usermanager = $this->get('fos_user.user_manager');
+      $usermanager->deleteUser($id);
+      return $this->redirectToRoute('back_office');
+    }
 }
