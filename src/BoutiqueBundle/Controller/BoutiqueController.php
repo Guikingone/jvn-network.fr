@@ -17,6 +17,5 @@ class BoutiqueController extends Controller
 
     public function panierAction()
     {
-      
     }
 }

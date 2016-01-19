@@ -3,11 +3,6 @@
 namespace CoreBundle\Blog;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use BlogBundle\Form\Type\ArticleType;
-use BlogBundle\Entity\Article;
-use BlogBundle\Entity\Commentaire;
 
 class Blog {
 
