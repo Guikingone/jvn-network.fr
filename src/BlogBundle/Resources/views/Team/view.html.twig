@@ -24,18 +24,6 @@
           <p class="text-center">{{ comm.contenu|raw }}</p>
         </div>
       {% endfor %}
-      <button class="button share_twitter" data-url="#" style="background-color:#55ACEE">
-        Partager sur Twitter
-      </button>
-      <button class="button share_facebook" data-url="#" style="background-color:#55ACEE">
-        Partager sur Facebook
-      </button>
-      <button class="button share_gplus" data-url="#" style="background-color:#55ACEE">
-        Partager sur Google +
-      </button>
-      <button class="button share_linkedin" data-url="#" style="background-color:#55ACEE">
-        Partager sur Linkedin
-      </button>
     </div>
     <!-- On affiche le formulaire d'ajout de commentaire sous l'article -->
     {% if is_granted('IS_AUTHENTICATED_FULLY')%}

@@ -52,3 +52,9 @@ back_office_lock_user:
 back_office_change_role:
     path:     /back_office/user/role
     defaults: { _controller: CoreBundle:Back:roleUser }
+
+back_office_user_delete:
+    path:     /delete/{id}
+    defaults: { _controller: UserBundle:User:delete }
+    requirements:
+        id: \d+

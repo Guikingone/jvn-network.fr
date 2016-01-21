@@ -69,14 +69,17 @@
                       </a>
                       {% if article.categorie == 'TEAM' %}
                       <a class="btn btn-primary" href="{{path('back_office_update', {'id': article.id}) }}">
+                        <i class="fa fa-wrench"></i>
                         Modifier
                       </a>
                       {% elseif article.categorie == 'KRMA' %}
                       <a class="btn btn-primary" href="{{path('membre_update', {'id': article.id}) }}">
+                        <i class="fa fa-wrench"></i>
                         Modifier
                       </a>
                       {% elseif article.categorie == 'MEMBRE' %}
                       <a class="btn btn-primary" href="{{path('krma_update', {'id': article.id}) }}">
+                        <i class="fa fa-wrench"></i>
                         Modifier
                       </a>
                       {% endif %}
@@ -114,9 +117,11 @@
                     <td>{{ commentaire.dateCreation|date('d/m/Y') }}</td>
                     <td>
                       <a href="#" class="btn btn-danger">
+                        <i class="fa fa-exclamation-triangle"></i>
                         Supprimer
                       </a>
                       <a href="#" class="btn btn-info">
+                        <i class="fa fa-wrench"></i>
                         Modifier
                       </a>
                     </td>
@@ -149,8 +154,12 @@
                     <td>{{ sujet.dateCreation|date('d/m/Y') }}</td>
                     <td>{{ sujet.category }}</td>
                     <td>
-                      <a href="{{path('forums_delete', {'id': sujet.id})}}" class="btn btn-danger">Supprimer</a>
-                      <a href="{{path('forums_update', {'id': sujet.id})}}" class="btn btn-info">Modifier</a>
+                      <a href="{{path('forums_delete', {'id': sujet.id})}}" class="btn btn-danger">
+                        <i class="fa fa-exclamation-triangle"></i> 
+                        Supprimer</a>
+                      <a href="{{path('forums_update', {'id': sujet.id})}}" class="btn btn-info">
+                        <i class="fa fa-wrench"></i>
+                        Modifier</a>
                     </td>
                   </tr>
                   {% endfor %}
@@ -183,14 +192,15 @@
                     <td></td>
                     <td></td>
                     <td>
-                      <a href="#" class="btn btn-warning">Bloquer</a>
-                      <a href="#" class="btn btn-info">Modifier</a>
-                      <a href="#" class="btn btn-success">Changer rôle</a>
-                      <a href="#" class="btn btn-danger"><i class="fa fa-exclamation-triangle"></i>
-                        Supprimer
+                      <a href="#" class="btn btn-warning"><i class="fa fa-stop-circle"></i> Bloquer</a>
+                      <a href="#" class="btn btn-info"><i class="fa fa-wrench"></i> Modifier</a>
+                      <a href="#" class="btn btn-success"><i class="fa fa-users"></i> Changer rôle</a>
+                      <a href="{{path('back_office_user_delete', {'id': user.id})}}" class="btn btn-danger">
+                        <i class="fa fa-exclamation-triangle"></i>
+                         Supprimer
                       </a>
                     </td>
-                    <td><a href="#" class="btn btn-primary">Envoyer un mail</a></td>
+                    <td><a href="#" class="btn btn-primary"><i class="fa fa-share"></i> Envoyer un mail</a></td>
                   </tr>
                   {% endfor %}
              </table>

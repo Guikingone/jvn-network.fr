@@ -16,4 +16,14 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
                 ->getQuery()
                 ->getResult();
   }
+
+  public function deleteUser($id)
+  {
+    return $this->createQueryBuilder('u')
+                ->where('u.id = :id')
+                  ->setParameter('id', $id)
+                ->delete()
+                ->getQuery()
+                ->getResult();
+  }
 }

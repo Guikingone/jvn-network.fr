@@ -1,7 +1,1 @@
 # Déclaration des routes User #
-
-userbundle_delete:
-    path:     /delete/{id}
-    defaults: { _controller: UserBundle:User:delete }
-    requirements:
-        id: \d+
