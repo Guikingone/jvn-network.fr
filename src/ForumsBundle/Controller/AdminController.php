@@ -12,11 +12,7 @@ class AdminController extends Controller {
 
   public function indexAction(Request $request)
   {
-      $admin = $this->getDoctrine()
-                      ->getManager()
-                      ->getRepository('ForumsBundle:Sujet')
-                      ->getSujetAdmin();
-
+      $admin = $this->getDoctrine()->getManager()->getRepository('ForumsBundle:Sujet')->getSujetAdmin();
       return $this->render('ForumsBundle:Admin:index.html.twig', array(
         'admin' => $admin
       ));
@@ -24,11 +20,6 @@ class AdminController extends Controller {
 
   public function addAction(Request $request)
   {
-    $admin = $this->getDoctrine()
-                    ->getManager()
-                    ->getRepository('ForumsBundle:Sujet')
-                    ->getSujetAdmin();
-
     $s_Admin = new Sujet();
     $s_Admin->setDateCreation(new \Datetime);
     $s_Admin->setCategory('Admin');

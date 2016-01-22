@@ -12,11 +12,7 @@ class PcController extends Controller {
 
   public function indexAction(Request $request)
   {
-      $pc = $this->getDoctrine()
-                      ->getManager()
-                      ->getRepository('ForumsBundle:Sujet')
-                      ->getSujetPC();
-
+      $pc = $this->getDoctrine()->getManager()->getRepository('ForumsBundle:Sujet')->getSujetPC();
       return $this->render('ForumsBundle:PC:index.html.twig', array(
         'pc' => $pc
       ));
@@ -24,11 +20,6 @@ class PcController extends Controller {
 
   public function addAction(Request $request)
   {
-    $pc = $this->getDoctrine()
-                    ->getManager()
-                    ->getRepository('ForumsBundle:Sujet')
-                    ->getSujetPC();
-
     $s_PC = new Sujet();
     $s_PC->setDateCreation(new \Datetime);
     $s_PC->setCategory('Pc');

@@ -9,7 +9,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use BlogBundle\Form\Type\ArticleType;
 use BlogBundle\Form\Type\CommentaireType;
-// Bien penser à HttpKernel pour afficher l'erreur d'ID
 
 class KrmaController extends Controller{
 
@@ -67,7 +66,6 @@ class KrmaController extends Controller{
       /* On récupère les articles par catégories afin de les afficher via une boucle for dans le back office du blog,
       au besoin, on paginera le tout afin de fluidifier le résultat */
       $article = $this->get('corebundle.blog')->index('KRMA');
-
       return $this->render('BlogBundle:Krma:admin.html.twig', array(
         'article' => $article
       ));
@@ -111,10 +109,7 @@ class KrmaController extends Controller{
       on ouvre le formulaire, on valide, on affiche un message d'info afin
       de valider l'opération et on redirige vers la page d'administration */
 
-      $um = $this->getDoctrine()
-                 ->getManager()
-                 ->getRepository('BlogBundle:Article')
-                 ->find($id);
+      $um = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Article')->find($id);
       if (null === $um) {
         throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
       }
@@ -128,9 +123,7 @@ class KrmaController extends Controller{
 
       if($form->isValid())
       {
-        $um = $this->getDoctrine()
-                   ->getManager()
-                   ->flush();
+        $um = $this->getDoctrine()->getManager()->flush();
         $request->getSession()->getFlashBag()->add('success', "L'annonce" . $id . "a bien été modifiée");
         return $this->redirectToRoute('krma_admin');
       }

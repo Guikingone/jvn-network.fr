@@ -12,11 +12,8 @@ class ConsoleController extends Controller {
 
   public function indexAction(Request $request)
   {
-      $consoles = $this->getDoctrine()
-                      ->getManager()
-                      ->getRepository('ForumsBundle:Sujet')
-                      ->getSujetConsoles();
-
+      $consoles = $this->getDoctrine()->getManager();
+      $consoles->getRepository('ForumsBundle:Sujet')->getSujetConsoles();
       return $this->render('ForumsBundle:Consoles:index.html.twig', array(
         'consoles' => $consoles
       ));
@@ -25,11 +22,6 @@ class ConsoleController extends Controller {
 
     public function addAction(Request $request)
     {
-      $consoles = $this->getDoctrine()
-                        ->getManager()
-                        ->getRepository('ForumsBundle:Sujet')
-                        ->getSujetConsoles();
-
       $s_Console = new Sujet();
       $s_Console->setDateCreation(new \Datetime);
       $s_Console->setCategory('Pc');

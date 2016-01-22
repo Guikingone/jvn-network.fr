@@ -11,9 +11,40 @@
       <!-- On affiche une barre de présentation -->
       <h2 class="text-center">Bienvenue sur les forums</h2>
       <hr />
-      <p class="text-center">Veuillez noter que ces forums sont modérés par les modérateurs désignés <a href="#">ici</a>, tout problème,
+      <p class="text-center">Veuillez noter que ces forums sont modérés par les modérateurs désignés
+      <a href="#" data-target="#myModal" data-toggle="modal">ici</a>, tout problème,
         demande ou question concernant un sujet, un message ou une demande concernant ces forums doit être adressés aux modérateurs via MP/email,
         le temps de réponse dépendra en grande partie du sujet de la demande.
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center" id="myModalLabel">Les modérateurs</h4>
+              </div>
+              <div class="modal-body">
+                <ul>
+                  <li>
+                    <p>Guikingone (Equipe)</p>
+                  </li>
+                  <li>
+                    <p>Ptitburno (Equipe)</p>
+                  </li>
+                  <li>
+                    <p>Dyades (Equipe)</p>
+                  </li>
+                  <li>
+                    <p>Bokuwasugoi (Equipe)</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
     <div class="row">
       <!-- On affiche l'index des forums -->

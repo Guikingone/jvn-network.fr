@@ -13,7 +13,6 @@ class GeneralController extends Controller {
   public function indexAction(Request $request)
   {
       $general = $this->getDoctrine()->getManager()->getRepository('ForumsBundle:Sujet')->getSujetGeneral();
-
       return $this->render('ForumsBundle:General:index.html.twig', array(
         'general' => $general
       ));
@@ -21,8 +20,6 @@ class GeneralController extends Controller {
 
   public function addAction(Request $request)
   {
-    $general = $this->getDoctrine()->getManager()->getRepository('ForumsBundle:Sujet')->getSujetGeneral();
-
     $s_General = new Sujet();
     $s_General->setDateCreation(new \Datetime);
     $s_General->setCategory('General');
