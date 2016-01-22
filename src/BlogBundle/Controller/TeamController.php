@@ -8,7 +8,6 @@ use BlogBundle\Form\Type\ArticleType;
 use BlogBundle\Form\Type\CommentaireType;
 use BlogBundle\Entity\Article;
 use BlogBundle\Entity\Commentaire;
-use BlogBundle\Entity\Image;
 
 class TeamController extends Controller {
 
@@ -69,15 +68,9 @@ class TeamController extends Controller {
 
     /* On récupère tout les membres ainsi que leur attributs, on les affichent pour pouvoir y intervenir en cas de
     besoin, si besoin, on paginera */
-    $membre = $this->getDoctrine()
-                   ->getManager()
-                   ->getRepository('UserBundle:User')
-                   ->getUser();
+    $membre = $this->getDoctrine()->getManager()->getRepository('UserBundle:User')->getUser();
 
-    $commentaire = $this->getDoctrine()
-                        ->getManager()
-                        ->getRepository('BlogBundle:Commentaire')
-                        ->getCommentaires();
+    $commentaire = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Commentaire')->getCommentaires();
 
     return $this->render('BlogBundle:Team:admin.html.twig', array(
       'article' => $article,
@@ -86,32 +79,9 @@ class TeamController extends Controller {
     ));
   }
 
-  public function addAction(Request $request)
+  public function addAction(Request $request, $categorie, $route)
   {
-    /* On créer un nouvel article, on définit la date en fonction du jour
-    afin de faciliter le travail de l'auteur, si besoin, il pourra la modifier via le formulaire, on ajoute aussi
-    la catégorie afin de forcer l'affichage automatique */
-    $art = new Article();
-    $art->setDatePublication(new \Datetime);
-    $art->setCategorie('TEAM');
-    $user = $this->getUser();
-    $art->setAuteur($user);
-
-    /* On appelle le formulaire depuis le namespace Form, on définit l'objet qui l'appelle puis on fait le lien
-    requête <-> formulaire */
-    $formbuilder = $this->createForm(ArticleType::class, $art);
-    $formbuilder->handleRequest($request);
-
-    /* On vérifie que les données sont valides, on appelle BigBrother qui écoutera les articles postés,
-    on les persist, on enregistre le tout et on renvoit un message
-    flash afin de valider l'enregistrement de l'article */
-        if($formbuilder->isValid()){
-          $em = $this->getDoctrine()->getManager();
-          $em->persist($art);
-          $em->flush();
-          $request->getSession()->getFlashBag()->add('success', "Article enregistré");
-          return $this->redirectToRoute('team_admin');
-        }
+    $add = $this->get('corebundle.blog')->add('team_admin', 'TEAM');
     return $this->render('BlogBundle:Team:team_add.html.twig', array(
       'form' =>$formbuilder->createView()
     ));
@@ -123,11 +93,8 @@ class TeamController extends Controller {
     on ouvre le formulaire, on valide, on affiche un message d'info afin
     de valider l'opération et on redirige vers la page d'administration */
 
-    $um = $this->getDoctrine()
-               ->getManager()
-               ->getRepository('BlogBundle:Article')
-               ->find($id);
-    if (null === $um) {
+    $um = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Article')->find($id);
+    if (null === $um){
       throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
     }
 
@@ -137,12 +104,9 @@ class TeamController extends Controller {
 
     /* Ici, on se contente de vérifier que tout est valide, on ne persise pas car Doctrine connaît l'entité,
     une fois que tout est terminé, on affiche un message de succés et on redirige vers l'article en question */
-
     if($form->isValid())
     {
-      $um = $this->getDoctrine()
-                 ->getManager()
-                 ->flush();
+      $um = $this->getDoctrine()->getManager()->flush();
       $request->getSession()->getFlashBag()->add('success', "L'annonce" . $id . "a bien été modifiée");
       return $this->redirectToRoute('team_admin');
     }
