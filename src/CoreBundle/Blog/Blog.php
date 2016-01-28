@@ -5,7 +5,6 @@ namespace CoreBundle\Blog;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use BlogBundle\Entity\Article;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use BlogBundle\Form\Type\ArticleType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\Formfactory;
@@ -53,22 +52,18 @@ class Blog extends Controller {
 
     /* On appelle le formulaire depuis le namespace Form, on définit l'objet qui l'appelle puis on fait le lien
     requête <-> formulaire */
-    $form = $this->createForm(ArticleType::class, $article);
-    $form->handleRequest($request);
+    $formbuilder->createForm(ArticleType::class, $article);
+    $formbuilder->handleRequest($request);
 
     /* On vérifie que les données sont valides, on les persist, on enregistre le tout et on renvoit un message
     flash afin de valider l'enregistrement de l'article */
-    if($form->isValid()){
+    if($formbuilder->isValid()){
       $em = $this->em->persist($article);
       $em = $this->em->flush();
       $request->getSession()->getFlashBag()->add('success', "Article enregistré");
       return $this->redirectToRoute($route);
     }
-    return $form;
-  }
-
-  public function update()
-  {
+    return $formbuilder;
   }
 
   public function delete($id)
