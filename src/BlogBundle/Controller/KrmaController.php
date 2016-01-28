@@ -117,10 +117,8 @@ class KrmaController extends Controller{
       $form = $this->createForm(ArticleType::class, $um);
       $form->handleRequest($request);
 
-
       /* Ici, on se contente de vérifier que tout est valide, on ne persise pas car Doctrine connaît l'entité,
       une fois que tout est terminé, on affiche un message de succés et on redirige vers l'article en question */
-
       if($form->isValid())
       {
         $um = $this->getDoctrine()->getManager()->flush();

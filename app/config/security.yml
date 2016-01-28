@@ -4,9 +4,8 @@ security:
     role_hierarchy:
         ROLE_SUPER_ADMIN:      [ROLE_ADMIN, ROLE_TEAM, ROLE_ALLOWED_TO_SWITCH]
         ROLE_TEAM:             [ROLE_ADMIN]
-        ROLE_ADMIN:            [ROLE_AUTEUR, ROLE_MODERATEUR]
         ROLE_JVN_ADDICT:       [ROLE_ADMIN]
-        ROLE_ADMIN_DEBUTANT:   [ROLE_AUTEUR, ROLE_MODERATEUR]
+        ROLE_ADMIN:            [ROLE_AUTEUR, ROLE_MODERATEUR]
         ROLE_MODERATEUR:       [ROLE_AUTEUR]
         ROLE_KRMA:             [ROLE_AUTEUR]
     encoders:
