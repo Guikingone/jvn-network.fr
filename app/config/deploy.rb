@@ -1,9 +1,9 @@
-set :application, "set your application name here"
-set :domain,      "#{application}.com"
-set :deploy_to,   "/var/www/#{domain}"
+set :application, "jvn-network"
+set :domain,      "#{jvn-network}.fr"
+set :deploy_to,   "/var/www/#{jvn-network.fr}"
 set :app_path,    "app"
 
-set :repository,  "#{domain}:/var/repos/#{application}.git"
+set :repository,  "#{git@github.com}:Guikingone/#{Symfony}.git"
 set :scm,         :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `subversion`, `mercurial`, `perforce`, or `none`
 
