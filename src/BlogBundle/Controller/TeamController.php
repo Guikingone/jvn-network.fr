@@ -23,40 +23,11 @@ class TeamController extends Controller {
 
   public function viewAction(Article $article, Request $request)
   {
-    /* On va chercher l'article en fonction de son ID, si article inexistant, alors
-    on retourne un message d'erreur 404, sinon, on affiche l'article puis les commentaires liés */
-
-    $view = $this->getDoctrine()->getManager();
-    $vue = $view
-        ->getRepository('BlogBundle:Article')
-        ->find($article);
-
-    /** On récupère les commentaires liés à l'article via l'article et on y joint les
-    commentaires afin de pouvoir faire article->getCommentaires(), une fois effectuée,
-    on affichera tout ceci via une boucle for dans la vue */
-
-    $comm = $view
-      ->getRepository('BlogBundle:Commentaire')
-      ->findBy(array('article' => $vue));
-
-    $commentaire = new Commentaire();
-    $commentaire->setdateCreation(new \Datetime);
-    $commentaire->setArticle($article);
-    $user = $this->getUser();
-    $commentaire->setAuteur($user);
-    $formCommentaire = $this->createForm(CommentaireType::class, $commentaire);
-    $formCommentaire->handleRequest($request);
-
-      if($formCommentaire->isValid()){
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($commentaire);
-        $em->flush();
-      }
-
+    $view = $this->get('corebundle.blog')->view($request, $id);
     return $this->render('BlogBundle:Team:view.html.twig', array(
-      'article' => $vue,
-      'commentaire' => $comm,
-      'form' => $formCommentaire->createView()
+      'article' => $view,
+      'commentaire' => $view,
+      'form' => $view->createView()
     ));
   }
 

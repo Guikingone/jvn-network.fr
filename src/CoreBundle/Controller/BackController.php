@@ -41,27 +41,10 @@ class BackController extends Controller {
 
   public function updateAction(Request $request, $id)
   {
-    /* On récupère l'entité via l'ID, si l'article n'existe pas, on renvoit un message d'erreur,
-    on ouvre le formulaire, on valide, on affiche un message d'info afin
-    de valider l'opération et on redirige vers la page d'administration */
-    $um = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Article')->find($id);
-    $um->setUpdatedAt(new \Datetime);
-    if (null === $um){
-      throw new NotFoundHttpException("L'article d'id " . $id . " n'existe pas ou a été supprimée.");
-    }
-    $form = $this->createForm(ArticleType::class, $um);
-    $form->handleRequest($request);
-
-    /* Ici, on se contente de vérifier que tout est valide, on ne persiste pas car Doctrine connaît l'entité,
-    une fois que tout est terminé, on affiche un message de succés et on redirige vers l'article en question */
-    if($form->isValid()){
-      $um = $this->getDoctrine()->getManager()->flush();
-      $request->getSession()->getFlashBag()->add('success', "L'annonce" . $id . "a bien été modifiée");
-      return $this->redirectToRoute('back_office');
-    }
+    $update = $this->get('corebundle.blog')->update($request, $id);
     return $this->render('CoreBundle:Back_Office:update.html.twig', array(
-      'form' => $form->createView(),
-      'article' => $um
+      'form' => $update->createView(),
+      'article' => $update
     ));
   }
 
