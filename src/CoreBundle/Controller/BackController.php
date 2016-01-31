@@ -30,31 +30,12 @@ class BackController extends Controller {
 
   public function addAction(Request $request)
   {
-    /* On créer un nouvel article, on définit la date en fonction du jour
-    afin de faciliter le travail de l'auteur, si besoin, il pourra la modifier via le formulaire, on ajoute aussi
-    la  sélection de la catégorie afin de ne pas laisser d'article sans catégorie */
-    $art = new Article();
-    $art->setDatePublication(new \Datetime);
-    $art->setCategorie('TEAM');
-    $user = $this->getUser();
-    $art->setAuteur($user);
-
-    /* On appelle le formulaire depuis le namespace Form, on définit l'objet qui l'appelle puis on fait le lien
-    requête <-> formulaire */
-    $formbuilder = $this->createForm(ArticleType::class, $art);
-    $formbuilder->handleRequest($request);
-
-    /* On vérifie que les données sont valides, on les persist, on enregistre le tout et on renvoit un message
-    flash afin de valider l'enregistrement de l'article */
-    if($formbuilder->isValid()){
-      $em = $this->getDoctrine()->getManager();
-      $em->persist($art);
-      $em->flush();
-      $request->getSession()->getFlashBag()->add('success', "Article enregistré");
-      return $this->redirectToRoute('back_office');
-    }
+    /* Ici, on appelle le service Blog et la fonction add, cette dernière créer un article et renvoie la variable
+    $formbuilder afin que le formulaire puisse exister, la fonction add s'occupe de tout le traitement
+    et de l'enregistrement de l'article via Doctrine */
+    $article = $this->get('corebundle.blog')->add($request, 'TEAM', 'back_office');
     return $this->render('CoreBundle:Back_Office:add_article.html.twig', array(
-      'form' =>$formbuilder->createView()
+      'form' => $article->createView()
     ));
   }
 
