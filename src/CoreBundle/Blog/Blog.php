@@ -7,31 +7,18 @@ use Symfony\Component\HttpFoundation\Request;
 use BlogBundle\Entity\Article;
 use BlogBundle\Form\Type\ArticleType;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Form\Formfactory;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
+
 
 class Blog extends Controller {
 
   /**
   * @var EntityManagerInterface
   */
-  private $em;
+  protected $em;
 
-  /**
-  * @var FormFactory
-  */
-  private $formbuilder;
-
-  /**
-  * @var TokenStorage
-  */
-  private $user;
-
-  public function __construct(EntityManagerInterface $em, FormFactory $formbuilder, TokenStorage $user)
+  public function __construct(EntityManagerInterface $em)
   {
     $this->em = $em;
-    $this->formbuilder = $formbuilder;
-    $this->user = $user;
   }
 
   public function index($categorie)
@@ -47,12 +34,11 @@ class Blog extends Controller {
     $article = new Article();
     $article->setDatePublication(new \Datetime);
     $article->setCategorie($categorie);
-    $user = $this->user->getToken()->getUser();
-    $article->setAuteur($article);
+    $user = $this->getUser();
 
     /* On appelle le formulaire depuis le namespace Form, on définit l'objet qui l'appelle puis on fait le lien
     requête <-> formulaire */
-    $formbuilder->createForm(ArticleType::class, $article);
+    $formbuilder = $this->createForm(ArticleType::class, $article);
     $formbuilder->handleRequest($request);
 
     /* On vérifie que les données sont valides, on les persist, on enregistre le tout et on renvoit un message
