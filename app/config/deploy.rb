@@ -2,12 +2,18 @@ set :application, "jvn-network"
 set :domain,      "#{jvn-network}.fr"
 set :deploy_to,   "/var/www/#{jvn-network.fr}"
 set :app_path,    "app"
+set :shared_files, ["app/config/parameters.yml"]
+set :shared_children,
+set :use_composer, true
+set :update_vendors, true
 
 set :repository,  "#{git@github.com}:Guikingone/#{Symfony}.git"
 set :scm,         :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `subversion`, `mercurial`, `perforce`, or `none`
 
 set :model_manager, "doctrine"
+set :dump_assetic_assets, true
+set :interactive_mode, false
 # Or: `propel`
 
 role :web,        domain                         # Your HTTP server, Apache/etc
