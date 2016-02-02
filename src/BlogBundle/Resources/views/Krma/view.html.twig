@@ -7,7 +7,7 @@
     <h2 class="text-center">{{ article.titre }}</h2>
     <!-- Si l'article possède une image -->
     {% if article.image is not null %}
-      <img src="{{ asset(article.image.webPath) }}" alt="{{ advert.image.alt }}">
+      <img src="{{ asset(article.image.webPath) }}" alt="{{ article.image.alt }}" class="img-responsive text-center">
     {% endif %}
     <!-- On affiche l'auteur, la date de publication de l'article -->
     <p class="text-center">Par <strong>{{ article.auteur }}</strong>, le {{ article.datePublication|date('d/m/Y')}}</p>

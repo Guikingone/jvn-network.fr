@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use BlogBundle\Form\Type\ArticleType;
 use BlogBundle\Form\Type\CommentaireType;
+use BlogBundle\Entity\Image;
 
 class MembreController extends Controller {
 
@@ -21,9 +22,28 @@ class MembreController extends Controller {
     ));
   }
 
-  public function viewAction(Article $article, Request $request)
+  public function viewAction(Article $article, Request $request, $id)
   {
-    $view = $this->get('corebundle.blog')->view($request, $id);
+    /* On va chercher l'article en fonction de son ID, si article inexistant, alors
+    on retourne un message d'erreur 404, sinon, on affiche l'article puis les commentaires */
+    $view = $this->getDoctrine()->getManager();
+    $vue = $view->getRepository('BlogBundle:Article')->find($article);
+    /** On récupère les commentaires liés à l'article via l'article et on y joint les
+    commentaires afin de pouvoir faire article->getCommentaires(), une fois effectuée,
+    on affichera tout ceci via une boucle for dans la vue */
+    $comm = $view->getRepository('BlogBundle:Commentaire')->findBy(array('article' => $vue));
+    $commentaire = new Commentaire();
+    $commentaire->setdateCreation(new \Datetime);
+    $commentaire->setArticle($article);
+    $user = $this->getUser();
+    $commentaire->setAuteur($user);
+    $formCommentaire = $this->createForm(CommentaireType::class, $commentaire);
+    $formCommentaire->handleRequest($request);
+    if($formCommentaire->isValid()){
+      $em = $this->getDoctrine()->getManager();
+      $em->persist($commentaire);
+      $em->flush();
+    }
     return $this->render('BlogBundle:Membre:view.html.twig', array(
       'article' => $view,
       'commentaire' => $view,
@@ -42,9 +62,33 @@ class MembreController extends Controller {
 
   public function addAction(Request $request)
   {
-    $article = $this->get('corebundle.blog')->add($request, 'MEMBRE');
+    /* On créer un nouvel article, on définit la date en fonction du jour
+    afin de faciliter le travail de l'auteur, si besoin, il pourra la modifier via le formulaire, on ajoute aussi
+    la catégorie afin de forcer l'affichage automatique */
+    $article = new Article();
+    $article->setDatePublication(new \Datetime);
+    $article->setCategorie('MEMBRE');
+    $article->setImage(new Image);
+    $user = $this->getUser();
+    $article->setAuteur($user);
+
+    /* On appelle le formulaire depuis le namespace Form, on définit l'objet qui l'appelle puis on fait le lien
+    requête <-> formulaire */
+    $formbuilder = $this->createForm(ArticleType::class, $article);
+    $formbuilder->handleRequest($request);
+
+    /* On vérifie que les données sont valides, on appelle BigBrother qui écoutera les articles postés,
+    on les persist, on enregistre le tout et on renvoit un message
+    flash afin de valider l'enregistrement de l'article */
+    if($formbuilder->isValid()){
+      $em = $this->getDoctrine()->getManager();
+      $em->persist($article);
+      $em->flush();
+      $request->getSession()->getFlashBag()->add('success', "Article enregistré");
+      return $this->redirectToRoute('membre_admin');
+    }
     return $this->render('BlogBundle:Membre:add.html.twig', array(
-      'form' => $article->createView()
+      'form' => $formbuilder->createView()
     ));
   }
 

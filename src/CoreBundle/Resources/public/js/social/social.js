@@ -23,7 +23,7 @@
     popupCenter(shareUrl, "Partager sur Twitter");
   });
 
-  document.querySelector('.share_twitter').addEventListener('click', function(e){
+  document.querySelector('.share_facebook').addEventListener('click', function(e){
     e.preventDefault();
     var url = this.getAttribute('data-url');
     var shareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url);

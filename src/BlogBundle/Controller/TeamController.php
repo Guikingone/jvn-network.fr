@@ -21,13 +21,32 @@ class TeamController extends Controller {
     ));
   }
 
-  public function viewAction(Article $article, Request $request)
+  public function viewAction(Article $article, Request $request, $id)
   {
-    $view = $this->get('corebundle.blog')->view($request, $id);
+    /* On va chercher l'article en fonction de son ID, si article inexistant, alors
+    on retourne un message d'erreur 404, sinon, on affiche l'article puis les commentaires */
+    $view = $this->getDoctrine()->getManager();
+    $vue = $view->getRepository('BlogBundle:Article')->find($article);
+    /** On récupère les commentaires liés à l'article via l'article et on y joint les
+    commentaires afin de pouvoir faire article->getCommentaires(), une fois effectuée,
+    on affichera tout ceci via une boucle for dans la vue */
+    $comm = $view->getRepository('BlogBundle:Commentaire')->findBy(array('article' => $vue));
+    $commentaire = new Commentaire();
+    $commentaire->setdateCreation(new \Datetime);
+    $commentaire->setArticle($article);
+    $user = $this->getUser();
+    $commentaire->setAuteur($user);
+    $formCommentaire = $this->createForm(CommentaireType::class, $commentaire);
+    $formCommentaire->handleRequest($request);
+    if($formCommentaire->isValid()){
+      $em = $this->getDoctrine()->getManager();
+      $em->persist($commentaire);
+      $em->flush();
+    }
     return $this->render('BlogBundle:Team:view.html.twig', array(
-      'article' => $view,
-      'commentaire' => $view,
-      'form' => $view->createView()
+      'article' => $vue,
+      'commentaire' => $comm,
+      'form' => $formCommentaire->createView()
     ));
   }
 
@@ -47,14 +66,6 @@ class TeamController extends Controller {
       'article' => $article,
       'membre' => $membre,
       'commentaire' => $commentaire
-    ));
-  }
-
-  public function addAction(Request $request, $categorie, $route)
-  {
-    $add = $this->get('corebundle.blog')->add('team_admin', 'TEAM');
-    return $this->render('BlogBundle:Team:team_add.html.twig', array(
-      'form' =>$formbuilder->createView()
     ));
   }
 

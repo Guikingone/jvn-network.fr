@@ -34,14 +34,4 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
                   ->getQuery()
                   ->getResult();
   }
-
-  public function getArticlooe()
-  {
-    return $this->createQueryBuilder('a')
-                ->leftJoin('a.image', 'i')
-                  ->addSelect('i')
-                ->orderBy('a.datePublication', 'DESC')
-                ->getQuery()
-                ->getResult();
-  }
 }
