@@ -13,15 +13,15 @@ use BlogBundle\Entity\Image;
 
 class KrmaController extends Controller{
 
-  public function indexAction()
-  {
-    /** On récupère les articles via le service Blog, ce dernier récupère les articles via la catégorie et
-    renvoit le tout via la fonction index */
-    $article = $this->get('corebundle.blog')->index('KRMA');
-    return $this->render('BlogBundle:Krma:index.html.twig', array(
-      'article' => $article
-    ));
-  }
+    public function indexAction()
+    {
+      /** On récupère les articles via le service Blog, ce dernier récupère les articles via la catégorie et
+      renvoit le tout via la fonction index */
+      $article = $this->get('corebundle.blog')->index('KRMA');
+      return $this->render('BlogBundle:Krma:index.html.twig', array(
+        'article' => $article
+      ));
+    }
 
     public function viewAction(Article $article, Request $request)
     {
@@ -60,7 +60,6 @@ class KrmaController extends Controller{
       return $this->render('BlogBundle:Krma:admin.html.twig', array(
         'article' => $article
       ));
-
     }
 
     public function addAction(Request $request)

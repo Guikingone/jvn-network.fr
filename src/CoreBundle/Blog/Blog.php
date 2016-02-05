@@ -2,7 +2,9 @@
 
 namespace CoreBundle\Blog;
 
-class Blog{
+use Doctrine\ORM\EntityManagerInterface;
+
+class Blog {
 
   /**
   * @var EntityManagerInterface
