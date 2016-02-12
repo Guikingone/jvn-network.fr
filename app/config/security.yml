@@ -22,6 +22,20 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
+        # On mets en place l'authentification pour la connexion via Oauth
+        #oauth_token:
+            #pattern: ^/oauth/v2/token
+            #security: false
+
+        #oauth_autorize:
+            #pattern: ^/oauth/v2/auth
+
+        #api:
+            #pattern: ^/api
+            #fos_oauth: true
+            #stateless: true
+            #anonymous: true
+
         # On définit le pare-feu Main qui s'occupera de sécuriser le site complet
         main:
             pattern: ^/
@@ -35,6 +49,7 @@ security:
                 target: /
             remember_me:
                 secret:    %secret%
+
 
             # http_basic: ~
             # http://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate

@@ -22,3 +22,11 @@ boutique_home:
 
 fos_bundle:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+# Déclaration route FOSOauthBundle #
+
+fos_oauth_server_token:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
+
+fos_oauth_server_authorize:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"
