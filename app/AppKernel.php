@@ -22,7 +22,6 @@ class AppKernel extends Kernel
             new UserBundle\UserBundle(),
             new BlogBundle\BlogBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-            new FOS\OAuthServerBundle\FOSOAuthServerBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
         );
 
