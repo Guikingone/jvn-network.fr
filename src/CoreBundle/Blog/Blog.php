@@ -21,6 +21,21 @@ class Blog {
     return $this->em->getRepository('BlogBundle:Article')->getArticle($categorie);
   }
 
+  public function add()
+  {
+
+  }
+
+  public function edit()
+  {
+
+  }
+
+  public function view()
+  {
+    
+  }
+
   public function delete($id)
   {
     /* On récupère les articles à supprimer via leur id puis on supprime le tout */

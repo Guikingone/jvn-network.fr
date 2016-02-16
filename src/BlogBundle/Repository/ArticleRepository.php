@@ -34,4 +34,13 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
                   ->getQuery()
                   ->getResult();
   }
+
+  public function getPublication($auteur)
+  {
+    return $this->createQueryBuilder('up')
+                ->where('up.auteur = :auteur')
+                  ->setParameter('auteur', $auteur)
+                ->getQuery()
+                ->getResult();
+  }
 }
