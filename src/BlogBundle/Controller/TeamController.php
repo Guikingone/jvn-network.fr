@@ -16,7 +16,7 @@ class TeamController extends Controller {
     /** On récupère les articles via le service Blog, ce dernier récupère les articles via la catégorie et
     renvoit le tout via la fonction index */
     $article = $this->get('corebundle.blog')->index('TEAM');
-    return $this->render('BlogBundle:Team:index.html.twig', array(
+    return $this->render('Blog/Team/index.html.twig', array(
       'article' => $article
     ));
   }
@@ -43,7 +43,7 @@ class TeamController extends Controller {
       $em->persist($commentaire);
       $em->flush();
     }
-    return $this->render('BlogBundle:Team:view.html.twig', array(
+    return $this->render('Blog/Team/view.html.twig', array(
       'article' => $vue,
       'commentaire' => $comm,
       'form' => $formCommentaire->createView()
@@ -62,7 +62,7 @@ class TeamController extends Controller {
 
     $commentaire = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Commentaire')->getCommentaires();
 
-    return $this->render('BlogBundle:Team:admin.html.twig', array(
+    return $this->render('Blog/Team/admin.html.twig', array(
       'article' => $article,
       'membre' => $membre,
       'commentaire' => $commentaire
@@ -92,7 +92,7 @@ class TeamController extends Controller {
       $request->getSession()->getFlashBag()->add('success', "L'annonce" . $id . "a bien été modifiée");
       return $this->redirectToRoute('team_admin');
     }
-    return $this->render('BlogBundle:Team:update.html.twig', array(
+    return $this->render('Blog/Team/update.html.twig', array(
       'form' => $form->createView(),
       'article' => $um
     ));

@@ -102,7 +102,3 @@ assetic:
     use_controller: '%kernel.debug%'
     filters:
         cssrewrite: ~
-
-services:
-    fos_user.doctrine_registry:
-        alias: doctrine

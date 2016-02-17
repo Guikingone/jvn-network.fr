@@ -20,7 +20,7 @@ class BackController extends Controller {
     $sujet = $this->getDoctrine()->getManager()->getRepository('ForumsBundle:Sujet')->getSujet();
     $user = $this->getDoctrine()->getManager()->getRepository('UserBundle:User')->getUser();
 
-    return $this->render('CoreBundle:Back_Office:Team.html.twig', array(
+    return $this->render('Back_Office/Team.html.twig', array(
       'article' => $article,
       'commentaire' => $commentaire,
       'sujet' => $sujet,
@@ -55,7 +55,7 @@ class BackController extends Controller {
       $request->getSession()->getFlashBag()->add('success', "Article enregistré");
       return $this->redirectToRoute('back_office');
     }
-    return $this->render('CoreBundle:Back_Office:add_article.html.twig', array(
+    return $this->render('Back_Office/add_article.html.twig', array(
       'form' => $formbuilder->createView()
     ));
   }
@@ -79,7 +79,7 @@ class BackController extends Controller {
       $request->getSession()->getFlashBag()->add('success', "L'annonce" . $id . "a bien été modifiée");
       return $this->redirectToRoute('team_admin');
     }
-    return $this->render('CoreBundle:Back_Office:update.html.twig', array(
+    return $this->render('Back_Office/update.html.twig', array(
       'form' => $form->createView(),
       'article' => $update
     ));

@@ -18,7 +18,7 @@ class KrmaController extends Controller{
       /** On récupère les articles via le service Blog, ce dernier récupère les articles via la catégorie et
       renvoit le tout via la fonction index */
       $article = $this->get('corebundle.blog')->index('KRMA');
-      return $this->render('BlogBundle:Krma:index.html.twig', array(
+      return $this->render('Blog/Krma/index.html.twig', array(
         'article' => $article
       ));
     }
@@ -45,7 +45,7 @@ class KrmaController extends Controller{
         $em->persist($commentaire);
         $em->flush();
       }
-      return $this->render('BlogBundle:Krma:view.html.twig', array(
+      return $this->render('Blog/Krma/view.html.twig', array(
         'article' => $vue,
         'commentaire' => $commentaire,
         'form' => $formCommentaire->createView()
@@ -57,7 +57,7 @@ class KrmaController extends Controller{
       /* On récupère les articles par catégories afin de les afficher via une boucle for dans le back office du blog,
       au besoin, on paginera le tout afin de fluidifier le résultat */
       $article = $this->get('corebundle.blog')->index('KRMA');
-      return $this->render('BlogBundle:Krma:admin.html.twig', array(
+      return $this->render('Blog/Krma/admin.html.twig', array(
         'article' => $article
       ));
     }
@@ -89,7 +89,7 @@ class KrmaController extends Controller{
         $request->getSession()->getFlashBag()->add('success', "Article enregistré");
         return $this->redirectToRoute('krma_admin');
       }
-      return $this->render('BlogBundle:Krma:add.html.twig', array(
+      return $this->render('Blog/Krma/add.html.twig', array(
         'form' =>$formbuilder->createView()
       ));
     }
@@ -113,7 +113,7 @@ class KrmaController extends Controller{
         $request->getSession()->getFlashBag()->add('success', "L'annonce" . $id . "a bien été modifiée");
         return $this->redirectToRoute('krma_admin');
       }
-      return $this->render('BlogBundle:Krma:update.html.twig', array(
+      return $this->render('Blog/Krma/update.html.twig', array(
         'form' => $form->createView(),
         'article' => $update
       ));

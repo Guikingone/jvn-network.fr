@@ -14,7 +14,7 @@ class ForumsController extends Controller
 {
     public function indexAction(Request $request)
     {
-        return $this->render('ForumsBundle::index.html.twig');
+        return $this->render('Forums/index.html.twig');
     }
 
     public function viewAction(Sujet $sujet, Request $request)
@@ -45,7 +45,7 @@ class ForumsController extends Controller
           $em->flush();
         }
 
-      return $this->render('ForumsBundle::view.html.twig', array(
+      return $this->render('Forums/Action/view.html.twig', array(
         'sujet' => $sujet,
         'message' => $msg,
         'form' => $formMessage->createView()
@@ -81,7 +81,7 @@ class ForumsController extends Controller
         $request->getSession()->getFlashBag()->add('success', "Le sujet" . $id . "a bien été modifiée");
         return $this->redirectToRoute('forums_home');
       }
-      return $this->render('ForumsBundle::update.html.twig', array(
+      return $this->render('Forums/Action/update.html.twig', array(
         'form' => $form->createView(),
         'sujet' => $us
       ));

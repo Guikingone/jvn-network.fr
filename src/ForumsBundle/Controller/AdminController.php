@@ -13,7 +13,7 @@ class AdminController extends Controller {
   public function indexAction(Request $request)
   {
       $admin = $this->getDoctrine()->getManager()->getRepository('ForumsBundle:Sujet')->getSujetAdmin();
-      return $this->render('ForumsBundle:Admin:index.html.twig', array(
+      return $this->render('Forums/Admin/index.html.twig', array(
         'admin' => $admin
       ));
   }
@@ -40,7 +40,7 @@ class AdminController extends Controller {
           return $this->redirectToRoute('forums_admin');
         }
 
-    return $this->render('ForumsBundle::add.html.twig', array(
+    return $this->render('Forums/Action/add.html.twig', array(
       'admin' => $s_Admin,
       'form' => $form_admin->createView()
     ));

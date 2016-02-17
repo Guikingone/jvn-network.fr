@@ -14,7 +14,7 @@ class ConsoleController extends Controller {
   {
       $consoles = $this->getDoctrine()->getManager();
       $consoles->getRepository('ForumsBundle:Sujet')->getSujetConsoles();
-      return $this->render('ForumsBundle:Consoles:index.html.twig', array(
+      return $this->render('Forums/Consoles/index.html.twig', array(
         'consoles' => $consoles
       ));
   }
@@ -42,7 +42,7 @@ class ConsoleController extends Controller {
             return $this->redirectToRoute('forums_pc');
           }
 
-      return $this->render('ForumsBundle::add.html.twig', array(
+      return $this->render('Forums/Action/add.html.twig', array(
         'console' => $s_Console,
         'form' => $form_console->createView()
       ));

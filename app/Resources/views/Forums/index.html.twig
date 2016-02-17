@@ -1,0 +1,84 @@
+{% extends('::layout.html.twig')%}
+
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <!-- On affiche les messages flash -->
+      {% for message in app.session.flashbag.get('success_forums') %}
+        <div class="alert alert-info text-center">Message flash : {{message}}</div>
+      {% endfor %}
+      <!-- On affiche une barre de présentation -->
+      <h2 class="text-center">Bienvenue sur les forums</h2>
+      <hr />
+      <p class="text-center">Veuillez noter que ces forums sont modérés par les modérateurs désignés
+      <a href="#" data-target="#myModal" data-toggle="modal">ici</a>, tout problème,
+        demande ou question concernant un sujet, un message ou une demande concernant ces forums doit être adressés aux modérateurs via MP/email,
+        le temps de réponse dépendra en grande partie du sujet de la demande.
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center" id="myModalLabel">Les modérateurs</h4>
+              </div>
+              <div class="modal-body">
+                <ul>
+                  <li>
+                    <p>Guikingone (Equipe)</p>
+                  </li>
+                  <li>
+                    <p>Ptitburno (Equipe)</p>
+                  </li>
+                  <li>
+                    <p>Dyades (Equipe)</p>
+                  </li>
+                  <li>
+                    <p>Bokuwasugoi (Equipe)</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+      <!-- On affiche l'index des forums -->
+      <div class="col-lg-12">
+        <div id="fr_general">
+          <hr />
+            <a href="{{path('forums_general')}}" class="form-group"><p class="text-center">Forum Général</p></a>
+            <p class="text-center">Ici, tout ce dont vous auriez besoin est présent, une envie ? Une idée ? Quelque chose d'autre ?
+            Discutons-en !</p>
+          <hr />
+          <br>
+          <br>
+            <a href="{{path('forums_consoles')}}" class="form-group"><p class="text-center">Forum Consoles</p></a>
+            <p class="text-center">Envie de discuter console de salon dernières générations ? Ou alors de nos
+            consoles de jeunesse ? C'est ici !</p>
+          <hr />
+          <br>
+          <br>
+            <a href="{{path('forums_pc')}}" class="form-group"><p class="text-center">Forum PC</p></a>
+            <p class="text-center">Master Race ou pas, le PC fait partie du champ vidéoludique sans commune mesure,
+              ici, on en parle comme d'un précieux car c'est aussi ça, aimer jouer</p>
+          <hr />
+          <br>
+          <br>
+          <!-- L'accès à la partie Administration se fait uniquement si l'utilisateur est authentifié comme Modérateur -->
+          {% if is_granted('ROLE_MODERATEUR')%}
+            <a href="{{path('forums_admin')}}" class="form-group"><p class="text-center">Administration</p></a>
+            <p class="text-center">Discussions autour du site, des soucis et des demandes diverses, bref, tout
+              ce qui touche à l'aspect administration</p>
+            <hr />
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

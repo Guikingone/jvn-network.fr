@@ -17,7 +17,7 @@ class MembreController extends Controller {
     /** On récupère les articles via le service Blog, ce dernier récupère les articles via la catégorie et
     renvoit le tout via la fonction index */
     $article = $this->get('corebundle.blog')->index('MEMBRE');
-    return $this->render('BlogBundle:Membre:index.html.twig', array(
+    return $this->render('Blog/Membre/index.html.twig', array(
       'article' => $article
     ));
   }
@@ -44,7 +44,7 @@ class MembreController extends Controller {
       $em->persist($commentaire);
       $em->flush();
     }
-    return $this->render('BlogBundle:Membre:view.html.twig', array(
+    return $this->render('Blog/Membre/view.html.twig', array(
       'article' => $view,
       'commentaire' => $view,
       'form' => $view->createView()
@@ -55,7 +55,7 @@ class MembreController extends Controller {
   {
     /* On récupère les articles via le service Blog */
     $article = $this->get('corebundle.blog')->index('MEMBRE');
-    return $this->render('BlogBundle:Membre:admin.html.twig', array(
+    return $this->render('Blog/Membre/admin.html.twig', array(
       'article' => $article
     ));
   }
@@ -87,7 +87,7 @@ class MembreController extends Controller {
       $request->getSession()->getFlashBag()->add('success', "Article enregistré");
       return $this->redirectToRoute('membre_admin');
     }
-    return $this->render('BlogBundle:Membre:add.html.twig', array(
+    return $this->render('Blog/Membre/add.html.twig', array(
       'form' => $formbuilder->createView()
     ));
   }
@@ -95,7 +95,7 @@ class MembreController extends Controller {
   public function updateAction(Request $request, $id)
   {
     $update = $this->get('corebundle.blog')->update($request, $id);
-    return $this->render('BlogBundle:Membre:update.html.twig', array(
+    return $this->render('Blog/Membre/update.html.twig', array(
       'form' => $update->createView(),
       'article' => $update
     ));

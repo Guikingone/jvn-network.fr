@@ -13,7 +13,7 @@ class GeneralController extends Controller {
   public function indexAction(Request $request)
   {
       $general = $this->getDoctrine()->getManager()->getRepository('ForumsBundle:Sujet')->getSujetGeneral();
-      return $this->render('ForumsBundle:General:index.html.twig', array(
+      return $this->render('Forums/General/index.html.twig', array(
         'general' => $general
       ));
   }
@@ -40,7 +40,7 @@ class GeneralController extends Controller {
           return $this->redirectToRoute('forums_general');
         }
 
-    return $this->render('ForumsBundle::add.html.twig', array(
+    return $this->render('Forums/Action/add.html.twig', array(
       'general' => $general,
       'form' => $form_general->createView()
     ));

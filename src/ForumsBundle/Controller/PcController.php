@@ -13,7 +13,7 @@ class PcController extends Controller {
   public function indexAction(Request $request)
   {
       $pc = $this->getDoctrine()->getManager()->getRepository('ForumsBundle:Sujet')->getSujetPC();
-      return $this->render('ForumsBundle:PC:index.html.twig', array(
+      return $this->render('Forums/PC/index.html.twig', array(
         'pc' => $pc
       ));
   }
@@ -40,7 +40,7 @@ class PcController extends Controller {
           return $this->redirectToRoute('forums_pc');
         }
 
-    return $this->render('ForumsBundle::add.html.twig', array(
+    return $this->render('Forums/Action/add.html.twig', array(
       'pc' => $s_PC,
       'form' => $form_pc->createView()
     ));

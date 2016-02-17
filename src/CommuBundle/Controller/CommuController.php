@@ -27,7 +27,7 @@ class CommuController extends Controller
         return $this->redirectToRoute('commu_home');
       }
 
-        return $this->render('CommuBundle::index.html.twig', array(
+        return $this->render('Communaute/index.html.twig', array(
           'tchat' => $tchat,
           'form' => $form_add->createView()
         ));
