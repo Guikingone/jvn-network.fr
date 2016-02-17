@@ -107,31 +107,13 @@ textarea {
     margin-top: -450px;
   }
 
-  .btn-jvn {
-  color: #fff;
-  background-color: transparent;
-  border-color: #fff;
-  border-width: 4px;
-  margin: 20px;
-  margin-top: -800px;
-  }
-  .btn-jvn:hover,
-  .btn-jvn:focus,
-  .btn-jvn:active,
-  .btn-jvn.active,
-  .open .dropdown-toggle.btn-jvn {
-    color: #fff;
-    background-color: transparent;
-    border-color: grey;
-}
-
 /* ==========================================================================
     Navbar Style
    ========================================================================== */
 
 		.navbar-default {
 			border-color: transparent;
-			background-color: #fff;
+			background-color: transparent;
 		}
 		.navbar-default .navbar-brand {
 			font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;

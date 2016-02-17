@@ -4,12 +4,12 @@
   <meta charset="utf-8" />
   <title>{% block title %}JVN-Network.fr - Là où la communauté prend les commandes{% endblock %}</title>
   {% block stylesheets %}
-    {% stylesheets '@CoreBundle/Resources/public/css/*' filter='cssrewrite' %}
+    {% stylesheets 'css/*' filter='cssrewrite' output='css/compiled/app.css' %}
       <link href="{{ asset_url }}" rel="stylesheet" />
     {% endstylesheets %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   {% endblock %}
-  <script src="{{ asset('bundles/core/js/vendor/modernizr-2.8.3.min.js')}}"></script>
+  <script src="{{ asset('js/vendor/modernizr-2.8.3.min.js')}}"></script>
 </head>
 <body>
 <header>
@@ -115,14 +115,14 @@
 {% endblock %}
 
 {% block javascript %}
-  <script src="{{ asset('bundles/core/js/vendor/jquery.js')}}"></script>
-  <script src="{{ asset('bundles/core/js/bootstrap.js')}}"></script>
-  <script src="{{ asset('bundles/core/js/main.js')}}"></script>
-  <script src="{{ asset('bundles/core/js/social/social.js')}}"></script>
-  <script src="{{ asset('bundles/core/js/API/Youtube/Youtube_API.js')}}"></script>
+  <script src="{{ asset('js/vendor/jquery.js')}}"></script>
+  <script src="{{ asset('js/bootstrap.js')}}"></script>
+  <script src="{{ asset('js/main.js')}}"></script>
+  <script src="{{ asset('js/social/social.js')}}"></script>
+  <script src="{{ asset('js/API/Youtube/Youtube_API.js')}}"></script>
 
   <!-- Chargement TinyMCE -->
-  <script src="{{ asset('bundles/core/js/tinymce/tinymce.min.js')}}"></script>
+  <script src="{{ asset('js/tinymce/tinymce.min.js')}}"></script>
   <script>tinymce.init({ selector:'textarea' })</script>
 
   <!-- Outils Google Analytics -->

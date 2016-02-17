@@ -9,7 +9,7 @@ security:
         ROLE_MODERATEUR:       [ROLE_AUTEUR]
         ROLE_KRMA:             [ROLE_AUTEUR]
     encoders:
-        UserBundle\Entity\User: sha512
+        UserBundle\Entity\User: bcrypt
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
