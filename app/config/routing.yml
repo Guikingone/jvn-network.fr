@@ -4,8 +4,9 @@ core_home:
     prefix:   /
 
 commu_home:
-    resource: "@CommuBundle/Resources/config/routing.yml"
-    prefix:   /commu
+    resource: "@CommuBundle/Controller/"
+    type:     annotation
+    prefix:   /communaute
 
 team_home:
     resource: "@BlogBundle/Resources/config/routing.yml"

@@ -6,6 +6,7 @@ use BlogBundle\Entity\Commentaire;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use BlogBundle\Form\Type\ArticleType;
 use BlogBundle\Form\Type\CommentaireType;
 use BlogBundle\Entity\Article;
@@ -13,6 +14,10 @@ use BlogBundle\Entity\Image;
 
 class KrmaController extends Controller{
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/krma", name="krma")
+     */
     public function indexAction()
     {
       /** On récupère les articles via le service Blog, ce dernier récupère les articles via la catégorie et
@@ -23,6 +28,11 @@ class KrmaController extends Controller{
       ));
     }
 
+    /**
+     * @param Article $article
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function viewAction(Article $article, Request $request)
     {
       /* On va chercher l'article en fonction de son ID, si article inexistant, alors

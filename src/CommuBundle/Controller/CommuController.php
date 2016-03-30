@@ -4,11 +4,17 @@ namespace CommuBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use CommuBundle\Entity\Tchat;
 use CommuBundle\Form\Type\TchatType;
 
 class CommuController extends Controller
 {
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @Route("/", name="communaute")
+     */
     public function indexAction(Request $request)
     {
       $tchat = $this->getDoctrine()->getManager()->getRepository('CommuBundle:Tchat')->getTchat();
