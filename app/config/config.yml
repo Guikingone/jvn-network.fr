@@ -81,20 +81,20 @@ fos_user:
     user_class:    UserBundle\Entity\User
     group:
         group-class: UserBundle\Entity\Group
-    registration:
-        confirmation:
-            enabled: true
-            from_email:
-                 address: noreply@jvn-network.fr
-                 sender_name: Gestionnaire des comptes
-    resetting:
-        email:
-            from_email:
-                address: noreply@jvn-network.fr
-                sender_name: Gestionnaire des comptes
-            template: email/resetting_password.html.twig
-    service:
-         mailer: fos_user.mailer.twig_swift
+    #registration:
+        #confirmation:
+            #enabled: true
+            #from_email:
+                 #address: noreply@jvn-network.fr
+                 #sender_name: Gestionnaire des comptes
+    #resetting:
+        #email:
+            #from_email:
+                #address: noreply@jvn-network.fr
+                #sender_name: Gestionnaire des comptes
+          #  template: email/resetting_password.html.twig
+    #service:
+         #mailer: fos_user.mailer.twig_swift
 
 # AsseticBundle
 assetic:
