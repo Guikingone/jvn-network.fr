@@ -59,8 +59,8 @@
           </ul>
         {% endif %}
         <ul class="top-links list-inline">
-          <li class="hidden-xs"><a href="{{path('core_contact')}}">CONTACT</a></li>
-          <li class="hidden-xs"><a href="{{path('core_mentions')}}">Mention légales</a></li>
+          <li class="hidden-xs"><a href="{{path('contact')}}">CONTACT</a></li>
+          <li class="hidden-xs"><a href="{{path('mentions')}}">Mention légales</a></li>
         </ul>
       </div>
     </div>
@@ -73,7 +73,7 @@
   						<span class="icon-bar"></span>
   						<span class="icon-bar"></span>
   					</button>
-  					<a class="navbar-brand page-scroll" href="{{path('core_home')}}">JVN-Network</a>
+  					<a class="navbar-brand page-scroll" href="{{path('home')}}">JVN-Network</a>
   				</div>
   				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
   					<ul class="nav navbar-nav navbar-right">
@@ -95,7 +95,7 @@
   							<a href="{{path('commu_home')}}">Communauté</a>
   						</li>
   						<li>
-  							<a href="{{path('forums_home')}}">Forums</a>
+  							<a href="{{path('forums')}}">Forums</a>
   						</li>
   						<li>
   							<a href="{{path('boutique_home')}}">Boutique</a>
@@ -119,7 +119,6 @@
   <script src="{{ asset('js/bootstrap.js')}}"></script>
   <script src="{{ asset('js/main.js')}}"></script>
   <script src="{{ asset('js/social/social.js')}}"></script>
-  <script src="{{ asset('js/API/Youtube/Youtube_API.js')}}"></script>
 
   <!-- Chargement TinyMCE -->
   <script src="{{ asset('js/tinymce/tinymce.min.js')}}"></script>

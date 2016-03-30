@@ -8,6 +8,7 @@ use BlogBundle\Form\Type\CommentaireType;
 use BlogBundle\Entity\Article;
 use BlogBundle\Entity\Commentaire;
 use BlogBundle\Entity\Image;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class BackController extends Controller {
 

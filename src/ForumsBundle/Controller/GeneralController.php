@@ -4,6 +4,7 @@ namespace ForumsBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 use ForumsBundle\Entity\Sujet;
 use ForumsBundle\Form\Type\SujetType;

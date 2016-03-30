@@ -4,6 +4,8 @@ namespace ForumsBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 use ForumsBundle\Entity\Sujet;
 use ForumsBundle\Entity\Message;
@@ -12,11 +14,22 @@ use ForumsBundle\Form\Type\MessageType;
 
 class ForumsController extends Controller
 {
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/forums", name="forums")
+     */
     public function indexAction(Request $request)
     {
         return $this->render('Forums/index.html.twig');
     }
 
+    /**
+     * @param Sujet $sujet
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/view/{id}", requirements={"id": "\d+"}, name="forums_view")
+     */
     public function viewAction(Sujet $sujet, Request $request)
     {
       /* On récupère le sujet selon son ID, on retourne le tout via une boucle for, si inexistant, une erreur 404
@@ -52,6 +65,13 @@ class ForumsController extends Controller
       ));
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws NotFoundHttpException
+     * @Route("/update/{id}", requirements={"id": "\d+"}, name="forums_update")
+     */
     public function updateAction(Request $request, $id)
     {
       /* On récupère l'entité via l'ID, si le sujet n'existe pas, on renvoit un message d'erreur,
@@ -74,9 +94,7 @@ class ForumsController extends Controller
 
       if($form->isValid())
       {
-        $us = $this->getDoctrine()
-                   ->getManager()
-                   ->flush();
+        $us = $this->getDoctrine()->getManager()->flush();
 
         $request->getSession()->getFlashBag()->add('success', "Le sujet" . $id . "a bien été modifiée");
         return $this->redirectToRoute('forums_home');
@@ -87,6 +105,12 @@ class ForumsController extends Controller
       ));
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route("/delete/{id}", requirements={"id": "\d+"}, name="forums_delete")
+     */
     public function deleteAction(Request $request, $id)
     {
       /* On récupère le service Purge afin de supprimer le sujet selon son ID, une fois supprimé, on renvoit
@@ -97,6 +121,12 @@ class ForumsController extends Controller
       return $this->redirectToRoute('forums_home');
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route("/delete/message/{id}", requirements={"id": "\d+"}, name="forums_delete_message")
+     */
     public function deleteMessageAction(Request $request, $id)
     {
       $delete = $this->get('corebundle.purge_all');

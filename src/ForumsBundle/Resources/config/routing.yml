@@ -1,33 +1,4 @@
 # Déclarations des routes globales #
-
-forums_home:
-    path:     /forums
-    defaults: { _controller: ForumsBundle:Forums:index }
-
-forums_view:
-    path:     /forums/view/{id}
-    defaults: { _controller: ForumsBundle:Forums:view }
-    requirements:
-        id: \d+
-
-forums_delete:
-    path:     /forums/delete/{id}
-    defaults: { _controller: ForumsBundle:Forums:delete }
-    requirements:
-        id: \d+
-
-forums_delete_message:
-    path:     /forums/delete/message/{id}
-    defaults: { _controller: ForumsBundle:Forums:deleteMessage }
-    requirements:
-        id: \d+
-
-forums_update:
-    path:     /forums/update/{id}
-    defaults: { _controller: ForumsBundle:Forums:update }
-    requirements:
-        id: \d+
-
 forums_message:
     path:     /forums/message/{id}
     defaults: { _controller: ForumsBundle:Forums:message }
