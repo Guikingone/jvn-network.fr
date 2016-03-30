@@ -4,22 +4,32 @@ namespace ForumsBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 use ForumsBundle\Entity\Sujet;
 use ForumsBundle\Form\Type\SujetType;
 
-class ConsoleController extends Controller {
+class ConsoleController extends Controller
+{
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/console", name="console")
+     */
+      public function indexAction(Request $request)
+      {
+          $consoles = $this->getDoctrine()->getManager();
+          $consoles->getRepository('ForumsBundle:Sujet')->getSujetConsoles();
+          return $this->render('Forums/Consoles/index.html.twig', array(
+            'consoles' => $consoles
+          ));
+      }
 
-  public function indexAction(Request $request)
-  {
-      $consoles = $this->getDoctrine()->getManager();
-      $consoles->getRepository('ForumsBundle:Sujet')->getSujetConsoles();
-      return $this->render('Forums/Consoles/index.html.twig', array(
-        'consoles' => $consoles
-      ));
-  }
-
-
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @Route("/console/add", name="console_add")
+     */
     public function addAction(Request $request)
     {
       $s_Console = new Sujet();
@@ -39,7 +49,7 @@ class ConsoleController extends Controller {
             $em = $this->getDoctrine()->getManager();
             $em->persist($s_Console);
             $em->flush();
-            return $this->redirectToRoute('forums_pc');
+            return $this->redirectToRoute('console');
           }
 
       return $this->render('Forums/Action/add.html.twig', array(

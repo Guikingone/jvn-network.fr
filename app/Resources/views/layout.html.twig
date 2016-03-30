@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <title>{% block title %}JVN-Network.fr - Là où la communauté prend les commandes{% endblock %}</title>
-  {% block stylesheets %}
-    {% stylesheets 'css/*' filter='cssrewrite' output='css/compiled/app.css' %}
-      <link href="{{ asset_url }}" rel="stylesheet" />
-    {% endstylesheets %}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  {% endblock %}
-  <script src="{{ asset('js/vendor/modernizr-2.8.3.min.js')}}"></script>
-</head>
+    <head>
+      <meta charset="utf-8" />
+      <title>{% block title %}JVN-Network.fr - Là où la communauté prend les commandes{% endblock %}</title>
+      {% block stylesheets %}
+        {% stylesheets 'css/*' filter='cssrewrite' output='css/compiled/app.css' %}
+          <link href="{{ asset_url }}" rel="stylesheet" />
+        {% endstylesheets %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+      {% endblock %}
+      <script src="{{ asset('js/vendor/modernizr-2.8.3.min.js')}}"></script>
+    </head>
 <body>
 <header>
   <!-- Navbar Utilisateur -->
@@ -98,7 +98,7 @@
   							<a href="{{path('forums')}}">Forums</a>
   						</li>
   						<li>
-  							<a href="{{path('boutique_home')}}">Boutique</a>
+  							<a href="{{path('boutique')}}">Boutique</a>
   						</li>
   					</ul>
   				</div>
@@ -111,8 +111,7 @@
     <div class="alert alert-info text-center">Message flash : {{message}}</div>
   {% endfor %}
 
-{% block body %}
-{% endblock %}
+{% block body %}{% endblock %}
 
 {% block javascript %}
   <script src="{{ asset('js/vendor/jquery.js')}}"></script>

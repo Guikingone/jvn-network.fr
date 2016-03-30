@@ -1,3 +1,0 @@
-boutique_home:
-    path:     /shop
-    defaults: { _controller: BoutiqueBundle:Boutique:index }

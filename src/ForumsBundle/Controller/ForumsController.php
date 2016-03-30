@@ -17,7 +17,7 @@ class ForumsController extends Controller
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/forums", name="forums")
+     * @Route("/", name="forums")
      */
     public function indexAction(Request $request)
     {

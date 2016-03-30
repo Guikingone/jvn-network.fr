@@ -17,7 +17,8 @@ forums_home:
     prefix:   /forums
 
 boutique_home:
-    resource: "@BoutiqueBundle/Resources/config/routing.yml"
+    resource: "@BoutiqueBundle/Controller/"
+    type:     annotation
     prefix:   /shop
 
 # Définition route FOSUserBundle #

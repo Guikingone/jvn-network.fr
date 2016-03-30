@@ -1,5 +1,5 @@
 {% extends('::layout.html.twig')%}
-
+{% block title %}Les forums{% endblock %}
 {% block body %}
 <div class="container">
   <div class="row">
@@ -51,19 +51,19 @@
       <div class="col-lg-12">
         <div id="fr_general">
           <hr />
-            <a href="{{path('forums_general')}}" class="form-group"><p class="text-center">Forum Général</p></a>
+            <a href="{{path('general')}}" class="form-group"><p class="text-center">Forum Général</p></a>
             <p class="text-center">Ici, tout ce dont vous auriez besoin est présent, une envie ? Une idée ? Quelque chose d'autre ?
             Discutons-en !</p>
           <hr />
           <br>
           <br>
-            <a href="{{path('forums_consoles')}}" class="form-group"><p class="text-center">Forum Consoles</p></a>
+            <a href="{{path('console')}}" class="form-group"><p class="text-center">Forum Consoles</p></a>
             <p class="text-center">Envie de discuter console de salon dernières générations ? Ou alors de nos
             consoles de jeunesse ? C'est ici !</p>
           <hr />
           <br>
           <br>
-            <a href="{{path('forums_pc')}}" class="form-group"><p class="text-center">Forum PC</p></a>
+            <a href="{{path('pc')}}" class="form-group"><p class="text-center">Forum PC</p></a>
             <p class="text-center">Master Race ou pas, le PC fait partie du champ vidéoludique sans commune mesure,
               ici, on en parle comme d'un précieux car c'est aussi ça, aimer jouer</p>
           <hr />
@@ -71,7 +71,7 @@
           <br>
           <!-- L'accès à la partie Administration se fait uniquement si l'utilisateur est authentifié comme Modérateur -->
           {% if is_granted('ROLE_MODERATEUR')%}
-            <a href="{{path('forums_admin')}}" class="form-group"><p class="text-center">Administration</p></a>
+            <a href="{{path('admin')}}" class="form-group"><p class="text-center">Administration</p></a>
             <p class="text-center">Discussions autour du site, des soucis et des demandes diverses, bref, tout
               ce qui touche à l'aspect administration</p>
             <hr />
