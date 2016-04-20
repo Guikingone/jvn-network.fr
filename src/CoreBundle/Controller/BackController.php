@@ -77,7 +77,7 @@ class BackController extends Controller
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      * @throws NotFoundHttpException
-     * @Route("/back_office/update/{id}, requirements={"id": "\d+"}, name="back_office_update")
+     * @Route("/back_office/update/{id}", requirements={"id": "\d+"}, name="back_office_update")
      */
       public function updateAction(Request $request, $id)
       {

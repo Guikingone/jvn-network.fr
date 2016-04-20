@@ -1,0 +1,22 @@
+{
+  "name": "jvn-network.fr",
+  "homepage": "https://github.com/Guikingone/Symfony",
+  "authors": [
+    "Loulier Guillaume <guillaume.loulier@hotmail.fr>"
+  ],
+  "description": "",
+  "main": "web/js/main.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/assets/vendor/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.3"
+  }
+}
