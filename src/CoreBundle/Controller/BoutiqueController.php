@@ -1,6 +1,6 @@
 <?php
 
-namespace BoutiqueBundle\Controller;
+namespace CoreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,7 +11,7 @@ class BoutiqueController extends Controller
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     * @Route("/", name="boutique")
+     * @Route("/boutique", name="boutique")
      */
     public function indexAction(Request $request)
     {

@@ -1,13 +1,13 @@
 <?php
 
-namespace CoreBundle\Controller\Forums;
+namespace CoreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-use ForumsBundle\Entity\Sujet;
-use ForumsBundle\Form\Type\SujetType;
+use CoreBundle\Entity\Sujet;
+use CoreBundle\Form\Type\SujetType;
 
 class ConsoleController extends Controller
 {

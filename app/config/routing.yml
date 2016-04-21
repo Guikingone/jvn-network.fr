@@ -12,11 +12,6 @@ team_home:
     resource: "@BlogBundle/Resources/config/routing.yml"
     prefix:   /Blog
 
-boutique_home:
-    resource: "@BoutiqueBundle/Controller/"
-    type:     annotation
-    prefix:   /shop
-
 # Définition route FOSUserBundle #
 
 fos_bundle:

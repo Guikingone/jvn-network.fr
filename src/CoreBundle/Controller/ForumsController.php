@@ -1,23 +1,23 @@
 <?php
 
-namespace CoreBundle\Controller\Forums;
+namespace CoreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-use ForumsBundle\Entity\Sujet;
-use ForumsBundle\Entity\Message;
-use ForumsBundle\Form\Type\SujetType;
-use ForumsBundle\Form\Type\MessageType;
+use CoreBundle\Entity\Sujet;
+use CoreBundle\Entity\Message;
+use CoreBundle\Form\Type\SujetType;
+use CoreBundle\Form\Type\MessageType;
 
 class ForumsController extends Controller
 {
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/", name="forums")
+     * @Route("/forums", name="forums")
      */
     public function indexAction(Request $request)
     {
@@ -96,8 +96,8 @@ class ForumsController extends Controller
       {
         $us = $this->getDoctrine()->getManager()->flush();
 
-        $request->getSession()->getFlashBag()->add('success', "Le sujet" . $id . "a bien été modifiée");
-        return $this->redirectToRoute('forums_home');
+        $this->addFlash('success', "Le sujet" . $id . "a bien été modifiée");
+        return $this->redirectToRoute('forums');
       }
       return $this->render('Forums/Action/update.html.twig', array(
         'form' => $form->createView(),
@@ -117,8 +117,8 @@ class ForumsController extends Controller
       un message flash afin de valider la suppression */
       $delete = $this->get('corebundle.purge_all');
       $delete->purgeSujet($id);
-      $request->getSession()->getFlashBag()->add('success_forums', 'Sujet supprimé !');
-      return $this->redirectToRoute('forums_home');
+      $this->addFlash('success_forums', 'Sujet supprimé !');
+      return $this->redirectToRoute('forums');
     }
 
     /**
@@ -131,7 +131,7 @@ class ForumsController extends Controller
     {
       $delete = $this->get('corebundle.purge_all');
       $delete->purgeMessage($id);
-      $request->getSession()->getFlashBag()->add('success_forums', 'Message supprimé !');
-      return $this->redirectToRoute('forums_home');
+      $this->addFlash('success_forums', 'Message supprimé !');
+      return $this->redirectToRoute('forums');
     }
 }
