@@ -1,6 +1,6 @@
 <?php
 
-namespace ForumsBundle\Controller;
+namespace CoreBundle\Controller\Forums;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,7 +14,7 @@ class ConsoleController extends Controller
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/console", name="console")
+     * @Route("/console", name="forum_console")
      */
       public function indexAction(Request $request)
       {

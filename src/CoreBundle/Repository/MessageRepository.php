@@ -1,6 +1,6 @@
 <?php
 
-namespace ForumsBundle\Repository;
+namespace CoreBundle\Repository;
 
 /**
  * MessageRepository

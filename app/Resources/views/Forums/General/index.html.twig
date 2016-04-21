@@ -1,5 +1,5 @@
 {% extends ('::layout.html.twig')%}
-
+{% block title %}Le forum généraliste{% endblock %}
 {% block body %}
 <div class="container">
   <div class="row">
@@ -7,7 +7,7 @@
       {% for message in app.session.flashbag.get('success_forums') %}
         <div class="alert alert-success">Message flash : {{ message }}</div>
       {% endfor %}
-      <p class="text-center"><a href="{{path('forums_home')}}">Retour à l'index</a></p>
+      <p class="text-center"><a href="{{path('forums')}}">Retour à l'index</a></p>
       <h2 class="text-center">Le forum General(iste)</h2>
       <hr />
       <br>
@@ -20,7 +20,7 @@
     {% if is_granted('IS_AUTHENTICATED_FULLY')%}
     <div class="row">
       <div class="col-lg-12 text-center">
-        <a href="{{path('forums_general_add')}}" class="btn btn-danger">Créer un sujet</a>
+        <a href="{{path('general_add')}}" class="btn btn-danger">Créer un sujet</a>
       </div>
     </div>
   {% endif %}

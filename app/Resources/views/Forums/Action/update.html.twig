@@ -1,5 +1,5 @@
 {% extends ('::layout.html.twig')%}
-
+{% block title %}Forums - Mettre à jour un sujet{% endblock %}
 {% block body %}
 <div class="container">
   <p class="text-center"><a href="{{ path('forums_view', {'id': sujet.id}) }}">Retour au sujet</a></p>

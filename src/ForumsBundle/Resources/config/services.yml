@@ -1,4 +1,0 @@
-services:
-    forumsbundle.forums_purger:
-        class: ForumsBundle\Purge\Purge
-        arguments: ['@doctrine.orm.entity_manager']
