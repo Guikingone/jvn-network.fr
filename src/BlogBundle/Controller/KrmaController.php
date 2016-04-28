@@ -20,9 +20,10 @@ class KrmaController extends Controller{
      */
     public function indexAction()
     {
-      /** On récupère les articles via le service Blog, ce dernier récupère les articles via la catégorie et
-      renvoit le tout via la fonction index */
-      $article = $this->get('corebundle.blog')->index('KRMA');
+      $article = $this->getDoctrine()
+                      ->getManager()
+                      ->getRepository('BlogBundle:Article')
+                      ->getArticle('KRMA');
       return $this->render('Blog/Krma/index.html.twig', array(
         'article' => $article
       ));

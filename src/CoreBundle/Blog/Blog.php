@@ -34,10 +34,9 @@ class Blog extends Controller {
    */
   protected $router;
 
-  public function __construct(EntityManagerInterface $em, $formbuilder, TokenStorage $user, Router $router)
+  public function __construct(EntityManagerInterface $em, TokenStorage $user, Router $router)
   {
     $this->em = $em;
-    $this->formbuilder = $formbuilder;
     $this->user = $user;
     $this->router = $router;
   }

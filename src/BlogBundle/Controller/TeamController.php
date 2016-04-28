@@ -15,7 +15,10 @@ class TeamController extends Controller {
   {
     /** On récupère les articles via le service Blog, ce dernier récupère les articles via la catégorie et
     renvoit le tout via la fonction index */
-    $article = $this->get('corebundle.blog')->index('TEAM');
+    $article = $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository('BlogBundle:Article')
+                    ->getArticle('TEAM');
     return $this->render('Blog/Team/index.html.twig', array(
       'article' => $article
     ));

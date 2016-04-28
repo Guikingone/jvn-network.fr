@@ -6,3 +6,6 @@ parameters:
 services:
     core.slugger:
         class: CoreBundle\Outils\Slug
+
+    core.blog:
+        class: CoreBundle\Controller\_Blog\BlogController
