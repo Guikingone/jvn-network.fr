@@ -65,7 +65,7 @@ class BackController extends Controller
           $em = $this->getDoctrine()->getManager();
           $em->persist($article);
           $em->flush();
-          $request->getSession()->getFlashBag()->add('success', "Article enregistré");
+          $this->addFlash('success', "Article enregistré");
           return $this->redirectToRoute('back_office');
         }
         return $this->render('Back_Office/add_article.html.twig', array(
@@ -96,7 +96,7 @@ class BackController extends Controller
         une fois que tout est terminé, on affiche un message de succés et on redirige vers l'article en question */
         if($form->isValid()){
           $um = $this->getDoctrine()->getManager()->flush();
-          $request->getSession()->getFlashBag()->add('success', "L'annonce" . $id . "a bien été modifiée");
+          $this->addFlash('success', "L'annonce" . $id . "a bien été modifiée");
           return $this->redirectToRoute('team_admin');
         }
         return $this->render('Back_Office/update.html.twig', array(
@@ -116,7 +116,7 @@ class BackController extends Controller
         /* On récupère le service Blog afin de supprimer les articles via delete, puis
         on renvoit un message flash et on redirige vers la page d'administration */
         $em = $this->get('coreBundle.blog')->delete($id);
-        $request->getSession()->getFlashBag()->add('success', "L'article avec l'id " . $id . " a été supprimée.");
+        $this->addFlash('success', "L'article avec l'id " . $id . " a été supprimée.");
         return $this->redirectToRoute('back_office');
       }
 }
