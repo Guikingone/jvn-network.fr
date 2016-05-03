@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Sujet
  *
  * @ORM\Table(name="sujet")
- * @ORM\Entity(repositoryClass="ForumsBundle\Repository\SujetRepository")
+ * @ORM\Entity(repositoryClass="CoreBundle\Repository\SujetRepository")
  */
 class Sujet
 {
@@ -56,7 +56,7 @@ class Sujet
     private $category;
 
     /**
-    * @ORM\OneToMany(targetEntity="ForumsBundle\Entity\Message", mappedBy="sujet", cascade={"remove", "persist"})
+    * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Message", mappedBy="sujet", cascade={"remove", "persist"})
     */
     private $messages;
 

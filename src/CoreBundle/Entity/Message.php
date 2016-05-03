@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Message
  *
  * @ORM\Table(name="message")
- * @ORM\Entity(repositoryClass="ForumsBundle\Repository\MessageRepository")
+ * @ORM\Entity(repositoryClass="CoreBundle\Repository\MessageRepository")
  */
 class Message
 {
@@ -43,7 +43,7 @@ class Message
     private $dateMessage;
 
     /**
-    * @ORM\ManyToOne(targetEntity="ForumsBundle\Entity\Sujet", cascade={"remove", "persist"}, inversedBy="messages")
+    * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\Sujet", cascade={"remove", "persist"}, inversedBy="messages")
     * @ORM\JoinColumn(nullable=false)
     */
     private $sujet;

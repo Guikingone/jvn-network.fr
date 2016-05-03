@@ -115,7 +115,7 @@ class ForumsController extends Controller
     {
       /* On récupère le service Purge afin de supprimer le sujet selon son ID, une fois supprimé, on renvoit
       un message flash afin de valider la suppression */
-      $delete = $this->get('corebundle.purge_all');
+      $delete = $this->get('core.purge');
       $delete->purgeSujet($id);
       $this->addFlash('success_forums', 'Sujet supprimé !');
       return $this->redirectToRoute('forums');
@@ -129,7 +129,7 @@ class ForumsController extends Controller
      */
     public function deleteMessageAction(Request $request, $id)
     {
-      $delete = $this->get('corebundle.purge_all');
+      $delete = $this->get('core.purge');
       $delete->purgeMessage($id);
       $this->addFlash('success_forums', 'Message supprimé !');
       return $this->redirectToRoute('forums');

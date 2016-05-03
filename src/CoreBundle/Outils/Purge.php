@@ -1,6 +1,6 @@
 <?php
 
-namespace CoreBundle\Purge;
+namespace CoreBundle\Outils;
 
 use Doctrine\ORM\EntityManagerInterface;
 
