@@ -1,6 +1,6 @@
 <?php
 
-namespace BlogBundle\Entity;
+namespace CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Image
  *
  * @ORM\Table(name="image")
- * @ORM\Entity(repositoryClass="BlogBundle\Repository\ImageRepository")
+ * @ORM\Entity(repositoryClass="CoreBundle\Repository\ImageRepository")
  * @ORM\HasLifecycleCallBacks()
  */
 class Image

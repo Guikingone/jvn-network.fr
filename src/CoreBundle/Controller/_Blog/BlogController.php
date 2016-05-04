@@ -17,6 +17,7 @@ class BlogController extends Controller
     /**
      * @param $categorie
      * @return array
+     * Permet d'afficher la liste des articles via la $categorie qui les différencie
      */
     public function index($categorie)
     {
@@ -57,10 +58,9 @@ class BlogController extends Controller
      * @param Request $request
      * @param $id
      * @param $route
-     * @param $vue
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function edit(Request $request, $id, $route, $vue)
+    public function edit(Request $request, $id, $route)
     {
         $update = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Article')->find($id);
         if(null === $update){
@@ -74,6 +74,7 @@ class BlogController extends Controller
             $this->addFlash('success', "L'annonce" . $id . "a bien été modifiée");
             return $this->redirectToRoute($route);
         }
+        return $formbuilder;
     }
 
     /**
@@ -101,6 +102,7 @@ class BlogController extends Controller
 
     /**
      * @param $id
+     * Permet de supprimer un article via son $id
      */
     public function delete($id)
     {

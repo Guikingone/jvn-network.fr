@@ -1,6 +1,6 @@
 <?php
 
-namespace BlogBundle\Repository;
+namespace CoreBundle\Repository;
 
 /**
  * CommentaireRepository

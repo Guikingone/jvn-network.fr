@@ -1,16 +1,17 @@
 <?php
-namespace BlogBundle\Controller;
+namespace CoreBundle\Controller\_Blog\Blog;
+
+use CoreBundle\Controller\_Blog\BlogController as Blog;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use BlogBundle\Form\Type\ArticleType;
-use BlogBundle\Form\Type\CommentaireType;
-use BlogBundle\Entity\Article;
-use BlogBundle\Entity\Commentaire;
+use CoreBundle\Form\Type\ArticleType;
+use CoreBundle\Form\Type\CommentaireType;
+use CoreBundle\Entity\Article;
+use CoreBundle\Entity\Commentaire;
 
-class TeamController extends Controller {
+class TeamController extends Blog {
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
@@ -18,12 +19,7 @@ class TeamController extends Controller {
      */
       public function indexAction()
       {
-        /** On récupère les articles via le service Blog, ce dernier récupère les articles via la catégorie et
-        renvoit le tout via la fonction index */
-        $article = $this->getDoctrine()
-                        ->getManager()
-                        ->getRepository('BlogBundle:Article')
-                        ->getArticle('TEAM');
+        $article = $this->index('TEAM');
         return $this->render('Blog/Team/index.html.twig', array(
           'article' => $article
         ));
@@ -72,7 +68,7 @@ class TeamController extends Controller {
      */
       public function adminAction(Request $request)
       {
-            $article = $this->get('corebundle.blog')->index('TEAM');
+            $article = $this->get('core.blog')->index('TEAM');
 
             /* On récupère tout les membres ainsi que leur attributs, on les affichent pour pouvoir y intervenir en cas de
             besoin, si besoin, on paginera */
@@ -130,10 +126,7 @@ class TeamController extends Controller {
      */
       public function deleteAction(Request $request, $id)
       {
-        /* On récupère le service Blog afin de supprimer les articles via delete, puis
-        on renvoit un message flash et on redirige vers la page d'administration */
-        $em = $this->get('coreBundle.blog');
-        $em->delete($id);
+        $em = $this->delete($id);
         $this->addFlash('success', "L'article avec l'id " . $id . " a été supprimé");
         return $this->redirectToRoute('team_admin');
       }

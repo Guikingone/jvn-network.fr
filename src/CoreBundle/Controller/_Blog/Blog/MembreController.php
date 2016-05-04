@@ -1,17 +1,19 @@
 <?php
 
-namespace BlogBundle\Controller;
+namespace CoreBundle\Controller\_Blog\Blog;
 
-use BlogBundle\Entity\Article;
+use CoreBundle\Controller\_Blog\BlogController as Blog;
+
+
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use BlogBundle\Form\Type\ArticleType;
-use BlogBundle\Form\Type\CommentaireType;
-use BlogBundle\Entity\Image;
+use CoreBundle\Form\Type\ArticleType;
+use CoreBundle\Form\Type\CommentaireType;
+use CoreBundle\Entity\Article;
+use CoreBundle\Entity\Image;
 
-class MembreController extends Controller {
+class MembreController extends Blog {
 
     /**
      * @param Request $request
@@ -20,12 +22,7 @@ class MembreController extends Controller {
      */
       public function indexAction(Request $request)
       {
-        /** On récupère les articles via le service Blog, ce dernier récupère les articles via la catégorie et
-        renvoit le tout via la fonction index */
-        $article = $this->getDoctrine()
-                        ->getManager()
-                        ->getRepository('BlogBundle:Article')
-                        ->getArticle('MEMBRE');
+        $article = $this->index('MEMBRE');
         return $this->render('Blog/Membre/index.html.twig', array(
           'article' => $article
         ));
@@ -136,8 +133,7 @@ class MembreController extends Controller {
      */
       public function deleteAction(Request $request, $id)
       {
-        $em = $this->get('coreBundle.blog');
-        $em->delete($id);
+        $em = $this->delete($id);
         $this->addFlash('success', "L'article avec l'id " . $id . " a été supprimé");
         return $this->redirectToRoute('membre_admin');
       }

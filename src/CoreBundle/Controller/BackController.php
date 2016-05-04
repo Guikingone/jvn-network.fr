@@ -7,7 +7,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 use BlogBundle\Form\Type\ArticleType;
-use BlogBundle\Form\Type\CommentaireType;
 
 use BlogBundle\Entity\Article;
 use BlogBundle\Entity\Commentaire;
@@ -21,9 +20,7 @@ class BackController extends Controller
      */
     public function backAction()
     {
-      /* On récupère toutes les variables nécessaires au back-office puis on les affiche via la vue correspondante,
-      au besoin, on paginera */
-      $article = $this->get('corebundle.blog')->index('TEAM');
+      $article = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Article')->getArticle('TEAM');
       $commentaire = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Commentaire')->getCommentaires();
       $sujet = $this->getDoctrine()->getManager()->getRepository('ForumsBundle:Sujet')->getSujet();
       $user = $this->getDoctrine()->getManager()->getRepository('UserBundle:User')->getUser();

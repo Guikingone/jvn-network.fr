@@ -1,6 +1,6 @@
 <?php
 
-namespace BlogBundle\Entity;
+namespace CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Article
  *
  * @ORM\Table(name="article")
- * @ORM\Entity(repositoryClass="BlogBundle\Repository\ArticleRepository")
+ * @ORM\Entity(repositoryClass="CoreBundle\Repository\ArticleRepository")
  * @ORM\HasLifecycleCallBacks()
  */
 class Article
@@ -57,18 +57,18 @@ class Article
     private $contenu;
 
     /**
-    * @ORM\OnetoOne(targetEntity="BlogBundle\Entity\Image", cascade={"persist", "remove"})
+    * @ORM\OnetoOne(targetEntity="CoreBundle\Entity\Image", cascade={"persist", "remove"})
     * @Assert\Valid()
     */
     private $image;
 
     /**
-    * @ORM\ManyToMany(targetEntity="BlogBundle\Entity\Category", cascade={"persist"})
+    * @ORM\ManyToMany(targetEntity="CoreBundle\Entity\Category", cascade={"persist"})
     */
     private $category;
 
     /**
-    * @ORM\OneToMany(targetEntity="BlogBundle\Entity\Commentaire", mappedBy="article", cascade={"remove", "persist"})
+    * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Commentaire", mappedBy="article", cascade={"remove", "persist"})
     */
     private $commentaires;
 
@@ -196,7 +196,7 @@ class Article
     /**
      * Set image
      *
-     * @param \BlogBundle\Entity\Article $image
+     * @param \CoreBundle\Entity\Article $image
      *
      * @return Article
      */
@@ -210,7 +210,7 @@ class Article
     /**
      * Get image
      *
-     * @return \BlogBundle\Entity\Article
+     * @return \CoreBundle\Entity\Article
      */
     public function getImage()
     {
@@ -227,11 +227,11 @@ class Article
     /**
      * Add category
      *
-     * @param \BlogBundle\Entity\Category $category
+     * @param \CoreBundle\Entity\Category $category
      *
      * @return Article
      */
-    public function addCategory(\BlogBundle\Entity\Category $category)
+    public function addCategory(\CoreBundle\Entity\Category $category)
     {
         $this->category[] = $category;
 
@@ -241,9 +241,9 @@ class Article
     /**
      * Remove category
      *
-     * @param \BlogBundle\Entity\Category $category
+     * @param \CoreBundle\Entity\Category $category
      */
-    public function removeCategory(\BlogBundle\Entity\Category $category)
+    public function removeCategory(\CoreBundle\Entity\Category $category)
     {
         $this->category->removeElement($category);
     }
@@ -261,11 +261,11 @@ class Article
     /**
      * Add commentaire
      *
-     * @param \BlogBundle\Entity\Commentaire $commentaire
+     * @param \CoreBundle\Entity\Commentaire $commentaire
      *
      * @return Article
      */
-    public function addCommentaire(\BlogBundle\Entity\Commentaire $commentaire)
+    public function addCommentaire(\CoreBundle\Entity\Commentaire $commentaire)
     {
         $this->commentaires[] = $commentaire;
 
@@ -282,9 +282,9 @@ class Article
     /**
      * Remove commentaire
      *
-     * @param \BlogBundle\Entity\Commentaire $commentaire
+     * @param \CoreBundle\Entity\Commentaire $commentaire
      */
-    public function removeCommentaire(\BlogBundle\Entity\Commentaire $commentaire)
+    public function removeCommentaire(\CoreBundle\Entity\Commentaire $commentaire)
     {
         $this->commentaires->removeElement($commentaire);
     }

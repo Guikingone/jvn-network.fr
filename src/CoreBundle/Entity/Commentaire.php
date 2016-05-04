@@ -1,6 +1,6 @@
 <?php
 
-namespace BlogBundle\Entity;
+namespace CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Commentaire
  *
  * @ORM\Table(name="commentaire")
- * @ORM\Entity(repositoryClass="BlogBundle\Repository\CommentaireRepository")
+ * @ORM\Entity(repositoryClass="CoreBundle\Repository\CommentaireRepository")
  */
 class Commentaire
 {
@@ -44,7 +44,7 @@ class Commentaire
     private $contenu;
 
     /**
-    * @ORM\ManyToOne(targetEntity="BlogBundle\Entity\Article", cascade={"remove", "persist"}, inversedBy="commentaires")
+    * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\Article", cascade={"remove", "persist"}, inversedBy="commentaires")
     * @ORM\JoinColumn(nullable=false)
     * On force la présence d'un article pour la création d'un commentaire
     */
@@ -136,11 +136,11 @@ class Commentaire
     /**
      * Set article
      *
-     * @param \BlogBundle\Entity\Article $article
+     * @param \CoreBundle\Entity\Article $article
      *
      * @return Commentaire
      */
-    public function setArticle(\BlogBundle\Entity\Article $article)
+    public function setArticle(\CoreBundle\Entity\Article $article)
     {
         $this->article = $article;
 
@@ -150,7 +150,7 @@ class Commentaire
     /**
      * Get article
      *
-     * @return \BlogBundle\Entity\Article
+     * @return \CoreBundle\Entity\Article
      */
     public function getArticle()
     {

@@ -7,9 +7,6 @@ services:
     core.slugger:
         class: CoreBundle\Outils\Slug
 
-    core.blog:
-        class: CoreBundle\Controller\_Blog\BlogController
-
     core.purge:
         class: CoreBundle\Outils\Purge
         arguments: ['@doctrine.orm.entity_manager']

@@ -1,6 +1,6 @@
 <?php
 
-namespace BlogBundle\Entity;
+namespace CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

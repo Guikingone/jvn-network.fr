@@ -8,11 +8,6 @@ commu_home:
     type:     annotation
     prefix:   /Communaute
 
-blog_home:
-    resource: "@BlogBundle/Controller/"
-    type:     annotation
-    prefix:   /Blog
-
 # Définition route FOSUserBundle #
 
 fos_bundle:

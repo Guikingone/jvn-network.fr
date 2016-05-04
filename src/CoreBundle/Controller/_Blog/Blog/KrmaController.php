@@ -1,18 +1,19 @@
 <?php
 
-namespace BlogBundle\Controller;
+namespace CoreBundle\Controller\_Blog\Blog;
 
-use BlogBundle\Entity\Commentaire;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use CoreBundle\Controller\_Blog\BlogController as Blog;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use BlogBundle\Form\Type\ArticleType;
-use BlogBundle\Form\Type\CommentaireType;
-use BlogBundle\Entity\Article;
-use BlogBundle\Entity\Image;
+use CoreBundle\Form\Type\ArticleType;
+use CoreBundle\Form\Type\CommentaireType;
+use CoreBundle\Entity\Article;
+use CoreBundle\Entity\Commentaire;
+use CoreBundle\Entity\Image;
 
-class KrmaController extends Controller{
+class KrmaController extends Blog{
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
@@ -20,10 +21,7 @@ class KrmaController extends Controller{
      */
     public function indexAction()
     {
-      $article = $this->getDoctrine()
-                      ->getManager()
-                      ->getRepository('BlogBundle:Article')
-                      ->getArticle('KRMA');
+      $article = $this->index('KRMA');
       return $this->render('Blog/Krma/index.html.twig', array(
         'article' => $article
       ));
@@ -157,10 +155,7 @@ class KrmaController extends Controller{
      */
     public function deleteAction(Request $request, $id)
     {
-      /* On récupère le service Purge afin de supprimer selon la méthode propre aux articles, puis
-      on renvoit un message flash et on redirige vers la page d'administration */
-      $em = $this->get('corebundle.blog');
-      $em->delete($id);
+      $em = $this->delete($id);
       $this->addFlash('success', "L'article avec l'id " . $id . " a été supprimé");
       return $this->redirectToRoute('krma_admin');
     }
