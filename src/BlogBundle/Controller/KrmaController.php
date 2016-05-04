@@ -33,6 +33,7 @@ class KrmaController extends Controller{
      * @param Article $article
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/krma/article/{id}/{slug}", name="krma_view", requirements={"id": "\d+"})
      */
     public function viewAction(Article $article, Request $request)
     {
@@ -63,6 +64,10 @@ class KrmaController extends Controller{
       ));
     }
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/krma/admin", name="krma_admin")
+     */
     public function adminAction()
     {
       /* On récupère les articles par catégories afin de les afficher via une boucle for dans le back office du blog,
@@ -73,6 +78,11 @@ class KrmaController extends Controller{
       ));
     }
 
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @Route("/krma/add", name="krma_add")
+     */
     public function addAction(Request $request)
     {
       /* On créer un nouvel article, on définit la date en fonction du jour
@@ -94,49 +104,64 @@ class KrmaController extends Controller{
       on les persist, on enregistre le tout et on renvoit un message
       flash afin de valider l'enregistrement de l'article */
       if($formbuilder->isValid()){
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($article);
-        $em->flush();
-        $request->getSession()->getFlashBag()->add('success', "Article enregistré");
-        return $this->redirectToRoute('krma_admin');
+          $slug = $this->get('core.slugger')->slugify($article->getTitre());
+          $article->setSlug($slug);
+          $em = $this->getDoctrine()->getManager();
+          $em->persist($article);
+          $em->flush();
+          $this->addFlash('success', "Article enregistré");
+          return $this->redirectToRoute('krma_admin');
       }
       return $this->render('Blog/Krma/add.html.twig', array(
         'form' =>$formbuilder->createView()
       ));
     }
 
-    public function updateAction(Request $request, $id)
-    {
-      /* On récupère l'entité via l'ID, si l'article n'existe pas, on renvoit un message d'erreur,
-      on ouvre le formulaire, on valide, on affiche un message d'info afin
-      de valider l'opération et on redirige vers la page d'administration */
-      $update = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Article')->find($id);
-      if(null === $update){
-        throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
-      }
-      $form = $this->createForm(ArticleType::class, $update);
-      $form->handleRequest($request);
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @Route("/krma/back/update/{id}", name="krma_update", requirements={"id": "\d+"})
+     */
+        public function updateAction(Request $request, $id)
+        {
+          /* On récupère l'entité via l'ID, si l'article n'existe pas, on renvoit un message d'erreur,
+          on ouvre le formulaire, on valide, on affiche un message d'info afin
+          de valider l'opération et on redirige vers la page d'administration */
+          $update = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Article')->find($id);
+          if(null === $update){
+            throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
+          }
+          $form = $this->createForm(ArticleType::class, $update);
+          $form->handleRequest($request);
 
-      /* Ici, on se contente de vérifier que tout est valide, on ne persise pas car Doctrine connaît l'entité,
-      une fois que tout est terminé, on affiche un message de succés et on redirige vers l'article en question */
-      if($form->isValid()){
-        $update = $this->getDoctrine()->getManager()->flush();
-        $request->getSession()->getFlashBag()->add('success', "L'annonce" . $id . "a bien été modifiée");
-        return $this->redirectToRoute('krma_admin');
-      }
-      return $this->render('Blog/Krma/update.html.twig', array(
-        'form' => $form->createView(),
-        'article' => $update
-      ));
-    }
+          /* Ici, on se contente de vérifier que tout est valide, on ne persise pas car Doctrine connaît l'entité,
+          une fois que tout est terminé, on affiche un message de succés et on redirige vers l'article en question */
+          if($form->isValid()){
+              $update = $this->getDoctrine()->getManager();
+              $update->flush();
+              $request->getSession()->getFlashBag()->add('success', "L'annonce" . $id . "a bien été modifiée");
+              return $this->redirectToRoute('krma_admin');
+          }
+          return $this->render('Blog/Krma/update.html.twig', array(
+            'form' => $form->createView(),
+            'article' => $update
+          ));
+        }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route("/krma_delete/{id}", name="krma_delete", requirements={"id": "\d+"})
+     */
     public function deleteAction(Request $request, $id)
     {
       /* On récupère le service Purge afin de supprimer selon la méthode propre aux articles, puis
       on renvoit un message flash et on redirige vers la page d'administration */
       $em = $this->get('corebundle.blog');
       $em->delete($id);
-      $request->getSession()->getFlashBag()->add('success', "L'article avec l'id " . $id . " a été supprimé");
+      $this->addFlash('success', "L'article avec l'id " . $id . " a été supprimé");
       return $this->redirectToRoute('krma_admin');
     }
 }

@@ -83,6 +83,11 @@ class Article
     private $categorie;
 
     /**
+     * @ORM\Column(name="slug", type="string", length=255)
+     */
+    private $slug;
+
+    /**
      * Get id
      *
      * @return int
@@ -348,5 +353,29 @@ class Article
     public function getCategorie()
     {
         return $this->categorie;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Article
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

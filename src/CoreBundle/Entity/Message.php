@@ -141,11 +141,11 @@ class Message
     /**
      * Set sujet
      *
-     * @param \ForumsBundle\Entity\Sujet $sujet
+     * @param \CoreBundle\Entity\Sujet $sujet
      *
      * @return Message
      */
-    public function setSujet(\ForumsBundle\Entity\Sujet $sujet)
+    public function setSujet(\CoreBundle\Entity\Sujet $sujet)
     {
         $this->sujet = $sujet;
 
@@ -155,7 +155,7 @@ class Message
     /**
      * Get sujet
      *
-     * @return \ForumsBundle\Entity\Sujet
+     * @return \CoreBundle\Entity\Sujet
      */
     public function getSujet()
     {

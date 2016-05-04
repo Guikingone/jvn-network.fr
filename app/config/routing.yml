@@ -1,15 +1,16 @@
 core_home:
     resource: "@CoreBundle/Controller/"
-    type:    annotation
+    type:     annotation
     prefix:   /
 
 commu_home:
     resource: "@CommuBundle/Controller/"
     type:     annotation
-    prefix:   /communaute
+    prefix:   /Communaute
 
-team_home:
-    resource: "@BlogBundle/Resources/config/routing.yml"
+blog_home:
+    resource: "@BlogBundle/Controller/"
+    type:     annotation
     prefix:   /Blog
 
 # Définition route FOSUserBundle #

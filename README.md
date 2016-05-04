@@ -15,7 +15,7 @@ JVN-Network.fr is a open-source community web-project, he's based on Symfony 3 a
 - Tout commit/modification doit être ramenée sur une branche adjacente à master, le nom est libre, les merge seront effectués après acceptation des modifications, avec la terminaison suivante :
 
 -  # Pour les membres de l'Equipe directrice :
-- git commit -m "JVN-TEAM\\ ------------ //JVN-TEAM"
+- git commit -m "Core\\ ------------ //Core"
 
 -  # Pour les contributeurs associé(e)s (bien penser à votre nom de branche !) :
 - git commit -m "CONTRIBUTOR\\ -------------- //CONTRIBUTOR"
@@ -43,3 +43,7 @@ Les membres peuvent publier du contenu librement sur le site, ils sont les gardi
 JVN-Network est amené à diversifier son offre et son contenu à mesure que la communauté s'agrandira.
 
 # Droits 
+
+La copie, modification, suppression ou utilisation de librairies ou d'élèments de ce projet est libre de droit et doit faire l'objet d'un mail à son prorpiétaire afin de valider les règles d'utilisation, son propriétaire se réserve le droit de refuser d'aposer son nom sur toute copie ne respectant pas cette règle.
+
+#

@@ -201,11 +201,11 @@ class Sujet
     /**
      * Add message
      *
-     * @param \ForumsBundle\Entity\Message $message
+     * @param \CoreBundle\Entity\Message $message
      *
      * @return Sujet
      */
-    public function addMessage(\ForumsBundle\Entity\Message $message)
+    public function addMessage(\CoreBundle\Entity\Message $message)
     {
         $this->messages[] = $message;
 
@@ -215,9 +215,9 @@ class Sujet
     /**
      * Remove message
      *
-     * @param \ForumsBundle\Entity\Message $message
+     * @param \CoreBundle\Entity\Message $message
      */
-    public function removeMessage(\ForumsBundle\Entity\Message $message)
+    public function removeMessage(\CoreBundle\Entity\Message $message)
     {
         $this->messages->removeElement($message);
     }

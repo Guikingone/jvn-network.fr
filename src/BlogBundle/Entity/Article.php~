@@ -2,11 +2,9 @@
 
 namespace BlogBundle\Entity;
 
-use Doctrine\Commom\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 // Ce use définit les contraintes via l'outil Validator ! A conserver !
-use CoreBundle\Validator\AntiFlood;
 
 /**
  * Article
@@ -56,15 +54,11 @@ class Article
      * @ORM\Column(name="contenu", type="text")
      * @Assert\NotBlank()
      */
-     // On ajoute le système de validation AntiFlood afin d'éviter les articles à la chaîne
     private $contenu;
 
     /**
-    * @ORM\OneToOne(targetEntity="BlogBundle\Entity\Image", cascade={"persist", "remove"})
+    * @ORM\OnetoOne(targetEntity="BlogBundle\Entity\Image", cascade={"persist", "remove"})
     * @Assert\Valid()
-    * Comme on veut pouvoir créer une annonce sans image, on n'ajoute pas nullable=false
-    * Si on veut que l'annonce puisse exister sans image, on ajouterais nullable=true
-    * On rajoute "remove" afin que tout suppression d'article entraîne la suppression de l'image liée
     */
     private $image;
 
@@ -72,9 +66,6 @@ class Article
     * @ORM\ManyToMany(targetEntity="BlogBundle\Entity\Category", cascade={"persist"})
     */
     private $category;
-    /* Category gère les différents blogs, cet attributs contient la "signature" du blog qui demande l'article,
-    si l'article est demandé depuis Team, on fera pointer la catégorie vers Team et ainsi de suite pour chaque
-    blog, cela permet de conserver un code propre et non dupliqué */
 
     /**
     * @ORM\OneToMany(targetEntity="BlogBundle\Entity\Commentaire", mappedBy="article", cascade={"remove", "persist"})
@@ -90,6 +81,11 @@ class Article
     * @ORM\Column (name="categorie", type="string", length=255)
     */
     private $categorie;
+
+    /**
+     * @ORM\Column(name="slug", type="string", length=255)
+     */
+    private $slug;
 
     /**
      * Get id
