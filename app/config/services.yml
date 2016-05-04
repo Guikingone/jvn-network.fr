@@ -4,6 +4,11 @@ parameters:
 #    parameter_name: value
 
 services:
+
+    core.blog:
+        class: CoreBundle\Outils\Blog
+        arguments: ['@doctrine', '@twig', '@router']
+
     core.slugger:
         class: CoreBundle\Outils\Slug
 

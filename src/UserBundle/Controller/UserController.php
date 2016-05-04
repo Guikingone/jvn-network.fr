@@ -22,7 +22,7 @@ class UserController extends Controller
     {
       /* Attention ! Cette action n'est pas réversible ! */
       $usermanager = $this->getDoctrine()->getManager()->getRepository('UserBundle:User')->deleteUser($id);
-      $request->getSession()->getFlashBag()->add('success', "L'utilisateur avec l'id" . $id . " a bien été supprimé");
+      $this->addFlash('success', "L'utilisateur avec l'id" . $id . " a bien été supprimé");
       return $this->redirectToRoute('back_office');
     }
 }
