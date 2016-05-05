@@ -2,10 +2,8 @@
 
 namespace CoreBundle\Controller\_Blog\Blog;
 
-use CoreBundle\Controller\_Blog\BlogController as Blog;
-
-
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use CoreBundle\Form\Type\ArticleType;
@@ -13,7 +11,7 @@ use CoreBundle\Form\Type\CommentaireType;
 use CoreBundle\Entity\Article;
 use CoreBundle\Entity\Image;
 
-class MembreController extends Blog {
+class MembreController extends Controller {
 
     /**
      * @param Request $request

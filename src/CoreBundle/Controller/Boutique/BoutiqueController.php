@@ -17,11 +17,4 @@ class BoutiqueController extends Controller
     {
         return $this->render('Boutique/index.html.twig');
     }
-
-    /**
-     * @Route("/panier", name="panier")
-     */
-    public function panierAction()
-    {
-    }
 }

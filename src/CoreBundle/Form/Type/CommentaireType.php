@@ -28,7 +28,7 @@ class CommentaireType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'BlogBundle\Entity\Commentaire'
+            'data_class' => 'CoreBundle\Entity\Commentaire'
         ));
     }
 }

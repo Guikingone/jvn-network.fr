@@ -6,11 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+
 use CoreBundle\Form\Type\ArticleType;
 use CoreBundle\Form\Type\CommentaireType;
 use CoreBundle\Entity\Article;
 use CoreBundle\Entity\Commentaire;
-use CoreBundle\Entity\Image;
 
 class KrmaController extends Controller{
 

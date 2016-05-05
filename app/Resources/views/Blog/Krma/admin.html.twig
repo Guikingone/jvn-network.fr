@@ -62,7 +62,8 @@
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
                   <span class="glyphicon glyphicon-plus"></span> Ajouter un article
               </button>
-          <!-- Modal used for submitting the article form -->
+
+              <!-- Modal used for the article form -->
               <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                   <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -87,13 +88,16 @@
 
                                       {{ form_widget(form.contenu, {'attr': {'class': 'form-control'}}) }}
                                   </div>
+                                  <div class="form-group">
+                                      {{form_widget(form.save, {'attr': {'class': 'btn btn-success'}}) }}
+                                  </div>
+                                  <div class="form-group">
+                                      {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
+                                  </div>
                                   {{ form_end(form) }}
                           </div>
                           <div class="modal-footer">
                               <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
-                              <button type="button" class="btn btn-success">Envoyer
-                                  {{form_widget(form.save) }}
-                              </button>
                           </div>
                       </div>
                   </div>
