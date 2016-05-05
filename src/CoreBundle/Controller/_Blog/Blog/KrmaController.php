@@ -2,8 +2,7 @@
 
 namespace CoreBundle\Controller\_Blog\Blog;
 
-use CoreBundle\Controller\_Blog\BlogController as Blog;
-
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -13,7 +12,7 @@ use CoreBundle\Entity\Article;
 use CoreBundle\Entity\Commentaire;
 use CoreBundle\Entity\Image;
 
-class KrmaController extends Blog{
+class KrmaController extends Controller{
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
@@ -21,7 +20,7 @@ class KrmaController extends Blog{
      */
     public function indexAction()
     {
-      $article = $this->index('KRMA');
+      $article = $this->get('core.blog')->index('KRMA');
       return $this->render('Blog/Krma/index.html.twig', array(
         'article' => $article
       ));
@@ -66,14 +65,14 @@ class KrmaController extends Blog{
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/krma/admin", name="krma_admin")
      */
-    public function adminAction()
+    public function adminAction(Request $request)
     {
-      /* On récupère les articles par catégories afin de les afficher via une boucle for dans le back office du blog,
-      au besoin, on paginera le tout afin de fluidifier le résultat */
-      $article = $this->get('corebundle.blog')->index('KRMA');
-      return $this->render('Blog/Krma/admin.html.twig', array(
-        'article' => $article
-      ));
+        $article = $this->get('core.blog')->index('KRMA');
+        $form = $this->get('core.blog')->add($request, 'KRMA', 'krma_admin');
+        return $this->render('Blog/Krma/admin.html.twig', array(
+            'article' => $article,
+            'form' => $form->createView()
+        ));
     }
 
     /**
@@ -83,36 +82,10 @@ class KrmaController extends Blog{
      */
     public function addAction(Request $request)
     {
-      /* On créer un nouvel article, on définit la date en fonction du jour
-      afin de faciliter le travail de l'auteur, si besoin, il pourra la modifier via le formulaire, on ajoute aussi
-      la catégorie afin de forcer l'affichage automatique */
-      $article = new Article();
-      $article->setDatePublication(new \Datetime);
-      $article->setCategorie('KRMA');
-      $article->setImage(new Image);
-      $user = $this->getUser();
-      $article->setAuteur($user);
-
-      /* On appelle le formulaire depuis le namespace Form, on définit l'objet qui l'appelle puis on fait le lien
-      requête <-> formulaire */
-      $formbuilder = $this->createForm(ArticleType::class, $article);
-      $formbuilder->handleRequest($request);
-
-      /* On vérifie que les données sont valides, on appelle BigBrother qui écoutera les articles postés,
-      on les persist, on enregistre le tout et on renvoit un message
-      flash afin de valider l'enregistrement de l'article */
-      if($formbuilder->isValid()){
-          $slug = $this->get('core.slugger')->slugify($article->getTitre());
-          $article->setSlug($slug);
-          $em = $this->getDoctrine()->getManager();
-          $em->persist($article);
-          $em->flush();
-          $this->addFlash('success', "Article enregistré");
-          return $this->redirectToRoute('krma_admin');
-      }
-      return $this->render('Blog/Krma/add.html.twig', array(
-        'form' =>$formbuilder->createView()
-      ));
+        $form = $this->get('core.blog')->add($request, 'KRMA', 'krma');
+        return $this->render('Blog/Krma/add.html.twig', array(
+            'form' => $form->createView()
+        ));
     }
 
     /**
@@ -138,7 +111,7 @@ class KrmaController extends Blog{
           if($form->isValid()){
               $update = $this->getDoctrine()->getManager();
               $update->flush();
-              $request->getSession()->getFlashBag()->add('success', "L'annonce" . $id . "a bien été modifiée");
+              $request->getSession()->getFlashBag()->add('success', "L'annonce" . $id . "a bien été modifiée.");
               return $this->redirectToRoute('krma_admin');
           }
           return $this->render('Blog/Krma/update.html.twig', array(
@@ -155,7 +128,7 @@ class KrmaController extends Blog{
      */
     public function deleteAction(Request $request, $id)
     {
-      $em = $this->delete($id);
+      $em = $this->get('core.blog')->delete($id);
       $this->addFlash('success', "L'article avec l'id " . $id . " a été supprimé");
       return $this->redirectToRoute('krma_admin');
     }

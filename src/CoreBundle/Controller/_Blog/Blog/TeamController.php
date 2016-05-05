@@ -19,7 +19,7 @@ class TeamController extends Blog {
      */
       public function indexAction()
       {
-        $article = $this->index('TEAM');
+        $article = $this->get('core.blog')->index('TEAM');
         return $this->render('Blog/Team/index.html.twig', array(
           'article' => $article
         ));

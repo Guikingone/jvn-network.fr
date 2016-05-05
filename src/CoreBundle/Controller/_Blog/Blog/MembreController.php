@@ -22,11 +22,25 @@ class MembreController extends Blog {
      */
       public function indexAction(Request $request)
       {
-        $article = $this->index('MEMBRE');
+        $article = $this->get('core.blog')->index('MEMBRE');
         return $this->render('Blog/Membre/index.html.twig', array(
           'article' => $article
         ));
       }
+
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/membre/admin", name="membre_admin")
+     */
+        public function adminAction(Request $request)
+        {
+            /* On récupère les articles via le service Blog */
+            $article = $this->get('core.blog')->index('MEMBRE');
+            return $this->render('Blog/Membre/admin.html.twig', array(
+                'article' => $article
+            ));
+        }
 
     /**
      * @param Article $article
@@ -67,46 +81,14 @@ class MembreController extends Blog {
 
     /**
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/membre/admin", name="membre_admin")
-     */
-      public function adminAction(Request $request)
-      {
-        /* On récupère les articles via le service Blog */
-        $article = $this->get('corebundle.blog')->index('MEMBRE');
-        return $this->render('Blog/Membre/admin.html.twig', array(
-          'article' => $article
-        ));
-      }
-
-    /**
-     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      * @Route("/membre/back/add", name="membre_add")
      */
       public function addAction(Request $request)
       {
-        $article = new Article();
-        $article->setDatePublication(new \Datetime);
-        $article->setCategorie('MEMBRE');
-        $article->setImage(new Image);
-        $user = $this->getUser();
-        $article->setAuteur($user);
-
-        $formbuilder = $this->createForm(ArticleType::class, $article);
-        $formbuilder->handleRequest($request);
-
-        if($formbuilder->isValid()){
-          $slug = $this->get('core.slugger')->slugify($article->getTitre());
-          $article->setSlug($slug);
-          $em = $this->getDoctrine()->getManager();
-          $em->persist($article);
-          $em->flush();
-          $this->addFlash('success', "Article enregistré");
-          return $this->redirectToRoute('membre_admin');
-        }
+        $form = $this->get('core.blog')->add($request, 'MEMBRE', 'membre_blog');
         return $this->render('Blog/Membre/add.html.twig', array(
-          'form' => $formbuilder->createView()
+          'form' => $form->createView()
         ));
       }
 

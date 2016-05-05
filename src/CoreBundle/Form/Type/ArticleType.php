@@ -7,7 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use BlogBundle\Form\Type\ImageType;
+use CoreBundle\Form\Type\ImageType;
 
 class ArticleType extends AbstractType
 {
@@ -31,7 +31,7 @@ class ArticleType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'BlogBundle\Entity\Article'
+            'data_class' => 'CoreBundle\Entity\Article'
         ));
     }
 }

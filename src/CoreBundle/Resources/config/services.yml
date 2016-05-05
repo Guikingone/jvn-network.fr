@@ -1,5 +1,1 @@
-services:
 
-    corebundle.blog:
-        class: CoreBundle\Blog\Blog
-        arguments: ['@doctrine.orm.entity_manager']

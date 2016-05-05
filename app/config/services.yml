@@ -7,7 +7,7 @@ services:
 
     core.blog:
         class: CoreBundle\Outils\Blog
-        arguments: ['@doctrine', '@twig', '@router']
+        arguments: ['@doctrine.orm.entity_manager', '@session', '@router', '@security.token_storage', '@form.factory', '@core.slugger']
 
     core.slugger:
         class: CoreBundle\Outils\Slug

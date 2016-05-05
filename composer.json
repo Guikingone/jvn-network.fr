@@ -1,6 +1,6 @@
 {
-    "name": "jvn-network",
-    "description": "A list of the dependancy used by jvn-network",
+    "name": "jvn_network",
+    "description": "A list of the dependancy used by jvn_network",
     "license": "proprietary",
     "type": "project",
     "autoload": {
