@@ -5,8 +5,8 @@
  * Date: 04/05/2016
  * Time: 18:08
  *
- * Blog Service is used to create a instance of a blog in the application, he's also used by the Controller in order to
- * be able to add, delete, update and view a entity without passing by the Main Controller.
+ * Back Service is used to control the entire back part of the application, he's also used by the Controller in order
+ * to be able to add, delete, update and view a entity without passing by the Main Controller.
  */
 
 namespace CoreBundle\Outils;
@@ -175,13 +175,14 @@ class Back
     /**
      * @param $id
      *
-     * Allow to delete a article by is $id
+     * Allow to delete a article by is $id, a flash message is generate to confirm this action
      */
     public function deleteArticle($id)
     {
         $purge = $this->doctrine->getRepository('CoreBundle:Article')->find($id);
         $this->doctrine->remove($purge);
         $this->doctrine->flush();
+        $this->session->getFlashBag()->add('success', "L'article avec l'id" . $id . " a bien été supprimé");
     }
 
     /**
@@ -194,6 +195,7 @@ class Back
         $purge = $this->doctrine->getRepository('CoreBundle:Commentaire')->find($id);
         $this->doctrine->remove($purge);
         $this->doctrine->flush();
+        $this->session->getFlashBag()->add('success', "Le commentaire avec l'id" . $id . " a bien été supprimé");
     }
 
     /*
@@ -239,5 +241,31 @@ class Back
     public function updateSujet()
     {
         
+    }
+
+    /**
+     * @param $id
+     *
+     * Allow to delete a subject using is $id
+     */
+    public function deleteSujet($id)
+    {
+        $purge = $this->doctrine->getRepository('CoreBundle:Sujet')->find($id);
+        $this->doctrine->remove($purge);
+        $this->doctrine->flush();
+        $this->session->getFlashBag()->add('success', "Le sujet a bien été supprimé !");
+    }
+
+    /**
+     * @param $id
+     *
+     * Allow to delete a message using is $id
+     */
+    public function deleteMessage($id)
+    {
+        $purge = $this->doctrine->getRepository('CoreBundle:Message')->find($id);
+        $this->doctrine->remove($purge);
+        $this->doctrine->flush();
+        $this->session->getFlashBag()->add('success', "Le message a bien été supprimé !");
     }
 }

@@ -13,20 +13,6 @@ class ConsoleController extends Controller
 {
     /**
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/console", name="forum_console")
-     */
-      public function indexAction(Request $request)
-      {
-          $consoles = $this->getDoctrine()->getManager();
-          $consoles->getRepository('ForumsBundle:Sujet')->getSujetConsoles();
-          return $this->render('Forums/Consoles/index.html.twig', array(
-            'consoles' => $consoles
-          ));
-      }
-
-    /**
-     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      * @Route("/console/add", name="console_add")
      */

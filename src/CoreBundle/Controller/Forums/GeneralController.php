@@ -13,19 +13,6 @@ class GeneralController extends Controller
 {
     /**
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/general", name="general")
-     */
-      public function indexAction(Request $request)
-      {
-          $general = $this->get('core.back')->indexForums('GENERAL');
-          return $this->render('Forums/General/index.html.twig', array(
-            'general' => $general
-          ));
-      }
-
-    /**
-     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      * @Route("/general/add", name="general_add")
      */

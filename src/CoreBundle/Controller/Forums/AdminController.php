@@ -13,19 +13,6 @@ class AdminController extends Controller
 {
     /**
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/administration", name="admin")
-     */
-      public function indexAction(Request $request)
-      {
-          $admin = $this->getDoctrine()->getManager()->getRepository('ForumsBundle:Sujet')->getSujetAdmin();
-          return $this->render('Forums/Admin/index.html.twig', array(
-            'admin' => $admin
-          ));
-      }
-
-    /**
-     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      * @Route("/admin/add", name="admin_add")
      */

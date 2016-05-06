@@ -9,11 +9,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class BoutiqueController extends Controller
 {
     /**
-     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route("/boutique", name="boutique")
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
         return $this->render('Boutique/index.html.twig');
     }

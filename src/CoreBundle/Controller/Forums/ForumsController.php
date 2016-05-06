@@ -25,6 +25,63 @@ class ForumsController extends Controller
     }
 
     /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/administration", name="admin")
+     */
+    public function indexAdminAction(Request $request)
+    {
+        $admin = $this->get('core.back')->indexForums('ADMIN');
+        return $this->render('Forums/Admin/index.html.twig', array(
+            'admin' => $admin
+        ));
+    }
+
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/console", name="forum_console")
+     */
+    public function indexConsoleAction(Request $request)
+    {
+        $consoles = $this->get('core.back')->indexForums('CONSOLE');
+        return $this->render('Forums/Consoles/index.html.twig', array(
+            'consoles' => $consoles
+        ));
+    }
+
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/general", name="general")
+     */
+    public function indexGeneralAction(Request $request)
+    {
+        $general = $this->get('core.back')->indexForums('GENERAL');
+        return $this->render('Forums/General/index.html.twig', array(
+            'general' => $general
+        ));
+    }
+
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/pc", name="pc")
+     */
+    public function indexPcAction(Request $request)
+    {
+        $pc = $this->get('core.back')->indexForums('PC');
+        return $this->render('Forums/PC/index.html.twig', array(
+            'pc' => $pc
+        ));
+    }
+
+    /**
+     * This controller is used by the entire forum part of the application, he used the Back Service in order to access
+     * to the repository needed.
+     */
+
+    /**
      * @param Sujet $sujet
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
@@ -69,9 +126,6 @@ class ForumsController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
-      /* On récupère l'entité via l'ID, si le sujet n'existe pas, on renvoit un message d'erreur,
-      on ouvre le formulaire, on valide, on affiche un message d'info afin
-      de valider l'opération et on redirige vers la page d'accueil */
       $us = $this->getDoctrine()
                  ->getManager()
                  ->getRepository('ForumsBundle:Sujet')
@@ -84,13 +138,9 @@ class ForumsController extends Controller
       $form = $this->createForm(SujetType::class, $us);
       $form->handleRequest($request);
 
-      /* Ici, on se contente de vérifier que tout est valide, on ne persise pas car Doctrine connaît l'entité,
-      une fois que tout est terminé, on affiche un message de succés et on redirige vers l'article en question */
-
-      if($form->isValid())
-      {
-        $us = $this->getDoctrine()->getManager()->flush();
-
+      if($form->isValid()) {
+          $us = $this->getDoctrine()->getManager();
+          $us->flush();
         $this->addFlash('success', "Le sujet" . $id . "a bien été modifiée");
         return $this->redirectToRoute('forums');
       }
@@ -101,32 +151,24 @@ class ForumsController extends Controller
     }
 
     /**
-     * @param Request $request
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route("/delete/{id}", requirements={"id": "\d+"}, name="forums_delete")
      */
     public function deleteAction(Request $request, $id)
     {
-      /* On récupère le service Purge afin de supprimer le sujet selon son ID, une fois supprimé, on renvoit
-      un message flash afin de valider la suppression */
-      $delete = $this->get('core.purge');
-      $delete->purgeSujet($id);
-      $this->addFlash('success_forums', 'Sujet supprimé !');
+      $this->get('core.back')->deleteSujet($id);
       return $this->redirectToRoute('forums');
     }
 
     /**
-     * @param Request $request
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route("/delete/message/{id}", requirements={"id": "\d+"}, name="forums_delete_message")
      */
-    public function deleteMessageAction(Request $request, $id)
+    public function deleteMessageAction($id)
     {
-      $delete = $this->get('core.purge');
-      $delete->purgeMessage($id);
-      $this->addFlash('success_forums', 'Message supprimé !');
+      $this->get('core.back')->deleteMessage($id);
       return $this->redirectToRoute('forums');
     }
 }

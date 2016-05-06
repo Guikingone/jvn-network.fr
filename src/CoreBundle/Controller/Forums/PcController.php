@@ -13,19 +13,6 @@ class PcController extends Controller
 {
     /**
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/pc", name="pc")
-     */
-      public function indexAction(Request $request)
-      {
-          $pc = $this->getDoctrine()->getManager()->getRepository('ForumsBundle:Sujet')->getSujetPC();
-          return $this->render('Forums/PC/index.html.twig', array(
-            'pc' => $pc
-          ));
-      }
-
-    /**
-     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      * @Route("/pc/add", name="pc_add")
      */

@@ -1,6 +1,6 @@
 <?php
 
-namespace CoreBundle\Controller\_Blog\Blog;
+namespace CoreBundle\Controller\Blog;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

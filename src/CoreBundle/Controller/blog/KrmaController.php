@@ -1,6 +1,6 @@
 <?php
 
-namespace CoreBundle\Controller\_Blog\Blog;
+namespace CoreBundle\Controller\Blog;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -107,7 +107,6 @@ class KrmaController extends Controller{
     public function deleteAction(Request $request, $id)
     {
       $this->get('core.back')->deleteArticle($id);
-      $this->addFlash('success', "L'article avec l'id " . $id . " a été supprimé");
       return $this->redirectToRoute('krma_admin');
     }
 }

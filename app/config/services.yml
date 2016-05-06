@@ -11,7 +11,3 @@ services:
 
     core.slugger:
         class: CoreBundle\Outils\Slug
-
-    core.purge:
-        class: CoreBundle\Outils\Purge
-        arguments: ['@doctrine.orm.entity_manager']
