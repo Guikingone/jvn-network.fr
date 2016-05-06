@@ -1,6 +1,6 @@
 <?php
 
-namespace ForumsBundle\Entity;
+namespace CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Sujet
  *
  * @ORM\Table(name="sujet")
- * @ORM\Entity(repositoryClass="ForumsBundle\Repository\SujetRepository")
+ * @ORM\Entity(repositoryClass="CoreBundle\Repository\SujetRepository")
  */
 class Sujet
 {
@@ -56,9 +56,14 @@ class Sujet
     private $category;
 
     /**
-    * @ORM\OneToMany(targetEntity="ForumsBundle\Entity\Message", mappedBy="sujet", cascade={"remove", "persist"})
+    * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Message", mappedBy="sujet", cascade={"remove", "persist"})
     */
     private $messages;
+
+    /**
+     * @ORM\Column(name="slug", type="string", length=255)
+     */
+    private $slug;
 
 
     /**
@@ -201,11 +206,11 @@ class Sujet
     /**
      * Add message
      *
-     * @param \ForumsBundle\Entity\Message $message
+     * @param \CoreBundle\Entity\Message $message
      *
      * @return Sujet
      */
-    public function addMessage(\ForumsBundle\Entity\Message $message)
+    public function addMessage(\CoreBundle\Entity\Message $message)
     {
         $this->messages[] = $message;
 
@@ -215,9 +220,9 @@ class Sujet
     /**
      * Remove message
      *
-     * @param \ForumsBundle\Entity\Message $message
+     * @param \CoreBundle\Entity\Message $message
      */
-    public function removeMessage(\ForumsBundle\Entity\Message $message)
+    public function removeMessage(\CoreBundle\Entity\Message $message)
     {
         $this->messages->removeElement($message);
     }

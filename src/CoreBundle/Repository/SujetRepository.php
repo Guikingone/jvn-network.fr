@@ -10,49 +10,12 @@ namespace CoreBundle\Repository;
  */
 class SujetRepository extends \Doctrine\ORM\EntityRepository
 {
-  public function getSujetGeneral()
-  {
-    return $this->createQueryBuilder('sg')
-                ->where('sg.category = :category')
-                  ->setParameter('category', 'General')
-                ->orderBy('sg.dateCreation', 'DESC')
-                ->getQuery()
-                ->getResult();
-  }
-
-  public function getSujetConsoles()
-  {
-    return $this->createQueryBuilder('sc')
-                ->where('sc.category = :category')
-                  ->setParameter('category', 'Consoles')
-                ->orderBy('sc.dateCreation', 'DESC')
-                ->getQuery()
-                ->getResult();
-  }
-
-  public function getSujetPC()
-  {
-    return $this->createQueryBuilder('sp')
-                ->where('sp.category = :category')
-                  ->setParameter('category', 'Pc')
-                ->orderBy('sp.dateCreation', 'DESC')
-                ->getQuery()
-                ->getResult();
-  }
-
-  public function getSujetAdmin()
-  {
-    return $this->createQueryBuilder('sa')
-                ->where('sa.category = :category')
-                  ->setParameter('category', 'Admin')
-                ->orderBy('sa.dateCreation', 'DESC')
-                ->getQuery()
-                ->getResult();
-  }
-
-  public function getSujet()
+  public function getSujet($categorie)
   {
     return $this->createQueryBuilder('s')
+                ->where('s.category = :category')
+                  ->setParameter('category', $categorie)
+                ->orderBy('s.dateCreation', 'DESC')
                 ->getQuery()
                 ->getResult();
   }

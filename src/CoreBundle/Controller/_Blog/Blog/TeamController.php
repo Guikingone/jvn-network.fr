@@ -19,7 +19,7 @@ class TeamController extends Controller {
      */
       public function indexAction()
       {
-        $article = $this->get('core.blog')->index('TEAM');
+        $article = $this->get('core.back')->index('TEAM');
         return $this->render('Blog/Team/index.html.twig', array(
           'article' => $article
         ));
@@ -68,7 +68,7 @@ class TeamController extends Controller {
      */
       public function adminAction(Request $request)
       {
-            $article = $this->get('core.blog')->index('TEAM');
+            $article = $this->get('core.back')->index('TEAM');
             $membre = $this->getDoctrine()->getManager()->getRepository('UserBundle:User')->getUser();
             $commentaire = $this->getDoctrine()->getManager()->getRepository('CoreBundle:Commentaire')->getCommentaires();
             return $this->render('Blog/Team/admin.html.twig', array(
@@ -121,8 +121,8 @@ class TeamController extends Controller {
      */
       public function deleteAction(Request $request, $id)
       {
-        $em = $this->delete($id);
+        $this->get('core.back')->deleteArticle($id);
         $this->addFlash('success', "L'article avec l'id " . $id . " a été supprimé");
-        return $this->redirectToRoute('team_admin');
+        return $this->redirectToRoute('equipe_admin');
       }
 }

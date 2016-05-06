@@ -20,7 +20,7 @@ class MembreController extends Controller {
      */
       public function indexAction(Request $request)
       {
-        $article = $this->get('core.blog')->index('MEMBRE');
+        $article = $this->get('core.back')->index('MEMBRE');
         return $this->render('Blog/Membre/index.html.twig', array(
           'article' => $article
         ));
@@ -33,10 +33,11 @@ class MembreController extends Controller {
      */
         public function adminAction(Request $request)
         {
-            /* On récupère les articles via le service Blog */
-            $article = $this->get('core.blog')->index('MEMBRE');
+            $article = $this->get('core.back')->index('MEMBRE');
+            $form = $this->get('core.back')->add($request, 'MEMRBE');
             return $this->render('Blog/Membre/admin.html.twig', array(
-                'article' => $article
+                'article' => $article,
+                'form' => $form->createView()
             ));
         }
 
@@ -79,26 +80,13 @@ class MembreController extends Controller {
 
     /**
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     * @Route("/membre/back/add", name="membre_add")
-     */
-      public function addAction(Request $request)
-      {
-        $form = $this->get('core.blog')->add($request, 'MEMBRE', 'membre_blog');
-        return $this->render('Blog/Membre/add.html.twig', array(
-          'form' => $form->createView()
-        ));
-      }
-
-    /**
-     * @param Request $request
      * @param $id
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/membre/back/update/{id}", name="membre_update", requirements={"id": "\d+"})
      */
       public function updateAction(Request $request, $id)
       {
-        $update = $this->get('corebundle.blog')->update($request, $id);
+        $update = $this->get('core.back')->update($request, $id);
         return $this->render('Blog/Membre/update.html.twig', array(
           'form' => $update->createView(),
           'article' => $update
@@ -113,7 +101,7 @@ class MembreController extends Controller {
      */
       public function deleteAction(Request $request, $id)
       {
-        $em = $this->delete($id);
+        $this->get('core.back')->deleteArticle($id);
         $this->addFlash('success', "L'article avec l'id " . $id . " a été supprimé");
         return $this->redirectToRoute('membre_admin');
       }

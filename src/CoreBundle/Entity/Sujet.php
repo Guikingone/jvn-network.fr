@@ -60,6 +60,11 @@ class Sujet
     */
     private $messages;
 
+    /**
+     * @ORM\Column(name="slug", type="string", length=255)
+     */
+    private $slug;
+
 
     /**
      * Get id
@@ -230,5 +235,29 @@ class Sujet
     public function getMessages()
     {
         return $this->messages;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Sujet
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

@@ -18,7 +18,7 @@ class GeneralController extends Controller
      */
       public function indexAction(Request $request)
       {
-          $general = $this->getDoctrine()->getManager()->getRepository('ForumsBundle:Sujet')->getSujetGeneral();
+          $general = $this->get('core.back')->indexForums('GENERAL');
           return $this->render('Forums/General/index.html.twig', array(
             'general' => $general
           ));

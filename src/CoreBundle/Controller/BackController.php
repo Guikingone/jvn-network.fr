@@ -20,7 +20,7 @@ class BackController extends Controller
      */
     public function backAction()
     {
-      $article = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Article')->getArticle('TEAM');
+      $article = $this->get('core.back')->index('TEAM');
       $commentaire = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Commentaire')->getCommentaires();
       $sujet = $this->getDoctrine()->getManager()->getRepository('ForumsBundle:Sujet')->getSujet();
       $user = $this->getDoctrine()->getManager()->getRepository('UserBundle:User')->getUser();
@@ -92,9 +92,9 @@ class BackController extends Controller
         /* Ici, on se contente de vérifier que tout est valide, on ne persise pas car Doctrine connaît l'entité,
         une fois que tout est terminé, on affiche un message de succés et on redirige vers l'article en question */
         if($form->isValid()){
-          $um = $this->getDoctrine()->getManager()->flush();
+          $this->getDoctrine()->getManager()->flush();
           $this->addFlash('success', "L'annonce" . $id . "a bien été modifiée");
-          return $this->redirectToRoute('team_admin');
+          return $this->redirectToRoute('equipe_admin');
         }
         return $this->render('Back_Office/update.html.twig', array(
           'form' => $form->createView(),
@@ -108,11 +108,9 @@ class BackController extends Controller
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route("/back_office/delete/{id}", requirements={"id": "\d+"}, name="back_office_delete")
      */
-      public function deleteAction(Request $request, $id)
+      public function deleteAction($id)
       {
-        /* On récupère le service Blog afin de supprimer les articles via delete, puis
-        on renvoit un message flash et on redirige vers la page d'administration */
-        $em = $this->get('coreBundle.blog')->delete($id);
+        $this->get('core.back')->deleteArticle($id);
         $this->addFlash('success', "L'article avec l'id " . $id . " a été supprimée.");
         return $this->redirectToRoute('back_office');
       }

@@ -5,8 +5,8 @@ parameters:
 
 services:
 
-    core.blog:
-        class: CoreBundle\Outils\Blog
+    core.back:
+        class: CoreBundle\Outils\Back
         arguments: ['@doctrine.orm.entity_manager', '@session', '@router', '@security.token_storage', '@form.factory', '@core.slugger']
 
     core.slugger:

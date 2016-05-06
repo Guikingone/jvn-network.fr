@@ -20,7 +20,7 @@ class KrmaController extends Controller{
      */
     public function indexAction()
     {
-      $article = $this->get('core.blog')->index('KRMA');
+      $article = $this->get('core.back')->index('KRMA');
       return $this->render('Blog/Krma/index.html.twig', array(
         'article' => $article
       ));
@@ -34,14 +34,9 @@ class KrmaController extends Controller{
      */
     public function viewAction(Article $article, Request $request)
     {
-      /* On va chercher l'article en fonction de son ID, si article inexistant, alors
-      on retourne un message d'erreur 404, sinon, on affiche l'article puis les commentaires */
       $view = $this->getDoctrine()->getManager();
-      $vue = $view->getRepository('BlogBundle:Article')->find($article);
-      $comm = $view->getRepository('BlogBundle:Commentaire')->findBy(array('article' => $vue));
-      /** On récupère les commentaires liés à l'article via l'article et on y joint les
-      commentaires afin de pouvoir faire article->getCommentaires(), une fois effectuée,
-      on affichera tout ceci via une boucle for dans la vue */
+      $vue = $view->getRepository('CoreBundle:Article')->find($article);
+      $comm = $view->getRepository('CoreBundle:Commentaire')->findBy(array('article' => $vue));
       $commentaire = new Commentaire();
       $commentaire->setdateCreation(new \Datetime);
       $commentaire->setArticle($article);
@@ -67,23 +62,10 @@ class KrmaController extends Controller{
      */
     public function adminAction(Request $request)
     {
-        $article = $this->get('core.blog')->index('KRMA');
-        $form = $this->get('core.blog')->add($request, 'KRMA', 'krma_admin');
+        $article = $this->get('core.back')->index('KRMA');
+        $form = $this->get('core.back')->add($request, 'KRMA');
         return $this->render('Blog/Krma/admin.html.twig', array(
             'article' => $article,
-            'form' => $form->createView()
-        ));
-    }
-
-    /**
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     * @Route("/krma/add", name="krma_add")
-     */
-    public function addAction(Request $request)
-    {
-        $form = $this->get('core.blog')->add($request, 'KRMA', 'krma');
-        return $this->render('Blog/Krma/add.html.twig', array(
             'form' => $form->createView()
         ));
     }
@@ -128,7 +110,7 @@ class KrmaController extends Controller{
      */
     public function deleteAction(Request $request, $id)
     {
-      $em = $this->get('core.blog')->delete($id);
+      $this->get('core.back')->deleteArticle($id);
       $this->addFlash('success', "L'article avec l'id " . $id . " a été supprimé");
       return $this->redirectToRoute('krma_admin');
     }

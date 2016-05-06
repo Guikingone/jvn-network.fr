@@ -24,7 +24,12 @@ use CoreBundle\Entity\Commentaire;
 use CoreBundle\Form\Type\ArticleType;
 use CoreBundle\Form\Type\CommentaireType;
 
-class Blog
+use CoreBundle\Entity\Sujet;
+use CoreBundle\Entity\Message;
+use CoreBundle\Form\Type\SujetType;
+use CoreBundle\Form\Type\MessageType;
+
+class Back
 {
     /**
      * @var EntityManager
@@ -96,7 +101,7 @@ class Blog
      * ArticleType and submit the Form, the Slug service is used to change the format of the article titre, if
      * everything is matched, the service persist the entity and save a flash message in the session.
      */
-    public function add(Request $request, $categorie, $route)
+    public function addArticle(Request $request, $categorie)
     {
         $article = new Article();
         $article->setDatePublication(new \Datetime);
@@ -108,12 +113,11 @@ class Blog
         $form->handleRequest($request);
 
         if($form->isValid()){
-            $this->slug->slugify($article->getTitre());
-            $article->setTitre($this->slug);
+            $slug = $this->slug->slugify($article->getTitre());
+            $article->setSlug($slug);
             $this->doctrine->persist($article);
             $this->doctrine->flush();
             $this->session->getFlashBag()->add('success', "Article enregistré");
-            return $this->router->generate($route);
         }
         return $form;
     }
@@ -123,7 +127,7 @@ class Blog
      * @param $id
      * @return \Symfony\Component\Form\Form|\Symfony\Component\Form\FormInterface
      *
-     * Alow the user to view the article using the repository to find the article, create a form for submitting the
+     * Allow the user to view the article using the repository to find the article, create a form for submitting the
      * comments linked to the article.
      */
     public function viewArticle(Request $request, $id)
@@ -175,8 +179,65 @@ class Blog
      */
     public function deleteArticle($id)
     {
-        $purge = $this->doctrine->getRepository('BlogBundle:Article')->find($id);
+        $purge = $this->doctrine->getRepository('CoreBundle:Article')->find($id);
         $this->doctrine->remove($purge);
         $this->doctrine->flush();
+    }
+
+    /**
+     * @param $id
+     *
+     * Allow to delete a commentary by is $id
+     */
+    public function deleteCommentaire($id)
+    {
+        $purge = $this->doctrine->getRepository('CoreBundle:Commentaire')->find($id);
+        $this->doctrine->remove($purge);
+        $this->doctrine->flush();
+    }
+
+    /*
+     * This service is used to control the Forums/Community aspect, the methods declared below this line are shared
+     * through the entire application via the dependency injection.
+     */
+
+    /**
+     * @param $categorie
+     * @return array
+     *
+     * Allow to show the subject depending on the categories passed by the controller.
+     */
+    public function indexForums($categorie)
+    {
+        return $this->doctrine->getRepository('CoreBundle:Sujet')->getSujet($categorie);
+    }
+
+    /**
+     * @param Request $request
+     * @param $categorie
+     *
+     * Allow to add a subject by passing via modal windows, the method set the author, the slug and the $categorie,
+     * if everything is in place, the service call doctrine and persist the subject.
+     */
+    public function addSujet(Request $request, $categorie)
+    {
+        $sujet = new Sujet();
+        $sujet->setDateCreation(new \Datetime);
+        $sujet->setCategory($categorie);
+        $user = $this->user->getToken()->getUser();
+        $sujet->setAuteur($user);
+        $formSujet = $this->formbuilder->create(SujetType::class, $sujet);
+        $formSujet->handleRequest($request);
+        if($formSujet->isValid()){
+            $slug = $this->slug->slugify($sujet->getTitre());
+            $sujet->setSlug($slug);
+            $this->doctrine->persist($sujet);
+            $this->doctrine->flush();
+        }
+    }
+
+    public function updateSujet()
+    {
+        
     }
 }
