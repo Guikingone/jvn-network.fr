@@ -27,6 +27,20 @@ class KrmaController extends Controller{
     }
 
     /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/krma/admin", name="krma_admin")
+     */
+    public function adminAction(Request $request)
+    {
+        $article = $this->get('core.back')->index('KRMA');
+        $form = $this->get('core.back')->addArticle($request, 'KRMA');
+        return $this->render('Blog/Krma/admin.html.twig', array(
+            'article' => $article,
+            'form' => $form->createView()
+        ));
+    }
+
+    /**
      * @param Article $article
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
@@ -56,40 +70,22 @@ class KrmaController extends Controller{
       ));
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/krma/admin", name="krma_admin")
-     */
-    public function adminAction(Request $request)
-    {
-        $article = $this->get('core.back')->index('KRMA');
-        $form = $this->get('core.back')->add($request, 'KRMA');
-        return $this->render('Blog/Krma/admin.html.twig', array(
-            'article' => $article,
-            'form' => $form->createView()
-        ));
-    }
 
     /**
      * @param Request $request
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     * @Route("/krma/back/update/{id}", name="krma_update", requirements={"id": "\d+"})
+     * @Route("/krma/admin/update/{id}", name="krma_update", requirements={"id": "\d+"})
      */
         public function updateAction(Request $request, $id)
         {
-          /* On récupère l'entité via l'ID, si l'article n'existe pas, on renvoit un message d'erreur,
-          on ouvre le formulaire, on valide, on affiche un message d'info afin
-          de valider l'opération et on redirige vers la page d'administration */
-          $update = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Article')->find($id);
+          $update = $this->getDoctrine()->getManager()->getRepository('CoreBundle:Article')->find($id);
           if(null === $update){
             throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
           }
           $form = $this->createForm(ArticleType::class, $update);
           $form->handleRequest($request);
 
-          /* Ici, on se contente de vérifier que tout est valide, on ne persise pas car Doctrine connaît l'entité,
-          une fois que tout est terminé, on affiche un message de succés et on redirige vers l'article en question */
           if($form->isValid()){
               $update = $this->getDoctrine()->getManager();
               $update->flush();
@@ -106,7 +102,7 @@ class KrmaController extends Controller{
      * @param Request $request
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     * @Route("/krma_delete/{id}", name="krma_delete", requirements={"id": "\d+"})
+     * @Route("/krma/admin/delete/{id}", name="krma_delete", requirements={"id": "\d+"})
      */
     public function deleteAction(Request $request, $id)
     {

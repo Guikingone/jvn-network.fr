@@ -110,7 +110,10 @@ textarea {
 /* ==========================================================================
     Navbar Style
    ========================================================================== */
-
+    header
+    {
+        color: transparent;
+    }
 		.navbar-default {
 			border-color: transparent;
 			background-color: transparent;
@@ -262,7 +265,10 @@ textarea {
 /* ==========================================================================
     Style layout.html.twig
    ========================================================================== */
-
+.imh-hero
+{
+    max-height: 200px;
+}
 /* ==========================================================================
     Style InfoBar
    ========================================================================== */
@@ -367,6 +373,18 @@ header .intro-text .intro-heading {
     }
 }
 
+
+.demo-card-wide.mdl-card {
+	width: 512px;
+}
+.demo-card-wide > .mdl-card__title {
+	color: #fff;
+	height: 176px;
+	background: url('../assets/demos/welcome_card.jpg') center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+	color: #fff;
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */

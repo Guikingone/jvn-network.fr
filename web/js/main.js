@@ -1,4 +1,7 @@
 // Main.js //
+$(function () {
+    $(".button-collapse").sideNav();
+});
 
 // Express
 

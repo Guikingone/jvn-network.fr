@@ -159,7 +159,7 @@ class Back
      */
     public function updateArticle(Request $request, $id)
     {
-        $update = $this->doctrine->getRepository('BlogBundle:Article')->find($id);
+        $update = $this->doctrine->getRepository('CoreBundle:Article')->find($id);
         if(null === $update){
             throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
         }

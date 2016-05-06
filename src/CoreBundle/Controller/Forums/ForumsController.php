@@ -32,13 +32,8 @@ class ForumsController extends Controller
      */
     public function viewAction(Sujet $sujet, Request $request)
     {
-      /* On récupère le sujet selon son ID, on retourne le tout via une boucle for, si inexistant, une erreur 404
-      est lancée, par la suite, on recherche les messages affiliés à ce sujet, on les affichera via une boucle for */
       $sujet = $this->getDoctrine()->getManager()->getRepository('ForumsBundle:Sujet')->find($sujet);
 
-      /** On récupère les messages liés au sujet via le sujet et on y joint les
-      messages afin de pouvoir faire sujet->getMessages(), une fois effectuée,
-      on affichera tout ceci via une boucle for dans la vue */
       $msg = $this->getDoctrine()
                   ->getManager()
                   ->getRepository('ForumsBundle:Message')
