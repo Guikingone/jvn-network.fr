@@ -32,8 +32,10 @@ class ForumsController extends Controller
     public function indexAdminAction(Request $request)
     {
         $admin = $this->get('core.back')->indexForums('ADMIN');
+        $form = $this->get('core.back')->addSujet($request, 'ADMIN');
         return $this->render('Forums/Admin/index.html.twig', array(
-            'admin' => $admin
+            'admin' => $admin,
+            'form' => $form->createView()
         ));
     }
 
@@ -45,8 +47,10 @@ class ForumsController extends Controller
     public function indexConsoleAction(Request $request)
     {
         $consoles = $this->get('core.back')->indexForums('CONSOLE');
+        $form = $this->get('core.back')->addSujet($request, 'CONSOLE');
         return $this->render('Forums/Consoles/index.html.twig', array(
-            'consoles' => $consoles
+            'consoles' => $consoles,
+            'form' => $form->createView()
         ));
     }
 
@@ -58,8 +62,10 @@ class ForumsController extends Controller
     public function indexGeneralAction(Request $request)
     {
         $general = $this->get('core.back')->indexForums('GENERAL');
+        $form = $this->get('core.back')->addSujet($request, 'GENERAL');
         return $this->render('Forums/General/index.html.twig', array(
-            'general' => $general
+            'general' => $general,
+            'form' => $form->createView()
         ));
     }
 
@@ -71,8 +77,10 @@ class ForumsController extends Controller
     public function indexPcAction(Request $request)
     {
         $pc = $this->get('core.back')->indexForums('PC');
+        $form = $this->get('core.back')->addSujet($request, 'PC');
         return $this->render('Forums/PC/index.html.twig', array(
-            'pc' => $pc
+            'pc' => $pc,
+            'form' => $form->createView()
         ));
     }
 

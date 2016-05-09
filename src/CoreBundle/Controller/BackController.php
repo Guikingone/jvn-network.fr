@@ -21,8 +21,8 @@ class BackController extends Controller
     public function backAction()
     {
       $article = $this->get('core.back')->index('TEAM');
-      $commentaire = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Commentaire')->getCommentaires();
-      $sujet = $this->getDoctrine()->getManager()->getRepository('ForumsBundle:Sujet')->getSujet();
+      $commentaire = $this->getDoctrine()->getManager()->getRepository('CoreBundle:Commentaire')->getCommentaires();
+      $sujet = $this->getDoctrine()->getManager()->getRepository('CoreBundle:Sujet')->getSujet();
       $user = $this->getDoctrine()->getManager()->getRepository('UserBundle:User')->getUser();
 
       return $this->render('Back_Office/Team.html.twig', array(
@@ -111,7 +111,6 @@ class BackController extends Controller
       public function deleteAction($id)
       {
         $this->get('core.back')->deleteArticle($id);
-        $this->addFlash('success', "L'article avec l'id " . $id . " a été supprimée.");
         return $this->redirectToRoute('back_office');
       }
 }

@@ -28,7 +28,7 @@ class MessageType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'ForumsBundle\Entity\Message'
+            'data_class' => 'CoreBundle\Entity\Message'
         ));
     }
 }

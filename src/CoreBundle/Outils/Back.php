@@ -57,28 +57,39 @@ class Back
     protected $router;
 
     /**
-     * @var Slug
-     */
-    protected $slug;
-
-    /**
      * Blog constructor.
      * @param EntityManager $doctrine
      * @param Session $session
      * @param Router $router
      * @param TokenStorage $user
      * @param FormFactory $formbuilder
-     * @param Slug $slug
      */
-    public function __construct(EntityManager $doctrine, Session $session, Router $router, TokenStorage $user, FormFactory $formbuilder, Slug $slug)
+    public function __construct(EntityManager $doctrine, Session $session, Router $router, TokenStorage $user, FormFactory $formbuilder)
     {
         $this->doctrine = $doctrine;
         $this->session = $session;
         $this->router = $router;
         $this->user = $user;
         $this->formbuilder = $formbuilder;
-        $this->slug = $slug;
     }
+
+    /**
+     * @param $string
+     * @return mixed
+     *
+     * Allow to slugify the titre of a article or a subject
+     */
+    public function slugify($string)
+    {
+        return preg_replace('/[^a-z0-9]/', '-', strtolower(trim(strip_tags($string))));
+    }
+
+    /**
+     *
+     * Here is the back function used by the application, every function is used by the main controller in order to
+     * gain time and performance.
+     *
+     */
 
     /**
      * @param $categorie
@@ -113,7 +124,7 @@ class Back
         $form->handleRequest($request);
 
         if($form->isValid()){
-            $slug = $this->slug->slugify($article->getTitre());
+            $slug = $this->slugify($article->getTitre());
             $article->setSlug($slug);
             $this->doctrine->persist($article);
             $this->doctrine->flush();
@@ -163,13 +174,13 @@ class Back
         if(null === $update){
             throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
         }
-        $form = $this->formbuilder->create(ArticleType::class, $update);
-        $form->handleRequest($request);
+        $formUpdate = $this->formbuilder->create(ArticleType::class, $update);
+        $formUpdate->handleRequest($request);
         if($form->isValid()){
             $this->doctrine->flush();
             $this->session->getFlashBag()->add('success', "L'annonce" . $id . "a bien été modifiée.");
         }
-        return $form;
+        return $formUpdate;
     }
 
     /**
@@ -228,14 +239,15 @@ class Back
         $sujet->setCategory($categorie);
         $user = $this->user->getToken()->getUser();
         $sujet->setAuteur($user);
-        $formSujet = $this->formbuilder->create(SujetType::class, $sujet);
-        $formSujet->handleRequest($request);
-        if($formSujet->isValid()){
-            $slug = $this->slug->slugify($sujet->getTitre());
+        $form = $this->formbuilder->create(SujetType::class, $sujet);
+        $form->handleRequest($request);
+        if($form->isValid()){
+            $slug = $this->slugify($sujet->getTitre());
             $sujet->setSlug($slug);
             $this->doctrine->persist($sujet);
             $this->doctrine->flush();
         }
+        return $form;
     }
 
     public function updateSujet()

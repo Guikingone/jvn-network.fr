@@ -25,7 +25,7 @@ class CategoryType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'BlogBundle\Entity\Category'
+            'data_class' => 'CoreBundle\Entity\Category'
         ));
     }
 }

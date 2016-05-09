@@ -14,10 +14,7 @@ class HomeController extends Controller
      */
     public function indexAction(Request $request)
     {
-      $article = $this->getDoctrine()
-                      ->getManager()
-                      ->getRepository('CoreBundle:Article')
-                      ->getArticle('TEAM', 'MEMBRE', 'KRMA');
+      $article = $this->get('core.back')->index('MEMBRE');
       return $this->render('basics/home.html.twig', array(
         'article' => $article
       ));

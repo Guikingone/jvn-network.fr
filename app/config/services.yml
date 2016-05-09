@@ -7,7 +7,4 @@ services:
 
     core.back:
         class: CoreBundle\Outils\Back
-        arguments: ['@doctrine.orm.entity_manager', '@session', '@router', '@security.token_storage', '@form.factory', '@core.slugger']
-
-    core.slugger:
-        class: CoreBundle\Outils\Slug
+        arguments: ['@doctrine.orm.entity_manager', '@session', '@router', '@security.token_storage', '@form.factory']

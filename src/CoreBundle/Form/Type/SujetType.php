@@ -29,7 +29,7 @@ class SujetType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'ForumsBundle\Entity\Sujet'
+            'data_class' => 'CoreBundle\Entity\Sujet'
         ));
     }
 }
