@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Guillaume
+ * User: Guillaume Loulier || guillaume.loulier[at]hotmail.fr
  * Date: 04/05/2016
  * Time: 18:08
  *
@@ -250,9 +250,54 @@ class Back
         return $form;
     }
 
-    public function updateSujet()
+    /**
+     * @param Request $request
+     * @param $id
+     * @return string
+     *
+     * Allow to update a subject using is $id
+     */
+    public function updateSujet(Request $request, $id)
     {
-        
+        $update = $this->doctrine->getRepository('CoreBundle:Sujet')->find($id);
+
+        if ($update === null) {
+            throw new NotFoundHttpException("Le sujet d'id " . $id . " n'existe pas.");
+        }
+
+        $form = $this->formbuilder->create(SujetType::class, $update);
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $this->doctrine->flush();
+            $this->session->getFlashBag()->add('success', "Le sujet" . $id . "a bien été modifiée");
+            return $this->router->generate('forums');
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @param Sujet $sujet
+     * @return \Symfony\Component\Form\Form|\Symfony\Component\Form\FormInterface
+     *
+     * Allow to view a subject by is $id and add a $message linked to this subject.
+     */
+    public function viewSujet(Request $request, Sujet $sujet)
+    {
+        $sujet = $this->doctrine->getRepository('CoreBundle:Sujet')->find($sujet);
+        $message = $this->doctrine->getRepository('CoreBundle:Message')->findBy(array('sujet' => $sujet));
+
+        $message = new Message();
+        $message->setDateMessage(new \Datetime);
+        $message->setSujet($sujet);
+        $user = $this->user->getToken()->getUser();
+        $message->setAuteur($user);
+        $formMessage = $this->formbuilder->create(MessageType::class, $message);
+        $formMessage->handleRequest($request);
+        if($formMessage->isValid()){
+            $this->doctrine->persist($message);
+            $this->doctrine->flush();
+        }
+        return $formMessage;
     }
 
     /**

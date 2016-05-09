@@ -34,7 +34,7 @@ class MembreController extends Controller {
         public function adminAction(Request $request)
         {
             $article = $this->get('core.back')->index('MEMBRE');
-            $form = $this->get('core.back')->addArticle($request, 'MEMRBE');
+            $form = $this->get('core.back')->addArticle($request, 'MEMBRE');
             return $this->render('Blog/Membre/admin.html.twig', array(
                 'article' => $article,
                 'form' => $form->createView()

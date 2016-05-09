@@ -2,6 +2,7 @@
 
 namespace CoreBundle\Controller\Forums;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -28,60 +29,52 @@ class ForumsController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/administration", name="admin")
+     * @Template("Forums\Admin\index.html.twig")
      */
     public function indexAdminAction(Request $request)
     {
         $admin = $this->get('core.back')->indexForums('ADMIN');
         $form = $this->get('core.back')->addSujet($request, 'ADMIN');
-        return $this->render('Forums/Admin/index.html.twig', array(
-            'admin' => $admin,
-            'form' => $form->createView()
-        ));
+        return array('admin' => $admin, 'form' => $form->createView());
     }
 
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/console", name="forum_console")
+     * @Template("Forums\Consoles\index.html.twig")
      */
     public function indexConsoleAction(Request $request)
     {
         $consoles = $this->get('core.back')->indexForums('CONSOLE');
         $form = $this->get('core.back')->addSujet($request, 'CONSOLE');
-        return $this->render('Forums/Consoles/index.html.twig', array(
-            'consoles' => $consoles,
-            'form' => $form->createView()
-        ));
+        return array('consoles' => $consoles, 'form' => $form->createView());
     }
 
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/general", name="general")
+     * @Template("Forums\General\index.html.twig")
      */
     public function indexGeneralAction(Request $request)
     {
         $general = $this->get('core.back')->indexForums('GENERAL');
         $form = $this->get('core.back')->addSujet($request, 'GENERAL');
-        return $this->render('Forums/General/index.html.twig', array(
-            'general' => $general,
-            'form' => $form->createView()
-        ));
+        return array('general' => $general, 'form' => $form->createView());
     }
 
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/pc", name="pc")
+     * @Template("Forums\PC\index.html.twig")
      */
     public function indexPcAction(Request $request)
     {
         $pc = $this->get('core.back')->indexForums('PC');
         $form = $this->get('core.back')->addSujet($request, 'PC');
-        return $this->render('Forums/PC/index.html.twig', array(
-            'pc' => $pc,
-            'form' => $form->createView()
-        ));
+        return array('pc' => $pc, 'form' => $form->createView());
     }
 
     /**

@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use CoreBundle\Form\Type\ArticleType;
 use CoreBundle\Form\Type\CommentaireType;
@@ -17,27 +18,24 @@ class KrmaController extends Controller{
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/krma", name="krma")
+     * @Template("Blog\Krma\index.html.twig")
      */
     public function indexAction()
     {
       $article = $this->get('core.back')->index('KRMA');
-      return $this->render('Blog/Krma/index.html.twig', array(
-        'article' => $article
-      ));
+      return array( 'article' => $article );
     }
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/krma/admin", name="krma_admin")
+     * @Template("Blog\Krma\admin.html.twig")
      */
     public function adminAction(Request $request)
     {
         $article = $this->get('core.back')->index('KRMA');
         $form = $this->get('core.back')->addArticle($request, 'KRMA');
-        return $this->render('Blog/Krma/admin.html.twig', array(
-            'article' => $article,
-            'form' => $form->createView()
-        ));
+        return array( 'article' => $article,'form' => $form->createView() );
     }
 
     /**

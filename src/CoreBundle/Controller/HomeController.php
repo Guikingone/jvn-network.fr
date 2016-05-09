@@ -1,6 +1,7 @@
 <?php
 namespace CoreBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -11,13 +12,12 @@ class HomeController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/", name="home")
+     * @Template("basics\home.html.twig")
      */
     public function indexAction(Request $request)
     {
       $article = $this->get('core.back')->index('MEMBRE');
-      return $this->render('basics/home.html.twig', array(
-        'article' => $article
-      ));
+      return array( 'article' => $article );
     }
 
     /**
