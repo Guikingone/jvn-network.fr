@@ -346,7 +346,7 @@ class Article
      *
      * @return Article
      */
-    public function setUpdatedDate($updatedDate)
+    public function setUpdatedDate($updatedAt)
     {
         $this->updatedDate = $updatedDate;
 
@@ -409,29 +409,5 @@ class Article
     public function getSlug()
     {
         return $this->slug;
-    }
-
-    /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     *
-     * @return Article
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    /**
-     * Get updatedAt
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
     }
 }
