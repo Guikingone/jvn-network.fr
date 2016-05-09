@@ -26,6 +26,25 @@ class TeamController extends Controller {
       }
 
     /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/equipe/admin", name="equipe_admin")
+     */
+    public function adminAction(Request $request)
+    {
+        $article = $this->get('core.back')->index('TEAM');
+        $form = $this->get('core.back')->addArticle($request, 'TEAM');
+        $membre = $this->getDoctrine()->getManager()->getRepository('UserBundle:User')->getUser();
+        $commentaire = $this->getDoctrine()->getManager()->getRepository('CoreBundle:Commentaire')->getCommentaires();
+        return $this->render('Blog/Team/admin.html.twig', array(
+            'article' => $article,
+            'form' => $form->createView(),
+            'membre' => $membre,
+            'commentaire' => $commentaire
+        ));
+    }
+
+    /**
      * @param Article $article
      * @param Request $request
      * @param $id
@@ -59,23 +78,6 @@ class TeamController extends Controller {
           'commentaire' => $comm,
           'form' => $formCommentaire->createView()
         ));
-      }
-
-    /**
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/equipe_back", name="equipe_admin")
-     */
-      public function adminAction(Request $request)
-      {
-            $article = $this->get('core.back')->index('TEAM');
-            $membre = $this->getDoctrine()->getManager()->getRepository('UserBundle:User')->getUser();
-            $commentaire = $this->getDoctrine()->getManager()->getRepository('CoreBundle:Commentaire')->getCommentaires();
-            return $this->render('Blog/Team/admin.html.twig', array(
-                'article' => $article,
-                'membre' => $membre,
-                'commentaire' => $commentaire
-            ));
       }
 
     /**

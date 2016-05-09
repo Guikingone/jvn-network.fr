@@ -176,7 +176,7 @@ class Back
         }
         $formUpdate = $this->formbuilder->create(ArticleType::class, $update);
         $formUpdate->handleRequest($request);
-        if($form->isValid()){
+        if($formUpdate->isValid()){
             $this->doctrine->flush();
             $this->session->getFlashBag()->add('success', "L'annonce" . $id . "a bien été modifiée.");
         }

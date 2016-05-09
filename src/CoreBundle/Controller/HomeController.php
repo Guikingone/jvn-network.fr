@@ -39,10 +39,10 @@ class HomeController extends Controller
     }
 
     /**
-     * @Route("/equipe", name="equipe")
+     * @Route("/propos", name="propos")
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function equipeAction()
+    public function proposAction()
     {
       return $this->render('basics/equipe.html.twig');
     }

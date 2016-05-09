@@ -2,7 +2,7 @@
 
 {% block body %}
 <div class="container">
-  <p class="text-center"><a href="{{path('team_home')}}" class="btn btn-info">Retour au blog</a></p>
+  <p class="text-center"><a href="{{path('equipe')}}" class="btn btn-info">Retour au blog</a></p>
   <!-- On affiche les messages flash -->
   {% for message in app.session.flashbag.get('success') %}
     <div class="alert alert-success">Message flash : {{message}}</div>
@@ -48,14 +48,56 @@
                     <td>{{ article.datePublication | date('d/m/Y')}}</td>
                     <td>{{ article.auteur }}</td>
                     <td>
-                      <a href="{{ path('team_delete', {'id': article.id }) }}" class="btn btn-danger">Supprimer</a>
-                      <a class="btn btn-primary" href="{{ path('team_update', {'id': article.id }) }}">Modifier</a>
+                      <a href="{{ path('equipe_delete', {'id': article.id }) }}" class="btn btn-danger">Supprimer</a>
+                      <a class="btn btn-primary" href="{{ path('equipe_update', {'id': article.id }) }}">Modifier</a>
                     </td>
                   </tr>
                   {% endfor %}
               </table>
           </div>
-          <a href="{{ path('team_add') }}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Ajouter un article</button></a>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+              <span class="glyphicon glyphicon-plus"></span> Ajouter un article
+          </button>
+
+          <!-- Modal used for the article form -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title" id="myModalLabel">Ajouter un article</h4>
+                      </div>
+                      <div class="modal-body">
+                          {{ form_start(form, {'attr': {'class': 'form-horinzontal'}}) }}
+                          {{ form_errors(form) }}
+                          <div class="form-group">
+                              {{ form_label(form.titre, "Titre de l'article", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+                              {{form_errors(form.titre)}}
+
+                              {{form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
+                          </div>
+                          <div class="form-group">
+                              {{ form_label(form.contenu, "Contenu de l'article", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+                              {{ form_errors(form.contenu)}}
+
+                              {{ form_widget(form.contenu, {'attr': {'class': 'form-control'}}) }}
+                          </div>
+                          <div class="form-group">
+                              {{form_widget(form.save, {'attr': {'class': 'btn btn-success'}}) }}
+                          </div>
+                          <div class="form-group">
+                              {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
+                          </div>
+                          {{ form_end(form) }}
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
       {% else %}
         <div class="alert alert-danger"><p>Articles introuvable</p></div>
