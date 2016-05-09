@@ -260,11 +260,9 @@ class Back
     public function updateSujet(Request $request, $id)
     {
         $update = $this->doctrine->getRepository('CoreBundle:Sujet')->find($id);
-
         if ($update === null) {
             throw new NotFoundHttpException("Le sujet d'id " . $id . " n'existe pas.");
         }
-
         $form = $this->formbuilder->create(SujetType::class, $update);
         $form->handleRequest($request);
         if ($form->isValid()) {
@@ -272,6 +270,7 @@ class Back
             $this->session->getFlashBag()->add('success', "Le sujet" . $id . "a bien été modifiée");
             return $this->router->generate('forums');
         }
+        return $form;
     }
 
     /**

@@ -4,8 +4,6 @@ back_office_delete_commentaires:
     requirements:
         id: \d+
 
-# Définition des routes pour les profils #
-
 back_office_lock_user:
     path:     /back_office/user/lock
     defaults: { _controller: CoreBundle:Back:lockUser }

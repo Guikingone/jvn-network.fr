@@ -9,7 +9,6 @@ class UserController extends Controller
 {
     public function backAction()
     {
-      /* On récupère la liste des utilisateurs inscrits */
       $usermanager = $this->get('fos_user.user_manager');
       $users = $usermanager->findUsers();
 
@@ -21,8 +20,8 @@ class UserController extends Controller
     public function deleteAction(Request $request, $id)
     {
       /* Attention ! Cette action n'est pas réversible ! */
-      $usermanager = $this->getDoctrine()->getManager()->getRepository('UserBundle:User')->deleteUser($id);
+      $this->getDoctrine()->getManager()->getRepository('UserBundle:User')->deleteUser($id);
       $this->addFlash('success', "L'utilisateur avec l'id" . $id . " a bien été supprimé");
-      return $this->redirectToRoute('back_office');
+      return $this->redirectToRoute('equipe');
     }
 }

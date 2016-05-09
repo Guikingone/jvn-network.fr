@@ -13,36 +13,40 @@ use CoreBundle\Form\Type\CommentaireType;
 use CoreBundle\Entity\Article;
 use CoreBundle\Entity\Commentaire;
 
+/**
+ * @Route("/krma")
+ */
 class KrmaController extends Controller{
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/krma", name="krma")
+     * @Route("/", name="krma")
      * @Template("Blog\Krma\index.html.twig")
      */
     public function indexAction()
     {
       $article = $this->get('core.back')->index('KRMA');
-      return array( 'article' => $article );
+      return array('article' => $article);
     }
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/krma/admin", name="krma_admin")
+     * @Route("/admin", name="krma_admin")
      * @Template("Blog\Krma\admin.html.twig")
      */
     public function adminAction(Request $request)
     {
         $article = $this->get('core.back')->index('KRMA');
         $form = $this->get('core.back')->addArticle($request, 'KRMA');
-        return array( 'article' => $article,'form' => $form->createView() );
+        return array('article' => $article,'form' => $form->createView());
     }
 
     /**
      * @param Article $article
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/krma/article/{id}/{slug}", name="krma_view", requirements={"id": "\d+"})
+     * @Route("/article/{id}/{slug}", name="krma_view", requirements={"id": "\d+"})
+     * @Template("Blog\Krma\view.html.twig")
      */
     public function viewAction(Article $article, Request $request)
     {
@@ -61,11 +65,7 @@ class KrmaController extends Controller{
         $em->persist($commentaire);
         $em->flush();
       }
-      return $this->render('Blog/Krma/view.html.twig', array(
-        'article' => $vue,
-        'commentaire' => $commentaire,
-        'form' => $formCommentaire->createView()
-      ));
+      return array('article' => $vue, 'commentaire' => $commentaire, 'form' => $formCommentaire->createView());
     }
 
 
@@ -73,7 +73,8 @@ class KrmaController extends Controller{
      * @param Request $request
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     * @Route("/krma/admin/update/{id}", name="krma_update", requirements={"id": "\d+"})
+     * @Route("/admin/update/{id}", name="krma_update", requirements={"id": "\d+"})
+     * @Template("Blog\krma\update.html.twig")
      */
         public function updateAction(Request $request, $id)
         {
@@ -90,17 +91,14 @@ class KrmaController extends Controller{
               $request->getSession()->getFlashBag()->add('success', "L'annonce" . $id . "a bien été modifiée.");
               return $this->redirectToRoute('krma_admin');
           }
-          return $this->render('Blog/Krma/update.html.twig', array(
-            'form' => $form->createView(),
-            'article' => $update
-          ));
+          return array('form' => $form->createView(), 'article' => $update);
         }
 
     /**
      * @param Request $request
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     * @Route("/krma/admin/delete/{id}", name="krma_delete", requirements={"id": "\d+"})
+     * @Route("/admin/delete/{id}", name="krma_delete", requirements={"id": "\d+"})
      */
     public function deleteAction(Request $request, $id)
     {

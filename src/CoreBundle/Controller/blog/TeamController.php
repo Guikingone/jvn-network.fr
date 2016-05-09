@@ -2,6 +2,7 @@
 namespace CoreBundle\Controller\Blog;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -11,24 +12,27 @@ use CoreBundle\Form\Type\CommentaireType;
 use CoreBundle\Entity\Article;
 use CoreBundle\Entity\Commentaire;
 
+/**
+ * @Route("/equipe")
+ */
 class TeamController extends Controller {
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/equipe", name="equipe")
+     * @Route("/", name="equipe")
+     * @Template("Blog\Team\index.html.twig")
      */
       public function indexAction()
       {
         $article = $this->get('core.back')->index('TEAM');
-        return $this->render('Blog/Team/index.html.twig', array(
-          'article' => $article
-        ));
+        return array('article' => $article);
       }
 
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/equipe/admin", name="equipe_admin")
+     * @Route("/admin", name="equipe_admin")
+     * @Template("Blog\TEAM\admin.html.twig")
      */
     public function adminAction(Request $request)
     {
@@ -36,12 +40,12 @@ class TeamController extends Controller {
         $form = $this->get('core.back')->addArticle($request, 'TEAM');
         $membre = $this->getDoctrine()->getManager()->getRepository('UserBundle:User')->getUser();
         $commentaire = $this->getDoctrine()->getManager()->getRepository('CoreBundle:Commentaire')->getCommentaires();
-        return $this->render('Blog/Team/admin.html.twig', array(
+        return array(
             'article' => $article,
             'form' => $form->createView(),
             'membre' => $membre,
             'commentaire' => $commentaire
-        ));
+        );
     }
 
     /**
@@ -49,17 +53,13 @@ class TeamController extends Controller {
      * @param Request $request
      * @param $id
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/equipe/article/{slug}", name="equipe_article")
+     * @Route("/article/{slug}", name="equipe_article")
+     * @Template("Blog\Team\view.html.twig")
      */
       public function viewAction(Article $article, Request $request, $id)
       {
-        /* On va chercher l'article en fonction de son ID, si article inexistant, alors
-        on retourne un message d'erreur 404, sinon, on affiche l'article puis les commentaires */
         $view = $this->getDoctrine()->getManager();
         $vue = $view->getRepository('CoreBundle:Article')->find($article);
-        /** On récupère les commentaires liés à l'article via l'article et on y joint les
-        commentaires afin de pouvoir faire article->getCommentaires(), une fois effectuée,
-        on affichera tout ceci via une boucle for dans la vue */
         $comm = $view->getRepository('CoreBundle:Commentaire')->findBy(array('article' => $vue));
         $commentaire = new Commentaire();
         $commentaire->setdateCreation(new \Datetime);
@@ -73,36 +73,23 @@ class TeamController extends Controller {
           $em->persist($commentaire);
           $em->flush();
         }
-        return $this->render('Blog/Team/view.html.twig', array(
-          'article' => $vue,
-          'commentaire' => $comm,
-          'form' => $formCommentaire->createView()
-        ));
+        return array('article' => $vue, 'commentaire' => $comm, 'form' => $formCommentaire->createView());
       }
 
     /**
      * @param Request $request
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     * @Route("/equipe/update/{id}", name="equipe_update", requirements={"id": "\d+"})
+     * @Route("/update/{id}", name="equipe_update", requirements={"id": "\d+"})
      */
       public function updateAction(Request $request, $id)
       {
-        /* On récupère l'entité via l'ID, si l'article n'existe pas, on renvoit un message d'erreur,
-        on ouvre le formulaire, on valide, on affiche un message d'info afin
-        de valider l'opération et on redirige vers la page d'administration */
-
         $um = $this->getDoctrine()->getManager()->getRepository('CoreBundle:Article')->find($id);
         if (null === $um){
           throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
         }
-
         $form = $this->createForm(ArticleType::class, $um);
         $form->handleRequest($request);
-
-
-        /* Ici, on se contente de vérifier que tout est valide, on ne persiste pas car Doctrine connaît l'entité,
-        une fois que tout est terminé, on affiche un message de succés et on redirige vers l'article en question */
         if($form->isValid()){
           $um = $this->getDoctrine()->getManager();
           $um->flush();
@@ -119,7 +106,7 @@ class TeamController extends Controller {
      * @param Request $request
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     * @Route("/equipe/back/delete/{id}", name="equipe_delete", requirements={"id": "\d+"})
+     * @Route("/back/delete/{id}", name="equipe_delete", requirements={"id": "\d+"})
      */
       public function deleteAction(Request $request, $id)
       {

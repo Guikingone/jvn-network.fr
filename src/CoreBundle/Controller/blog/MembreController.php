@@ -3,42 +3,42 @@
 namespace CoreBundle\Controller\Blog;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
 use CoreBundle\Form\Type\ArticleType;
 use CoreBundle\Form\Type\CommentaireType;
 use CoreBundle\Entity\Article;
-use CoreBundle\Entity\Image;
 
+/**
+ * @Route("/membre")
+ */
 class MembreController extends Controller {
 
     /**
-     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/membre", name="membre_blog")
+     * @Route("/", name="membre_blog")
+     * @Template("Blog\Membre\index.html.twig")
      */
-      public function indexAction(Request $request)
+      public function indexAction()
       {
         $article = $this->get('core.back')->index('MEMBRE');
-        return $this->render('Blog/Membre/index.html.twig', array(
-          'article' => $article
-        ));
+        return array('article' => $article);
       }
 
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/membre/admin", name="membre_admin")
+     * @Route("/admin", name="membre_admin")
+     * @Template("Blog\Membre\admin.html.twig")
      */
         public function adminAction(Request $request)
         {
             $article = $this->get('core.back')->index('MEMBRE');
             $form = $this->get('core.back')->addArticle($request, 'MEMBRE');
-            return $this->render('Blog/Membre/admin.html.twig', array(
-                'article' => $article,
-                'form' => $form->createView()
-            ));
+            return array('article' => $article, 'form' => $form->createView());
         }
 
     /**
@@ -46,7 +46,7 @@ class MembreController extends Controller {
      * @param Request $request
      * @param $id
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/membre/article/{slug}", name="membre_view")
+     * @Route("/article/{slug}", name="membre_view")
      */
       public function viewAction(Article $article, Request $request, $id)
       {
@@ -82,7 +82,7 @@ class MembreController extends Controller {
      * @param Request $request
      * @param $id
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/membre/back/update/{id}", name="membre_update", requirements={"id": "\d+"})
+     * @Route("/admin/update/{id}", name="membre_update", requirements={"id": "\d+"})
      */
       public function updateAction(Request $request, $id)
       {
@@ -97,7 +97,7 @@ class MembreController extends Controller {
      * @param Request $request
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     * @Route("/membre/back/delete/{id}", name="membre_delete", requirements={"id": "\d+"})
+     * @Route("/admin/delete/{id}", name="membre_delete", requirements={"id": "\d+"})
      */
       public function deleteAction(Request $request, $id)
       {

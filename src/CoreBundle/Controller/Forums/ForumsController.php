@@ -13,14 +13,16 @@ use CoreBundle\Entity\Message;
 use CoreBundle\Form\Type\SujetType;
 use CoreBundle\Form\Type\MessageType;
 
+/**
+ * @Route("/forums")
+ */
 class ForumsController extends Controller
 {
     /**
-     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/forums", name="forums")
+     * @Route("/", name="forums")
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
         return $this->render('Forums/index.html.twig');
     }
