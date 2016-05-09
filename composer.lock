@@ -4,25 +4,25 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c3a011035b0829f406f15d7b362ecdad",
-    "content-hash": "cdf3fa6666863c62893b003adea7b7f0",
+    "hash": "b2cebc716d6b7d911298ff79342e62e9",
+    "content-hash": "94970b9b1029988bf64e1493a887d3b8",
     "packages": [
         {
             "name": "coresphere/console-bundle",
-            "version": "dev-master",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CoreSphere/ConsoleBundle.git",
-                "reference": "79ef9a4a86cf5839593b1b3bf385556120b14008"
+                "reference": "79107b90cd713e15dd2b4326910a1b18e34ec2a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CoreSphere/ConsoleBundle/zipball/79ef9a4a86cf5839593b1b3bf385556120b14008",
-                "reference": "79ef9a4a86cf5839593b1b3bf385556120b14008",
+                "url": "https://api.github.com/repos/CoreSphere/ConsoleBundle/zipball/79107b90cd713e15dd2b4326910a1b18e34ec2a6",
+                "reference": "79107b90cd713e15dd2b4326910a1b18e34ec2a6",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5|^7.0",
+                "php": ">=5.5",
                 "symfony/console": "~2.7|~3.0",
                 "symfony/dependency-injection": "~2.7|~3.0",
                 "symfony/event-dispatcher": "~2.7|~3.0",
@@ -61,7 +61,7 @@
                 "javascript",
                 "symfony"
             ],
-            "time": "2016-04-01 15:26:59"
+            "time": "2015-11-27 21:56:07"
         },
         {
             "name": "doctrine/annotations",
@@ -2724,8 +2724,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "friendsofsymfony/user-bundle": 20,
-        "coresphere/console-bundle": 20
+        "friendsofsymfony/user-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
