@@ -5,9 +5,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-use CoreBundle\Form\Type\ArticleType;
 use CoreBundle\Entity\Article;
 use CoreBundle\Entity\Commentaire;
 
@@ -31,7 +29,7 @@ class TeamController extends Controller {
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/admin", name="equipe_admin")
-     * @Template("Blog\TEAM\admin.html.twig")
+     * @Template("Blog\Team\admin.html.twig")
      */
     public function adminAction(Request $request)
     {
@@ -66,40 +64,26 @@ class TeamController extends Controller {
 
     /**
      * @param Request $request
-     * @param $id
+     * @param Article $article
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      * @Route("/update/{id}", name="equipe_update", requirements={"id": "\d+"})
+     * @Template("Blog\Membre\update.html.twig")
      */
-      public function updateAction(Request $request, $id)
+      public function updateAction(Request $request, Article $article)
       {
-        $um = $this->getDoctrine()->getManager()->getRepository('CoreBundle:Article')->find($id);
-        if (null === $um){
-          throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
-        }
-        $form = $this->createForm(ArticleType::class, $um);
-        $form->handleRequest($request);
-        if($form->isValid()){
-          $um = $this->getDoctrine()->getManager();
-          $um->flush();
-          $this->addFlash('success', "L'annonce" . $id . "a bien été modifiée");
-          return $this->redirectToRoute('team_admin');
-        }
-        return $this->render('Blog/Team/update.html.twig', array(
-          'form' => $form->createView(),
-          'article' => $um
-        ));
+          $form = $this->get('core.back')->updateArticle($request, $article);
+            return array('form' => $form->createView(), 'article' => $article);
       }
 
     /**
-     * @param Request $request
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route("/back/delete/{id}", name="equipe_delete", requirements={"id": "\d+"})
      */
-      public function deleteAction(Request $request, $id)
+      public function deleteAction($id)
       {
         $this->get('core.back')->deleteArticle($id);
-        $this->addFlash('success', "L'article avec l'id " . $id . " a été supprimé");
+        $this->addFlash('success', "L'article a été supprimé");
         return $this->redirectToRoute('equipe_admin');
       }
 }

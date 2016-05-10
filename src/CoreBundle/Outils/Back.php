@@ -171,15 +171,15 @@ class Back
     {
         $update = $this->doctrine->getRepository('CoreBundle:Article')->find($id);
         if(null === $update){
-            throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
+            throw new NotFoundHttpException("L'annonce ne semble pas exister ou n'est pas disponible.");
         }
-        $formUpdate = $this->formbuilder->create(ArticleType::class, $update);
-        $formUpdate->handleRequest($request);
-        if($formUpdate->isValid()){
+        $form = $this->formbuilder->create(ArticleType::class, $update);
+        $form->handleRequest($request);
+        if($form->isValid()){
             $this->doctrine->flush();
-            $this->session->getFlashBag()->add('success', "L'annonce" . $id . "a bien été modifiée.");
+            $this->session->getFlashBag()->add('success', "L'article a bien été modifiée.");
         }
-        return $formUpdate;
+        return $form;
     }
 
     /**
@@ -238,6 +238,7 @@ class Back
         $sujet->setCategory($categorie);
         $user = $this->user->getToken()->getUser();
         $sujet->setAuteur($user);
+        $sujet->setOnline(true);
         $form = $this->formbuilder->create(SujetType::class, $sujet);
         $form->handleRequest($request);
         if($form->isValid()){
@@ -245,6 +246,7 @@ class Back
             $sujet->setSlug($slug);
             $this->doctrine->persist($sujet);
             $this->doctrine->flush();
+            $this->session->getFlashBag()->add('success', "Le sujet a bien été crée !");
         }
         return $form;
     }
@@ -254,7 +256,7 @@ class Back
      * @param $id
      * @return string
      *
-     * Allow to update a subject using is $id
+     * Allow to update a subject using is $id.
      */
     public function updateSujet(Request $request, $id)
     {
@@ -282,20 +284,35 @@ class Back
     public function viewSujet(Request $request, Sujet $sujet)
     {
         $sujet = $this->doctrine->getRepository('CoreBundle:Sujet')->find($sujet);
-        $message = $this->doctrine->getRepository('CoreBundle:Message')->findBy(array('sujet' => $sujet));
 
         $message = new Message();
         $message->setDateMessage(new \Datetime);
         $message->setSujet($sujet);
         $user = $this->user->getToken()->getUser();
         $message->setAuteur($user);
-        $formMessage = $this->formbuilder->create(MessageType::class, $message);
-        $formMessage->handleRequest($request);
-        if($formMessage->isValid()){
+        $form = $this->formbuilder->create(MessageType::class, $message);
+        $form->handleRequest($request);
+        if($form->isValid()){
             $this->doctrine->persist($message);
             $this->doctrine->flush();
         }
-        return $formMessage;
+        return $form;
+    }
+
+    /**
+     * @param $id
+     *
+     * Allow to lock a subject by is $id and have a flash message.
+     */
+    public function lockSujet($id)
+    {
+        $sujet = $this->doctrine->getRepository('CoreBundle:Sujet')->find($id);
+
+        if($sujet === null) {
+            throw new NotFoundHttpException("Le sujet semble avoir été supprimé ou être indisponible");
+        }
+        $sujet->setOnline(false);
+        $this->session->getFlashBag()->add('success', "Le sujet a bien été fermée, have peace !");
     }
 
     /**

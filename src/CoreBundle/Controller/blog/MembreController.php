@@ -6,9 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-use CoreBundle\Form\Type\ArticleType;
 use CoreBundle\Entity\Article;
 
 /**
@@ -59,29 +57,26 @@ class MembreController extends Controller {
 
     /**
      * @param Request $request
-     * @param $id
+     * @param Article $article
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/admin/update/{id}", name="membre_update", requirements={"id": "\d+"})
+     * @Template("Blog\Membre\update.html.twig")
      */
-      public function updateAction(Request $request, $id)
+      public function updateAction(Request $request, Article $article)
       {
-        $update = $this->get('core.back')->update($request, $id);
-        return $this->render('Blog/Membre/update.html.twig', array(
-          'form' => $update->createView(),
-          'article' => $update
-        ));
+        $form = $this->get('core.back')->updateArticle($request, $article);
+        return array('form' => $form->createView(), 'article' => $article);
       }
 
     /**
-     * @param Request $request
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route("/admin/delete/{id}", name="membre_delete", requirements={"id": "\d+"})
      */
-      public function deleteAction(Request $request, $id)
+      public function deleteAction($id)
       {
         $this->get('core.back')->deleteArticle($id);
-        $this->addFlash('success', "L'article avec l'id " . $id . " a été supprimé");
+        $this->addFlash('success', "L'article a été supprimé");
         return $this->redirectToRoute('membre_admin');
       }
 }

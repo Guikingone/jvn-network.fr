@@ -4,11 +4,9 @@ namespace CoreBundle\Controller\Blog;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-use CoreBundle\Form\Type\ArticleType;
 use CoreBundle\Entity\Article;
 use CoreBundle\Entity\Commentaire;
 
@@ -59,38 +57,25 @@ class KrmaController extends Controller{
     
     /**
      * @param Request $request
-     * @param $id
+     * @param Article $article
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      * @Route("/admin/update/{id}", name="krma_update", requirements={"id": "\d+"})
      * @Template("Blog\krma\update.html.twig")
      */
-        public function updateAction(Request $request, $id)
-        {
-          $update = $this->getDoctrine()->getManager()->getRepository('CoreBundle:Article')->find($id);
-          if(null === $update){
-            throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
-          }
-          $form = $this->createForm(ArticleType::class, $update);
-          $form->handleRequest($request);
-
-          if($form->isValid()){
-              $update = $this->getDoctrine()->getManager();
-              $update->flush();
-              $request->getSession()->getFlashBag()->add('success', "L'annonce" . $id . "a bien été modifiée.");
-              return $this->redirectToRoute('krma_admin');
-          }
-          return array('form' => $form->createView(), 'article' => $update);
-        }
+     public function updateAction(Request $request, Article $article)
+     {
+         $form = $this->get('core.back')->updateArticle($request, $article);
+         return array('form' => $form->createView(), 'article' => $article);
+     }
 
     /**
-     * @param Request $request
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route("/admin/delete/{id}", name="krma_delete", requirements={"id": "\d+"})
      */
-    public function deleteAction(Request $request, $id)
+    public function deleteAction($id)
     {
-      $this->get('core.back')->deleteArticle($id);
-      return $this->redirectToRoute('krma_admin');
+        $this->get('core.back')->deleteArticle($id);
+        return $this->redirectToRoute('krma_admin');
     }
 }

@@ -3,7 +3,7 @@
 {% block body %}
 <div class="container">
   <div class="row">
-    <div class="col-lg-12">
+    <div class="col-xs-12">
       <a href="{{path('forums')}}" class="btn btn-info">Retour à l'accueil</a>
       <!-- Les outils de modération ne s'affiche qu'aux modérateurs -->
       {% if is_granted('ROLE_MODERATEUR')%}
@@ -11,9 +11,6 @@
           <hr />
           <h4 class="text-center">Outils de modération</h4>
           <hr />
-          <p class="text-center">
-            <strong>Note Importante : A ce jour, tout sujet contenant des commentaires ne peut être supprimé !</strong>
-          </p>
               <p class="text-center">
                 <a href="{{ path('forums_delete', {'id': sujet.id}) }}" class="btn btn-danger">Supprimer ce sujet</a>
               </p>

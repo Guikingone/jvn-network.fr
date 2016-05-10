@@ -11,7 +11,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use CoreBundle\Entity\Sujet;
 use CoreBundle\Entity\Message;
 use CoreBundle\Form\Type\SujetType;
-use CoreBundle\Form\Type\MessageType;
 
 /**
  * @Route("/forums")
@@ -80,8 +79,8 @@ class ForumsController extends Controller
     }
 
     /**
-     * This controller is used by the entire forum part of the application, he used the Back Service in order to access
-     * to the repository needed.
+     * This controller is used by the entire forum part of the application, he use the Back Service in order to access
+     * to the repository needed and make the current action.
      */
 
     /**
@@ -89,68 +88,29 @@ class ForumsController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/view/{id}", requirements={"id": "\d+"}, name="forums_view")
+     * @Template("Forums\Action\view.html.twig")
      */
     public function viewAction(Sujet $sujet, Request $request)
     {
-      $sujet = $this->getDoctrine()->getManager()->getRepository('ForumsBundle:Sujet')->find($sujet);
-
-      $msg = $this->getDoctrine()
-                  ->getManager()
-                  ->getRepository('ForumsBundle:Message')
-                  ->findBy(array('sujet' => $sujet));
-
-      $message = new Message();
-      $message->setDateMessage(new \Datetime);
-      $message->setSujet($sujet);
-      $user = $this->getUser();
-      $message->setAuteur($user);
-      $formMessage = $this->createForm(MessageType::class, $message);
-      $formMessage->handleRequest($request);
-
-        if($formMessage->isValid()){
-          $em = $this->getDoctrine()->getManager();
-          $em->persist($message);
-          $em->flush();
-        }
-
-      return $this->render('Forums/Action/view.html.twig', array(
-        'sujet' => $sujet,
-        'message' => $msg,
-        'form' => $formMessage->createView()
-      ));
+        $form = $this->get('core.back')->viewSujet($request, $sujet);
+        $message = $this->getDoctrine()
+                        ->getManager()
+                        ->getRepository('CoreBundle:Message')
+                        ->findBy(array('sujet' => $sujet));
+        return array('sujet' => $sujet, 'message' => $message, 'form' => $form->createView());
     }
 
     /**
      * @param Request $request
-     * @param $id
+     * @param Sujet $sujet
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     * @throws NotFoundHttpException
      * @Route("/update/{id}", requirements={"id": "\d+"}, name="forums_update")
+     * @Template("Forums\Action\update.html.twig")
      */
-    public function updateAction(Request $request, $id)
+    public function updateAction(Request $request, Sujet $sujet)
     {
-      $us = $this->getDoctrine()
-                 ->getManager()
-                 ->getRepository('ForumsBundle:Sujet')
-                 ->find($id);
-
-      if (null === $us) {
-        throw new NotFoundHttpException("Le sujet d'id ".$id." n'existe pas.");
-      }
-
-      $form = $this->createForm(SujetType::class, $us);
-      $form->handleRequest($request);
-
-      if($form->isValid()) {
-          $us = $this->getDoctrine()->getManager();
-          $us->flush();
-        $this->addFlash('success', "Le sujet" . $id . "a bien été modifiée");
-        return $this->redirectToRoute('forums');
-      }
-      return $this->render('Forums/Action/update.html.twig', array(
-        'form' => $form->createView(),
-        'sujet' => $us
-      ));
+        $form = $this->get('core.back')->updateSujet($request, $sujet);
+        return array('form' => $form->createView(), 'sujet' => $sujet);
     }
 
     /**
@@ -158,7 +118,7 @@ class ForumsController extends Controller
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route("/delete/{id}", requirements={"id": "\d+"}, name="forums_delete")
      */
-    public function deleteAction(Request $request, $id)
+    public function deleteAction($id)
     {
       $this->get('core.back')->deleteSujet($id);
       return $this->redirectToRoute('forums');

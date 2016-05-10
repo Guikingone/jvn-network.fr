@@ -65,6 +65,11 @@ class Sujet
      */
     private $slug;
 
+    /**
+     * @ORM\Column(name="online", type="boolean")
+     */
+    private $online;
+
 
     /**
      * Get id
@@ -259,5 +264,29 @@ class Sujet
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set online
+     *
+     * @param boolean $online
+     *
+     * @return Sujet
+     */
+    public function setOnline($online)
+    {
+        $this->online = $online;
+
+        return $this;
+    }
+
+    /**
+     * Get online
+     *
+     * @return boolean
+     */
+    public function getOnline()
+    {
+        return $this->online;
     }
 }
