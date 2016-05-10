@@ -91,7 +91,7 @@ class Article
     private $commentaires;
 
     /**
-    * @ORM\Column (name="updatedDate", type="datetime", nullable=true)
+    * @ORM\Column(name="updatedDate", type="datetime", nullable=true)
     */
     private $updatedDate;
 

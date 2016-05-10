@@ -138,26 +138,25 @@ class Back
      * @param $id
      * @return \Symfony\Component\Form\Form|\Symfony\Component\Form\FormInterface
      *
-     * Allow the user to view the article using the repository to find the article, create a form for submitting the
+     * Allow the user to view the article using the $id to find the article, create a form for submitting the
      * comments linked to the article.
      */
     public function viewArticle(Request $request, $id)
     {
-        $view = $this->doctrine->getRepository('CoreBundle:Article')->find($id);
-        $comments = $this->doctrine->getRepository('CoreBundle:Commentaire')->findBy(array('article' => $view));
+        $article = $this->doctrine->getRepository('CoreBundle:Article')->find($id);
 
-        $comments = new Commentaire();
-        $comments->setdateCreation(new \Datetime);
-        $comments->setArticle($view);
+        $commentaire = new Commentaire();
+        $commentaire->setdateCreation(new \Datetime);
+        $commentaire->setArticle($article);
         $user = $this->user->getToken()->getUser();
-        $comments->setAuteur($user);
-        $formComments = $this->formbuilder->create(CommentaireType::class, $comments);
-        $formComments->handleRequest($request);
-        if($formComments->isValid()){
-            $this->doctrine->persist($comments);
+        $commentaire->setAuteur($user);
+        $form = $this->formbuilder->create(CommentaireType::class, $commentaire);
+        $form->handleRequest($request);
+        if($form->isValid()){
+            $this->doctrine->persist($commentaire);
             $this->doctrine->flush();
         }
-        return $formComments;
+        return $form;
     }
 
     /**

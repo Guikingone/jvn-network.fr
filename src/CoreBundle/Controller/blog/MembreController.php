@@ -9,7 +9,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 use CoreBundle\Form\Type\ArticleType;
-use CoreBundle\Form\Type\CommentaireType;
 use CoreBundle\Entity\Article;
 
 /**
@@ -44,38 +43,18 @@ class MembreController extends Controller {
     /**
      * @param Article $article
      * @param Request $request
-     * @param $id
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/article/{slug}", name="membre_view")
+     * @Template("Blog\Membre\view.html.twig")
      */
-      public function viewAction(Article $article, Request $request, $id)
+      public function viewAction(Article $article, Request $request)
       {
-        $view = $this->getDoctrine()->getManager();
-        $vue = $view->getRepository('BlogBundle:Article')->find($article);
-          if(null === $vue){
-              throw new NotFoundHttpException("L'article " . $id . "n'est pas disponible ou a été supprimé.");
-          }
-        /** On récupère les commentaires liés à l'article via l'article et on y joint les
-        commentaires afin de pouvoir faire article->getCommentaires(), une fois effectuée,
-        on affichera tout ceci via une boucle for dans la vue */
-        $comm = $view->getRepository('BlogBundle:Commentaire')->findBy(array('article' => $vue));
-        $commentaire = new Commentaire();
-        $commentaire->setdateCreation(new \Datetime);
-        $commentaire->setArticle($article);
-        $user = $this->getUser();
-        $commentaire->setAuteur($user);
-        $formCommentaire = $this->createForm(CommentaireType::class, $commentaire);
-        $formCommentaire->handleRequest($request);
-        if($formCommentaire->isValid()){
-          $em = $this->getDoctrine()->getManager();
-          $em->persist($commentaire);
-          $em->flush();
-        }
-        return $this->render('Blog/Membre/view.html.twig', array(
-          'article' => $view,
-          'commentaire' => $view,
-          'form' => $view->createView()
-        ));
+          $form = $this->get('core.back')->viewArticle($request, $article);
+          $commentaire = $this->getDoctrine()
+                              ->getManager()
+                              ->getRepository('CoreBundle:Commentaire')
+                              ->findBy(array('article' => $article));
+          return array('article' => $article, 'commentaire' => $commentaire, 'form' => $form->createView());
       }
 
     /**

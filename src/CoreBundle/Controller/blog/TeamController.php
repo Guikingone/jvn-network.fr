@@ -8,7 +8,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 use CoreBundle\Form\Type\ArticleType;
-use CoreBundle\Form\Type\CommentaireType;
 use CoreBundle\Entity\Article;
 use CoreBundle\Entity\Commentaire;
 
@@ -51,29 +50,18 @@ class TeamController extends Controller {
     /**
      * @param Article $article
      * @param Request $request
-     * @param $id
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/article/{slug}", name="equipe_article")
      * @Template("Blog\Team\view.html.twig")
      */
-      public function viewAction(Article $article, Request $request, $id)
+      public function viewAction(Article $article, Request $request)
       {
-        $view = $this->getDoctrine()->getManager();
-        $vue = $view->getRepository('CoreBundle:Article')->find($article);
-        $comm = $view->getRepository('CoreBundle:Commentaire')->findBy(array('article' => $vue));
-        $commentaire = new Commentaire();
-        $commentaire->setdateCreation(new \Datetime);
-        $commentaire->setArticle($article);
-        $user = $this->getUser();
-        $commentaire->setAuteur($user);
-        $formCommentaire = $this->createForm(CommentaireType::class, $commentaire);
-        $formCommentaire->handleRequest($request);
-        if($formCommentaire->isValid()){
-          $em = $this->getDoctrine()->getManager();
-          $em->persist($commentaire);
-          $em->flush();
-        }
-        return array('article' => $vue, 'commentaire' => $comm, 'form' => $formCommentaire->createView());
+          $form = $this->get('core.back')->viewArticle($request, $article);
+          $commentaire = $this->getDoctrine()
+                              ->getManager()
+                              ->getRepository('CoreBundle:Commentaire')
+                              ->findBy(array('article' => $article));
+        return array('article' => $article, 'commentaire' => $commentaire, 'form' => $form->createView());
       }
 
     /**

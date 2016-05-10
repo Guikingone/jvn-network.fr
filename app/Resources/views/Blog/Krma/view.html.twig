@@ -18,10 +18,10 @@
     <br>
     <!-- On sépare l'article des commentaires et on affiche les commentaires via une boucle for -->
     <div class="row">
-      {% for comm in commentaire %}
+      {% for commentaire in commentaire %}
         <div class="text-center">
-          <h3>{{ comm.auteur }}</h3>
-          <p class="text-center">{{ comm.contenu|raw }}</p>
+          <h3>{{ commentaire.auteur }}</h3>
+          <p class="text-center">{{ commentaire.contenu|raw }}</p>
         </div>
       {% endfor %}
     </div>
