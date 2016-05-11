@@ -6,11 +6,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 use CoreBundle\Entity\Sujet;
-use CoreBundle\Entity\Message;
-use CoreBundle\Form\Type\SujetType;
 
 /**
  * @Route("/forums")
