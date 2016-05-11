@@ -113,7 +113,7 @@ class BackController extends Controller
     /**
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     * @Route("/krma/admin/delete/{id}", name="home_delete", requirements={"id": "\d+"})
+     * @Route("/krma/admin/delete/{id}", name="krma_delete", requirements={"id": "\d+"})
      */
     public function deleteKrmaAction($id)
     {

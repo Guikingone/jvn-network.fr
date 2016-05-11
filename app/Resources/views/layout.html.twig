@@ -1,17 +1,18 @@
  <!DOCTYPE html>
 <html>
-    <head>
-      <meta charset="utf-8" />
-      <title>{% block title %}JVN-Network.fr - Là où la communauté prend les commandes{% endblock %}</title>
+ <head>
+     <meta charset="utf-8" />
+     <title>{% block title %}JVN-Network.fr - Là où la communauté prend les commandes{% endblock %}</title>
       {% block stylesheets %}
           <link href="{{ asset('assets/vendor/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
           <link href="{{ asset('assets/vendor/Materialize/dist/css/materialize.min.css') }}" rel="stylesheet">
           <link href="{{ asset('css/main.css') }}" rel="stylesheet">
           <link href="{{ asset('css/normalize.css') }}" rel="stylesheet">
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+          <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       {% endblock %}
-      <script src="{{ asset('js/vendor/modernizr-2.8.3.min.js')}}"></script>
-    </head>
+     <script src="{{ asset('js/vendor/modernizr-2.8.3.min.js')}}"></script>
+ </head>
 <body>
 <header>
   <!-- Navbar Utilisateur -->
@@ -78,7 +79,7 @@
   				</div>
   				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
   					<ul class="nav navbar-nav navbar-right">
-              <li class="dropdown">
+                        <li class="dropdown">
   							<a data-toggle="dropdown" href="#">Blog<b class="caret"></b></a>
   							<ul class="dropdown-menu">
   								<li>
@@ -87,7 +88,7 @@
   								<li>
   									<a href="{{path('krma')}}">Krma TV</a>
   								</li>
-                  <li>
+                        <li>
                     <a href="{{path('membre_blog')}}">Les Membres</a>
                   </li>
 							  </ul>

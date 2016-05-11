@@ -16,7 +16,7 @@ class BlogController extends Controller {
      * @Route("/krma", name="krma")
      * @Template("Blog\Krma\index.html.twig")
      */
-    public function KrmaAction()
+    public function krmaAction()
     {
       $article = $this->get('core.back')->index('KRMA');
       return array('article' => $article);
@@ -27,7 +27,7 @@ class BlogController extends Controller {
      * @Route("/membre", name="membre_blog")
      * @Template("Blog\Membre\index.html.twig")
      */
-    public function MembreAction()
+    public function membreAction()
     {
         $article = $this->get('core.back')->index('MEMBRE');
         return array('article' => $article);
@@ -38,7 +38,7 @@ class BlogController extends Controller {
      * @Route("/equipe", name="equipe")
      * @Template("Blog\Team\index.html.twig")
      */
-    public function EquipeAction()
+    public function equipeAction()
     {
         $article = $this->get('core.back')->index('TEAM');
         return array('article' => $article);

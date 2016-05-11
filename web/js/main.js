@@ -2,5 +2,5 @@
 
 // Jquery
 $(function(){
-
+    $('.modal-trigger').leanModal();
 });

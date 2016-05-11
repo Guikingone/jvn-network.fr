@@ -2,7 +2,13 @@
 
 {% block body %}
 <div class="container">
-    <p class="text-center"><a href="{{path('krma')}}" class="waves-effect waves-light btn red darken-1">Retour au blog</a></p>
+    <div class="row">
+        <div class="col s12">
+            <p class="text-center">
+                <a href="{{path('krma')}}" class="waves-effect waves-light btn red darken-1">
+                    Retour au blog
+                </a>
+            </p>
       {% for message in app.session.flashbag.get('success') %}
         <div class="alert alert-success">Message flash : {{message}}</div>
       {% endfor %}
@@ -100,5 +106,7 @@
       <div class="tab-pane fade adminTable" id="comments">
       </div>
   </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
