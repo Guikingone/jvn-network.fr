@@ -11,7 +11,7 @@
       {% for article in article %}
         <article>
           <!-- On permet de lire l'article dans une page séparé avec les commentaires -->
-          <h2 class="text-center"><a href="{{ path('team_article', {'id': article.id }) }}">{{ article.titre }}</a></h2>
+          <h2 class="text-center"><a href="{{ path('home_view', {'id': article.id }) }}">{{ article.titre }}</a></h2>
           <p class="text-center">Par <em>{{ article.auteur }}</em></p>
           <p class="text-center">{{ article.contenu|raw }}</p>
         </article>

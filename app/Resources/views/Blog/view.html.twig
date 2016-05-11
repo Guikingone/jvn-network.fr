@@ -3,7 +3,7 @@
 {% block body %}
 <div class="container">
   <div class="row">
-    <a href="{{ path('krma')}}">Retour à l'accueil</a>
+    <a href="{{ path('home')}}">Retour à l'accueil</a>
     <h2 class="text-center">{{ article.titre }}</h2>
       {% if article.imageFile is not null %}
         <img src="{{ asset(article.imageFile) }}" alt="{{ article.imageFile }}" class="responsive-img">
@@ -14,7 +14,6 @@
     <br>
     <br>
     <br>
-    <!-- On sépare l'article des commentaires et on affiche les commentaires via une boucle for -->
     <div class="row">
       {% for commentaire in commentaire %}
         <div class="text-center">
@@ -23,7 +22,6 @@
         </div>
       {% endfor %}
     </div>
-    <!-- On affiche le formulaire d'ajout de commentaire sous l'article -->
     {% if is_granted('IS_AUTHENTICATED_FULLY')%}
     <div class="row well">
       {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
