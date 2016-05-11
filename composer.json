@@ -1,7 +1,6 @@
 {
-    "name": "jvn/jvnNetwork",
+    "name": "jvn/jvn-network",
     "description": "The open-source community website",
-    "homepage": "jvn-network.fr",
     "version": "1.0.0",
     "license": "proprietary",
     "type": "project",

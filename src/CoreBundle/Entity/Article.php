@@ -61,6 +61,7 @@ class Article
     /**
      *
      * @Vich\UploadableField(mapping="article_image", fileNameProperty="imageName")
+     * @ORM\JoinColumn(nullable=true)
      *
      * @var File
      */
