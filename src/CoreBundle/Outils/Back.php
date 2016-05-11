@@ -192,7 +192,7 @@ class Back
         $purge = $this->doctrine->getRepository('CoreBundle:Article')->find($id);
         $this->doctrine->remove($purge);
         $this->doctrine->flush();
-        $this->session->getFlashBag()->add('success', "L'article avec l'id" . $id . " a bien été supprimé");
+        $this->session->getFlashBag()->add('success', "L'article a bien été supprimé, cette opération ne peut être annulée !");
     }
 
     /**
@@ -205,7 +205,7 @@ class Back
         $purge = $this->doctrine->getRepository('CoreBundle:Commentaire')->find($id);
         $this->doctrine->remove($purge);
         $this->doctrine->flush();
-        $this->session->getFlashBag()->add('success', "Le commentaire avec l'id" . $id . " a bien été supprimé");
+        $this->session->getFlashBag()->add('success', "Le commentaire a bien été supprimé");
     }
 
     /*

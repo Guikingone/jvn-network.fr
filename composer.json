@@ -1,6 +1,8 @@
 {
-    "name": "jvn",
-    "description": "A list of the dependancy used by jvn-network",
+    "name": "jvn/jvnNetwork",
+    "description": "The open-source community website",
+    "homepage": "jvn-network.fr",
+    "version": "1.0.0",
     "license": "proprietary",
     "type": "project",
     "autoload": {
