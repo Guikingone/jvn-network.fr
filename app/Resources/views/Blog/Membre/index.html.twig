@@ -3,18 +3,22 @@
 {% block body %}
 <div class="container">
   <div class="row">
-    <div class="col-lg-12">
+    <div class="col s12">
       <h2 class="text-center">Bienvenue sur le blog des Membres</h2>
       <hr />
-    </div>
-    <div class="col-lg-12">
-      <!-- On affiche les commentaires via la boucle for -->
       {% for article in article %}
         <article>
-          <!-- On permet de lire l'article dans une page séparé avec les commentaires -->
-          <h2 class="text-center"><a href="{{ path('home_view', {'id': article.id }) }}">{{ article.titre }}</a></h2>
-          <p class="text-center">Par <em>{{ article.auteur }}</em></p>
-          <p class="text-center">{{ article.contenu|raw }}</p>
+          <div class="card white darken-1">
+            <div class="card-content black-text">
+              <span class="card-title">{{ article.titre }}</span>
+              <p>{{ article.contenu[:60]|raw }}</p>
+            </div>
+            <div class="card-action">
+              <a href="{{ path('home_view', {'id': article.id, 'slug': article.slug }) }}" class="red-text">
+                Lire l'article
+              </a>
+            </div>
+          </div>
         </article>
       {% endfor %}
     </div>

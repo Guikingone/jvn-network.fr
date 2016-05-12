@@ -69,6 +69,7 @@ class Article
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @ORM\JoinColumn(nullable=true)
      *
      * @var string
      */
@@ -100,6 +101,11 @@ class Article
     * @ORM\Column (name="categorie", type="string", length=255)
     */
     private $categorie;
+
+    /**
+     * @ORM\Column(name="published", type="boolean")
+     */
+    private $online;
 
     /**
      * @ORM\Column(name="slug", type="string", length=255)
@@ -434,5 +440,29 @@ class Article
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * Set online
+     *
+     * @param boolean $online
+     *
+     * @return Article
+     */
+    public function setOnline($online)
+    {
+        $this->online = $online;
+
+        return $this;
+    }
+
+    /**
+     * Get online
+     *
+     * @return boolean
+     */
+    public function getOnline()
+    {
+        return $this->online;
     }
 }

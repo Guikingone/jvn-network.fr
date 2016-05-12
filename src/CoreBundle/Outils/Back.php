@@ -120,6 +120,7 @@ class Back
         $article->setCategorie($categorie);
         $user = $this->user->getToken()->getUser();
         $article->setAuteur($user);
+        $article->setOnline(true);
 
         $form = $this->formbuilder->create(ArticleType::class, $article);
         $form->handleRequest($request);
@@ -129,7 +130,7 @@ class Back
             $article->setSlug($slug);
             $this->doctrine->persist($article);
             $this->doctrine->flush();
-            $this->session->getFlashBag()->add('success', "Article enregistré");
+            $this->session->getFlashBag()->add('success', "Article enregistré.");
         }
         return $form;
     }
@@ -156,6 +157,7 @@ class Back
         if($form->isValid()){
             $this->doctrine->persist($commentaire);
             $this->doctrine->flush();
+            $this->session->getFlashBag()->add('success', "Le message a bien été ajouté");
         }
         return $form;
     }
@@ -186,20 +188,34 @@ class Back
     /**
      * @param $id
      *
-     * Allow to delete a article by is $id, a flash message is generate to confirm this action
+     * Allow to lock a article and make it invisible for the viewer.
+     */
+    public function lockArticle($id)
+    {
+        $lock = $this->doctrine->getRepository('CoreBundle:Article')->find($id);
+        if($lock === null){
+            throw new Exception('danger', "L'article n'existe pas ou a été supprimée !");
+        }
+        $lock->setOnline(false);
+        $this->session->getFlashBag()->add('success', "L'article a bien été mis hors ligne.");
+    }
+
+    /**
+     * @param $id
+     *
+     * Allow to delete a article by is $id, a flash message is generate to confirm this action.
      */
     public function deleteArticle($id)
     {
         $purge = $this->doctrine->getRepository('CoreBundle:Article')->find($id);
         $this->doctrine->remove($purge);
         $this->doctrine->flush();
-        $this->session->getFlashBag()->add('success', "L'article a bien été supprimé, cette opération ne peut être annulée !");
     }
 
     /**
      * @param $id
      *
-     * Allow to delete a commentary by is $id
+     * Allow to delete a commentary by is $id.
      */
     public function deleteCommentaire($id)
     {
@@ -312,10 +328,10 @@ class Back
         $sujet = $this->doctrine->getRepository('CoreBundle:Sujet')->find($id);
 
         if($sujet === null) {
-            throw new NotFoundHttpException("Le sujet semble avoir été supprimé ou être indisponible");
+            throw new NotFoundHttpException("Le sujet semble avoir été supprimé ou être indisponible.");
         }
         $sujet->setOnline(false);
-        $this->session->getFlashBag()->add('success_forums', "Le sujet a bien été fermée, have peace !");
+        $this->session->getFlashBag()->add('success_forums', "Le sujet a bien été fermé.");
     }
 
     /**
@@ -328,7 +344,7 @@ class Back
         $purge = $this->doctrine->getRepository('CoreBundle:Sujet')->find($id);
         $this->doctrine->remove($purge);
         $this->doctrine->flush();
-        $this->session->getFlashBag()->add('success', "Le sujet a bien été supprimé !");
+        $this->session->getFlashBag()->add('success', "Le sujet a bien été supprimé.");
     }
 
     /**
@@ -341,6 +357,6 @@ class Back
         $purge = $this->doctrine->getRepository('CoreBundle:Message')->find($id);
         $this->doctrine->remove($purge);
         $this->doctrine->flush();
-        $this->session->getFlashBag()->add('success', "Le message a bien été supprimé !");
+        $this->session->getFlashBag()->add('success', "Le message a bien été supprimé.");
     }
 }

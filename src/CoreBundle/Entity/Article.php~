@@ -61,6 +61,7 @@ class Article
     /**
      *
      * @Vich\UploadableField(mapping="article_image", fileNameProperty="imageName")
+     * @ORM\JoinColumn(nullable=true)
      *
      * @var File
      */
@@ -91,7 +92,7 @@ class Article
     private $commentaires;
 
     /**
-    * @ORM\Column (name="updatedDate", type="datetime", nullable=true)
+    * @ORM\Column(name="updatedDate", type="datetime", nullable=true)
     */
     private $updatedDate;
 
@@ -99,6 +100,11 @@ class Article
     * @ORM\Column (name="categorie", type="string", length=255)
     */
     private $categorie;
+
+    /**
+     * @ORM\Column(name="published", type="boolean")
+     */
+    private $online;
 
     /**
      * @ORM\Column(name="slug", type="string", length=255)
@@ -346,7 +352,7 @@ class Article
      *
      * @return Article
      */
-    public function setUpdatedDate($updatedAt)
+    public function setUpdatedDate($updatedDate)
     {
         $this->updatedDate = $updatedDate;
 
@@ -409,5 +415,29 @@ class Article
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return Article
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
     }
 }
