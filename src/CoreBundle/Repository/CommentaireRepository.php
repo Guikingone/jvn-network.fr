@@ -12,7 +12,7 @@ class CommentaireRepository extends \Doctrine\ORM\EntityRepository
 {
   public function getCommentaires()
   {
-    return $this->createQueryBuilder('com')
+    return $this->createQueryBuilder('c')
                 ->getQuery()
                 ->getResult();
   }

@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="row">
-      <div class="col-lg-offset-3 col-lg-6 col-lg-offset-3">
+      <div class="col offset-s3 col s6 col offset-s33">
         <h2 class="center-align">S'inscrire</h2>
         <hr />
           <div class="input-field">
@@ -22,9 +22,6 @@
             {{ form_label(form.plainPassword, "Mot de passe", {'label_attr': {'class': 'control-label'}}) }}
             {{ form_errors(form.plainPassword) }}
             {{ form_widget(form.plainPassword) }}
-          </div>
-          <div class="input-field">
-              {{ form_rest(form) }}
           </div>
               <div class="input-field">
                   <input class="btn btn-danger" type="submit" value="{{ 'registration.submit'|trans }}" />

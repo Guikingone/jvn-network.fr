@@ -1,5 +1,7 @@
 {% extends ('::layout.html.twig')%}
+
 {% block title %}Le forum généraliste{% endblock %}
+
 {% block body %}
 <div class="container">
   <div class="row">
@@ -23,7 +25,7 @@
           </div>
       {% endfor %}
     </div>
-    {% if is_granted('IS_AUTHENTICATED_FULLY')%}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
     <div class="row">
       <div class="col s12">
         <button type="button" class="waves-effect waves-light btn red darken-2" data-toggle="modal" data-target="#myModal">

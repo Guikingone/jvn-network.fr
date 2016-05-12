@@ -20,7 +20,7 @@ class BackController extends Controller
     {
         $article = $this->get('core.back')->index('KRMA');
         $form = $this->get('core.back')->addArticle($request, 'KRMA');
-        return array('article' => $article,'form' => $form->createView());
+        return array('article' => $article, 'commentaire' => $commentaire, 'form' => $form->createView());
     }
 
     /**

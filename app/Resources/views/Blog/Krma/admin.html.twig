@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col s12">
-            <p class="text-center">
-                <a href="{{path('krma')}}" class="waves-effect waves-light btn red darken-1">
+            <p class="center-align">
+                <a href="{{path('krma')}}" class="waves-effect waves-light btn red darken-4">
                     Retour au blog
                 </a>
             </p>
@@ -14,7 +14,7 @@
       {% endfor %}
       <div class="row">
         <br>
-          <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+          <div class="col s8 col offset-s2 col m6 col offset-m3">
               <ul class="nav nav-tabs nav-justified">
                   <li class="active"><a href="#articles" data-toggle="tab">Articles</a></li>
                   <li><a href="#comments" data-toggle="tab">Commentaires</a></li>
@@ -56,49 +56,36 @@
                   {% endfor %}
               </table>
           </div>
-              <button type="button" class="waves-effect waves-light btn green darken-2" data-toggle="modal" data-target="#myModal">
-                  <span class="glyphicon glyphicon-plus"></span> Ajouter un article
-              </button>
+          <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Créer un article</a>
 
-              <!-- Modal used for the article form -->
-              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                  <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                          <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                              <h4 class="modal-title" id="myModalLabel">Ajouter un article</h4>
-                          </div>
-                          <div class="modal-body">
-                                  {{ form_start(form, {'attr': {'class': 'form-horinzontal'}}) }}
-                                  {{ form_errors(form) }}
-                                  <div class="input-field">
-                                      {{ form_label(form.titre, "Titre de l'article", {'label_attr': {'class': 'col-sm-4'}}) }}
-
-                                      {{form_errors(form.titre)}}
-
-                                      {{form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
-                                  </div>
-                                  <div class="form-group">
-                                      {{ form_label(form.contenu, "Contenu de l'article", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
-
-                                      {{ form_errors(form.contenu)}}
-
-                                      {{ form_widget(form.contenu, {'attr': {'class': 'form-control'}}) }}
-                                  </div>
-                                  <div class="form-group">
-                                      {{ form_widget(form.imageFile, {'attr': {'class': 'form-control'}}) }}
-                                  </div>
-                                  <div class="form-group">
-                                      {{form_widget(form.save, {'attr': {'class': 'btn waves-effect waves-light', 'type': 'submit'}}) }}
-                                  </div>
-                                  {{ form_end(form) }}
-                          </div>
-                          <div class="modal-footer">
-                              <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
-                          </div>
-                      </div>
+          <div id="modal1" class="modal">
+              <div class="modal-content">
+                  {{ form_start(form, {'attr': {'class': 'form-horinzontal'}}) }}
+                  {{ form_errors(form) }}
+                  <div class="input-field">
+                      {{ form_label(form.titre, "Titre de l'article", {'label_attr': {'class': 'col-sm-4'}}) }}
+                      {{form_errors(form.titre)}}
+                      {{form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
                   </div>
+                  <div class="form-group">
+                      {{ form_label(form.contenu, "Contenu de l'article", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                      {{ form_errors(form.contenu)}}
+                      {{ form_widget(form.contenu, {'attr': {'class': 'form-control'}}) }}
+                  </div>
+                  <div class="input-field">
+                      {{ form_widget(form.imageFile, {'attr': {'class': 'form-control'}}) }}
+                  </div>
+                  <br>
+                  <div class="form-group">
+                      {{ form_label(form.save, "Enregistrer") }}
+                      {{ form_widget(form.save, {'attr': {'class': 'btn waves-effect waves-light', 'type': 'submit'}}) }}
+                  </div>
+                  {{ form_end(form) }}
               </div>
+              <div class="modal-footer">
+                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat red darken-4 white-text">Annuler</a>
+              </div>
+          </div>
       </div>
       {% else %}
         <div class="alert alert-danger"><p>Articles introuvable</p></div>

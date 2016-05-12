@@ -113,6 +113,17 @@ class ForumsController extends Controller
     /**
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route("/lock/{id}", requirements={"id": "\d+"}, name="forums_lock")
+     */
+    public function lockAction($id)
+    {
+        $this->get('core.back')->lockSujet($id);
+        return $this->redirectToRoute('forums');
+    }
+
+    /**
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route("/delete/{id}", requirements={"id": "\d+"}, name="forums_delete")
      */
     public function deleteAction($id)

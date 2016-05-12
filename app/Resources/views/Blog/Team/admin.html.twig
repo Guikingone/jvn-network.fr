@@ -3,15 +3,10 @@
 {% block body %}
 <div class="container">
   <p class="text-center"><a href="{{path('equipe')}}" class="btn btn-info">Retour au blog</a></p>
-  <!-- On affiche les messages flash -->
   {% for message in app.session.flashbag.get('success') %}
     <div class="alert alert-success">Message flash : {{message}}</div>
   {% endfor %}
   <div class="row">
-    <p class="text-center">Note importante : Tout modification doit être vérifiée avant validation,
-    toute modification est récupérable 24H après son application, veillez donc à vérifier attentivement
-    vos actions !</p>
-    <hr />
     <br>
       <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
           <ul class="nav nav-tabs nav-justified">
@@ -24,8 +19,6 @@
   </div>
   <div class="tab-content">
       <div class="tab-pane fade in active adminTable" id="articles">
-        <!-- On créer une boucle afin de savoir si des articles sont trouvés, si oui, on affiche le menu
-        d'édition, sinon on affiche un message d'erreur -->
         {% if article is not null %}
           <div class="table-responsive">
               <table class="table table-hover table-condensed">
@@ -40,8 +33,6 @@
                       </tr>
                   </thead>
                   {% for article in article %}
-                  <!-- On affiche les articles en affichant le titre, le contenu (limité à 45 caractères),
-                  la date de publication ainsi que son auteur -->
                   <tr>
                     <td>{{ article.titre }}</td>
                     <td>{{ article.contenu[:45]|raw }}</td>
@@ -55,47 +46,34 @@
                   {% endfor %}
               </table>
           </div>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-              <span class="glyphicon glyphicon-plus"></span> Ajouter un article
-          </button>
+          <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Créer un article</a>
 
-          <!-- Modal used for the article form -->
-          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-              <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                      <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <h4 class="modal-title" id="myModalLabel">Ajouter un article</h4>
-                      </div>
-                      <div class="modal-body">
-                          {{ form_start(form, {'attr': {'class': 'form-horinzontal'}}) }}
-                          {{ form_errors(form) }}
-                          <div class="form-group">
-                              {{ form_label(form.titre, "Titre de l'article", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
-
-                              {{form_errors(form.titre)}}
-
-                              {{form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
-                          </div>
-                          <div class="form-group">
-                              {{ form_label(form.contenu, "Contenu de l'article", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
-
-                              {{ form_errors(form.contenu)}}
-
-                              {{ form_widget(form.contenu, {'attr': {'class': 'form-control'}}) }}
-                          </div>
-                          <div class="form-group">
-                              {{ form_widget(form.imageFile, {'attr': {'class': 'form-control'}}) }}
-                          </div>
-                          <div class="form-group">
-                              {{form_widget(form.save, {'attr': {'class': 'btn btn-success'}}) }}
-                          </div>
-                          {{ form_end(form) }}
-                      </div>
-                      <div class="modal-footer">
-                          <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
-                      </div>
+          <div id="modal1" class="modal">
+              <div class="modal-content">
+                  {{ form_start(form, {'attr': {'class': 'form-horinzontal'}}) }}
+                  {{ form_errors(form) }}
+                  <div class="input-field">
+                      {{ form_label(form.titre, "Titre de l'article", {'label_attr': {'class': 'col-sm-4'}}) }}
+                      {{form_errors(form.titre)}}
+                      {{form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
                   </div>
+                  <div class="form-group">
+                      {{ form_label(form.contenu, "Contenu de l'article", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                      {{ form_errors(form.contenu)}}
+                      {{ form_widget(form.contenu, {'attr': {'class': 'form-control'}}) }}
+                  </div>
+                  <div class="input-field">
+                      {{ form_widget(form.imageFile, {'attr': {'class': 'form-control'}}) }}
+                  </div>
+                  <br>
+                  <div class="form-group">
+                      {{ form_label(form.save, "Enregistrer") }}
+                      {{ form_widget(form.save, {'attr': {'class': 'btn waves-effect waves-light', 'type': 'submit'}}) }}
+                  </div>
+                  {{ form_end(form) }}
+              </div>
+              <div class="modal-footer">
+                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat red darken-4 white-text">Annuler</a>
               </div>
           </div>
       </div>
@@ -103,7 +81,6 @@
         <div class="alert alert-danger"><p>Articles introuvable</p></div>
       {% endif %}
       <div class="tab-pane fade adminTable" id="comments">
-        <!-- On affichera les commentaires du blog afin de pouvoir les modifier -->
         <div class="table-responsive">
           {% if commentaire is not null %}
             <table class="table table-hover table-condensed">
@@ -132,7 +109,6 @@
         </div>
       </div>
       <div class="tab-pane fade adminTable" id="users">
-        <!-- On affichera les utilisateurs inscrits afin de pouvoir les manipuler -->
         <div class="table-responsive">
           {% if membre is not null %}
             <table class="table table-hover table-condensed">
@@ -166,7 +142,6 @@
         </div>
       </div>
       <div class="tab-pane fane adminTable" id="outils">
-        <!-- On affiche les outils de suivi de l'application -->
         <br>
         <div class="col-lg-6">
           <p class="text-center">Suivi des articles</p>

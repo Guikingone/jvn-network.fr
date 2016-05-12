@@ -13,6 +13,7 @@ namespace CoreBundle\Outils;
 
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\FormFactory;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -246,7 +247,7 @@ class Back
             $sujet->setSlug($slug);
             $this->doctrine->persist($sujet);
             $this->doctrine->flush();
-            $this->session->getFlashBag()->add('success', "Le sujet a bien été crée !");
+            $this->session->getFlashBag()->add('success_forums', "Le sujet a bien été crée !");
         }
         return $form;
     }
@@ -262,13 +263,13 @@ class Back
     {
         $update = $this->doctrine->getRepository('CoreBundle:Sujet')->find($id);
         if ($update === null) {
-            throw new NotFoundHttpException("Le sujet d'id " . $id . " n'existe pas.");
+            throw new NotFoundHttpException("Le sujet d'id n'existe pas.");
         }
         $form = $this->formbuilder->create(SujetType::class, $update);
         $form->handleRequest($request);
         if ($form->isValid()) {
             $this->doctrine->flush();
-            $this->session->getFlashBag()->add('success', "Le sujet" . $id . "a bien été modifiée");
+            $this->session->getFlashBag()->add('success', "Le sujet a bien été modifiée");
             return $this->router->generate('forums');
         }
         return $form;
@@ -284,7 +285,9 @@ class Back
     public function viewSujet(Request $request, Sujet $sujet)
     {
         $sujet = $this->doctrine->getRepository('CoreBundle:Sujet')->find($sujet);
-
+        if($sujet->getOnline() === false){
+            throw new Exception("Ce sujet a été fermé, les messages ne sont plus acceptés !");
+        }
         $message = new Message();
         $message->setDateMessage(new \Datetime);
         $message->setSujet($sujet);
@@ -312,7 +315,7 @@ class Back
             throw new NotFoundHttpException("Le sujet semble avoir été supprimé ou être indisponible");
         }
         $sujet->setOnline(false);
-        $this->session->getFlashBag()->add('success', "Le sujet a bien été fermée, have peace !");
+        $this->session->getFlashBag()->add('success_forums', "Le sujet a bien été fermée, have peace !");
     }
 
     /**

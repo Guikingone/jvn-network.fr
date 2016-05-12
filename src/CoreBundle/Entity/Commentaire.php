@@ -46,7 +46,6 @@ class Commentaire
     /**
     * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\Article", cascade={"remove", "persist"}, inversedBy="commentaires")
     * @ORM\JoinColumn(nullable=false)
-    * On force la présence d'un article pour la création d'un commentaire
     */
     private $article;
 
