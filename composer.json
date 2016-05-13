@@ -4,17 +4,11 @@
     "license": "proprietary",
     "type": "project",
     "autoload": {
-        "psr-4": {
-            "": "src/"
+        "psr-4": { "": "src/" },
+            "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
         },
-        "files": [
-            "app/AppKernel.php"
-        ]
-    },
     "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "tests/"
-        }
+        "psr-4": { "Tests\\": "tests/" }
     },
     "require": {
         "php": ">=5.5.9",
@@ -37,7 +31,7 @@
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
-        "symfony/phpunit-bridge": "^2.7"
+        "symfony/phpunit-bridge": "^3.0"
     },
     "scripts": {
         "post-install-cmd": [
@@ -56,6 +50,11 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ]
+    },
+    "config": {
+        "platform": {
+            "php": "5.5.9"
+        }
     },
     "extra": {
         "symfony-app-dir": "app",
