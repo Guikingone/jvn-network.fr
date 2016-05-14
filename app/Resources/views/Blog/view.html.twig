@@ -1,5 +1,7 @@
 {% extends('::layout.html.twig')%}
 
+{% block title %} {{ article.titre }} {% endblock %}
+
 {% block body %}
 <div class="container">
   <div class="row">
@@ -22,17 +24,19 @@
         </div>
       {% endfor %}
     </div>
-    {% if is_granted('IS_AUTHENTICATED_FULLY')%}
-    <div class="row well">
-      {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
-      {{ form_errors(form) }}
-      <div class="form-group">
-        {{ form_label(form.contenu, "Commenter", {'label_attr': {'class': 'control-label'}}) }}
-        {{ form_errors(form.contenu) }}
-        {{ form_widget(form.contenu, {'attr': {'class': 'form-control'}})}}
-      </div>
-      {{ form_end(form) }}
-    </div>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') and article.online != true %}
+        <div class="row well">
+          {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+          {{ form_errors(form) }}
+          <div class="form-group">
+            {{ form_label(form.contenu, "Commenter", {'label_attr': {'class': 'control-label'}}) }}
+            {{ form_errors(form.contenu) }}
+            {{ form_widget(form.contenu, {'attr': {'class': 'form-control'}})}}
+          </div>
+          {{ form_end(form) }}
+        </div>
+      {% else %}
+      <p class="red-text center-align"><strong>Cet article a été bloqué par son auteur ou par la modération, les commentaires ne sont plus acceptés.</strong></p>
     {% endif %}
   </div>
 </div>

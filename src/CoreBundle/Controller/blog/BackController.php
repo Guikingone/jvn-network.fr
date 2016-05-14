@@ -12,51 +12,6 @@ use CoreBundle\Entity\Article;
 class BackController extends Controller
 {
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/krma/admin", name="krma_admin")
-     * @Template("Blog\Krma\admin.html.twig")
-     */
-    public function adminKrmaAction(Request $request)
-    {
-        $article = $this->get('core.back')->index('KRMA');
-        $form = $this->get('core.back')->addArticle($request, 'KRMA');
-        return array('article' => $article, 'form' => $form->createView());
-    }
-
-    /**
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/membre/admin", name="membre_admin")
-     * @Template("Blog\Membre\admin.html.twig")
-     */
-    public function adminMembreAction(Request $request)
-    {
-        $article = $this->get('core.back')->index('MEMBRE');
-        $form = $this->get('core.back')->addArticle($request, 'MEMBRE');
-        return array('article' => $article, 'form' => $form->createView());
-    }
-
-    /**
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/equipe/admin", name="equipe_admin")
-     * @Template("Blog\Team\admin.html.twig")
-     */
-    public function adminEquipeAction(Request $request)
-    {
-        $article = $this->get('core.back')->index('TEAM');
-        $form = $this->get('core.back')->addArticle($request, 'TEAM');
-        $membre = $this->getDoctrine()->getManager()->getRepository('UserBundle:User')->getUser();
-        $commentaire = $this->getDoctrine()->getManager()->getRepository('CoreBundle:Commentaire')->getCommentaires();
-        return array(
-            'article' => $article,
-            'form' => $form->createView(),
-            'membre' => $membre,
-            'commentaire' => $commentaire
-        );
-    }
-
-    /**
      * @param Request $request
      * @param Article $article
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
@@ -96,6 +51,35 @@ class BackController extends Controller
         $form = $this->get('core.back')->updateArticle($request, $article);
         $this->redirectToRoute('membre_admin');
         return array('form' => $form->createView(), 'article' => $article);
+    }
+
+    /**
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route("/admin/lock/{id}", name="back_lock", requirements={"id": "\d+"})
+     */
+    public function lockArticleAction(Request $request, $id)
+    {
+        $this->get('core.back')->lockArticle($id);
+        $referer = $request->headers->get('referer');
+        $router = $this->get('router');
+        $route = $router->match($referer);
+        return $this->redirectToRoute($route);
+    }
+
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route("/admin/unlock/{id}", name="back_unlock", requirements={"id": "\d+"})
+     */
+    public function unlockArticleAction(Request $request, $id)
+    {
+        $this->get('core.back')->unlockArticle($id);
+        $referer = $request->headers->get('referer');
+        $router = $this->get('router');
+        $route = $router->match('referer');
+        return $this->redirectToRoute($route);
     }
 
     /**

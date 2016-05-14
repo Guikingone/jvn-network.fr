@@ -78,7 +78,7 @@ class Back
      * @param $string
      * @return mixed
      *
-     * Allow to slugify the titre of a article or a subject
+     * Allow to slugify the titre of a article or a subject.
      */
     public function slugify($string)
     {
@@ -198,6 +198,21 @@ class Back
         }
         $lock->setOnline(false);
         $this->session->getFlashBag()->add('success', "L'article a bien été mis hors ligne.");
+    }
+
+    /**
+     * @param $id
+     *
+     * Allow to unlock a article using is $id.
+     */
+    public function unlockArticle($id)
+    {
+        $unlock = $this->doctrine->getRepository('CoreBundle:Article')->find($id);
+        if($unlock === null){
+            throw new Exception('danger', "L'article n'existe pas ou a été supprimée !");
+        }
+        $unlock->setOnline(true);
+        $this->session->getFlashBag()->add('success', "L'article a bien été mis en ligne");
     }
 
     /**

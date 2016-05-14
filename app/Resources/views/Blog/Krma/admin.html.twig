@@ -1,5 +1,6 @@
 {% extends ('::layout.html.twig')%}
 
+{% block title %} Espace d'administration{% endblock %}
 {% block body %}
 <div class="container">
     <div class="row">
@@ -14,7 +15,7 @@
       {% endfor %}
       <div class="row">
         <br>
-          <div class="col s8 col offset-s2 col m6 col offset-m3">
+          <div class="col s12 col m12 col l12">
               <ul class="nav nav-tabs nav-justified">
                   <li class="active"><a href="#articles" data-toggle="tab">Articles</a></li>
                   <li><a href="#comments" data-toggle="tab">Commentaires</a></li>
@@ -43,18 +44,28 @@
                         <td>{{ article.datePublication | date('d/m/Y')}}</td>
                         <td>{{ article.auteur }}</td>
                         <td>
-                          <a href="{{ path('krma_delete', {'id': article.id }) }}" class="waves-effect waves-light btn red darken-1">
-                            <i class="fa fa-exclamation-triangle"></i>
-                             Supprimer
-                           </a>
-                          <a class="waves-effect waves-light btn brown lighten-2" href="{{ path('krma_update', {'id': article.id }) }}">
-                            <i class="fa fa-wrench"></i>
-                             Modifier
-                           </a>
-                            <a class="waves-effect waves-light btn orange darken-1">
-                                <i class="fa fa-wrench"></i>
-                                Mettre hors ligne
+                            <a class="btn-floating btn-large waves-effect waves-light red" href="{{ path('krma_delete', {'id': article.id }) }}">
+                                <i class="material-icons">
+                                    delete
+                                </i>
                             </a>
+                            <a class="btn-floating btn-large waves-effect waves-light orange" href="{{ path('krma_update', {'id': article.id }) }}">
+                                <i class="material-icons">
+                                    edit
+                                </i>
+                            </a>
+                            <a class="btn-floating btn-large waves-effect waves-light grey" href="{{ path('back_lock', {'id': article.id }) }}">
+                                <i class="material-icons">
+                                    lock
+                                </i>
+                            </a>
+                            {% if article.online != true %}
+                            <a class="btn-floating btn-large waves-effect waves-light green" href="{{ path('back_unlock', {'id': article.id }) }}">
+                                <i class="material-icons">
+                                    lock_open
+                                </i>
+                            </a>
+                            {% endif %}
                         </td>
                       </tr>
                   {% endfor %}
@@ -81,7 +92,7 @@
                   </div>
                   <br>
                   <div class="form-group">
-                      {{ form_label(form.save, "Enregistrer") }}
+                      {{ form_label(form.save) }}
                       {{ form_widget(form.save, {'attr': {'class': 'btn waves-effect waves-light', 'type': 'submit'}}) }}
                   </div>
                   {{ form_end(form) }}
