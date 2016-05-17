@@ -5,39 +5,57 @@
 {% block body %}
 <div class="container">
   <div class="row">
-    <a href="{{ path('home')}}">Retour à l'accueil</a>
-    <h2 class="text-center">{{ article.titre }}</h2>
+    {% for message in app.session.flashbag.get('success_article') %}
+      <div class="alert alert-success">Message flash : {{message}}</div>
+    {% endfor %}
+      <a href="{{ path('home')}}" class="btn-floating btn-large waves-effect waves-light red">
+        <i class="material-icons">home</i>
+      </a>
+    <h3 class="text-center">{{ article.titre }}</h3>
       {% if article.imageFile is not null %}
-        <img src="{{ asset(article.imageFile) }}" alt="{{ article.imageFile }}" class="responsive-img">
+        <img src="{{ asset(article.imageFile) }}" alt="{{ article.imageName }}" class="responsive-img">
       {% endif %}
-    <p class="text-center">Par <strong>{{ article.auteur }}</strong>, le {{ article.datePublication|date('d/m/Y')}}</p>
+    <p class="center-align">Par <strong>{{ article.auteur }}</strong>, le {{ article.datePublication|date('d/m/Y')}}</p>
     <hr />
-    <p class="text-center">{{ article.contenu|raw }}</p>
+    <p>{{ article.contenu|raw }}</p>
     <br>
+      <p><strong>Tags :</strong></p>
+        <div class="chip">
+          {{ article.categorie }}
+        </div>
     <br>
     <br>
     <div class="row">
-      {% for commentaire in commentaire %}
-        <div class="text-center">
-          <h3>{{ commentaire.auteur }}</h3>
-          <p class="text-center">{{ commentaire.contenu|raw }}</p>
-        </div>
-      {% endfor %}
+      <ul class="collapsible popout" data-collapsible="accordion">
+        {% for commentaire in commentaire %}
+          <li>
+            <div class="collapsible-header">{{ commentaire.auteur }}</div>
+            <div class="collapsible-body"><p>{{ commentaire.contenu|raw }}</p></div>
+          </li>
+        {% endfor %}
+      </ul>
     </div>
-    {% if is_granted('IS_AUTHENTICATED_FULLY') and article.online != true %}
-        <div class="row well">
-          {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
-          {{ form_errors(form) }}
-          <div class="form-group">
-            {{ form_label(form.contenu, "Commenter", {'label_attr': {'class': 'control-label'}}) }}
-            {{ form_errors(form.contenu) }}
-            {{ form_widget(form.contenu, {'attr': {'class': 'form-control'}})}}
+      {% if is_granted('IS_AUTHENTICATED_FULLY') and article.online != false %}
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Commenter</a>
+        <!-- Modal used for commentary -->
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+            {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+            {{ form_errors(form) }}
+            <div class="form-group">
+              {{ form_label(form.contenu, "Commenter", {'label_attr': {'class': 'control-label'}}) }}
+              {{ form_errors(form.contenu) }}
+              {{ form_widget(form.contenu, {'attr': {'class': 'form-control'}})}}
+            </div>
+            {{ form_end(form) }}
           </div>
-          {{ form_end(form) }}
-        </div>
-      {% else %}
-      <p class="red-text center-align"><strong>Cet article a été bloqué par son auteur ou par la modération, les commentaires ne sont plus acceptés.</strong></p>
-    {% endif %}
+          <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat red darken-4 white-text">Annuler</a>
+          </div>
+        {% else %}
+        <p class="red-text center-align"><strong>Cet article a été bloqué par son auteur ou par la modération, les commentaires ne sont plus acceptés.</strong></p>
+      {% endif %}
+    </div>
   </div>
 </div>
 {% endblock %}

@@ -1,10 +1,12 @@
 {% extends ('::layout.html.twig')%}
 
+{% block title %} Le blog de Krma TV {% endblock %}
+
 {% block body %}
     <div class="container">
       <div class="row">
         <div class="col s12">
-          <h2 class="text-center">Le blog de Krma TV</h2>
+          <h2 class="center-align">Le blog de Krma TV</h2>
           <hr />
           {% for article in article %}
             <article>

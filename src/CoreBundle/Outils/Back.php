@@ -157,7 +157,7 @@ class Back
         if($form->isValid()){
             $this->doctrine->persist($commentaire);
             $this->doctrine->flush();
-            $this->session->getFlashBag()->add('success', "Le message a bien été ajouté");
+            $this->session->getFlashBag()->add('success_article', "Le message a bien été ajouté");
         }
         return $form;
     }
@@ -300,7 +300,7 @@ class Back
         $form->handleRequest($request);
         if ($form->isValid()) {
             $this->doctrine->flush();
-            $this->session->getFlashBag()->add('success', "Le sujet a bien été modifiée");
+            $this->session->getFlashBag()->add('success_forums', "Le sujet a bien été modifiée");
             return $this->router->generate('forums');
         }
         return $form;
@@ -359,7 +359,7 @@ class Back
         $purge = $this->doctrine->getRepository('CoreBundle:Sujet')->find($id);
         $this->doctrine->remove($purge);
         $this->doctrine->flush();
-        $this->session->getFlashBag()->add('success', "Le sujet a bien été supprimé.");
+        $this->session->getFlashBag()->add('success_forums', "Le sujet a bien été supprimé.");
     }
 
     /**
@@ -372,6 +372,6 @@ class Back
         $purge = $this->doctrine->getRepository('CoreBundle:Message')->find($id);
         $this->doctrine->remove($purge);
         $this->doctrine->flush();
-        $this->session->getFlashBag()->add('success', "Le message a bien été supprimé.");
+        $this->session->getFlashBag()->add('success_forums', "Le message a bien été supprimé.");
     }
 }
