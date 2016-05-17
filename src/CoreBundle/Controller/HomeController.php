@@ -9,12 +9,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class HomeController extends Controller
 {
     /**
-     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/", name="home")
      * @Template("basics\home.html.twig")
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
       $article = $this->get('core.back')->index('MEMBRE');
       return array( 'article' => $article );

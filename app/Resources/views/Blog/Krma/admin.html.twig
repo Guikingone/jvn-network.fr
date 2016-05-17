@@ -59,13 +59,6 @@
                                     lock
                                 </i>
                             </a>
-                            {% if article.online != true %}
-                            <a class="btn-floating btn-large waves-effect waves-light green" href="{{ path('back_unlock', {'id': article.id }) }}">
-                                <i class="material-icons">
-                                    lock_open
-                                </i>
-                            </a>
-                            {% endif %}
                         </td>
                       </tr>
                   {% endfor %}

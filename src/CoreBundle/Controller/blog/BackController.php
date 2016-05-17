@@ -4,6 +4,7 @@ namespace CoreBundle\Controller\Blog;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
@@ -51,35 +52,6 @@ class BackController extends Controller
         $form = $this->get('core.back')->updateArticle($request, $article);
         $this->redirectToRoute('membre_admin');
         return array('form' => $form->createView(), 'article' => $article);
-    }
-
-    /**
-     * @param $id
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     * @Route("/admin/lock/{id}", name="back_lock", requirements={"id": "\d+"})
-     */
-    public function lockArticleAction(Request $request, $id)
-    {
-        $this->get('core.back')->lockArticle($id);
-        $referer = $request->headers->get('referer');
-        $router = $this->get('router');
-        $route = $router->match($referer);
-        return $this->redirectToRoute($route);
-    }
-
-    /**
-     * @param Request $request
-     * @param $id
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     * @Route("/admin/unlock/{id}", name="back_unlock", requirements={"id": "\d+"})
-     */
-    public function unlockArticleAction(Request $request, $id)
-    {
-        $this->get('core.back')->unlockArticle($id);
-        $referer = $request->headers->get('referer');
-        $router = $this->get('router');
-        $route = $router->match('referer');
-        return $this->redirectToRoute($route);
     }
 
     /**

@@ -352,7 +352,7 @@ class Back
     /**
      * @param $id
      *
-     * Allow to delete a subject using is $id
+     * Allow to delete a subject using is $id.
      */
     public function deleteSujet($id)
     {
@@ -365,7 +365,7 @@ class Back
     /**
      * @param $id
      *
-     * Allow to delete a message using is $id
+     * Allow to delete a message using is $id.
      */
     public function deleteMessage($id)
     {

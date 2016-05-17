@@ -39,7 +39,7 @@
                     <td>{{ article.datePublication | date('d/m/Y')}}</td>
                     <td>{{ article.auteur }}</td>
                     <td>
-                        <a class="btn-floating btn-large waves-effect waves-light red" href="{{ path('krma_delete', {'id': article.id }) }}">
+                        <a class="btn-floating btn-large waves-effect waves-light red" href="{{ path('equipe_delete', {'id': article.id }) }}">
                             <i class="material-icons">
                                 delete
                             </i>
@@ -47,16 +47,6 @@
                         <a class="btn-floating btn-large waves-effect waves-light orange" href="{{ path('krma_update', {'id': article.id }) }}">
                             <i class="material-icons">
                                 edit
-                            </i>
-                        </a>
-                        <a class="btn-floating btn-large waves-effect waves-light grey" href="{{ path('back_lock', {'id': article.id }) }}">
-                            <i class="material-icons">
-                                lock
-                            </i>
-                        </a>
-                        <a class="btn-floating btn-large waves-effect waves-light green" href="{{ path('krma_delete', {'id': article.id }) }}">
-                            <i class="material-icons">
-                                lock_open
                             </i>
                         </a>
                     </td>
