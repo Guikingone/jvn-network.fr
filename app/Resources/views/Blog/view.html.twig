@@ -25,6 +25,13 @@
         </div>
     <br>
     <br>
+    <div
+            class="fb-like"
+            data-share="true"
+            data-width="450"
+            data-show-faces="true">
+    </div>
+    <br>
     <div class="row">
       <ul class="collapsible popout" data-collapsible="accordion">
         {% for commentaire in commentaire %}
@@ -53,9 +60,33 @@
             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat red darken-4 white-text">Annuler</a>
           </div>
         {% else %}
-        <p class="red-text center-align"><strong>Cet article a été bloqué par son auteur ou par la modération, les commentaires ne sont plus acceptés.</strong></p>
+        <p class="red-text center-align">
+          <strong>
+            Vous ne semblez pas connecté pour pouvoir commenter, il se peut aussi que cet article a été bloqué par son auteur ou par la modération, merci de vous connecter.
+          </strong>
+        </p>
       {% endif %}
     </div>
   </div>
 </div>
+{% endblock %}
+{% block javascript %}
+  {{ parent() }}
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '259849244404139',
+        xfbml      : true,
+        version    : 'v2.6'
+      });
+    };
+
+    (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
 {% endblock %}
