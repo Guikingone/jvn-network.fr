@@ -104,7 +104,7 @@ textarea {
 	}
 
   .img_hero{
-    margin-top: -450px;
+    margin-top: -25px;
   }
 
 /* ==========================================================================
@@ -120,13 +120,13 @@ textarea {
 		}
 		.navbar-default .navbar-brand {
 			font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
-			color: #d04040;
+			color: #B71C1C;
 		}
 		.navbar-default .navbar-brand:hover,
 		.navbar-default .navbar-brand:focus,
 		.navbar-default .navbar-brand:active,
 		.navbar-default .navbar-brand.active {
-			color: #9d9696;
+			color: #9E9E9E;
 		}
 		.navbar-default .navbar-collapse {
 			border-color: transparent;
@@ -136,7 +136,7 @@ textarea {
 			border-color: transparent;
 		}
 		.navbar-default .navbar-toggle .icon-bar {
-			background-color: #d04040;
+			background-color: #B71C1C;
 		}
 		.navbar-default .navbar-toggle:hover,
 		.navbar-default .navbar-toggle:focus {
@@ -147,24 +147,24 @@ textarea {
 			font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
 			font-weight: 400;
 			letter-spacing: 1px;
-			color: #d04040;
+			color: #B71C1C;
 		}
             .navbar-default .nav li a:hover,
             .navbar-default .nav li a:focus {
                 outline: 0;
-                color: #9d9696;
+                color: #9E9E9E;
             }
 
 		.navbar-default .navbar-nav>.active>a {
 			border-radius: 0;
 			color: transparent;
-			background-color: #9d9696;
+			background-color: #9E9E9E;
 		}
 
 		.navbar-default .navbar-nav>.active>a:hover,
 		.navbar-default .navbar-nav>.active>a:focus {
 			color: transparent;
-			background-color: #9d9696;
+			background-color: #9E9E9E;
 		}
 /* ==========================================================================
     Topbar User style
@@ -324,7 +324,6 @@ textarea {
 header {
     text-align: center;
     color: #d04040;
-    background-image: url();
 }
 
 header .intro-text {
@@ -380,7 +379,6 @@ header .intro-text .intro-heading {
 .demo-card-wide > .mdl-card__title {
 	color: #fff;
 	height: 176px;
-	background: url('../assets/demos/welcome_card.jpg') center / cover;
 }
 .demo-card-wide > .mdl-card__menu {
 	color: #fff;
