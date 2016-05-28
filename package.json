@@ -4,6 +4,16 @@
   "description": "List of dependencies",
   "dependencies": {
     "express": "^4.13.4",
+    "gulp": "^3.9.1",
+    "gulp-if": "^2.0",
+    "gulp-less": "^3.0",
+    "gulp-sass": "^2.2",
+    "gulp-watch": "^4.3",
+    "gulp-concat": "^2.6",
+    "gulp-uglyfly": "^1.4",
+    "gulp-clean-css": "^2.0",
+    "gulp-sourcemaps": "^1.6",
+    "gulp-autoprefixer": "^3.1",
     "socket.io": "^1.4.6"
   }
 }
