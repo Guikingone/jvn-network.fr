@@ -113,74 +113,31 @@ textarea {
 
     .demo-layout-transparent .mdl-layout__header,
     .demo-layout-transparent .mdl-layout__drawer-button {
-        /* This background is dark, so we set text to white. Use 87% black instead if
-           your background is light. */
         color: white;
     }
 
-/* ==========================================================================
-    Style layout.html.twig
-   ========================================================================== */
-    .imh-hero
+    .mdl-layout__header
     {
-        max-height: 200px;
+        background-color: #B71C1C;
     }
-/* ==========================================================================
-    Style InfoBar
-   ========================================================================== */
 
-.info-bar {
-	margin:0;
-	border:0;
-	color:#000;
-	background-color:rgba(0,0,0,0.05);
-	padding:10px 0;
-}
-.info-bar div.row>div {
-	padding-top:20px;
-	padding-bottom:20px;
-	margin:0 !important;
-	border-right:rgba(0,0,0,0.1) 1px solid;
-}
-.info-bar div.row>div:last-child {
-	border:0;
-}
-.info-bar div.row>div i {
-	color:#333;
-	font-size:32px;
-	line-height: 1.2;
-	margin-right:10px;
-	float:left;
-}
-.info-bar h1,
-.info-bar h2,
-.info-bar h3,
-.info-bar h4,
-.info-bar h5,
-.info-bar h6,
-.info-bar p {
-	color:#333;
-	font-size:16px;
-	line-height:1.5;
-	margin:0;
-	padding:0;
-}
-.info-bar p {
-	font-size: 12px;
-	line-height:1;
-}
-.info-bar.info-bar-clean {
-	background-color:#fff;
-	border-bottom: rgba(0,0,0,0.1) 1px solid;
-}
+    .mdl-layout-title a,
+    .mdl-layout__header nav a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .user-dropdown {
+        display: flex;
+        position: relative;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+    }
 
 /* ==========================================================================
 
    ========================================================================== */
-header {
-    text-align: center;
-    color: #d04040;
-}
 
 header .intro-text {
     padding-top: 100px;
@@ -229,25 +186,25 @@ header .intro-text .intro-heading {
 }
 
 
-.demo-card-wide.mdl-card {
-	width: 512px;
-}
-.demo-card-wide > .mdl-card__title {
-	color: #fff;
-	height: 176px;
-}
-.demo-card-wide > .mdl-card__menu {
-	color: #fff;
-}
+    .demo-card-wide.mdl-card {
+        width: 512px;
+    }
+    .demo-card-wide > .mdl-card__title {
+        color: #fff;
+        height: 176px;
+    }
+    .demo-card-wide > .mdl-card__menu {
+        color: #fff;
+    }
 
 /* ==========================================================================
 	Boutique
    ========================================================================== */
 
-.bloc_waiting
-{
-	margin-top: 300px;
-}
+    .bloc_waiting
+    {
+        margin-top: 300px;
+    }
 /* ==========================================================================
    Helper classes
    ========================================================================== */
