@@ -13,6 +13,10 @@ Dans le cadre d'un commit en attente de validation sur master :
 
 - git commit -m "[!-C] || ------------ "
 
+Dans le cadre d'un commit rapide sur master qui ne nécessite pas de vérification :
+
+- git commit -m "[!C !F] || ------------ "
+
 Dans le cadre d'un commit sur une branche tierce :
 
 - git commit -m "[!TB] || ----------- "

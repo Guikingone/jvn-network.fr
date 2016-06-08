@@ -112,7 +112,8 @@ textarea {
    ========================================================================== */
 
     .demo-layout-transparent .mdl-layout__header,
-    .demo-layout-transparent .mdl-layout__drawer-button {
+    .demo-layout-transparent .mdl-layout__drawer-button
+    {
         color: white;
     }
 
@@ -122,17 +123,20 @@ textarea {
     }
 
     .mdl-layout-title a,
-    .mdl-layout__header nav a {
+    .mdl-layout__header nav a
+    {
         color: white;
         text-decoration: none;
     }
+    .mdl-layout__header nav ul li a
+    {
+        color: black;
+        text-decoration: none;
+    }
 
-    .user-dropdown {
-        display: flex;
-        position: relative;
-        flex-direction: row;
-        align-items: center;
-        width: 100%;
+    .mdl-layout__drawer a
+    {
+        text-decoration: none;
     }
 
 /* ==========================================================================
