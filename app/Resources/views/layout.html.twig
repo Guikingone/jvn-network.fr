@@ -5,106 +5,81 @@
      <title>{% block title %}JVN-Network.fr - Là où la communauté prend les commandes{% endblock %}</title>
      {% block stylesheets %}
          <link href="{{ asset('css/Bootstrap/bootstrap.min.css') }}" rel="stylesheet">
-         <link href="{{ asset('assets/vendor/Materialize/dist/css/materialize.min.css') }}" rel="stylesheet">
          <link href="{{ asset('css/main.css') }}" rel="stylesheet">
          <link href="{{ asset('css/normalize.css') }}" rel="stylesheet">
+         <link href="{{ asset('assets/vendor/material-design-lite/material.css') }}" rel="stylesheet">
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
          <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
      {% endblock %}
      <script src="{{ asset('js/vendor/modernizr-2.8.3.min.js')}}"></script>
  </head>
 <body>
-<header>
-  <!-- Navbar Utilisateur -->
-  <div id="wrapper">
-    <div id="topBar">
-      <div class="container">
-        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-          <ul class="top-links list-inline pull-right">
-            <li class="text-welcome hidden-xs">Bienvenue sur JVN, <strong>{{app.user.username}}</strong></li>
-            <li>
-              <a class="dropdown-toggle no-text-underline" data-toggle="dropdown" href="">Mon compte</a>
-              <ul class="dropdown-menu pull-right">
-                <li><a tabindex="-1" href="{{ url('fos_user_profile_show') }}"><i class="fa fa-user"></i>Mon profil</a></li>
-                {% if is_granted('ROLE_TEAM')%}
-                  <li><a tabindex="-1" href="{{ url('equipe_admin') }}"><i class="fa fa-desktop"></i>Back office Team</a></li>
-                  <li><a tabindex="-1" href="{{ url('membre_admin') }}"><i class="fa fa-desktop"></i>Back Office Membre</a></li>
-                  <li><a tabindex="-1" href="{{ url('krma_admin') }}"><i class="fa fa-desktop"></i>Back Office Krma</a></li>
-                {% elseif is_granted('ROLE_ADMIN')%}
-                  <li><a tabindex="-1" href="#"><i class="fa fa-desktop"></i>Administration</a></li>
-                  <li><a tabindex="-1" href="{{ url('membre_admin') }}"><i class="fa fa-desktop"></i>Blog Membre</a></li>
-                {% elseif is_granted('ROLE_KRMA')%}
-                  <li><a tabindex="-1" href="{{ url('krma_admin') }}"><i class="fa fa-desktop"></i>Back Office || KRMA Blog</a></li>
-                {% elseif is_granted('ROLE_AUTEUR')%}
-                  <li><a tabindex="-1" href="{{ url('membre_admin') }}"><i class="fa fa-desktop"></i>Back Office || MEMBRE Blog</a></li>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">JVN-Network</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <button id="demo-menu-lower-right"
+                        class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">more_vert</i>
+                </button>
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                        for="demo-menu-lower-right">
+                        <li class="mdl-menu__item"><a href="{{ path('fos_user_profile_show') }}">Mon profil</a></li>
+                        {% if is_granted('ROLE_TEAM')%}
+                            <li class="mdl-menu__item"><a href="{{ url('equipe_admin') }}"><i class="fa fa-desktop"></i>Back office Team</a></li>
+                            <li class="mld-menu__iten"><a href="{{ url('membre_admin') }}"><i class="fa fa-desktop"></i>Back Office Membre</a></li>
+                            <li class="mdl-menu__item mdl-menu__item--full-bleed-divider"><a href="{{ url('krma_admin') }}"><i class="fa fa-desktop"></i>Back Office Krma</a></li>
+                        {% elseif is_granted('ROLE_ADMIN')%}
+                            <li class="mdl-menu__item"><a href="{{ url('equipe_admin') }}"><i class="fa fa-desktop"></i>Back office Team</a></li>
+                            <li class="mdl-menu__item mdl-menu__item--full-bleed-divider"><a href="{{ url('membre_admin') }}"><i class="fa fa-desktop"></i>Back Office Membre</a></li>
+                        {% elseif is_granted('ROLE_KRMA')%}
+                            <li class="mdl-menu__item mdl-menu__item--full-bleed-divider"><a href="{{ url('krma_admin') }}"><i class="fa fa-desktop"></i>Back Office Krma</a></li>
+                        {% elseif is_granted('ROLE_AUTEUR')%}
+                            <li class="mdl-menu__item mdl-menu__item--full-bleed-divider"><a href="{{ url('membre_admin') }}"><i class="fa fa-desktop"></i>Back Office Membre</a></li>
+                        {% endif %}
+                        <li class="mdl-menu__item"><a href="#"><i class="fa fa-bookmark"></i>Mes commandes</a></li>
+                        <li class="mdl-menu__item"><a href="#"><i class="fa fa-tag"></i>Ma liste de souhait</a></li>
+                        <li class="mdl-menu__item mdl-menu__item--full-bleed-divider"><a href="#"><i class="fa fa-shopping-bag"></i>Mes articles</a></li>
+                        <li class="mdl-menu__item"><a href="{{ url('fos_user_security_logout') }}"><i class=" fa fa-sign-out"></i>Se déconnecter</a></li>
+                    </ul>
+                {% else %}
+                    <button id="demo-menu-lower-right"
+                            class="mdl-button mdl-js-button mdl-button--icon">
+                        <i class="material-icons">more_vert</i>
+                    </button>
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                        for="demo-menu-lower-right">
+                        <li class="mdl-menu__item"><a href="{{ path('fos_user_security_login') }}">Se connecter</a></li>
+                        <li class="mdl-menu__item"><a href="{{ path('fos_user_registration_register') }}">S'inscrire</a></li>
+                    </ul>
                 {% endif %}
-                <li class="divider"></li>
-                <li><a tabindex="-1" href="#"><i class="fa fa-bookmark"></i>Mes commandes</a></li>
-                <li><a tabindex="-1" href="#"><i class="fa fa-tag"></i>Ma liste de souhait</a></li>
-                <li><a tabindex="-1" href="#"><i class="fa fa-shopping-bag"></i>Mes articles</a></li>
-                <li class="divider"></li>
-                <li><a tabindex="-1" href="{{ url('fos_user_security_logout') }}"><i class=" fa fa-sign-out"></i>Se déconnecter</a></li>
-              </ul>
-            </li>
-          </ul>
-        {% else %}
-          <ul class="top-links list-inline pull-right">
-            <li>
-              <a href="{{ url('fos_user_registration_register') }}">S'inscrire</a>
-            </li>
-            <li>
-              <a href="{{ url('fos_user_security_login') }}">Se connecter</a>
-            </li>
-          </ul>
-        {% endif %}
-        <ul class="top-links list-inline">
-          <li class="hidden-xs"><a href="{{path('contact')}}">CONTACT</a></li>
-          <li class="hidden-xs"><a href="{{path('mentions')}}">Mention légales</a></li>
-        </ul>
-      </div>
+                <a class="mdl-navigation__link" href="#">Blogs</a>
+                <a class="mdl-navigation__link" href="{{ path('communaute') }}">Communauté</a>
+                <a class="mdl-navigation__link" href="{{ path('forums') }}">Forums</a>
+                <a class="mdl-navigation__link" href="{{ path('boutique') }}">Boutique</a>
+            </nav>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">JVN-Network</span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="#">Blogs</a>
+            <a class="mdl-navigation__link" href="{{ path('communaute') }}">Communauté</a>
+            <a class="mdl-navigation__link" href="{{ path('forums') }}">Forums</a>
+            <a class="mdl-navigation__link" href="{{ path('boutique') }}">Boutique</a>
+        </nav>
     </div>
-  <nav class="navbar navbar-default">
-  			<div class="container">
-  				<div class="navbar-header">
-  					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-  						<span class="sr-only">Toggle navigation</span>
-  						<span class="icon-bar"></span>
-  						<span class="icon-bar"></span>
-  						<span class="icon-bar"></span>
-  					</button>
-  					<a class="navbar-brand page-scroll" href="{{path('home')}}">JVN-Network</a>
-  				</div>
-  				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-  					<ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-  							<a data-toggle="dropdown" href="#">Blog<b class="caret"></b></a>
-  							<ul class="dropdown-menu">
-  								<li>
- 									<a href="{{path('equipe')}}">L'Equipe</a>
-  								</li>
-  								<li>
-  									<a href="{{path('krma')}}">Krma TV</a>
-  								</li>
-                        <li>
-                    <a href="{{path('membre_blog')}}">Les Membres</a>
-                  </li>
-							  </ul>
-  						</li>
-  						<li>
-  							<a href="{{path('communaute')}}">Communauté</a>
-  						</li>
-  						<li>
-  							<a href="{{path('forums')}}">Forums</a>
-  						</li>
-  						<li>
-  							<a href="{{path('boutique')}}">Boutique</a>
-  						</li>
-  					</ul>
-  				</div>
-  		</div>
-    </nav>
-  </div>
-</header>
+    <main class="mdl-layout__content">
+        <div class="page-content"><!-- Your content goes here --></div>
+    </main>
+</div>
+
   <!-- On affiche les messages flash -->
   {% for message in app.session.flashbag.get('info') %}
     <div class="alert alert-info text-center">Message flash : {{message}}</div>
@@ -116,6 +91,7 @@
     <script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>
     <script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.min.js')}}"></script>
     <script src="{{ asset('assets/vendor/Materialize/dist/js/materialize.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/material-design-lite/material.min.js') }}"></script>
     <script src="{{ asset('js/main.js')}}"></script>
     <script src="{{ asset('js/social/social.js')}}"></script>
 

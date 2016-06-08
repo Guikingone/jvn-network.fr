@@ -3,24 +3,24 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block fos_user_content %}
-  <div class="container">
-        <div class="row">
-          <div class="col s3 offset-s3 col s6 col s3 offset-s3">
+  <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet">
+          <br>
+          <br>
           <h3 class="center-align">Se connecter</h3>
           <hr />
-      {% if error %}
-          <div class="alert alert-danger center-align">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-      {% endif %}
-        <div class="input-field">
+          {% if error %}
+              <div class="alert alert-danger center-align">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+          {% endif %}
             <form action="{{ path("fos_user_security_check") }}" method="post" >
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-                <div class="form-group">
-                  <label for="username">{{ 'security.login.username'|trans }}</label>
-                  <input class="validate" type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <label class="mdl-textfield__label" for="username">{{ 'security.login.username'|trans }}</label>
+                  <input class="mdl-textfield__input" type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
                 </div>
-                <div class="input-field">
-                  <label for="password">{{ 'security.login.password'|trans }}</label>
-                  <input class="validate" type="password" id="password" name="_password" required="required" />
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <label class="mdl-textfield__label" for="password">{{ 'security.login.password'|trans }}</label>
+                  <input class="mdl-textfield__input" type="password" id="password" name="_password" required="required" />
                 </div>
                 <div class="input-field">
                   <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
@@ -31,9 +31,7 @@
             </form>
             <br>
             <a href="{{path('fos_user_resetting_check_email')}}" class="red-text">Mot de passe perdu ?</a>
-        </div>
      </div>
-    </div>
   </div>
 {% endblock fos_user_content %}
 

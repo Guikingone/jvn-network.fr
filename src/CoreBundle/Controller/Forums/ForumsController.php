@@ -90,10 +90,8 @@ class ForumsController extends Controller
     public function viewAction(Sujet $sujet, Request $request)
     {
         $form = $this->get('core.back')->viewSujet($request, $sujet);
-        $message = $this->getDoctrine()
-                        ->getManager()
-                        ->getRepository('CoreBundle:Message')
-                        ->findBy(array('sujet' => $sujet));
+        $message = $this->getDoctrine()->getManager()
+                        ->getRepository('CoreBundle:Message')->findBy(array('sujet' => $sujet));
         return array('sujet' => $sujet, 'message' => $message, 'form' => $form->createView());
     }
 
