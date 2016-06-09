@@ -1,20 +1,19 @@
 {% trans_default_domain 'FOSUserBundle' %}
-<div class="container">
-  <div class="row">
-    <div class="col-lg-offset-3 col-lg-6 col-lg-offset-3">
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--4-offset-desktop mdl-cell--2-col-desktop">
+        <br>
       <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request">
-          <div class="form-group">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
               {% if invalid_username is defined %}
                   <p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}) }}</p>
               {% endif %}
-              <label for="username">Votre nom d'utilisateur ou adresse email</label>
-              <input type="text" id="username" name="username" required="required" class="form-control" />
+              <label class="mdl-textfield__label" for="username">Votre adresse email</label>
+              <input type="text" id="username" name="username" required="required" class="mdl-textfield__input" />
           </div>
           <div>
             <br>
-              <input type="submit" value="{{ 'resetting.request.submit'|trans }}" class="btn btn-danger" />
+              <input type="submit" value="{{ 'resetting.request.submit'|trans }}" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" />
           </div>
       </form>
     </div>
-  </div>
 </div>

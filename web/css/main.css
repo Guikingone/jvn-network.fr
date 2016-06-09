@@ -100,12 +100,14 @@ textarea {
 
 	body {
 		overflow-x: hidden;
-		font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+		font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	}
 
-  .img_hero{
-    margin-top: -25px;
-  }
+    #_submit
+    {
+        background-color: #B71C1C;
+        color: white;
+    }
 
 /* ==========================================================================
     Navbar Style
@@ -209,6 +211,7 @@ header .intro-text .intro-heading {
     {
         margin-top: 300px;
     }
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */

@@ -1,16 +1,16 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
-
+{% block title %}Se connecter{% endblock %}
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block fos_user_content %}
   <div class="mdl-grid">
-      <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet">
+      <div class="mdl-cell mdl-cell--4-offset-desktop mdl-cell--4-desktop mdl-cell--8-col-tablet mdl-cell--1-offset-phone mdl-cell--2-col-phone">
           <br>
           <br>
-          <h3 class="center-align">Se connecter</h3>
+          <h3 class="mdl-typography--text-center">Se connecter</h3>
           <hr />
           {% if error %}
-              <div class="alert alert-danger center-align">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+              <div class="alert alert-danger mdl-typography--text-center">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
           {% endif %}
             <form action="{{ path("fos_user_security_check") }}" method="post" >
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
@@ -22,16 +22,21 @@
                   <label class="mdl-textfield__label" for="password">{{ 'security.login.password'|trans }}</label>
                   <input class="mdl-textfield__input" type="password" id="password" name="_password" required="required" />
                 </div>
-                <div class="input-field">
-                  <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                  <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
-                </div>
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="remember_me">
+                  <input class="mdl-checkbox__input" type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                    <span class="mdl-checkbox__label">{{ 'security.login.remember_me'|trans }}</span>
+                </label>
                 <br>
-                <input class="waves-effect waves-light btn red darken-4" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+                <br>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}">
+                    Se connecter
+                </button>
             </form>
             <br>
-            <a href="{{path('fos_user_resetting_check_email')}}" class="red-text">Mot de passe perdu ?</a>
      </div>
+      <div class="mdl-cell mdl-cell--5-offset-desktop mdl-cell--5-col-desktop mdl-cell--8-col-tablet mdl-cell--1-offset-phone mdl-cell--12-col-phone">
+        <a href="{{ path('fos_user_resetting_check_email') }}" class="mdl-typography--text-center">Mot de passe perdu ?</a>
+      </div>
   </div>
 {% endblock fos_user_content %}
 

@@ -1,33 +1,35 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<div class="container">
-  <div class="row">
-      <div class="col offset-s3 col s6 col offset-s33">
-        <h2 class="center-align">S'inscrire</h2>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--5-offset-desktop mdl-cell--2-col-desktop mdl-cell--4-offset-phone mdl-cell--2-col-phone">
+        <h2 class="mdl-typography--text-center">S'inscrire</h2>
         <hr />
-          <div class="input-field">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register form-horizontal'}}) }}
           </div>
-          <div class="input-field">
-            {{ form_label(form.username, "Votre pseudo", {'label_attr': {'class': 'control-label'}}) }}
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            {{ form_label(form.username, "Votre pseudo", {'label_attr': {'class': 'mdl-textfield__label'}}) }}
             {{ form_errors(form.username) }}
-            {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+            {{ form_widget(form.username, {'attr': {'class': 'mdl-textfield__input'}}) }}
           </div>
-          <div class="input-field">
-            {{ form_label(form.email, "Votre adresse mail", {'label_attr': {'class': 'control-label'}}) }}
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            {{ form_label(form.email, "Votre adresse mail", {'label_attr': {'class': 'mdl-textfield__label'}}) }}
             {{ form_errors(form.email) }}
-            {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+            {{ form_widget(form.email, {'attr': {'class': 'mdl-textfield__input'}}) }}
           </div>
-          <div class="input-field">
-            {{ form_label(form.plainPassword, "Mot de passe", {'label_attr': {'class': 'control-label'}}) }}
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            {{ form_label(form.plainPassword.first, "Mot de passe", {'label_attr': {'class': 'mdl-textfield__label'}}) }}
             {{ form_errors(form.plainPassword) }}
-            {{ form_widget(form.plainPassword) }}
+            {{ form_widget(form.plainPassword.first, {'attr': {'class': 'mdl-textfield__input'}}) }}
           </div>
-              <div class="input-field">
-                  <input class="btn btn-danger" type="submit" value="{{ 'registration.submit'|trans }}" />
-              </div>
-          {{ form_end(form) }}
-      </div>
-    </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            {{ form_label(form.plainPassword.second, "Veuillez confirmer votre mot de passe", {'label_attr': {'class': 'mdl-textfield__label'}}) }}
+            {{ form_errors(form.plainPassword) }}
+            {{ form_widget(form.plainPassword.second, {'attr': {'class': 'mdl-textfield__input'}}) }}
+          </div>
   </div>
+  <div class="mdl-cell mdl-cell--5-offset-desktop mdl-cell--1-col-desktop mdl-cell--4-offset-phone mdl-cell--12-col-phone">
+      <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit" value="{{ 'registration.submit'|trans }}" />
+  </div>
+  {{ form_end(form) }}
 </div>
