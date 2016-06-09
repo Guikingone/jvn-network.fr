@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>{% block title %}JVN-Network.fr - Là où la communauté prend les commandes{% endblock %}</title>
+    {% block stylesheets %}
+        <link href="{{ asset('assets/vendor/material-design-lite/material.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/normalize.css') }}" rel="stylesheet">
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    {% endblock %}
+    <script src="{{ asset('js/vendor/modernizr-2.8.3.min.js')}}"></script>
+</head>
+<body>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
+            mdl-layout--fixed-tabs">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title"><a href="{{ path('home') }}">JVN-Network</a></span>
+        </div>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+            <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Tab 1</a>
+            <a href="#fixed-tab-2" class="mdl-layout__tab">Tab 2</a>
+            <a href="#fixed-tab-3" class="mdl-layout__tab">Tab 3</a>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer">
+        <nav class="mdl-navigation">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <a class="mdl-navigation__link mdl-menu__item--full-bleed-divider" href="{{ path('fos_user_profile_show') }}">Mon profil</a></li>
+                {% if is_granted('ROLE_TEAM')%}
+                    <a class="mdl-navigation__link mdl-menu__item--full-bleed-divider" href="{{ url('equipe_admin') }}">Back Office</a>
+                {% elseif is_granted('ROLE_ADMIN')%}
+                    <a class="mdl-navigation__link" href="{{ url('equipe_admin') }}">Back office Team</a>
+                    <a class="mdl-navigation__link mdl-menu__item--full-bleed-divider" href="{{ url('membre_admin') }}">Back Office Membre</a>
+                {% elseif is_granted('ROLE_KRMA')%}
+                    <a class="mdl-navigation__link mdl-menu__item--full-bleed-divider" href="{{ url('krma_admin') }}">Back Office Krma</a>
+                {% elseif is_granted('ROLE_AUTEUR')%}
+                    <a class="mdl-navigation__link mdl-menu__item--full-bleed-divider" href="{{ url('membre_admin') }}">Back Office Membre</a>
+                {% endif %}
+                <a class="mdl-navigation__link" href="#">Mes commandes</a>
+                <a class="mdl-navigation__link" href="#">Ma liste de souhait</a>
+                <a class="mdl-navigation__link mdl-menu__item--full-bleed-divider" href="#">Mes achats</a>
+                <a class="mdl-navigation__link mdl-menu__item--full-bleed-divider" href="{{ url('fos_user_security_logout') }}">Se déconnecter</a>
+            {% else %}
+                <a class="mdl-navigation__link" href="{{ path('fos_user_security_login') }}">Se connecter</a>
+                <a class="mdl-navigation__link mdl-menu__item--full-bleed-divider" href="{{ path('fos_user_registration_register') }}">S'inscrire</a>
+            {% endif %}
+            <a class="mdl-navigation__link" href="{{ path('communaute') }}">Communauté</a>
+            <a class="mdl-navigation__link" href="{{ path('forums') }}">Forums</a>
+            <a class="mdl-navigation__link mdl-menu__item--full-bleed-divider" href="{{ path('boutique') }}">Boutique</a>
+            <a class="mdl-navigation__link" href="{{ path('contact') }}">Contact</a>
+            <a class="mdl-navigation__link" href="{{ path('mentions') }}">Mentions</a>
+        </nav>
+    </div>
+    <main class="mdl-layout__content">
+        <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+            <div class="page-content">
+                <!-- On affiche les messages flash -->
+                {% for message in app.session.flashbag.get('info_admin') %}
+                    <div class="alert alert-info text-center">Message flash : {{ message }}</div>
+                {% endfor %}
+                {% block body %}{% endblock %}
+            </div>
+        </section>
+        <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+            <div class="page-content">
+                <!-- On affiche les messages flash -->
+                {% for message in app.session.flashbag.get('info_admin') %}
+                    <div class="alert alert-info text-center">Message flash : {{ message }}</div>
+                {% endfor %}
+                {% block body_II %}{% endblock %}
+            </div>
+        </section>
+        <section class="mdl-layout__tab-panel" id="fixed-tab-3">
+            <div class="page-content">
+                <!-- On affiche les messages flash -->
+                {% for message in app.session.flashbag.get('info_admin') %}
+                    <div class="alert alert-info text-center">Message flash : {{ message }}</div>
+                {% endfor %}
+                {% block body_III %}{% endblock %}
+            </div>
+        </section>
+    </main>
+</div>
+{% block javascript %}
+    <script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>
+    <script src="{{ asset('assets/vendor/material-design-lite/material.min.js') }}"></script>
+    <script src="{{ asset('js/main.js')}}"></script>
+    <script src="{{ asset('js/social/social.js')}}"></script>
+
+    <!-- Chargement TinyMCE -->
+    <script src="{{ asset('js/tinymce/tinymce.min.js')}}"></script>
+    <script>tinymce.init({ selector:'textarea' })</script>
+
+    <!-- Outils Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-72251522-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+{% endblock %}
+</body>
+</html>

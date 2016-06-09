@@ -1,20 +1,19 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-offset-3 col-lg-6 col-lg-offset-3">
-      <h2 class="text-center">Modifier mon compte</h2>
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+      <h2 class="mdl-typography--text-center">Modifier mon compte</h2>
       <hr />
         {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
             {{ form_widget(form) }}
-            <div class="text-center">
-                <input class="btn btn-danger" type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+            <div class="mdl-typography--text-center">
+                <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit" value="{{ 'profile.edit.submit'|trans }}" />
             </div>
         {{ form_end(form) }}
         <br>
         <br>
-        <hr />
-        <a href="{{path('fos_user_change_password')}}" class="btn btn-danger">Changer de mot de passe</a>
+        <div class="mdl-typography--text-center">
+            <a href="{{path('fos_user_change_password')}}" class="mdl-button mdl-js-button mdl-button--raised mdl-js-button-ripple-effect">Changer de mot de passe</a>
+        </div>
     </div>
-  </div>
 </div>

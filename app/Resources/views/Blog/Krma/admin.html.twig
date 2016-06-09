@@ -1,102 +1,59 @@
-{% extends ('::layout.html.twig')%}
+{% extends ('::layout_admin.html.twig')%}
 
 {% block title %} Espace d'administration{% endblock %}
 {% block body %}
-<div class="container">
-    <div class="row">
-        <div class="col s12">
-            <p class="center-align">
-                <a href="{{path('krma')}}" class="waves-effect waves-light btn red darken-4">
-                    Retour au blog
-                </a>
-            </p>
-      {% for message in app.session.flashbag.get('success') %}
-        <div class="alert alert-success">Message flash : {{message}}</div>
-      {% endfor %}
-      <div class="row">
-        <br>
-          <div class="col s12 col m12 col l12">
-              <ul class="nav nav-tabs nav-justified">
-                  <li class="active"><a href="#articles" data-toggle="tab">Articles</a></li>
-                  <li><a href="#comments" data-toggle="tab">Commentaires</a></li>
-              </ul>
-          </div>
-      </div>
-  <div class="tab-content">
-      <div class="tab-pane fade in active adminTable" id="articles">
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+        <p class="mdl-typography--text-center">
+            <a href="{{path('krma')}}" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                Retour au blog
+            </a>
+        </p>
+        {% for message in app.session.flashbag.get('success') %}
+            <div class="alert alert-success">Message flash : {{message}}</div>
+        {% endfor %}
+        <div class="mdl-typography--text-center">
+            <h3>Espace d'administration</h3>
+            <hr>
+        </div>
+        <div class="mdl-typography--text-center">
+            <h4>Gestion des articles</h4>
+        </div>
         {% if article is not null %}
-          <div class="table-responsive">
-              <table class="table table-hover table-condensed">
-                <br>
-                  <thead>
-                      <tr>
-                          <th>Titre</th>
-                          <th>Contenu</th>
-                          <th>Date de publication</th>
-                          <th>Auteur</th>
-                          <th>Outils</th>
-                      </tr>
-                  </thead>
-                  {% for article in article %}
-                      <tr>
-                        <td>{{ article.titre }}</td>
-                        <td>{{ article.contenu[:45]|raw }}</td>
-                        <td>{{ article.datePublication | date('d/m/Y')}}</td>
-                        <td>{{ article.auteur }}</td>
+            <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                <thead>
+                    <tr>
+                        <th class="mdl-data-table__cell--non-numeric">Titre</th>
+                        <th class="mdl-data-table__cell--non-numeric">Contenu</th>
+                        <th class="mdl-data-table__cell--non-numeric">Date de publication</th>
+                        <th class="mdl-data-table__cell--non-numeric">Auteur</th>
+                        <th class="mdl-data-table__cell--non-numeric">Outils</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for article in article %}
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">{{ article.titre }}</td>
+                        <td class="mdl-data-table__cell--non-numeric">{{ article.contenu[:45]|raw }}</td>
+                        <td class="mdl-data-table__cell--non-numeric">{{ article.datePublication | date('d/m/Y')}}</td>
+                        <td class="mdl-data-table__cell--non-numeric">{{ article.auteur }}</td>
                         <td>
-                            <a class="btn-floating btn-large waves-effect waves-light red" href="{{ path('krma_delete', {'id': article.id }) }}">
+                            <a href="{{ path('krma_delete', {'id': article.id }) }}">
                                 <i class="material-icons">
                                     delete
                                 </i>
                             </a>
-                            <a class="btn-floating btn-large waves-effect waves-light orange" href="{{ path('krma_update', {'id': article.id }) }}">
+                            <a href="{{ path('krma_update', {'id': article.id }) }}">
                                 <i class="material-icons">
                                     edit
                                 </i>
                             </a>
                         </td>
-                      </tr>
-                  {% endfor %}
-              </table>
-          </div>
-          <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Créer un article</a>
-            <!-- Modal used for adding the article -->
-              <div id="modal1" class="modal">
-                  <div class="modal-content">
-                      {{ form_start(form, {'attr': {'class': 'form-horinzontal'}}) }}
-                      {{ form_errors(form) }}
-                      <div class="input-field">
-                          {{ form_label(form.titre, "Titre de l'article", {'label_attr': {'class': 'col-sm-4'}}) }}
-                          {{form_errors(form.titre)}}
-                          {{form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
-                      </div>
-                      <div class="form-group">
-                          {{ form_label(form.contenu, "Contenu de l'article", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
-                          {{ form_errors(form.contenu)}}
-                          {{ form_widget(form.contenu, {'attr': {'class': 'form-control'}}) }}
-                      </div>
-                      <div class="input-field">
-                          {{ form_widget(form.imageFile, {'attr': {'class': 'form-control'}}) }}
-                      </div>
-                      <br>
-                      <div class="form-group">
-                          {{ form_label(form.save) }}
-                          {{ form_widget(form.save, {'attr': {'class': 'btn waves-effect waves-light', 'type': 'submit'}}) }}
-                      </div>
-                      {{ form_end(form) }}
-                  </div>
-                  <div class="modal-footer">
-                      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat red darken-4 white-text">Annuler</a>
-                  </div>
-              </div>
-      </div>
-      {% else %}
-        <div class="alert alert-danger"><p>Articles introuvable</p></div>
-      {% endif %}
-      <div class="tab-pane fade adminTable" id="comments">
-      </div>
-  </div>
-        </div>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

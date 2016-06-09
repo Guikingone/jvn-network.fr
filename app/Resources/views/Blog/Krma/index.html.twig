@@ -3,27 +3,27 @@
 {% block title %} Le blog de Krma TV {% endblock %}
 
 {% block body %}
-    <div class="container">
-      <div class="row">
-        <div class="col s12">
-          <h2 class="center-align">Le blog de Krma TV</h2>
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+          <h2 class="mdl-typography--text-center">Le blog de Krma TV</h2>
           <hr />
           {% for article in article %}
             <article>
-              <div class="card white darken-1">
-                <div class="card-content black-text">
-                  <span class="card-title">{{ article.titre }}</span>
-                  <p>{{ article.contenu[:60]|raw }}</p>
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand">
+                  <h2 class="mdl-card__title-text">{{ article.titre }}</h2>
                 </div>
-                <div class="card-action">
-                  <a href="{{ path('home_view', {'id': article.id, 'slug': article.slug }) }}" class="red-text">
-                      Lire l'article
+                <div class="mdl-card__supporting-text">
+                  {{ article.contenu[:60]|raw }}
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="{{ path('home_view', {'id': article.id, 'slug': article.slug}) }}">
+                    Lire l'article
                   </a>
                 </div>
               </div>
             </article>
           {% endfor %}
         </div>
-      </div>
     </div>
 {% endblock %}

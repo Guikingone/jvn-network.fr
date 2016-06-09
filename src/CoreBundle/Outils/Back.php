@@ -96,8 +96,19 @@ class Back
      * @param $categorie
      * @return array
      *
-     * Allow the user to show every article persisted, the $categorie depend on the param passed
-     * from the controller.
+     * Allow the user to show every articles depending on the categorie $categorie passed, this method is used by
+     * the index page of the application in order to show the multiples articles from the differents blogs.
+     */
+    public function showArticles($categorie)
+    {
+        return $this->doctrine->getRepository('CoreBundle:Article')->showArticles($categorie);
+    }
+
+    /**
+     * @param $categorie
+     * @return array
+     *
+     * Allow to show the articles selected by a category, this method is used by the blog part of the application.
      */
     public function index($categorie)
     {

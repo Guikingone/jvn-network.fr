@@ -22,6 +22,17 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
                 ->getResult();
   }
 
+  public function showArticles($categorie)
+  {
+    return $this->createQueryBuilder('ab')
+                ->where('ab.categorie = :categorie')
+                  ->setParameter('categorie', array($categorie))
+                ->orderBy('ab.datePublication', 'DESC')
+                ->setMaxResults(3)
+                ->getQuery()
+                ->getResult();
+  }
+
   public function getUpdateArticle($id)
   {
       return $this->createQueryBuilder('a')

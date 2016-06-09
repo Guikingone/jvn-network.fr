@@ -109,6 +109,20 @@ textarea {
         color: white;
     }
 
+    /* Style relatif aux cartes d'affichage */
+
+    .demo-card-square.mdl-card {
+        width: 320px;
+        height: 320px;
+    }
+
+    .demo-card-square > .mdl-card__title {
+        color: #fff;
+        background:
+                url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
+    }
+
+
 /* ==========================================================================
     Navbar Style
    ========================================================================== */
@@ -139,6 +153,15 @@ textarea {
     .mdl-layout__drawer a
     {
         text-decoration: none;
+    }
+
+    .mdl-layout__tab-bar
+    {
+        background-color: #B71C1C;
+    }
+    .mdl-layout.is-upgraded .mdl-layout__tab.is-active::after
+    {
+        background: #FFFFFF;
     }
 
 /* ==========================================================================
@@ -190,18 +213,6 @@ header .intro-text .intro-heading {
         line-height: 75px;
     }
 }
-
-
-    .demo-card-wide.mdl-card {
-        width: 512px;
-    }
-    .demo-card-wide > .mdl-card__title {
-        color: #fff;
-        height: 176px;
-    }
-    .demo-card-wide > .mdl-card__menu {
-        color: #fff;
-    }
 
 /* ==========================================================================
 	Boutique

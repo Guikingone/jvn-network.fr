@@ -1,43 +1,25 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h2 class="text-center">Mon Compte</h2>
+  <div class="mdl-grid">
+    <div class="mdl -cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+      <h2 class="mdl-typography--text-center">Mon Compte</h2>
       <hr />
         <div class="fos_user_user_show">
-            <p class="text-center">{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
-            <p class="text-center">{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+            <p class="mdl-typography--text-center">{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
+            <p class="mdl-typography--text-center">{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <h2 class="text-center">Mes options</h2>
+        <h2 class="mdl-typography--text-center">Mes options</h2>
         <hr />
-        <div class="row">
-          <div class="col-lg-4">
-            <h3 class="text-center">Modifier mon compte</h3>
-            <hr />
-            <a href="{{path('fos_user_profile_edit')}}" class="btn btn-danger text-center">Modifier mon compte</a>
-          </div>
-          <div class="col-lg-4">
-            <h3 class="text-center">M'abonner</h3>
-            <hr />
-            <a href="#" class="btn btn-info">Choisir un abonnement</a>
-          </div>
-          <div class="col-lg-4">
-            <h3 class="text-center">Ma messagerie</h3>
-            <hr />
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <h2 class="text-center">Mes publications</h2>
+        <h3 class="mdl-typography--text-center">Modifier mon compte</h3>
+        <hr />
+        <a href="{{path('fos_user_profile_edit')}}" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Modifier mon compte</a>
+        <h3 class="mdl-typography--text-center">M'abonner</h3>
+        <hr />
+        <a href="#" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Choisir un abonnement</a>
+        <h3 class="mdl-typography--text-center">Ma messagerie</h3>
+        <hr />
+        <h2 class="mdl-typography--text-center">Mes publications</h2>
         <hr />
         <!-- Affichage des articles/Sujet publiés par l'auteur -->
-      </div>
     </div>
   </div>
