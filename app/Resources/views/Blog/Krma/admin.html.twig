@@ -13,12 +13,9 @@
             <div class="alert alert-success">Message flash : {{message}}</div>
         {% endfor %}
         <div class="mdl-typography--text-center">
-            <h3>Espace d'administration</h3>
-            <hr>
-        </div>
-        <div class="mdl-typography--text-center">
             <h4>Gestion des articles</h4>
         </div>
+        <hr />
         {% if article is not null %}
             <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
                 <thead>
@@ -32,6 +29,60 @@
                 </thead>
                 <tbody>
                 {% for article in article %}
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">{{ article.titre }}</td>
+                        <td class="mdl-data-table__cell--non-numeric">{{ article.contenu[:45]|raw }}</td>
+                        <td class="mdl-data-table__cell--non-numeric">{{ article.datePublication | date('d/m/Y')}}</td>
+                        <td class="mdl-data-table__cell--non-numeric">{{ article.auteur }}</td>
+                        <td>
+                            <a href="{{ path('krma_delete', {'id': article.id }) }}">
+                                <i class="material-icons">
+                                    delete
+                                </i>
+                            </a>
+                            <a href="{{ path('krma_update', {'id': article.id }) }}">
+                                <i class="material-icons">
+                                    edit
+                                </i>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block body_II %}
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+        <p class="mdl-typography--text-center">
+            <a href="{{path('krma')}}" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                Retour au blog
+            </a>
+        </p>
+        {% for message in app.session.flashbag.get('success') %}
+            <div class="alert alert-success">Message flash : {{message}}</div>
+        {% endfor %}
+        <div class="mdl-typography--text-center">
+            <h4>Gestion des commentaires</h4>
+        </div>
+        <hr />
+        {% if commentaire is not null %}
+            <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                <thead>
+                <tr>
+                    <th class="mdl-data-table__cell--non-numeric">Titre</th>
+                    <th class="mdl-data-table__cell--non-numeric">Contenu</th>
+                    <th class="mdl-data-table__cell--non-numeric">Date de publication</th>
+                    <th class="mdl-data-table__cell--non-numeric">Auteur</th>
+                    <th class="mdl-data-table__cell--non-numeric">Outils</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for commentaire in commentaire %}
                     <tr>
                         <td class="mdl-data-table__cell--non-numeric">{{ article.titre }}</td>
                         <td class="mdl-data-table__cell--non-numeric">{{ article.contenu[:45]|raw }}</td>
