@@ -111,6 +111,9 @@ textarea {
 
     /* Style relatif aux cartes d'affichage */
 
+    .demo-card-wide.mdl-card {
+         width: auto;
+     }
     .demo-card-square.mdl-card {
         width: 320px;
         height: 320px;

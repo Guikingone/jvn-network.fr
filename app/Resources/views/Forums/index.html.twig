@@ -1,80 +1,109 @@
 {% extends('::layout.html.twig')%}
+
 {% block title %}Les forums{% endblock %}
+
 {% block body %}
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--2-offset-desktop mdl-cell--8-col-desktop">
       {% for message in app.session.flashbag.get('success_forums') %}
-        <div class="alert alert-info text-center">Message flash : {{message}}</div>
+        <div class="alert alert-info mdl-typography--text-center">Message flash : {{message}}</div>
       {% endfor %}
-      <h2 class="text-center">Bienvenue sur les forums</h2>
+      <h2 class="mdl-typography--text-center">Bienvenue sur les forums</h2>
       <hr />
-      <p class="text-center">Veuillez noter que ces forums sont modérés par les modérateurs désignés
-      <a href="#" data-target="#myModal" data-toggle="modal">ici</a>, tout problème,
+      <p class="mdl-typography--text-center">Veuillez noter que ces forums sont modérés par les modérateurs désignés par l'équipe, tout problème,
         demande ou question concernant un sujet, un message ou une demande concernant ces forums doit être adressés aux modérateurs via MP/email,
-        le temps de réponse dépendra en grande partie du sujet de la demande.
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title text-center" id="myModalLabel">Les modérateurs</h4>
-              </div>
-              <div class="modal-body">
-                <ul>
-                  <li>
-                    <p>Guikingone (Equipe)</p>
-                  </li>
-                  <li>
-                    <p>Ptitburno (Equipe)</p>
-                  </li>
-                  <li>
-                    <p>Dyades (Equipe)</p>
-                  </li>
-                  <li>
-                    <p>Bokuwasugoi (Equipe)</p>
-                  </li>
-                </ul>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
+        le temps de réponse dépendra en grande partie du sujet de la demande
+        </p>
         <div id="fr_general">
           <hr />
-            <a href="{{path('general')}}" class="form-group"><p class="text-center">Forum Général</p></a>
-            <p class="text-center">Ici, tout ce dont vous auriez besoin est présent, une envie ? Une idée ? Quelque chose d'autre ?
-            Discutons-en !</p>
-          <hr />
+          <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__title">
+              <h2 class="mdl-card__title-text">Forum Généraliste</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+              Ici, tout ce dont vous auriez besoin est présent, une envie ? Une idée ? Quelque chose d'autre ?
+              Discutons-en !
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="{{ path('general') }}">
+                Se lancer
+              </a>
+            </div>
+            <div class="mdl-card__menu">
+              <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                <i class="material-icons">share</i>
+              </button>
+            </div>
+          </div>
           <br>
           <br>
-            <a href="{{path('forum_console')}}" class="form-group"><p class="text-center">Forum Consoles</p></a>
-            <p class="text-center">Envie de discuter console de salon dernières générations ? Ou alors de nos
-            consoles de jeunesse ? C'est ici !</p>
-          <hr />
+          <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__title">
+              <h2 class="mdl-card__title-text">Forum Consoles</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+              Envie de discuter console de salon dernières générations ? Ou alors de nos
+              consoles de jeunesse ? C'est ici !
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="{{ path('forum_console') }}">
+                Se lancer
+              </a>
+            </div>
+            <div class="mdl-card__menu">
+              <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                <i class="material-icons">share</i>
+              </button>
+            </div>
+          </div>
           <br>
           <br>
-            <a href="{{path('pc')}}" class="form-group"><p class="text-center">Forum PC</p></a>
-            <p class="text-center">Master Race ou pas, le PC fait partie du champ vidéoludique sans commune mesure,
-              ici, on en parle comme d'un précieux car c'est aussi ça, aimer jouer</p>
+            <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+              <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">Forum PC</h2>
+              </div>
+              <div class="mdl-card__supporting-text">
+                Master Race ou pas, le PC fait partie du champ vidéoludique sans commune mesure,
+                ici, on en parle comme d'un précieux car c'est aussi ça, aimer jouer
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="{{ path('pc') }}">
+                  Se lancer
+                </a>
+              </div>
+              <div class="mdl-card__menu">
+                <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                  <i class="material-icons">share</i>
+                </button>
+              </div>
+            </div>
           <hr />
           <br>
           <br>
           {% if is_granted('ROLE_MODERATEUR')%}
-            <a href="{{path('admin')}}" class="form-group"><p class="text-center">Administration</p></a>
-            <p class="text-center">Discussions autour du site, des soucis et des demandes diverses, bref, tout
-              ce qui touche à l'aspect administration</p>
+            <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+              <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">Forum Administration</h2>
+              </div>
+              <div class="mdl-card__supporting-text">
+                Discussions autour du site, des soucis et des demandes diverses, bref, tout
+                ce qui touche à l'aspect administration
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="{{ path('admin') }}">
+                  Se lancer
+                </a>
+              </div>
+              <div class="mdl-card__menu">
+                <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                  <i class="material-icons">share</i>
+                </button>
+              </div>
+            </div>
             <hr />
           {% endif %}
         </div>
-      </div>
-    </div>
   </div>
 </div>
 {% endblock %}
+
