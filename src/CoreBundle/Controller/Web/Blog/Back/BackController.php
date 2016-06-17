@@ -1,12 +1,11 @@
 <?php
 
-namespace CoreBundle\Controller\Web\Blog;
+namespace CoreBundle\Controller\Web\Blog\Back;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-
 use CoreBundle\Entity\Article;
 
 class BackController extends Controller

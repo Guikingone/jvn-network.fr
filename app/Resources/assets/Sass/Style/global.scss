@@ -1,0 +1,34 @@
+/* ==========================================================================
+    JVN-Network Global Style
+   ========================================================================== */
+
+@import "../Colors/colors";
+
+body
+{
+  overflow-x: hidden;
+  font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#_submit
+{
+  background-color: $jvn-color;
+  color: $white;
+}
+
+.demo-card-wide.mdl-card
+{
+  width: auto;
+}
+.demo-card-square.mdl-card
+{
+  width: 320px;
+  height: 320px;
+}
+
+.demo-card-square > .mdl-card__title
+{
+  color: $white;
+  background:
+          url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
+}

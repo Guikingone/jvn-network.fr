@@ -1,0 +1,40 @@
+/* ==========================================================================
+    Navbar Style
+   ========================================================================== */
+
+.demo-layout-transparent .mdl-layout__header,
+.demo-layout-transparent .mdl-layout__drawer-button
+{
+  color: white;
+}
+
+.mdl-layout__header
+{
+  background-color: #B71C1C;
+}
+
+.mdl-layout-title a,
+.mdl-layout__header nav a
+{
+  color: white;
+  text-decoration: none;
+}
+.mdl-layout__header nav ul li a
+{
+  color: black;
+  text-decoration: none;
+}
+
+.mdl-layout__drawer a
+{
+  text-decoration: none;
+}
+
+.mdl-layout__tab-bar
+{
+  background-color: #B71C1C;
+}
+.mdl-layout.is-upgraded .mdl-layout__tab.is-active::after
+{
+  background: #FFFFFF;
+}
