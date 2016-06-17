@@ -4,6 +4,12 @@
   "description": "List of dependencies",
   "dependencies": {
     "express": "^4.13.4",
+    "gulp": "https://registry.npmjs.org/gulp/-/gulp-3.9.1.tgz",
     "socket.io": "^1.4.6"
+  },
+  "devDependencies": {
+    "gulp": "https://registry.npmjs.org/gulp/-/gulp-3.9.1.tgz",
+    "gulp-sass": "https://registry.npmjs.org/gulp-sass/-/gulp-sass-2.3.1.tgz",
+    "gulp-sourcemaps": "https://registry.npmjs.org/gulp-sourcemaps/-/gulp-sourcemaps-1.6.0.tgz"
   }
 }

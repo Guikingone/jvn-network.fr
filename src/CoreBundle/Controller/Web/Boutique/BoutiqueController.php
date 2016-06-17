@@ -1,6 +1,6 @@
 <?php
 
-namespace CoreBundle\Controller\Boutique;
+namespace CoreBundle\Controller\Web\Boutique;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;

@@ -1,7 +1,8 @@
 <?php
 
-namespace CoreBundle\Controller\Forums;
+namespace CoreBundle\Controller\Web\Forums;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -85,6 +86,7 @@ class ForumsController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/view/{id}", requirements={"id": "\d+"}, name="forums_view")
+     * @Method("GET")
      * @Template("Forums\Action\view.html.twig")
      */
     public function viewAction(Sujet $sujet, Request $request)
@@ -100,6 +102,7 @@ class ForumsController extends Controller
      * @param Sujet $sujet
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      * @Route("/update/{id}", requirements={"id": "\d+"}, name="forums_update")
+     * @Method("GET")
      * @Template("Forums\Action\update.html.twig")
      */
     public function updateAction(Request $request, Sujet $sujet)
@@ -112,6 +115,7 @@ class ForumsController extends Controller
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route("/lock/{id}", requirements={"id": "\d+"}, name="forums_lock")
+     * @Method("GET")
      */
     public function lockAction($id)
     {
@@ -123,6 +127,7 @@ class ForumsController extends Controller
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route("/delete/{id}", requirements={"id": "\d+"}, name="forums_delete")
+     * @Method("GET")
      */
     public function deleteAction($id)
     {
@@ -134,6 +139,7 @@ class ForumsController extends Controller
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route("/delete/message/{id}", requirements={"id": "\d+"}, name="forums_delete_message")
+     * @Method("GET")
      */
     public function deleteMessageAction($id)
     {

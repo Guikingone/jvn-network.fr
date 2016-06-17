@@ -1,12 +1,12 @@
 core_home:
-    resource: "@CoreBundle/Controller/"
+    resource: "@CoreBundle/Controller/Web/"
     type:     annotation
     prefix:   /
 
-commu_home:
-    resource: "@CommuBundle/Controller/"
+core_api:
+    resource: "@CoreBundle/Controller/Api/"
     type:     annotation
-    prefix:   /Communaute
+    prefix:   /api
 
 # Définition route FOSUserBundle #
 

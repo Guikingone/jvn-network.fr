@@ -22,7 +22,6 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        # On définit le pare-feu Main qui s'occupera de sécuriser le site complet
         main:
             pattern: ^/
             anonymous: true

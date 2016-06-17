@@ -95,7 +95,7 @@ textarea {
    Author's custom styles
    ========================================================================== */
 /* ==========================================================================
-    JVN-Network Style
+    JVN-Network Global Style
    ========================================================================== */
 
 	body {
@@ -109,7 +109,8 @@ textarea {
         color: white;
     }
 
-    /* Style relatif aux cartes d'affichage */
+    /* Style relatif aux cartes d'affichage, au besoin, chaque carte est surchargée de manière indépendente afin de
+       gérer les affichages selon le besoin */
 
     .demo-card-wide.mdl-card {
          width: auto;
