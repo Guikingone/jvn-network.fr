@@ -88,18 +88,6 @@ textarea {
 
 @import "../Colors/colors";
 
-body
-{
-  overflow-x: hidden;
-  font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-#_submit
-{
-  background-color: $jvn-color;
-  color: $white;
-}
-
 .demo-card-wide.mdl-card
 {
   width: auto;

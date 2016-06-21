@@ -4,7 +4,7 @@ JVN-Network.fr
 A Symfony project created on December 13, 2015, 6:13 pm.
 
 JVN-Network.fr is a open-source community web-project, he's based on Symfony 3 and developped by GuikProd.
-This project is validated by SensioLabsInsigth :
+This project is validated by SensioLabsInsight :
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/3d9c6cf9-7aa4-4a97-959f-d5cefc07f982/big.png)](https://insight.sensiolabs.com/projects/3d9c6cf9-7aa4-4a97-959f-d5cefc07f982)
 

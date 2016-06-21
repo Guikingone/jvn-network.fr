@@ -10,16 +10,15 @@
                     <i class="material-icons" role="presentation">arrow_back</i>
                 </a>
             </div>
-            <div class="demo-blog__posts mdl-grid">
+            <div class="forums-blog__posts mdl-grid">
                 <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
-                    <div class="mdl-card__media mdl-color-text--grey-50">
+                    <div class="mdl-card__title_ mdl-color-text--grey">
                         <h3 class="mdl-typography--text-center">{{ sujet.titre }}</h3>
                     </div>
                     <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
-                        <div class="minilogo"></div>
                         <div>
                             <strong>{{ sujet.auteur }}</strong>
-                            <span>2 days ago</span>
+                            <span>{{ sujet.dateCreation|date }}</span>
                         </div>
                         <div class="section-spacer"></div>
                         <div class="meta__favorites">
@@ -50,15 +49,10 @@
                                 {{ form_errors(form.contenu) }}
                                 {{ form_widget(form.contenu, {'attr': {'class': 'mdl-textfield__input'}}) }}
                             </div>
-                                <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit" value="{{ 'registration.submit'|trans }}" />
-                             {{ form_end(form) }}
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <textarea rows=1 class="mdl-textfield__input" id="comment"></textarea>
-                                <label for="comment" class="mdl-textfield__label">Commenter</label>
-                            </div>
                             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                                <i class="material-icons" role="presentation">check</i><span class="visuallyhidden">add comment</span>
+                                <i class="material-icons" role="presentation">check</i><span class="visuallyhidden">{{ form_widget(form.save) }}</span>
                             </button>
+                            {{ form_end(form) }}
                         </form>
                                 <div class="comment mdl-color-text--grey-700">
                                     <header class="comment__header">
