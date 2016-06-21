@@ -3,73 +3,115 @@
 {% block title %}{{ sujet.titre }}{% endblock %}
 
 {% block body %}
-<div class="mdl-grid">
-    <div class="mdl-cell mdl-cell--12-col-desktop">
-      <a href="{{path('forums')}}" class="btn btn-info">Retour à l'accueil</a>
-      {% if is_granted('ROLE_MODERATEUR')%}
-        <div class="row">
-          <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 45px; right: 24px;">
-            <a class="btn-floating btn-large red">
-              <i class="material-icons">menu</i>
-            </a>
-            <ul>
-              <li><a class="btn-floating red" href="{{ path('forums_delete', {'id': sujet.id }) }}"><i class="material-icons">delete</i></a></li>
-              <li><a class="btn-floating yellow darken-1" href="{{ path('forums_update', {'id': sujet.id}) }}"><i class="material-icons">mode_edit</i></a></li>
-              <li><a class="btn-floating orange" href="{{ path('forums_lock', {'id': sujet.id}) }}"><i class="material-icons">lock</i></a></li>
-            </ul>
-          </div>
-        </div>
-        <hr />
-      {% endif %}
-      <h3 class="text-center">{{ sujet.titre }}</h3>
-      <br>
-      <h4 class="text-center">Par <strong>{{ sujet.auteur }}</strong>, le {{ sujet.dateCreation|date('d/m/Y') }}</h4>
-      <hr />
-      <p class="text-center">{{ sujet.contenu|raw }}</p>
-      <br>
-      <br>
-    </div>
-    <div class="row">
-      <h4 class="text-center">Commentaires</h4>
-      <hr />
-      {% for msg in message %}
-          {% if is_granted('ROLE_MODERATEUR')%}
-              <ul class="collapsible popout" data-collapsible="accordion">
-                  <li>
-                      <div class="collapsible-header">{{ msg.auteur }}</div>
-                      <div class="collapsible-body"><p>{{ msg.contenu|raw }}</p></div>
-                  </li>
-              </ul>
-          {% else %}
-              <ul class="collapsible popout" data-collapsible="accordion">
-                  <li>
-                      <div class="collapsible-header">{{ msg.auteur }}</div>
-                      <div class="collapsible-body"><p>{{ msg.contenu|raw }}</p></div>
-                  </li>
-              </ul>
-          {% endif %}
-      {% endfor %}
-    </div>
-    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <div class="row">
-            <div class="col s12">
-                <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Commenter</a>
-                <!-- Show modal -->
-                <div id="modal1" class="modal">
-                    <div class="modal-content">
-                        {{ form_start(form) }}
-                        {{ form_errors(form) }}
-                            {{ form_label(form.contenu) }}
-                            {{ form_errors(form.contenu) }}
-                            {{ form_widget(form.contenu) }}
-                            {{ form_widget(form.save, {'attr': {'class': 'waves-effect waves-light btn'}})}}
-                    </div>
-                    <div class="modal-footer">
-                        <a class="modal-close waves-effect waves-light btn">Annuler</a>
-                    </div>
+    <div class="mdl-grid">
+        <div class="mdl-cell--12-col-desktop">
+            <div class="demo-back">
+                <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" href="{{ path('forums') }}" title="go back" role="button">
+                    <i class="material-icons" role="presentation">arrow_back</i>
+                </a>
             </div>
+            <div class="demo-blog__posts mdl-grid">
+                <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+                    <div class="mdl-card__media mdl-color-text--grey-50">
+                        <h3 class="mdl-typography--text-center">{{ sujet.titre }}</h3>
+                    </div>
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+                        <div class="minilogo"></div>
+                        <div>
+                            <strong>{{ sujet.auteur }}</strong>
+                            <span>2 days ago</span>
+                        </div>
+                        <div class="section-spacer"></div>
+                        <div class="meta__favorites">
+                            425 <i class="material-icons" role="presentation">favorite</i>
+                            <span class="visuallyhidden">favorites</span>
+                        </div>
+                        <div>
+                            <i class="material-icons" role="presentation">bookmark</i>
+                            <span class="visuallyhidden">bookmark</span>
+                        </div>
+                        <div>
+                            <i class="material-icons" role="presentation">share</i>
+                            <span class="visuallyhidden">share</span>
+                        </div>
+                    </div>
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
+                        <p>
+                            {{ sujet.contenu|raw }}
+                        </p>
+                    </div>
+                    <div class="mdl-color-text--primary-contrast mdl-card__supporting-text comments">
+                        <form>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                {{ form_start(form) }}
+                            </div>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                {{ form_label(form.contenu, "Commenter", {'label_attr': {'class': 'mdl-textfield__label'}}) }}
+                                {{ form_errors(form.contenu) }}
+                                {{ form_widget(form.contenu, {'attr': {'class': 'mdl-textfield__input'}}) }}
+                            </div>
+                                <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit" value="{{ 'registration.submit'|trans }}" />
+                             {{ form_end(form) }}
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <textarea rows=1 class="mdl-textfield__input" id="comment"></textarea>
+                                <label for="comment" class="mdl-textfield__label">Commenter</label>
+                            </div>
+                            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                                <i class="material-icons" role="presentation">check</i><span class="visuallyhidden">add comment</span>
+                            </button>
+                        </form>
+                                <div class="comment mdl-color-text--grey-700">
+                                    <header class="comment__header">
+                                        <img src="images/co1.jpg" class="comment__avatar">
+                                        <div class="comment__author">
+                                            <strong>James Splayd</strong>
+                                            <span>2 days ago</span>
+                                        </div>
+                                    </header>
+                                    <div class="comment__text">
+                                        In in culpa nulla elit esse. Ex cillum enim aliquip sit sit ullamco ex eiusmod fugiat. Cupidatat ad minim officia mollit laborum magna dolor tempor cupidatat mollit. Est velit sit ad aliqua ullamco laborum excepteur dolore proident incididunt in labore elit.
+                                    </div>
+                                    <nav class="comment__actions">
+                                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                                            <i class="material-icons" role="presentation">thumb_up</i><span class="visuallyhidden">like comment</span>
+                                        </button>
+                                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                                            <i class="material-icons" role="presentation">thumb_down</i><span class="visuallyhidden">dislike comment</span>
+                                        </button>
+                                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                                            <i class="material-icons" role="presentation">share</i><span class="visuallyhidden">share comment</span>
+                                        </button>
+                                    </nav>
+                                    <div class="comment__answers">
+                                        <div class="comment">
+                                            <header class="comment__header">
+                                                <img src="images/co2.jpg" class="comment__avatar">
+                                                <div class="comment__author">
+                                                    <strong>John Dufry</strong>
+                                                    <span>2 days ago</span>
+                                                </div>
+                                            </header>
+                                            <div class="comment__text">
+                                                Yep, agree!
+                                            </div>
+                                            <nav class="comment__actions">
+                                                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                                                    <i class="material-icons" role="presentation">thumb_up</i><span class="visuallyhidden">like comment</span>
+                                                </button>
+                                                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                                                    <i class="material-icons" role="presentation">thumb_down</i><span class="visuallyhidden">dislike comment</span>
+                                                </button>
+                                                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                                                    <i class="material-icons" role="presentation">share</i><span class="visuallyhidden">share comment</span>
+                                                </button>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mdl-layout__obfuscator"></div>
         </div>
-    {% endif %}
-  </div>
-</div>
+    </div>
 {% endblock %}
