@@ -13,23 +13,29 @@
       <hr />
       <br>
       {% for sujet in general %}
-          <div class="card blue-grey white">
-              <div class="card-content black-text">
-                  <span class="card-title">{{ sujet.titre }}</span>
-                  <p>{{ sujet.contenu[:60]|raw }}</p>
+          <div class="mdl-card mdl-shadow--2dp">
+              <div class="mdl-card__title">
+                  <h2 class="mdl-card__title-text">{{ sujet.titre }}</h2>
               </div>
-              <div class="card-action">
-                  <a href="{{ path('forums_view', {'id': sujet.id }) }}" class="red-text">Participer</a>
+              <div class="mdl-card__supporting-text">
+                  {{ sujet.contenu[:65]|raw }}
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="{{ path('forums_view', {'id': sujet.id}) }}">
+                      Participer
+                  </a>
+              </div>
+              <div class="mdl-card__menu">
+                  <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                      <i class="material-icons">share</i>
+                  </button>
               </div>
           </div>
       {% endfor %}
-    </div>
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-    <div class="row">
-      <div class="col s12">
-        <button type="button" class="waves-effect waves-light btn red darken-2" data-toggle="modal" data-target="#myModal">
-          Créer un sujet
-        </button>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+              Créer un sujet
+          </button>
 
           <!-- Modal used for the subject form -->
           <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -64,7 +70,6 @@
               </div>
           </div>
       </div>
-    </div>
   {% endif %}
 </div>
 {% endblock %}

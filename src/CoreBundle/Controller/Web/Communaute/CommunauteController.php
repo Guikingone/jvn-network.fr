@@ -2,6 +2,8 @@
 
 namespace CoreBundle\Controller\Web\Communaute;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -14,6 +16,8 @@ class CommunauteController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      * @Route("/communaute", name="communaute")
+     * @Template("Communaute/index.html.twig")
+     * @Method("GET")
      */
     public function indexAction(Request $request)
     {
@@ -33,9 +37,6 @@ class CommunauteController extends Controller
         return $this->redirectToRoute('commu_home');
       }
 
-        return $this->render('Communaute/index.html.twig', array(
-          'tchat' => $tchat,
-          'form' => $form_add->createView()
-        ));
+        return array('tchat' => $tchat, 'form' => $form_add->createView());
     }
 }
