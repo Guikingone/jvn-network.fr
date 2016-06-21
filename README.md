@@ -8,6 +8,9 @@ This project is validated by SensioLabsInsigth :
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/3d9c6cf9-7aa4-4a97-959f-d5cefc07f982/big.png)](https://insight.sensiolabs.com/projects/3d9c6cf9-7aa4-4a97-959f-d5cefc07f982)
 
+Also, we use Travis in order to build this project : 
+
+[![Build Status](https://travis-ci.org/Guikingone/jvn-network.fr.svg?branch=master)](https://travis-ci.org/Guikingone/jvn-network.fr)
 
 # Qu'est-ce que JVN-Network ?
 

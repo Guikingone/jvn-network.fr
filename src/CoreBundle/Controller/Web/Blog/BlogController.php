@@ -8,8 +8,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use CoreBundle\Entity\Article;
 
-class BlogController extends Controller {
-    
+class BlogController extends Controller
+{
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/krma", name="krma")

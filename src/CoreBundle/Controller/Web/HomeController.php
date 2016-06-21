@@ -12,6 +12,7 @@ class HomeController extends Controller
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/", name="home")
      * @Template("basics\home.html.twig")
+     * @Method("GET")
      */
     public function indexAction()
     {
@@ -22,6 +23,7 @@ class HomeController extends Controller
     /**
      * @Route("/contact", name="contact")
      * @return \Symfony\Component\HttpFoundation\Response
+     * @Method("GET")
      */
     public function contactAction()
     {
@@ -31,6 +33,7 @@ class HomeController extends Controller
     /**
      * @Route("/mentions", name="mentions")
      * @return \Symfony\Component\HttpFoundation\Response
+     * @Method("GET")
      */
     public function mentionsAction()
     {
@@ -40,6 +43,7 @@ class HomeController extends Controller
     /**
      * @Route("/propos", name="propos")
      * @return \Symfony\Component\HttpFoundation\Response
+     * @Method("GET")
      */
     public function proposAction()
     {
