@@ -2,6 +2,7 @@
 
 namespace CoreBundle\Controller\Web\Blog;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -14,6 +15,7 @@ class BlogController extends Controller
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/krma", name="krma")
      * @Template("Blog\Krma\index.html.twig")
+     * @Method("GET")
      */
     public function krmaAction()
     {

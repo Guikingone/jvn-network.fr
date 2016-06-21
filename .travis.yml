@@ -11,7 +11,15 @@ before_install:
   - composer selfupdate
   - if [ "$SYMFONY_VERSION" != "" ]; then composer require "symfony/symfony:${SYMFONY_VERSION}" --no-update; fi;
 
-install: composer update --prefer-dist --no-interaction $COMPOSER_FLAGS
+install:
+  - composer update --prefer-dist --no-interaction $COMPOSER_FLAGS
+  - composer install
+  - npm install
+  - bower install
 
 script:
+  - bower update
+  - gulp sass
+  - php bin/console c:c
+  - php bin/console c:c --env=prod
   - phpunit
