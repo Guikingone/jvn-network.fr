@@ -28,7 +28,8 @@
         "patchwork/jsqueeze": "^2.0",
         "fabpot/php-cs-fixer": "^1.11",
         "vich/uploader-bundle": "^1.0",
-        "doctrine/doctrine-migrations-bundle": "^1.1"
+        "doctrine/doctrine-migrations-bundle": "^1.1",
+        "facebook/php-sdk": "^3.2"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

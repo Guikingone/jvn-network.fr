@@ -15,5 +15,8 @@ parameters:
     mailer_user:       null
     mailer_password:   null
 
+    facebook_app_id:    ~
+    facebook_app_secret:    ~
+
     # A secret key that's used to generate certain security-related tokens
     secret:            056c157d9eb63d6419c7c6a98d9925973fd18e43
