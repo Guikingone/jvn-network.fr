@@ -24,6 +24,8 @@ class User extends BaseUser
      */
     protected $id;
 
+    protected $facebook_id;
+
     /**
      * Get id
      *
@@ -34,8 +36,21 @@ class User extends BaseUser
         return $this->id;
     }
 
-    public function eraseCredentials()
+    /**
+     * @param int $facebook_id
+     */
+    public function setFacebookId($facebook_id)
     {
-
+        $this->facebook_id = $facebook_id;
     }
+
+    /**
+     * @return int
+     */
+    public function getFacebookId()
+    {
+        return $this->facebook_id;
+    }
+
+    public function eraseCredentials(){}
 }
