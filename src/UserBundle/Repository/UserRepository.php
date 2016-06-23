@@ -10,13 +10,6 @@ namespace UserBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
-  public function getUser()
-  {
-    return $this->createQueryBuilder('u')
-                ->getQuery()
-                ->getResult();
-  }
-
   public function deleteUser($id)
   {
     return $this->createQueryBuilder('u')

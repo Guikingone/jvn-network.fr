@@ -7,7 +7,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class FacebookController extends Controller
 {
-
     /**
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route("/connect/facebook", name="facebook_connect")
@@ -21,7 +20,6 @@ class FacebookController extends Controller
             'redirect_uri' => $redirectUrl,
             'scope' => 'email', 'user_likes', 'publish_actions'
         ));
-
         return $this->redirect($url);
     }
 
@@ -34,7 +32,7 @@ class FacebookController extends Controller
         $facebook_user_id = $this->get('core.facebook')->checkAccess();
         $user = $this->getUser();
         $user->setFacebook_id($facebook_user_id);
-        if($user->facebook_id != null){
+        if(!$user->facebook_id){
             return $this->redirect('home');
         }
         return $this->render('User/error_facebook_id.html.twig');

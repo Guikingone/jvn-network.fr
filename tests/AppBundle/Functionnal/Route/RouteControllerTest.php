@@ -31,6 +31,7 @@ class RouteControllerTest extends WebTestCase
             array('/krma'),
             array('/equipe'),
             array('/membre'),
+            array('/krma/admin'),
             array('/equipe/admin'),
             array('/membre/admin'),
             array('/contact'),

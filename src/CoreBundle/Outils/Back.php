@@ -112,7 +112,7 @@ class Back
      */
     public function index($categorie)
     {
-        return $this->doctrine->getRepository('CoreBundle:Article')->getArticle($categorie);
+        return $this->doctrine->getRepository('CoreBundle:Article')->getArticleByCategorie($categorie);
     }
 
     /**
@@ -147,12 +147,13 @@ class Back
     }
 
     /**
-     * @param Request $request
-     * @param $id
-     * @return \Symfony\Component\Form\Form|\Symfony\Component\Form\FormInterface
      *
      * Allow the user to view the article using the $id to find the article, create a form for submitting the
      * comments linked to the article.
+     *
+     * @param Request $request
+     * @param $id
+     * @return \Symfony\Component\Form\Form|\Symfony\Component\Form\FormInterface
      */
     public function viewArticle(Request $request, $id)
     {

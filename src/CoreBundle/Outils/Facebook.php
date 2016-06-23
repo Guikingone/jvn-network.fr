@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Guillaume
+ * User: Guillaume Loulier | guillaume.loulier[at]hotmail.fr
  * Date: 22/06/2016
  * Time: 19:01
  */
@@ -10,7 +10,6 @@ namespace CoreBundle\Outils;
 
 use Facebook\Exceptions\FacebookResponseException;
 use Facebook\Exceptions\FacebookSDKException;
-use Symfony\Component\Routing\Router;
 
 class Facebook
 {
@@ -19,7 +18,7 @@ class Facebook
      */
     public function createFacebook()
     {
-        return $facebook = new \Facebook\Facebook([
+        return new \Facebook\Facebook([
             'app_id' => "%facebook_app_id%",
             'app_secret' => "%facebook_app_secret%",
             'default_graph_version' => 'v2.2',
@@ -36,10 +35,8 @@ class Facebook
             $userId = $facebook->getRedirectLoginHelper()->getAccessToken();
         }catch (FacebookResponseException $e){
             echo 'Oops, looks like something went wrong :' . $e->getMessage();
-            exit;
         }catch (FacebookSDKException $e){
             echo 'Oops, looks like something went wrong :' . $e->getMessage();
-            exit;
         }
         return $userId;
     }

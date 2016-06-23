@@ -12,7 +12,7 @@ use Doctrine\ORM\EntityRepository;
 class ArticleRepository extends \Doctrine\ORM\EntityRepository
 {
 
-  public function getArticle($categorie)
+  public function getArticleByCategorie($categorie)
   {
     return $this->createQueryBuilder('ab')
                 ->where('ab.categorie = :categorie')
@@ -42,7 +42,7 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
                   ->getResult();
   }
 
-  public function getPublication($auteur)
+  public function getPublicationByAuteur($auteur)
   {
     return $this->createQueryBuilder('up')
                 ->where('up.auteur = :auteur')
