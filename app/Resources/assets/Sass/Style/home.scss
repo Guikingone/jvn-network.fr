@@ -1,15 +1,9 @@
 /* ==================================================================================================================
-     Core File (only this file is compiled, the others are called by this one)
+    Style home
    ================================================================================================================== */
 
-@import "../../Colors/colors";
-
-@import "../core";
-
-@import "../home";
-
-@import "../global";
-
-@import "../navbar";
-
-@import "../forums";
+.sec_articles {
+  margin-top: -100px;
+  border: dashed 1px black;
+  color: aqua;
+}

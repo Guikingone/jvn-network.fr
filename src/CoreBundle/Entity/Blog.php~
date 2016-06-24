@@ -195,26 +195,27 @@ class Blog
     }
 
     /**
-     * Set online
+     * Set isOnline
      *
-     * @param boolean $online
+     * @param boolean $isOnline
      *
      * @return Blog
      */
-    public function setOnline($online)
+    public function setIsOnline($isOnline)
     {
-        $this->Online = $online;
+        $this->isOnline = $isOnline;
 
         return $this;
     }
 
     /**
-     * Get online
+     * Get isOnline
      *
-     * @return boolean
+     * @return bool
      */
-    public function getOnline()
+    public function getIsOnline()
     {
-        return $this->Online;
+        return $this->isOnline;
     }
 }
+

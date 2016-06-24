@@ -5,7 +5,7 @@
          <title>{% block title %}JVN-Network.fr - Là où la communauté prend les commandes{% endblock %}</title>
          {% block stylesheets %}
              <link href="{{ asset('assets/vendor/material-design-lite/material.css') }}" rel="stylesheet">
-             <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+             <link href="{{ asset('css/Main/main.css') }}" rel="stylesheet">
              <link href="{{ asset('css/normalize.css') }}" rel="stylesheet">
              <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
              <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
@@ -126,7 +126,6 @@
                 {% for message in app.session.flashbag.get('info') %}
                     <div class="alert alert-info text-center">Message flash : {{ message }}</div>
                 {% endfor %}
-
                 {% block body %}{% endblock %}
             </div>
         </main>
