@@ -58,7 +58,9 @@ class Back
     protected $router;
 
     /**
+     *
      * Blog constructor.
+     *
      * @param EntityManager $doctrine
      * @param Session $session
      * @param Router $router
@@ -75,10 +77,12 @@ class Back
     }
 
     /**
+     *
+     * Allow to slugify the titre of a article or a subject.
+     *
      * @param $string
      * @return mixed
      *
-     * Allow to slugify the titre of a article or a subject.
      */
     public function slugify($string)
     {
@@ -93,11 +97,13 @@ class Back
      */
 
     /**
-     * @param $categorie
-     * @return array
      *
      * Allow the user to show every articles depending on the categorie $categorie passed, this method is used by
      * the index page of the application in order to show the multiples articles from the differents blogs.
+     *
+     * @param $categorie    $categorie of the article
+     * @return array        Return the articles using the $categorie
+     *
      */
     public function showArticles($categorie)
     {
