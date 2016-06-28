@@ -289,8 +289,10 @@ class Back
         $user = $this->user->getToken()->getUser();
         $sujet->setAuteur($user);
         $sujet->setOnline(true);
+        
         $form = $this->formbuilder->create(SujetType::class, $sujet);
         $form->handleRequest($request);
+        
         if($form->isValid()){
             $slug = $this->slugify($sujet->getTitre());
             $sujet->setSlug($slug);
