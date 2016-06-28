@@ -10,7 +10,7 @@ var concat = require('gulp-concat');
 var minify_css = require('gulp-minify-css');
 
 var config = {
-    assets_dir : 'app/Resources/assets/',
+    assets_dir : 'web/assets/sass/',
     sass_dir :  'sass/Style/Core/*.scss'
 };
 

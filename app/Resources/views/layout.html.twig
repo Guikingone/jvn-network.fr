@@ -4,10 +4,9 @@
          <meta charset="utf-8" />
          <title>{% block title %}JVN-Network.fr - Là où la communauté prend les commandes{% endblock %}</title>
          {% block stylesheets %}
-             <link href="{{ asset('assets/vendor/material-design-lite/material.css') }}" rel="stylesheet">
+             <link href="{{ asset('assets/vendor/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
              <link href="{{ asset('css/Main/main.css') }}" rel="stylesheet">
              <link href="{{ asset('css/normalize.css') }}" rel="stylesheet">
-             <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
              <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
              <!-- Add to homescreen for Chrome on Android -->
              <meta name="mobile-web-app-capable" content="yes">
@@ -23,116 +22,18 @@
          <script src="{{ asset('js/vendor/modernizr-2.8.3.min.js')}}"></script>
      </head>
     <body>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <header class="mdl-layout__header">
-            <div class="mdl-layout__header-row">
-                <span class="mdl-layout-title"><a href="{{ path('home') }}">JVN-Network</a></span>
-                <div class="mdl-layout-spacer"></div>
-                <nav class="mdl-navigation mdl-layout--large-screen-only">
-                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    <button id="demo-menu-lower-right"
-                            class="mdl-button mdl-js-button mdl-button--icon">
-                        <i class="material-icons">people</i>
-                    </button>
-                        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-                            for="demo-menu-lower-right">
-                            <li class="mdl-menu__item"><a href="{{ path('fos_user_profile_show') }}">Mon profil</a></li>
-                            {% if is_granted('ROLE_TEAM')%}
-                                <li class="mdl-menu__item mdl-menu__item--full-bleed-divider">
-                                    <a href="{{ url('equipe_admin') }}">Back Office</a>
-                                </li>
-                            {% elseif is_granted('ROLE_ADMIN')%}
-                                <li class="mdl-menu__item">
-                                    <a href="{{ url('equipe_admin') }}">Back office Team</a>
-                                </li>
-                                <li class="mdl-menu__item mdl-menu__item--full-bleed-divider">
-                                    <a href="{{ url('membre_admin') }}">Back Office Membre</a>
-                                </li>
-                            {% elseif is_granted('ROLE_KRMA')%}
-                                <li class="mdl-menu__item mdl-menu__item--full-bleed-divider">
-                                    <a href="{{ url('krma_admin') }}">Back Office Krma</a>
-                                </li>
-                            {% elseif is_granted('ROLE_AUTEUR')%}
-                                <li class="mdl-menu__item mdl-menu__item--full-bleed-divider">
-                                    <a href="{{ url('membre_admin') }}">Back Office Membre</a>
-                                </li>
-                            {% endif %}
-                            <li class="mdl-menu__item"><a href="#">Mes commandes</a></li>
-                            <li class="mdl-menu__item"><a href="#">Ma liste de souhait</a></li>
-                            <li class="mdl-menu__item mdl-menu__item--full-bleed-divider">
-                                <a href="#">Mes achats</a>
-                            </li>
-                            <li class="mdl-menu__item">
-                                <a href="{{ url('fos_user_security_logout') }}">Se déconnecter</a>
-                            </li>
-                        </ul>
-                    {% else %}
-                        <button id="demo-menu-lower-right"
-                                class="mdl-button mdl-js-button mdl-button--icon">
-                            <i class="material-icons">people</i>
-                        </button>
-                        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-                            for="demo-menu-lower-right">
-                            <li class="mdl-menu__item"><a href="{{ path('fos_user_security_login') }}">Se connecter</a></li>
-                            <li class="mdl-menu__item"><a href="{{ path('fos_user_registration_register') }}">S'inscrire</a></li>
-                        </ul>
-                    {% endif %}
-                    <a class="mdl-navigation__link" href="#">Blogs</a>
-                    <a class="mdl-navigation__link" href="{{ path('communaute') }}">Communauté</a>
-                    <a class="mdl-navigation__link" href="{{ path('forums') }}">Forums</a>
-                    <a class="mdl-navigation__link" href="{{ path('boutique') }}">Boutique</a>
-                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
-                        <i class="material-icons">help_outline</i>
-                    </button>
-                    <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-                        <li class="mdl-menu__item"><a href="{{ path('contact') }}">Contact</a></li>
-                        <li class="mdl-menu__item"><a href="{{ path('mentions') }}">Mentions</a></li>
-                    </ul>
-                </nav>
-            </div>
+        <header>
         </header>
-        <div class="mdl-layout__drawer">
-            <nav class="mdl-navigation">
-                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                        <a class="mdl-navigation__link mdl-menu__item--full-bleed-divider" href="{{ path('fos_user_profile_show') }}">Mon profil</a></li>
-                        {% if is_granted('ROLE_TEAM')%}
-                            <a class="mdl-navigation__link mdl-menu__item--full-bleed-divider" href="{{ url('equipe_admin') }}">Back Office</a>
-                        {% elseif is_granted('ROLE_ADMIN')%}
-                            <a class="mdl-navigation__link" href="{{ url('equipe_admin') }}">Back office Team</a>
-                            <a class="mdl-navigation__link mdl-menu__item--full-bleed-divider" href="{{ url('membre_admin') }}">Back Office Membre</a>
-                        {% elseif is_granted('ROLE_KRMA')%}
-                            <a class="mdl-navigation__link mdl-menu__item--full-bleed-divider" href="{{ url('krma_admin') }}">Back Office Krma</a>
-                        {% elseif is_granted('ROLE_AUTEUR')%}
-                            <a class="mdl-navigation__link mdl-menu__item--full-bleed-divider" href="{{ url('membre_admin') }}">Back Office Membre</a>
-                        {% endif %}
-                        <a class="mdl-navigation__link" href="#">Mes commandes</a>
-                        <a class="mdl-navigation__link" href="#">Ma liste de souhait</a>
-                        <a class="mdl-navigation__link mdl-menu__item--full-bleed-divider" href="#">Mes achats</a>
-                        <a class="mdl-navigation__link mdl-menu__item--full-bleed-divider" href="{{ url('fos_user_security_logout') }}">Se déconnecter</a>
-                {% else %}
-                    <a class="mdl-navigation__link" href="{{ path('fos_user_security_login') }}">Se connecter</a>
-                    <a class="mdl-navigation__link mdl-menu__item--full-bleed-divider" href="{{ path('fos_user_registration_register') }}">S'inscrire</a>
-                {% endif %}
-                <a class="mdl-navigation__link" href="{{ path('communaute') }}">Communauté</a>
-                <a class="mdl-navigation__link" href="{{ path('forums') }}">Forums</a>
-                <a class="mdl-navigation__link mdl-menu__item--full-bleed-divider" href="{{ path('boutique') }}">Boutique</a>
-                <a class="mdl-navigation__link" href="{{ path('contact') }}">Contact</a>
-                <a class="mdl-navigation__link" href="{{ path('mentions') }}">Mentions</a>
-            </nav>
-        </div>
-        <main class="mdl-layout__content">
-            <div class="page-content">
                 <!-- On affiche les messages flash -->
                 {% for message in app.session.flashbag.get('info') %}
                     <div class="alert alert-info text-center">Message flash : {{ message }}</div>
                 {% endfor %}
-                {% block body %}{% endblock %}
-            </div>
-        </main>
-    </div>
+            {% block body %}{% endblock %}
+        <footer>
+        </footer>
     {% block javascript %}
         <script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>
-        <script src="{{ asset('assets/vendor/material-design-lite/material.min.js') }}"></script>
+        <script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/main.js')}}"></script>
         <script src="{{ asset('js/social/social.js')}}"></script>
 

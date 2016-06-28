@@ -6,14 +6,13 @@
     Body Style
    ================================================================================================================== */
 
-body
-{
+body {
   overflow-x: hidden;
   font-family: "Roboto Slab", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  max-height: 4950px;
 }
 
-body::before
-{
+body::before {
   background-size: cover;
   background-attachment: fixed;
   content: '';
