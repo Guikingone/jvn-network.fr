@@ -4,4 +4,12 @@
 
 header {
   max-height: 280px;
+  nav {
+    ul {
+      li {
+        display: inline-block;
+        text-decoration: none;
+      }
+    }
+  }
 }

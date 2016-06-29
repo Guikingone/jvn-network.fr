@@ -16,6 +16,7 @@
 
 .articles {
   max-height: 760px;
+  background-color: $jvn-color;
 }
 
 /* ==================================================================================================================
@@ -39,5 +40,12 @@
    ================================================================================================================== */
 
 .equipe {
-
+  max-height: 780px;
+  background-color: $white-dark;
+  .card-article {
+    position: relative;
+    background-color: $white;
+    height: 570px;
+    width: 380px;
+  }
 }
