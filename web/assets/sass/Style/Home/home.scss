@@ -17,6 +17,34 @@
 .articles {
   max-height: 760px;
   background-color: $jvn-color;
+  h1 {
+    margin-top: 252px;
+    margin-left: 158px;
+    color: $white;
+    font-weight: 400;
+  }
+  .card_article {
+    margin-left: 158px;
+    height: 248px;
+    width: 270px;
+    background-color: transparent;
+    img {
+      max-height: 190px;
+      width: inherit;
+    }
+    .button_article {
+      position: relative;
+      background-color: $jvn-color;
+      .croix_article {
+        background-color: $white;
+      }
+    }
+    p {
+      color: $white;
+      font-size: 10px;
+      padding-top: 15px;
+    }
+  }
 }
 
 /* ==================================================================================================================
@@ -24,7 +52,40 @@
    ================================================================================================================== */
 
 .informations {
-  max-height: 953px;
+  max-height: 885px;
+  background-color: $dark-blue;
+  ._intro {
+    margin-top: 170px;
+    @media(min-width: 1024px){
+      margin-left: 158px;
+    }
+    color: $jvn-color;
+  }
+  em {
+    font-style: italic;
+    color: $white;
+  }
+  h1 {
+    @media(min-width: 1024px){
+      margin-left: 158px;
+    }
+    color: $white;
+  }
+  ._head {
+    @media(min-width: 1024px){
+      margin-left: 158px;
+    }
+    color: $white;
+    font-style: italic;
+    font-size: 15px;
+  }
+  ._content {
+    @media(min-width: 1024px){
+      margin-top: 215px;
+    }
+    color: $white;
+    font-size: 12px;
+  }
 }
 
 /* ==================================================================================================================
@@ -32,7 +93,8 @@
    ================================================================================================================== */
 
 .publications {
-
+  max-height: 732px;
+  background-color: $white-dark;
 }
 
 /* ==================================================================================================================
@@ -40,8 +102,8 @@
    ================================================================================================================== */
 
 .equipe {
-  max-height: 780px;
-  background-color: $white-dark;
+  max-height: 1160px;
+  background-color: $dark-blue;
   .card-article {
     position: relative;
     background-color: $white;
