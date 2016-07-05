@@ -91,13 +91,6 @@ class Back
 
     /**
      *
-     * Here is the back function used by the application, every function is used by the main controller in order to
-     * gain time and performance.
-     *
-     */
-
-    /**
-     *
      * Allow the user to show every articles depending on the categorie $categorie passed, this method is used by
      * the index page of the application in order to show the multiples articles from the differents blogs.
      *
@@ -111,10 +104,10 @@ class Back
     }
 
     /**
+     * Allow to show the articles selected by a category, this method is used by the blog part of the application.
+     *
      * @param $categorie
      * @return array
-     *
-     * Allow to show the articles selected by a category, this method is used by the blog part of the application.
      */
     public function index($categorie)
     {
@@ -122,13 +115,13 @@ class Back
     }
 
     /**
-     * @param Request $request
-     * @param $categorie
-     * @return mixed
-     *
      * Allow the user to add a article by passing the back office, the service create a Form using the
      * ArticleType and submit the Form, the Slug service is used to change the format of the article titre, if
      * everything is matched, the service persist the entity and save a flash message in the session.
+     *
+     * @param Request $request
+     * @param $categorie
+     * @return mixed
      */
     public function addArticle(Request $request, $categorie)
     {
