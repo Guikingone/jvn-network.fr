@@ -3,7 +3,11 @@
 namespace CoreBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Input\Input;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class BlogCommand extends ContainerAwareCommand
@@ -14,8 +18,13 @@ class BlogCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('Blog:create')
-            ->setDescription('Allow to create a Blog.');
+            ->setName('blog:create')
+            ->setDescription('Allow to create a Blog.')
+            ->addArgument(
+                        'name',
+                        InputArgument::REQUIRED,
+                        'Veuillez saisir le nom du blog à créer :'
+            );
     }
 
     /**
@@ -23,6 +32,24 @@ class BlogCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $name = $input->getArgument('name');
 
+        $command = $this->getApplication()->find('generate:controller');
+        $arguments = array(
+            'command'              => 'generate:controller',
+            '--controller'         => 'CoreBundle:' . $name,
+            '--route-format'       => 'annotation',
+            '--template-format'    => 'twig',
+            '--actions'            => [
+                'actionName'       => [
+                    'name'         => 'indexAction',
+                    'route'        => '/blog/' . $name . '/home',
+                    'placeholders' => null,
+                    'template'     => 'CoreBundle:' . $name . ':index.html.twig',
+                ]
+            ]
+        );
+        $greetInput = new ArrayInput($arguments);
+        $returnCode = $command->run($greetInput, $output);
     }
 }
