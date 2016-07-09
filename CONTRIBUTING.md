@@ -1,9 +1,30 @@
 # Règles de suivi du projet :
+
 - Vous devez faire partie de l'Equipe directrice du projet ou avoir obtenu un droit de modification des fichiers par un de ses membres.
 - JVN-Network est un site libre de partenariat et voué à la communauté, son fonctionnement lui est propre et expliqué plus bas dans ce fichiers, merci d'en prendre connaissance.
 - Tout commit/modification doit être ramenée sur une branche adjacente à master, le nom est libre, les merge seront effectués après acceptation des modifications, avec la terminaison suivante :
 
 # Pour les membres de l'Equipe directrice :
+
+## Préfixe de commit (à définir sur chaque commit !) :
+
+_Dans le cadre d'un commit qui contient des ajouts vérifiés et testés :_
+
+- git commit -m "[+] ..."
+
+_Dans le cadre d'un commit effectué après un bug || erreur de script :_
+
+- git commit -m "[=] ..."
+
+_Dans le cadre d'un commit qui contient une supression majeur ou pouvant impacter le développement :_ 
+
+- git commit -m "[-] ..."
+
+_Dans le cadre d'un commit contenant une erreur mais contenant un ajout fonctionnel (à éviter !) :_
+
+- git commit -m "[!!] ..."
+
+## Enoncé de commit :
 
 Dans le cadre d'un commit principal sur master qui se déroule dans le cadre d'un déploiement continu :
 

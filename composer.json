@@ -4,14 +4,18 @@
     "license": "proprietary",
     "type": "project",
     "autoload": {
-        "psr-4": { "": "src/" },
+        "psr-4": {
+            "Tests\\": "src/",
+            "CoreBundle\\": "src/",
+            "UserBundle\\": "src/"
+        },
             "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
         },
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/AppBundle/",
-            "CoreBundle\\": "src/CoreBundle/",
-            "UserBundle\\": "src/UserBundle/"
+            "CoreBundle\\": "src/",
+            "UserBundle\\": "src/"
         }
     },
     "require": {
