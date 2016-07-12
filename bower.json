@@ -18,6 +18,5 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "jquery": "^2.2.3",
-    "material-design-lite": "^1.1.3"
   }
 }

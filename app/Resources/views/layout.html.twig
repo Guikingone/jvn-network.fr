@@ -8,28 +8,38 @@
              <link href="{{ asset('css/Main/main.css') }}" rel="stylesheet">
              <link href="{{ asset('css/normalize.css') }}" rel="stylesheet">
              <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
-             <!-- Add to homescreen for Chrome on Android -->
-             <meta name="mobile-web-app-capable" content="yes">
-
-             <!-- Add to homescreen for Safari on iOS -->
-             <meta name="apple-mobile-web-app-capable" content="yes">
-             <meta name="apple-mobile-web-app-status-bar-style" content="black">
-             <meta name="apple-mobile-web-app-title" content="Material Design Lite">
-
-             <!-- Tile icon for Win8 (144x144 + tile color) -->
-             <meta name="msapplication-TileColor" content="#3372DF">
          {% endblock %}
          <script src="{{ asset('js/vendor/modernizr-2.8.3.min.js')}}"></script>
      </head>
     <body>
-        <header>
+        <header class="container-fluid">
             <nav>
                 <ul>
-                    <li>Accueuil</li>
-                    <li>Blog</li>
-                    <li>Communauté</li>
-                    <li>Forums</li>
-                    <li>Boutique</li>
+                    <li>
+                        <a href="{{ path('home') }}">
+                            Accueuil
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('communaute') }}">
+                            Communauté
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('forums') }}">
+                            Forums
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('boutique') }}">
+                            Boutique
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </header>

@@ -3,12 +3,22 @@
    ================================================================================================================== */
 
 header {
-  max-height: 280px;
+  background-color: $dark-blue;
   nav {
+    background-color: inherit;
     ul {
       li {
+        padding-top: 215px;
         display: inline-block;
         text-decoration: none;
+        a {
+          font-size: 15px;
+          text-decoration: none;
+          color: $white;
+          &:hover {
+            text-decoration: none;
+          }
+        }
       }
     }
   }

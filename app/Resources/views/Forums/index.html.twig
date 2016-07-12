@@ -3,38 +3,44 @@
 {% block title %}Les forums{% endblock %}
 
 {% block body %}
-<div class="mdl-grid">
-  <div class="mdl-cell mdl-cell--2-offset-desktop mdl-cell--8-col-desktop">
+<div class="container-fluid">
+  <div class="row">
       {% for message in app.session.flashbag.get('success_forums') %}
-        <div class="alert alert-info mdl-typography--text-center">Message flash : {{message}}</div>
+        <div class="text-center">Message flash : {{message}}</div>
       {% endfor %}
-      <h2 class="mdl-typography--text-center">Bienvenue sur les forums</h2>
-      <hr />
-      <p class="mdl-typography--text-center">Veuillez noter que ces forums sont modérés par les modérateurs désignés par l'équipe, tout problème,
-        demande ou question concernant un sujet, un message ou une demande concernant ces forums doit être adressés aux modérateurs via MP/email,
-        le temps de réponse dépendra en grande partie du sujet de la demande
+    <section class="_forums_introduction">
+      <div class="col-xs-12">
+        <h2 class="text-center">Bienvenue sur les forums</h2>
+        <hr />
+        <p class="text-center">Veuillez noter que ces forums sont modérés par les modérateurs désignés par l'équipe, tout problème,
+          demande ou question concernant un sujet, un message ou une demande concernant ces forums doit être adressés aux modérateurs via MP/email,
+          le temps de réponse dépendra en grande partie du sujet de la demande
         </p>
+      </div>
+    </section>
+    <section>
+      <div class="col-xs-12">
         <div id="fr_general">
           <hr />
-          <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-            <div class="mdl-card__title">
-              <h2 class="mdl-card__title-text">Forum Généraliste</h2>
-            </div>
-            <div class="mdl-card__supporting-text">
-              Ici, tout ce dont vous auriez besoin est présent, une envie ? Une idée ? Quelque chose d'autre ?
-              Discutons-en !
-            </div>
-            <div class="mdl-card__actions mdl-card--border">
-              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="{{ path('general') }}">
-                Se lancer
+          <article class="card">
+            <header class="card_thumb">
+              <a href="#">
+                <img src="#" alt="#" />
               </a>
+            </header>
+            <div class="card_body">
+              <div class="card_category"><a href="#">Forums</a></div>
+              <h2 class="card_title"><a href="#">Forum Général</a></h2>
+              <div class="card_subtitle"></div>
+              <p class="card_description">
+
+              </p>
             </div>
-            <div class="mdl-card__menu">
-              <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                <i class="material-icons">share</i>
-              </button>
-            </div>
-          </div>
+            <footer class="card_footer">
+              <span class="card_subject"></span>
+              <span class="card_comments"></span>
+            </footer>
+          </article>
           <br>
           <br>
           <div class="demo-card-wide mdl-card mdl-shadow--2dp">
@@ -103,6 +109,8 @@
             <hr />
           {% endif %}
         </div>
+      </div>
+    </section>
   </div>
 </div>
 {% endblock %}
