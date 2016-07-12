@@ -9,10 +9,6 @@ services:
         class: CoreBundle\Outils\Back
         arguments: ['@doctrine.orm.entity_manager', '@session', '@router', '@security.token_storage', '@form.factory']
 
-    core.administration:
-        class: CoreBundle\Outils\Administration
-        arguments: ['@doctrine.orm.entity_manager', '@session', '@router', '@security.token_storage', '@form.factory']
-
     core.facebook:
         class: CoreBundle\Outils\Facebook
         arguments: [ '%facebook_app_id%', '%facebook_app_secret%']

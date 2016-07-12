@@ -16,7 +16,7 @@ class HomeController extends Controller
      */
     public function indexAction()
     {
-      $article = $this->get('core.back')->index('KRMA', 'MEMBRE', 'TEAM');
+      $article = $this->get('core.back')->showArticles('KRMA', 'MEMBRE', 'TEAM');
       return array( 'article' => $article );
     }
 
