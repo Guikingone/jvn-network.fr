@@ -12,10 +12,11 @@ use CoreBundle\Entity\Article;
 class BlogController extends Controller
 {
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/krma", name="krma")
      * @Template("Blog\Krma\index.html.twig")
      * @Method("GET")
+     *
+     * @return array
      */
     public function krmaAction()
     {
@@ -24,9 +25,10 @@ class BlogController extends Controller
     }
 
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/membre", name="membre_blog")
      * @Template("Blog\Membre\index.html.twig")
+     *
+     * @return array
      */
     public function membreAction()
     {
@@ -35,9 +37,10 @@ class BlogController extends Controller
     }
 
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/equipe", name="equipe")
      * @Template("Blog\Team\index.html.twig")
+     *
+     * @return array
      */
     public function equipeAction()
     {
@@ -46,11 +49,13 @@ class BlogController extends Controller
     }
 
     /**
-     * @param Article $article
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/article/{id}/{slug}", name="home_view", requirements={"id": "\d+"})
      * @Template("Blog\view.html.twig")
+     *
+     * @param Article $article
+     * @param Request $request
+     *
+     * @return array
      */
     public function viewAction(Article $article, Request $request)
     {
@@ -63,9 +68,12 @@ class BlogController extends Controller
     }
 
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/krma/admin", name="krma_admin")
      * @Template("Blog\Krma\admin.html.twig")
+     *
+     * @param Request $request
+     *
+     * @return array
      */
     public function adminKrmaAction(Request $request)
     {
@@ -75,10 +83,12 @@ class BlogController extends Controller
     }
 
     /**
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/membre/admin", name="membre_admin")
      * @Template("Blog\Membre\admin.html.twig")
+     *
+     * @param Request $request
+     *
+     * @return array
      */
     public function adminMembreAction(Request $request)
     {
@@ -88,10 +98,12 @@ class BlogController extends Controller
     }
 
     /**
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/equipe/admin", name="equipe_admin")
      * @Template("Blog\Team\admin.html.twig")
+     *
+     * @param Request $request
+     *
+     * @return array
      */
     public function adminEquipeAction(Request $request)
     {

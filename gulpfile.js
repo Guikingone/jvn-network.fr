@@ -10,7 +10,7 @@ var concat = require('gulp-concat');
 var minify_css = require('gulp-minify-css');
 
 var config = {
-    assets_dir : 'web/assets/sass',
+    assets_dir : 'web/dev/sass',
     sass_dir :  '/Style/Core/main.scss'
 };
 
@@ -21,7 +21,7 @@ gulp.task('sass', function () {
         .pipe(concat('main.css'))
         .pipe(minify_css())
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('web/css/Main'))
+        .pipe(gulp.dest('web/prod/css'))
 });
 
 gulp.task('watch', function () {
