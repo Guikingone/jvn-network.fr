@@ -9,5 +9,12 @@
 !var/sessions/.gitkeep
 /phpunit.xml
 /node_modules
-/web/css/Main/
-/web/assets/vendor/
+/web/dev/css/Main/
+
+# Front assets
+/web/dev/assets/*
+
+# Compiled assets
+web/prod/app/css/*
+web/prod/app/js/*
+web/prod/app/img/*

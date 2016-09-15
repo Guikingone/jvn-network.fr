@@ -5,17 +5,13 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Tests\\": "src/",
-            "CoreBundle\\": "src/",
-            "UserBundle\\": "src/"
+            "": "src/"
         },
             "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
         },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/AppBundle/",
-            "CoreBundle\\": "src/",
-            "UserBundle\\": "src/"
+            "": "src/"
         }
     },
     "require": {

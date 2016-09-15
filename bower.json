@@ -5,18 +5,18 @@
     "Loulier Guillaume <guillaume.loulier@hotmail.fr>"
   ],
   "description": "",
-  "main": "web/js/main.js",
+  "main": "web/prod/app/js/main.js",
   "license": "MIT",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
-    "web/assets/vendor/",
+    "web/assets/",
     "test",
     "tests"
   ],
   "dependencies": {
     "bootstrap": "^3.3.6",
-    "jquery": "^2.2.3",
+    "jquery": "^2.2.3"
   }
 }

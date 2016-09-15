@@ -135,13 +135,14 @@ class Back
         $form = $this->formbuilder->create(ArticleType::class, $article);
         $form->handleRequest($request);
 
-        if($form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $slug = $this->slugify($article->getTitre());
             $article->setSlug($slug);
             $this->doctrine->persist($article);
             $this->doctrine->flush();
             $this->session->getFlashBag()->add('success', "Article enregistré.");
         }
+
         return $form;
     }
 
@@ -257,14 +258,14 @@ class Back
      */
 
     /**
-     * @param $categorie
+     * @param $category
      * @return array
      *
      * Allow to show the subject depending on the categories passed by the controller.
      */
-    public function indexForums($categorie)
+    public function indexForums($category)
     {
-        return $this->doctrine->getRepository('CoreBundle:Sujet')->getSujet($categorie);
+        return $this->doctrine->getRepository('CoreBundle:Sujet')->getSujet($category);
     }
 
     /**
@@ -353,13 +354,13 @@ class Back
      */
     public function lockSujet($id)
     {
-        $sujet = $this->doctrine->getRepository('CoreBundle:Sujet')->find($id);
-
-        if($sujet === null) {
-            throw new NotFoundHttpException("Le sujet semble avoir été supprimé ou être indisponible.");
+        try {
+            $subject = $this->doctrine->getRepository('CoreBundle:Sujet')->find($id);
+            $subject->setOnline(false);
+            $this->session->getFlashBag()->add('success_forums', "Le sujet a bien été fermé.");
+        } catch (Exception $e) {
+            $e->getMessage();
         }
-        $sujet->setOnline(false);
-        $this->session->getFlashBag()->add('success_forums', "Le sujet a bien été fermé.");
     }
 
     /**
