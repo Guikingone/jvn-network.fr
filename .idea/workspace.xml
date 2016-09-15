@@ -5,367 +5,252 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bd758cc-0a2b-4043-bea3-969dc24120cd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/composerJson.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/dev/css/Main/main.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/dev/css/Main/main.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/skins/lightgray/content.min.css" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/dist/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/js/tinymce/skins/lightgray/content.min.css" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/.bower.json" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/.bower.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/CHANGELOG.md" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/CHANGELOG.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/Gruntfile.js" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/Gruntfile.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/LICENSE" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/LICENSE" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/README.md" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/README.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/bower.json" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/bower.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/dist/css/bootstrap-theme.css" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/css/bootstrap-theme.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/dist/css/bootstrap-theme.css.map" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/css/bootstrap-theme.css.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/dist/css/bootstrap-theme.min.css" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/css/bootstrap-theme.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/dist/css/bootstrap-theme.min.css.map" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/css/bootstrap-theme.min.css.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/dist/css/bootstrap.css" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/css/bootstrap.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/dist/css/bootstrap.css.map" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/css/bootstrap.css.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/dist/css/bootstrap.min.css.map" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/css/bootstrap.min.css.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.eot" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/fonts/glyphicons-halflings-regular.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.svg" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/fonts/glyphicons-halflings-regular.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.woff" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/fonts/glyphicons-halflings-regular.woff" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/dist/js/bootstrap.js" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/js/bootstrap.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/dist/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/js/bootstrap.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/dist/js/npm.js" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/js/npm.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/fonts/glyphicons-halflings-regular.eot" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/fonts/glyphicons-halflings-regular.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/fonts/glyphicons-halflings-regular.svg" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/fonts/glyphicons-halflings-regular.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/fonts/glyphicons-halflings-regular.ttf" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/fonts/glyphicons-halflings-regular.woff" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/fonts/glyphicons-halflings-regular.woff" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/fonts/glyphicons-halflings-regular.woff2" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/fonts/glyphicons-halflings-regular.woff2" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/grunt/.jshintrc" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/grunt/.jshintrc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/grunt/bs-commonjs-generator.js" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/grunt/bs-commonjs-generator.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/grunt/bs-glyphicons-data-generator.js" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/grunt/bs-glyphicons-data-generator.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/grunt/bs-lessdoc-parser.js" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/grunt/bs-lessdoc-parser.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/grunt/bs-raw-files-generator.js" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/grunt/bs-raw-files-generator.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/grunt/configBridge.json" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/grunt/configBridge.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/grunt/sauce_browsers.yml" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/grunt/sauce_browsers.yml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/js/.jscsrc" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/.jscsrc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/js/.jshintrc" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/.jshintrc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/js/affix.js" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/affix.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/js/alert.js" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/alert.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/js/button.js" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/button.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/js/carousel.js" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/carousel.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/js/collapse.js" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/collapse.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/js/dropdown.js" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/dropdown.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/js/modal.js" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/modal.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/js/popover.js" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/popover.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/js/scrollspy.js" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/scrollspy.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/js/tab.js" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/tab.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/js/tooltip.js" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/tooltip.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/js/transition.js" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/transition.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/.csscomb.json" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/.csscomb.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/.csslintrc" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/.csslintrc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/alerts.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/alerts.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/badges.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/badges.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/bootstrap.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/bootstrap.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/breadcrumbs.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/breadcrumbs.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/button-groups.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/button-groups.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/buttons.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/buttons.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/carousel.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/carousel.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/close.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/close.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/code.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/code.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/component-animations.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/component-animations.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/dropdowns.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/dropdowns.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/forms.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/forms.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/glyphicons.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/glyphicons.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/grid.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/grid.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/input-groups.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/input-groups.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/jumbotron.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/jumbotron.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/labels.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/labels.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/list-group.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/list-group.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/media.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/media.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/alerts.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/alerts.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/background-variant.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/background-variant.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/border-radius.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/border-radius.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/buttons.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/buttons.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/center-block.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/center-block.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/clearfix.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/clearfix.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/forms.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/forms.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/gradients.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/gradients.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/grid-framework.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/grid-framework.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/grid.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/grid.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/hide-text.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/hide-text.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/image.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/image.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/labels.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/labels.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/list-group.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/list-group.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/nav-divider.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/nav-divider.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/nav-vertical-align.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/nav-vertical-align.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/opacity.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/opacity.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/pagination.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/pagination.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/panels.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/panels.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/progress-bar.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/progress-bar.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/reset-filter.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/reset-filter.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/reset-text.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/reset-text.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/resize.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/resize.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/responsive-visibility.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/responsive-visibility.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/size.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/size.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/tab-focus.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/tab-focus.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/table-row.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/table-row.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/text-emphasis.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/text-emphasis.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/text-overflow.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/text-overflow.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/mixins/vendor-prefixes.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/vendor-prefixes.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/modals.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/modals.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/navbar.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/navbar.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/navs.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/navs.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/normalize.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/normalize.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/pager.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/pager.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/pagination.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/pagination.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/panels.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/panels.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/popovers.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/popovers.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/print.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/print.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/progress-bars.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/progress-bars.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/responsive-embed.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/responsive-embed.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/responsive-utilities.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/responsive-utilities.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/scaffolding.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/scaffolding.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/tables.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/tables.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/theme.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/theme.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/thumbnails.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/thumbnails.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/tooltip.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/tooltip.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/type.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/type.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/utilities.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/utilities.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/variables.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/variables.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/less/wells.less" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/wells.less" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/nuget/MyGet.ps1" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/nuget/MyGet.ps1" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/nuget/bootstrap.less.nuspec" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/nuget/bootstrap.less.nuspec" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/nuget/bootstrap.nuspec" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/nuget/bootstrap.nuspec" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/package.js" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/package.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/bootstrap/package.json" afterPath="$PROJECT_DIR$/web/dev/assets/bootstrap/package.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/.bower.json" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/.bower.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/AUTHORS.txt" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/AUTHORS.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/LICENSE.txt" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/LICENSE.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/README.md" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/README.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/bower.json" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/bower.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/dist/jquery.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/dist/jquery.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/dist/jquery.min.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/dist/jquery.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/dist/jquery.min.map" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/dist/jquery.min.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/external/sizzle/LICENSE.txt" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/external/sizzle/LICENSE.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/external/sizzle/dist/sizzle.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/external/sizzle/dist/sizzle.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/external/sizzle/dist/sizzle.min.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/external/sizzle/dist/sizzle.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/external/sizzle/dist/sizzle.min.map" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/external/sizzle/dist/sizzle.min.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/.jshintrc" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/.jshintrc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/ajax.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/ajax.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/ajax/jsonp.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/ajax/jsonp.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/ajax/load.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/ajax/load.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/ajax/parseJSON.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/ajax/parseJSON.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/ajax/parseXML.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/ajax/parseXML.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/ajax/script.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/ajax/script.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/ajax/var/location.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/ajax/var/location.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/ajax/var/nonce.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/ajax/var/nonce.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/ajax/var/rquery.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/ajax/var/rquery.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/ajax/xhr.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/ajax/xhr.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/attributes.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/attributes.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/attributes/attr.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/attributes/attr.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/attributes/classes.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/attributes/classes.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/attributes/prop.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/attributes/prop.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/attributes/support.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/attributes/support.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/attributes/val.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/attributes/val.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/callbacks.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/callbacks.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/core.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/core.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/core/access.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/core/access.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/core/init.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/core/init.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/core/parseHTML.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/core/parseHTML.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/core/ready.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/core/ready.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/core/var/rsingleTag.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/core/var/rsingleTag.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/css.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/css.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/css/addGetHookIf.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/css/addGetHookIf.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/css/adjustCSS.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/css/adjustCSS.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/css/curCSS.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/css/curCSS.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/css/defaultDisplay.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/css/defaultDisplay.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/css/hiddenVisibleSelectors.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/css/hiddenVisibleSelectors.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/css/showHide.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/css/showHide.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/css/support.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/css/support.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/css/var/cssExpand.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/css/var/cssExpand.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/css/var/getStyles.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/css/var/getStyles.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/css/var/isHidden.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/css/var/isHidden.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/css/var/rmargin.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/css/var/rmargin.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/css/var/rnumnonpx.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/css/var/rnumnonpx.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/css/var/swap.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/css/var/swap.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/data.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/data.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/data/Data.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/data/Data.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/data/var/acceptData.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/data/var/acceptData.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/data/var/dataPriv.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/data/var/dataPriv.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/data/var/dataUser.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/data/var/dataUser.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/deferred.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/deferred.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/deprecated.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/deprecated.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/dimensions.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/dimensions.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/effects.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/effects.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/effects/Tween.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/effects/Tween.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/effects/animatedSelector.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/effects/animatedSelector.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/event.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/event.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/event/ajax.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/event/ajax.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/event/alias.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/event/alias.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/event/focusin.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/event/focusin.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/event/support.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/event/support.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/event/trigger.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/event/trigger.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/exports/amd.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/exports/amd.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/exports/global.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/exports/global.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/intro.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/intro.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/jquery.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/jquery.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/manipulation.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/manipulation.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/manipulation/_evalUrl.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/manipulation/_evalUrl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/manipulation/buildFragment.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/manipulation/buildFragment.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/manipulation/getAll.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/manipulation/getAll.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/manipulation/setGlobalEval.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/manipulation/setGlobalEval.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/manipulation/support.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/manipulation/support.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/manipulation/var/rcheckableType.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/manipulation/var/rcheckableType.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/manipulation/var/rscriptType.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/manipulation/var/rscriptType.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/manipulation/var/rtagName.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/manipulation/var/rtagName.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/manipulation/wrapMap.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/manipulation/wrapMap.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/offset.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/offset.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/outro.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/outro.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/queue.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/queue.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/queue/delay.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/queue/delay.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/selector-native.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/selector-native.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/selector-sizzle.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/selector-sizzle.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/selector.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/selector.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/serialize.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/serialize.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/traversing.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/traversing.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/traversing/findFilter.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/traversing/findFilter.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/traversing/var/dir.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/traversing/var/dir.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/traversing/var/rneedsContext.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/traversing/var/rneedsContext.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/traversing/var/siblings.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/traversing/var/siblings.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/var/arr.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/arr.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/var/class2type.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/class2type.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/var/concat.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/concat.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/var/document.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/document.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/var/documentElement.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/documentElement.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/var/hasOwn.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/hasOwn.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/var/indexOf.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/indexOf.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/var/pnum.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/pnum.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/var/push.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/push.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/var/rcssNum.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/rcssNum.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/var/rnotwhite.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/rnotwhite.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/var/slice.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/slice.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/var/support.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/support.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/var/toString.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/toString.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/assets/vendor/jquery/src/wrap.js" afterPath="$PROJECT_DIR$/web/dev/assets/jquery/src/wrap.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/css/Bootstrap/bootstrap-theme.css" afterPath="$PROJECT_DIR$/web/dev/css/Bootstrap/bootstrap-theme.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/css/Bootstrap/bootstrap-theme.min.css" afterPath="$PROJECT_DIR$/web/dev/css/Bootstrap/bootstrap-theme.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/css/Bootstrap/bootstrap.css" afterPath="$PROJECT_DIR$/web/dev/css/Bootstrap/bootstrap.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/css/Bootstrap/bootstrap.min.css" afterPath="$PROJECT_DIR$/web/dev/css/Bootstrap/bootstrap.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/css/font-awesome.css" afterPath="$PROJECT_DIR$/web/dev/css/font-awesome.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/css/font-awesome.min.css" afterPath="$PROJECT_DIR$/web/dev/css/font-awesome.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/css/main.css" afterPath="$PROJECT_DIR$/web/dev/css/main.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/css/normalize.css" afterPath="$PROJECT_DIR$/web/dev/css/normalize.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/dev/sass/Colors/colors.scss" afterPath="$PROJECT_DIR$/web/dev/Sass/Colors/colors.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/dev/sass/Style/Core/main.scss" afterPath="$PROJECT_DIR$/web/dev/Sass/Core/main.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/dev/sass/Style/Footer/footer.scss" afterPath="$PROJECT_DIR$/web/dev/Sass/Style/Footer/footer.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/dev/sass/Style/Forums/forums.scss" afterPath="$PROJECT_DIR$/web/dev/Sass/Style/Forums/forums.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/dev/sass/Style/Global/global.scss" afterPath="$PROJECT_DIR$/web/dev/Sass/Style/Global/global.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/dev/sass/Style/Home/home.scss" afterPath="$PROJECT_DIR$/web/dev/Sass/Style/Home/home.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/dev/sass/Style/Navigation/navigation.scss" afterPath="$PROJECT_DIR$/web/dev/Sass/Style/Navigation/navigation.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/img/article/bc0aea75dc0423c252ab5cf3e3d403d89dc7ba36.png" afterPath="$PROJECT_DIR$/web/dev/img/article/bc0aea75dc0423c252ab5cf3e3d403d89dc7ba36.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/img/jvn/hero_image.jpg" afterPath="$PROJECT_DIR$/web/dev/img/jvn/hero_image.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/bootstrap.js" afterPath="$PROJECT_DIR$/web/dev/js/bootstrap.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/web/dev/js/bootstrap.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/main.js" afterPath="$PROJECT_DIR$/web/dev/js/main.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/npm.js" afterPath="$PROJECT_DIR$/web/dev/js/npm.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/plugins.js" afterPath="$PROJECT_DIR$/web/dev/js/plugins.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/social/social.js" afterPath="$PROJECT_DIR$/web/dev/js/social/social.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/socket.js" afterPath="$PROJECT_DIR$/web/dev/js/socket.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/langs/readme.md" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/langs/readme.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/license.txt" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/license.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/advlist/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/advlist/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/anchor/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/anchor/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/autolink/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/autolink/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/autoresize/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/autoresize/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/autosave/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/autosave/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/bbcode/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/bbcode/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/charmap/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/charmap/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/code/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/code/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/codesample/css/prism.css" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/codesample/css/prism.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/codesample/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/codesample/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/colorpicker/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/colorpicker/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/contextmenu/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/contextmenu/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/directionality/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/directionality/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/emoticons/img/smiley-cool.gif" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/emoticons/img/smiley-cool.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/emoticons/img/smiley-cry.gif" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/emoticons/img/smiley-cry.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/emoticons/img/smiley-embarassed.gif" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/emoticons/img/smiley-embarassed.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/emoticons/img/smiley-foot-in-mouth.gif" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/emoticons/img/smiley-foot-in-mouth.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/emoticons/img/smiley-frown.gif" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/emoticons/img/smiley-frown.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/emoticons/img/smiley-innocent.gif" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/emoticons/img/smiley-innocent.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/emoticons/img/smiley-kiss.gif" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/emoticons/img/smiley-kiss.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/emoticons/img/smiley-laughing.gif" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/emoticons/img/smiley-laughing.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/emoticons/img/smiley-money-mouth.gif" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/emoticons/img/smiley-money-mouth.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/emoticons/img/smiley-sealed.gif" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/emoticons/img/smiley-sealed.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/emoticons/img/smiley-smile.gif" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/emoticons/img/smiley-smile.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/emoticons/img/smiley-surprised.gif" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/emoticons/img/smiley-surprised.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/emoticons/img/smiley-tongue-out.gif" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/emoticons/img/smiley-tongue-out.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/emoticons/img/smiley-undecided.gif" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/emoticons/img/smiley-undecided.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/emoticons/img/smiley-wink.gif" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/emoticons/img/smiley-wink.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/emoticons/img/smiley-yell.gif" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/emoticons/img/smiley-yell.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/emoticons/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/emoticons/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/example/dialog.html" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/example/dialog.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/example/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/example/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/example_dependency/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/example_dependency/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/fullpage/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/fullpage/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/fullscreen/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/fullscreen/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/hr/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/hr/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/image/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/image/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/imagetools/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/imagetools/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/importcss/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/importcss/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/insertdatetime/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/insertdatetime/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/layer/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/layer/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/legacyoutput/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/legacyoutput/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/link/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/link/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/lists/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/lists/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/media/moxieplayer.swf" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/media/moxieplayer.swf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/media/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/media/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/nonbreaking/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/nonbreaking/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/noneditable/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/noneditable/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/pagebreak/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/pagebreak/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/paste/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/paste/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/preview/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/preview/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/print/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/print/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/save/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/save/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/searchreplace/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/searchreplace/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/spellchecker/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/spellchecker/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/tabfocus/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/tabfocus/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/table/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/table/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/template/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/template/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/textcolor/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/textcolor/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/textpattern/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/textpattern/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/visualblocks/css/visualblocks.css" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/visualblocks/css/visualblocks.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/visualblocks/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/visualblocks/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/visualchars/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/visualchars/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/plugins/wordcount/plugin.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/plugins/wordcount/plugin.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/skins/lightgray/content.inline.min.css" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/skins/lightgray/content.inline.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/skins/lightgray/fonts/tinymce-small.eot" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/skins/lightgray/fonts/tinymce-small.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/skins/lightgray/fonts/tinymce-small.svg" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/skins/lightgray/fonts/tinymce-small.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/skins/lightgray/fonts/tinymce-small.ttf" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/skins/lightgray/fonts/tinymce-small.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/skins/lightgray/fonts/tinymce-small.woff" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/skins/lightgray/fonts/tinymce-small.woff" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/skins/lightgray/fonts/tinymce.eot" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/skins/lightgray/fonts/tinymce.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/skins/lightgray/fonts/tinymce.svg" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/skins/lightgray/fonts/tinymce.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/skins/lightgray/fonts/tinymce.ttf" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/skins/lightgray/fonts/tinymce.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/skins/lightgray/fonts/tinymce.woff" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/skins/lightgray/fonts/tinymce.woff" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/skins/lightgray/img/anchor.gif" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/skins/lightgray/img/anchor.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/skins/lightgray/img/loader.gif" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/skins/lightgray/img/loader.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/skins/lightgray/img/object.gif" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/skins/lightgray/img/object.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/skins/lightgray/img/trans.gif" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/skins/lightgray/img/trans.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/skins/lightgray/skin.ie7.min.css" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/skins/lightgray/skin.ie7.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/skins/lightgray/skin.min.css" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/skins/lightgray/skin.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/themes/modern/theme.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/themes/modern/theme.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/tinymce/tinymce.min.js" afterPath="$PROJECT_DIR$/web/dev/js/tinymce/tinymce.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/vendor/jquery.js" afterPath="$PROJECT_DIR$/web/dev/js/vendor/jquery.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/vendor/modernizr-2.8.3.min.js" afterPath="$PROJECT_DIR$/web/dev/js/vendor/modernizr-2.8.3.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.bowerrc" afterPath="$PROJECT_DIR$/.bowerrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/dev/Typescript/Angular/Component/app.component.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/dev/Typescript/Angular/app.module.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/dev/Typescript/Angular/main.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/prod/app/Angular.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/prod/app/Angular.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/prod/app/sass.js.map" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/.bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/Gruntfile.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/css/bootstrap-theme.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/css/bootstrap-theme.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/css/bootstrap-theme.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/css/bootstrap-theme.min.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/css/bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/css/bootstrap.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/css/bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/css/bootstrap.min.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/fonts/glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/fonts/glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/fonts/glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/js/bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/js/bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/dist/js/npm.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/fonts/glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/fonts/glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/fonts/glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/grunt/.jshintrc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/grunt/bs-commonjs-generator.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/grunt/bs-glyphicons-data-generator.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/grunt/bs-lessdoc-parser.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/grunt/bs-raw-files-generator.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/grunt/configBridge.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/grunt/sauce_browsers.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/.jscsrc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/.jshintrc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/affix.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/alert.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/button.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/carousel.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/collapse.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/dropdown.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/modal.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/popover.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/scrollspy.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/tab.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/tooltip.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/js/transition.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/.csscomb.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/.csslintrc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/alerts.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/badges.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/bootstrap.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/breadcrumbs.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/button-groups.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/buttons.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/carousel.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/close.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/code.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/component-animations.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/dropdowns.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/forms.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/glyphicons.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/grid.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/input-groups.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/jumbotron.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/labels.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/list-group.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/media.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/alerts.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/background-variant.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/border-radius.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/buttons.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/center-block.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/clearfix.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/forms.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/gradients.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/grid-framework.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/grid.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/hide-text.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/image.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/labels.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/list-group.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/nav-divider.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/nav-vertical-align.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/opacity.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/pagination.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/panels.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/progress-bar.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/reset-filter.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/reset-text.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/resize.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/responsive-visibility.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/size.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/tab-focus.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/table-row.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/text-emphasis.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/text-overflow.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/mixins/vendor-prefixes.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/modals.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/navbar.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/navs.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/normalize.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/pager.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/pagination.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/panels.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/popovers.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/print.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/progress-bars.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/responsive-embed.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/responsive-utilities.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/scaffolding.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/tables.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/theme.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/thumbnails.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/tooltip.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/type.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/utilities.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/variables.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/less/wells.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/nuget/MyGet.ps1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/nuget/bootstrap.less.nuspec" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/nuget/bootstrap.nuspec" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/package.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/bootstrap/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/.bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/AUTHORS.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/LICENSE.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/dist/jquery.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/dist/jquery.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/dist/jquery.min.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/external/sizzle/LICENSE.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/external/sizzle/dist/sizzle.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/external/sizzle/dist/sizzle.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/external/sizzle/dist/sizzle.min.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/.jshintrc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/ajax.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/ajax/jsonp.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/ajax/load.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/ajax/parseJSON.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/ajax/parseXML.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/ajax/script.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/ajax/var/location.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/ajax/var/nonce.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/ajax/var/rquery.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/ajax/xhr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/attributes.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/attributes/attr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/attributes/classes.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/attributes/prop.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/attributes/support.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/attributes/val.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/callbacks.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/core.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/core/access.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/core/init.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/core/parseHTML.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/core/ready.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/core/var/rsingleTag.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/css.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/css/addGetHookIf.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/css/adjustCSS.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/css/curCSS.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/css/defaultDisplay.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/css/hiddenVisibleSelectors.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/css/showHide.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/css/support.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/css/var/cssExpand.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/css/var/getStyles.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/css/var/isHidden.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/css/var/rmargin.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/css/var/rnumnonpx.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/css/var/swap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/data.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/data/Data.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/data/var/acceptData.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/data/var/dataPriv.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/data/var/dataUser.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/deferred.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/deprecated.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/dimensions.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/effects.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/effects/Tween.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/effects/animatedSelector.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/event.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/event/ajax.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/event/alias.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/event/focusin.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/event/support.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/event/trigger.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/exports/amd.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/exports/global.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/intro.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/jquery.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/manipulation.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/manipulation/_evalUrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/manipulation/buildFragment.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/manipulation/getAll.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/manipulation/setGlobalEval.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/manipulation/support.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/manipulation/var/rcheckableType.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/manipulation/var/rscriptType.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/manipulation/var/rtagName.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/manipulation/wrapMap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/offset.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/outro.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/queue.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/queue/delay.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/selector-native.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/selector-sizzle.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/selector.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/serialize.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/traversing.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/traversing/findFilter.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/traversing/var/dir.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/traversing/var/rneedsContext.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/traversing/var/siblings.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/arr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/class2type.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/concat.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/document.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/documentElement.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/hasOwn.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/indexOf.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/pnum.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/push.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/rcssNum.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/rnotwhite.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/slice.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/support.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/var/toString.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/dev/assets/jquery/src/wrap.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/symfony_requirements" afterPath="$PROJECT_DIR$/bin/symfony_requirements" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/layout.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/layout.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CoreBundle/Outils/Back.php" afterPath="$PROJECT_DIR$/src/CoreBundle/Outils/Back.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserBundle/Resources/views/layout.html.twig" afterPath="$PROJECT_DIR$/src/UserBundle/Resources/views/layout.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/prod/app/sass.js" afterPath="$PROJECT_DIR$/web/prod/app/sass.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="$PROJECT_DIR$/webpack.config.js" />
     </list>
     <ignored path="jvn-network.iws" />
@@ -388,12 +273,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="layout.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="layout.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/layout.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="135" column="38" selection-start-line="135" selection-start-column="38" selection-end-line="135" selection-end-column="38" />
-              <folding />
+            <state relative-caret-position="701">
+              <caret line="146" column="18" selection-start-line="146" selection-start-column="18" selection-end-line="146" selection-end-column="18" />
+              <folding>
+                <marker date="1473952295618" expanded="true" signature="2557:3024" ph="{% block stylesheets ...%}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -416,16 +303,30 @@
               <folding>
                 <element signature="e#6#350#0#PHP" expanded="true" />
                 <element signature="e#382#413#0#PHP" expanded="true" />
+                <element signature="e#2737#2757#1#PHP" expanded="true" />
+                <element signature="e#3067#3087#1#PHP" expanded="true" />
+                <element signature="e#4766#4786#1#PHP" expanded="true" />
+                <element signature="e#5829#5849#1#PHP" expanded="true" />
+                <element signature="e#6521#6541#1#PHP" expanded="true" />
+                <element signature="e#7000#7020#1#PHP" expanded="true" />
+                <element signature="e#7527#7547#1#PHP" expanded="true" />
+                <element signature="e#7828#7852#1#PHP" expanded="true" />
+                <element signature="e#8491#8509#1#PHP" expanded="true" />
+                <element signature="e#9843#9861#1#PHP" expanded="true" />
+                <element signature="e#10728#10746#1#PHP" expanded="true" />
+                <element signature="e#11604#11622#1#PHP" expanded="true" />
+                <element signature="e#12031#12049#1#PHP" expanded="true" />
+                <element signature="e#12421#12441#1#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/webpack.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+            <state relative-caret-position="336">
+              <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -446,9 +347,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/tests/AppBundle/Functionnal/Route/RouteControllerTest.php" />
-        <option value="$PROJECT_DIR$/src/CoreBundle/Controller/Web/Facebook/FacebookController.php" />
-        <option value="$PROJECT_DIR$/src/CoreBundle/Repository/ArticleRepository.php" />
         <option value="$PROJECT_DIR$/src/CoreBundle/Entity/Blog.php" />
         <option value="$PROJECT_DIR$/app/Resources/assets/sass/Style/home.scss" />
         <option value="$PROJECT_DIR$/app/Resources/assets/sass/Style/navbar.scss" />
@@ -492,11 +390,14 @@
         <option value="$PROJECT_DIR$/web/dev/Sass/Core/main.scss" />
         <option value="$PROJECT_DIR$/src/CoreBundle/Outils/Back.php" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/.bowerrc" />
+        <option value="$PROJECT_DIR$/bower.json" />
         <option value="$PROJECT_DIR$/app/Resources/views/layout.html.twig" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
-        <option value="$PROJECT_DIR$/.bowerrc" />
+        <option value="$PROJECT_DIR$/web/dev/Typescript/Angular/Component/app.component.ts" />
+        <option value="$PROJECT_DIR$/web/dev/Typescript/Angular/app.module.ts" />
+        <option value="$PROJECT_DIR$/web/dev/Typescript/Angular/main.ts" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/bower.json" />
       </list>
     </option>
   </component>
@@ -615,6 +516,14 @@
               <option name="myItemId" value="dev" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Typescript" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Angular" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -634,7 +543,81 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
+              <option name="myItemId" value="Typescript" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Angular" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Component" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jvn-network" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jvn-network" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dev" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jvn-network" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jvn-network" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dev" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jvn-network" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jvn-network" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dev" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Bootstrap" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -1262,14 +1245,15 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="prop_add_unversioned_files" value="true" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
+    <property name="typescript-compiler-editor-notification" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Projets\Symfony\jvn-network\web\dev\Typescript" />
       <recent name="C:\wamp64\www\Projets\Symfony\jvn-network\web\dev\assets" />
       <recent name="C:\wamp64\www\Projets\Symfony\jvn-network\web\prod\app" />
       <recent name="C:\wamp64\www\Projets\Symfony\jvn-network\web\dev" />
       <recent name="C:\wamp64\www\Projets\Symfony\jvn-network\web\dev\Sass" />
-      <recent name="C:\wamp64\www\Projets\Symfony\jvn-network\web\assets" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\Projets\Symfony\jvn-network\web\css\Bootstrap" />
@@ -1468,18 +1452,18 @@
       <workItem from="1473233799802" duration="609000" />
       <workItem from="1473857729129" duration="2401000" />
       <workItem from="1473921192742" duration="1628000" />
-      <workItem from="1473922877125" duration="2920000" />
+      <workItem from="1473922877125" duration="5845000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="361580000" />
+    <option name="totallyTimeSpent" value="364505000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24946696" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20575693" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1516,41 +1500,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/Blog/Team/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/TwigBundle/views/Exception/error404.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/TwigBundle/views/Exception/error.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CoreBundle/Entity/Sujet.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CoreBundle/Entity/Message.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/Blog/view.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-342">
@@ -1801,31 +1750,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/prod/app/sass.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-219">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CoreBundle/Outils/Back.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="813">
-          <caret line="264" column="7" selection-start-line="264" selection-start-column="7" selection-end-line="264" selection-end-column="7" />
-          <folding>
-            <element signature="e#6#350#0#PHP" expanded="true" />
-            <element signature="e#382#413#0#PHP" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1862,14 +1792,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.bowerrc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="28">
@@ -1878,10 +1800,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="280">
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/prod/app/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1896,8 +1826,87 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="135" column="38" selection-start-line="135" selection-start-column="38" selection-end-line="135" selection-end-column="38" />
+        <state relative-caret-position="701">
+          <caret line="146" column="18" selection-start-line="146" selection-start-column="18" selection-end-line="146" selection-end-column="18" />
+          <folding>
+            <marker date="1473952295618" expanded="true" signature="2557:3024" ph="{% block stylesheets ...%}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/prod/app/Angular.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#126#134#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/dev/Typescript/Angular/main.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/dev/Typescript/Angular/Component/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="4" column="58" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/dev/Typescript/Angular/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#46#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CoreBundle/Outils/Back.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="813">
+          <caret line="264" column="7" selection-start-line="264" selection-start-column="7" selection-end-line="264" selection-end-column="7" />
+          <folding>
+            <element signature="e#6#350#0#PHP" expanded="true" />
+            <element signature="e#382#413#0#PHP" expanded="true" />
+            <element signature="e#2737#2757#1#PHP" expanded="true" />
+            <element signature="e#3067#3087#1#PHP" expanded="true" />
+            <element signature="e#4766#4786#1#PHP" expanded="true" />
+            <element signature="e#5829#5849#1#PHP" expanded="true" />
+            <element signature="e#6521#6541#1#PHP" expanded="true" />
+            <element signature="e#7000#7020#1#PHP" expanded="true" />
+            <element signature="e#7527#7547#1#PHP" expanded="true" />
+            <element signature="e#7828#7852#1#PHP" expanded="true" />
+            <element signature="e#8491#8509#1#PHP" expanded="true" />
+            <element signature="e#9843#9861#1#PHP" expanded="true" />
+            <element signature="e#10728#10746#1#PHP" expanded="true" />
+            <element signature="e#11604#11622#1#PHP" expanded="true" />
+            <element signature="e#12031#12049#1#PHP" expanded="true" />
+            <element signature="e#12421#12441#1#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
           <folding />
         </state>
       </provider>

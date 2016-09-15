@@ -8,13 +8,12 @@
 !var/logs/.gitkeep
 !var/sessions/.gitkeep
 /phpunit.xml
-/node_modules
-/web/dev/css/Main/
+
+# Npm modules
+/node_modules/
 
 # Front assets
 /web/dev/assets/*
 
 # Compiled assets
-web/prod/app/css/*
-web/prod/app/js/*
-web/prod/app/img/*
+web/prod/app/*

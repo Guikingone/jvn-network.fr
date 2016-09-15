@@ -36,11 +36,14 @@
     "zone.js": "^0.6.21"
   },
   "devDependencies": {
+    "css-loader": "^0.25.0",
     "gulp": "https://registry.npmjs.org/gulp/-/gulp-3.9.1.tgz",
     "gulp-concat": "https://registry.npmjs.org/gulp-concat/-/gulp-concat-2.6.0.tgz",
     "gulp-minify-css": "^1.2.4",
     "gulp-sass": "https://registry.npmjs.org/gulp-sass/-/gulp-sass-2.3.1.tgz",
     "gulp-sourcemaps": "https://registry.npmjs.org/gulp-sourcemaps/-/gulp-sourcemaps-1.6.0.tgz",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
     "ts-loader": "^0.8.2",
     "typescript": "^1.8.10",
     "typings": "^1.3.3",
