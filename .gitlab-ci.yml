@@ -1,0 +1,19 @@
+before_script:
+ - composer install
+ - php bin/console cache:clear
+ - php bin/console cache:clear --env=prod
+ - npm install
+ - bower install
+ - gulp sass
+ - webpack
+
+services:
+ - mysql
+
+variables:
+    MYSQL_DATABASE: _symfony_jvn_network
+    MYSQL_ROOT_PASSWORD: root
+
+test:php7:
+    script:
+    - phpunit

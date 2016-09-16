@@ -1,12 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Guillaume Loulier || guillaume.loulier[at]hotmail.fr
- * Date: 04/05/2016
- * Time: 18:08
+
+/*
+ * This file is part of the jvn-network project.
  *
- * Back Service is used to control the entire back part of the application, he's also used by the Controller in order
- * to be able to add, delete, update and view a entity without passing by the Main Controller.
+ * (c) Guillaume Loulier <guillaume.loulier@hotmail.fr>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace CoreBundle\Outils;
@@ -19,12 +19,10 @@ use Symfony\Component\Form\FormFactory;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-
 use CoreBundle\Entity\Article;
 use CoreBundle\Entity\Commentaire;
 use CoreBundle\Form\Type\ArticleType;
 use CoreBundle\Form\Type\CommentaireType;
-
 use CoreBundle\Entity\Sujet;
 use CoreBundle\Entity\Message;
 use CoreBundle\Form\Type\SujetType;

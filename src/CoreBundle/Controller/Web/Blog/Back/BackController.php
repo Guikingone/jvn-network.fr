@@ -21,6 +21,7 @@ class BackController extends Controller
     {
         $form = $this->get('core.back')->updateArticle($request, $article);
         $this->redirectToRoute('equipe_admin');
+
         return array('form' => $form->createView(), 'article' => $article);
     }
 
@@ -35,6 +36,7 @@ class BackController extends Controller
     {
         $form = $this->get('core.back')->updateArticle($request, $article);
         $this->redirectToRoute('krma_admin');
+
         return array('form' => $form->createView(), 'article' => $article);
     }
 
@@ -49,6 +51,7 @@ class BackController extends Controller
     {
         $form = $this->get('core.back')->updateArticle($request, $article);
         $this->redirectToRoute('membre_admin');
+
         return array('form' => $form->createView(), 'article' => $article);
     }
 
@@ -61,6 +64,7 @@ class BackController extends Controller
     {
         $this->get('core.back')->deleteArticle($id);
         $this->addFlash('success', "L'article a été supprimé");
+
         return $this->redirectToRoute('equipe_admin');
     }
 
