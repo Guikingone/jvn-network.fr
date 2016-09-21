@@ -34,18 +34,18 @@ class BlogCommand extends ContainerAwareCommand
 
         $command = $this->getApplication()->find('generate:controller');
         $arguments = array(
-            'command'              => 'generate:controller',
-            '--controller'         => 'CoreBundle:' . $name,
-            '--route-format'       => 'annotation',
-            '--template-format'    => 'twig',
-            '--actions'            => [
-                'actionName'       => [
-                    'name'         => 'indexAction',
-                    'route'        => '/blog/' . $name . '/home',
+            'command' => 'generate:controller',
+            '--controller' => 'CoreBundle:'.$name,
+            '--route-format' => 'annotation',
+            '--template-format' => 'twig',
+            '--actions' => [
+                'actionName' => [
+                    'name' => 'indexAction',
+                    'route' => '/blog/'.$name.'/home',
                     'placeholders' => null,
-                    'template'     => 'CoreBundle:' . $name . ':index.html.twig',
-                ]
-            ]
+                    'template' => 'CoreBundle:'.$name.':index.html.twig',
+                ],
+            ],
         );
         $greetInput = new ArrayInput($arguments);
         $command->run($greetInput, $output);

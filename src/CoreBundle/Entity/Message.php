@@ -5,7 +5,7 @@ namespace CoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Message
+ * Message.
  *
  * @ORM\Table(name="message")
  * @ORM\Entity(repositoryClass="CoreBundle\Repository\MessageRepository")
@@ -43,21 +43,18 @@ class Message
     private $dateMessage;
 
     /**
-    * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\Sujet", cascade={"remove", "persist"}, inversedBy="messages")
-    * @ORM\JoinColumn(nullable=false)
-    */
+     * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\Sujet", cascade={"remove", "persist"}, inversedBy="messages")
+     * @ORM\JoinColumn(nullable=false)
+     */
     private $sujet;
-
-
 
     public function __toString()
     {
-      return $this->message;
+        return $this->message;
     }
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -67,7 +64,7 @@ class Message
     }
 
     /**
-     * Set auteur
+     * Set auteur.
      *
      * @param string $auteur
      *
@@ -81,7 +78,7 @@ class Message
     }
 
     /**
-     * Get auteur
+     * Get auteur.
      *
      * @return string
      */
@@ -91,7 +88,7 @@ class Message
     }
 
     /**
-     * Set contenu
+     * Set contenu.
      *
      * @param string $contenu
      *
@@ -105,7 +102,7 @@ class Message
     }
 
     /**
-     * Get contenu
+     * Get contenu.
      *
      * @return string
      */
@@ -115,7 +112,7 @@ class Message
     }
 
     /**
-     * Set dateMessage
+     * Set dateMessage.
      *
      * @param \DateTime $dateMessage
      *
@@ -129,7 +126,7 @@ class Message
     }
 
     /**
-     * Get dateMessage
+     * Get dateMessage.
      *
      * @return \DateTime
      */
@@ -139,7 +136,7 @@ class Message
     }
 
     /**
-     * Set sujet
+     * Set sujet.
      *
      * @param \CoreBundle\Entity\Sujet $sujet
      *
@@ -153,7 +150,7 @@ class Message
     }
 
     /**
-     * Get sujet
+     * Get sujet.
      *
      * @return \CoreBundle\Entity\Sujet
      */

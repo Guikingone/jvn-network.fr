@@ -56,14 +56,13 @@ class Back
     protected $router;
 
     /**
-     *
      * Blog constructor.
      *
      * @param EntityManager $doctrine
-     * @param Session $session
-     * @param Router $router
-     * @param TokenStorage $user
-     * @param FormFactory $formbuilder
+     * @param Session       $session
+     * @param Router        $router
+     * @param TokenStorage  $user
+     * @param FormFactory   $formbuilder
      */
     public function __construct(EntityManager $doctrine, Session $session, Router $router, TokenStorage $user, FormFactory $formbuilder)
     {
@@ -75,12 +74,11 @@ class Back
     }
 
     /**
-     *
      * Allow to slugify the titre of a article or a subject.
      *
      * @param $string
-     * @return mixed
      *
+     * @return mixed
      */
     public function slugify($string)
     {
@@ -88,13 +86,12 @@ class Back
     }
 
     /**
-     *
      * Allow the user to show every articles depending on the categorie $categorie passed, this method is used by
      * the index page of the application in order to show the multiples articles from the differents blogs.
      *
      * @param $categorie    $categorie of the article
-     * @return array        Return the articles using the $categorie
      *
+     * @return array Return the articles using the $categorie
      */
     public function showArticles($categorie)
     {
@@ -105,6 +102,7 @@ class Back
      * Allow to show the articles selected by a category, this method is used by the blog part of the application.
      *
      * @param $categorie
+     *
      * @return array
      */
     public function index($categorie)
@@ -119,12 +117,13 @@ class Back
      *
      * @param Request $request
      * @param $categorie
+     *
      * @return mixed
      */
     public function addArticle(Request $request, $categorie)
     {
         $article = new Article();
-        $article->setDatePublication(new \Datetime);
+        $article->setDatePublication(new \Datetime());
         $article->setCategorie($categorie);
         $user = $this->user->getToken()->getUser();
         $article->setAuteur($user);
@@ -138,19 +137,19 @@ class Back
             $article->setSlug($slug);
             $this->doctrine->persist($article);
             $this->doctrine->flush();
-            $this->session->getFlashBag()->add('success', "Article enregistré.");
+            $this->session->getFlashBag()->add('success', 'Article enregistré.');
         }
 
         return $form;
     }
 
     /**
-     *
      * Allow the user to view the article using the $id to find the article, create a form for submitting the
      * comments linked to the article.
      *
      * @param Request $request
      * @param $id
+     *
      * @return \Symfony\Component\Form\Form|\Symfony\Component\Form\FormInterface
      */
     public function viewArticle(Request $request, $id)
@@ -158,52 +157,55 @@ class Back
         $article = $this->doctrine->getRepository('CoreBundle:Article')->find($id);
 
         $commentaire = new Commentaire();
-        $commentaire->setdateCreation(new \Datetime);
+        $commentaire->setdateCreation(new \Datetime());
         $commentaire->setArticle($article);
         $user = $this->user->getToken()->getUser();
         $commentaire->setAuteur($user);
         $form = $this->formbuilder->create(CommentaireType::class, $commentaire);
         $form->handleRequest($request);
-        if($form->isValid()){
+        if ($form->isValid()) {
             $this->doctrine->persist($commentaire);
             $this->doctrine->flush();
-            $this->session->getFlashBag()->add('success_article', "Le message a bien été ajouté");
+            $this->session->getFlashBag()->add('success_article', 'Le message a bien été ajouté');
         }
+
         return $form;
     }
 
     /**
      * @param Request $request
      * @param $id
+     *
      * @return $form
      *
      * Allow the user to update the article by searching with the $id, the form in relation is create and submitted
-     * only if everything is validated, a flash message is created and stocked in the session.
+     * only if everything is validated, a flash message is created and stocked in the session
      */
     public function updateArticle(Request $request, $id)
     {
         $update = $this->doctrine->getRepository('CoreBundle:Article')->find($id);
-        if(null === $update){
+        if (null === $update) {
             throw new NotFoundHttpException("L'annonce ne semble pas exister ou n'est pas disponible.");
         }
         $form = $this->formbuilder->create(ArticleType::class, $update);
         $form->handleRequest($request);
-        if($form->isValid()){
+        if ($form->isValid()) {
             $this->doctrine->flush();
             $this->session->getFlashBag()->add('success', "L'article a bien été modifiée.");
         }
+
         return $form;
     }
 
     /**
      * @param $id
      *
-     * Allow to lock a article and make it invisible for the viewer.
+     * Allow to lock a article and make it invisible for the viewer
      */
     public function lockArticle($id)
     {
         $lock = $this->doctrine->getRepository('CoreBundle:Article')->find($id);
-        if($lock === null){
+        if ($lock === null) {
             throw new Exception('danger', "L'article n'existe pas ou a été supprimée !");
         }
         $lock->setOnline(false);
@@ -213,12 +215,12 @@ class Back
     /**
      * @param $id
      *
-     * Allow to unlock a article using is $id.
+     * Allow to unlock a article using is $id
      */
     public function unlockArticle($id)
     {
         $unlock = $this->doctrine->getRepository('CoreBundle:Article')->find($id);
-        if($unlock === null){
+        if ($unlock === null) {
             throw new Exception('danger', "L'article n'existe pas ou a été supprimée !");
         }
         $unlock->setOnline(true);
@@ -228,7 +230,7 @@ class Back
     /**
      * @param $id
      *
-     * Allow to delete a article by is $id, a flash message is generate to confirm this action.
+     * Allow to delete a article by is $id, a flash message is generate to confirm this action
      */
     public function deleteArticle($id)
     {
@@ -240,14 +242,14 @@ class Back
     /**
      * @param $id
      *
-     * Allow to delete a commentary by is $id.
+     * Allow to delete a commentary by is $id
      */
     public function deleteCommentaire($id)
     {
         $purge = $this->doctrine->getRepository('CoreBundle:Commentaire')->find($id);
         $this->doctrine->remove($purge);
         $this->doctrine->flush();
-        $this->session->getFlashBag()->add('success', "Le commentaire a bien été supprimé");
+        $this->session->getFlashBag()->add('success', 'Le commentaire a bien été supprimé');
     }
 
     /*
@@ -257,9 +259,10 @@ class Back
 
     /**
      * @param $category
+     *
      * @return array
      *
-     * Allow to show the subject depending on the categories passed by the controller.
+     * Allow to show the subject depending on the categories passed by the controller
      */
     public function indexForums($category)
     {
@@ -271,36 +274,38 @@ class Back
      * @param $categorie
      *
      * Allow to add a subject by passing via modal windows, the method set the author, the slug and the $categorie,
-     * if everything is in place, the service call doctrine and persist the subject.
+     * if everything is in place, the service call doctrine and persist the subject
      */
     public function addSujet(Request $request, $categorie)
     {
         $sujet = new Sujet();
-        $sujet->setDateCreation(new \Datetime);
+        $sujet->setDateCreation(new \Datetime());
         $sujet->setCategory($categorie);
         $user = $this->user->getToken()->getUser();
         $sujet->setAuteur($user);
         $sujet->setOnline(true);
-        
+
         $form = $this->formbuilder->create(SujetType::class, $sujet);
         $form->handleRequest($request);
-        
-        if($form->isValid()){
+
+        if ($form->isValid()) {
             $slug = $this->slugify($sujet->getTitre());
             $sujet->setSlug($slug);
             $this->doctrine->persist($sujet);
             $this->doctrine->flush();
-            $this->session->getFlashBag()->add('success_forums', "Le sujet a bien été crée !");
+            $this->session->getFlashBag()->add('success_forums', 'Le sujet a bien été crée !');
         }
+
         return $form;
     }
 
     /**
      * @param Request $request
      * @param $id
+     *
      * @return string
      *
-     * Allow to update a subject using is $id.
+     * Allow to update a subject using is $id
      */
     public function updateSujet(Request $request, $id)
     {
@@ -312,50 +317,54 @@ class Back
         $form->handleRequest($request);
         if ($form->isValid()) {
             $this->doctrine->flush();
-            $this->session->getFlashBag()->add('success_forums', "Le sujet a bien été modifiée");
+            $this->session->getFlashBag()->add('success_forums', 'Le sujet a bien été modifiée');
+
             return $this->router->generate('forums');
         }
+
         return $form;
     }
 
     /**
      * @param Request $request
-     * @param Sujet $sujet
+     * @param Sujet   $sujet
+     *
      * @return \Symfony\Component\Form\Form|\Symfony\Component\Form\FormInterface
      *
-     * Allow to view a subject by is $id and add a $message linked to this subject.
+     * Allow to view a subject by is $id and add a $message linked to this subject
      */
     public function viewSujet(Request $request, Sujet $sujet)
     {
         $sujet = $this->doctrine->getRepository('CoreBundle:Sujet')->find($sujet);
-        if($sujet->getOnline() === false){
-            throw new Exception("Ce sujet a été fermé, les messages ne sont plus acceptés !");
+        if ($sujet->getOnline() === false) {
+            throw new Exception('Ce sujet a été fermé, les messages ne sont plus acceptés !');
         }
         $message = new Message();
-        $message->setDateMessage(new \Datetime);
+        $message->setDateMessage(new \Datetime());
         $message->setSujet($sujet);
         $user = $this->user->getToken()->getUser();
         $message->setAuteur($user);
         $form = $this->formbuilder->create(MessageType::class, $message);
         $form->handleRequest($request);
-        if($form->isValid()){
+        if ($form->isValid()) {
             $this->doctrine->persist($message);
             $this->doctrine->flush();
         }
+
         return $form;
     }
 
     /**
      * @param $id
      *
-     * Allow to lock a subject by is $id and have a flash message.
+     * Allow to lock a subject by is $id and have a flash message
      */
     public function lockSujet($id)
     {
         try {
             $subject = $this->doctrine->getRepository('CoreBundle:Sujet')->find($id);
             $subject->setOnline(false);
-            $this->session->getFlashBag()->add('success_forums', "Le sujet a bien été fermé.");
+            $this->session->getFlashBag()->add('success_forums', 'Le sujet a bien été fermé.');
         } catch (Exception $e) {
             $e->getMessage();
         }
@@ -364,26 +373,26 @@ class Back
     /**
      * @param $id
      *
-     * Allow to delete a subject using is $id.
+     * Allow to delete a subject using is $id
      */
     public function deleteSujet($id)
     {
         $purge = $this->doctrine->getRepository('CoreBundle:Sujet')->find($id);
         $this->doctrine->remove($purge);
         $this->doctrine->flush();
-        $this->session->getFlashBag()->add('success_forums', "Le sujet a bien été supprimé.");
+        $this->session->getFlashBag()->add('success_forums', 'Le sujet a bien été supprimé.');
     }
 
     /**
      * @param $id
      *
-     * Allow to delete a message using is $id.
+     * Allow to delete a message using is $id
      */
     public function deleteMessage($id)
     {
         $purge = $this->doctrine->getRepository('CoreBundle:Message')->find($id);
         $this->doctrine->remove($purge);
         $this->doctrine->flush();
-        $this->session->getFlashBag()->add('success_forums', "Le message a bien été supprimé.");
+        $this->session->getFlashBag()->add('success_forums', 'Le message a bien été supprimé.');
     }
 }

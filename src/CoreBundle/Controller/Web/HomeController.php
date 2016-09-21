@@ -1,4 +1,5 @@
 <?php
+
 namespace CoreBundle\Controller\Web;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -16,37 +17,41 @@ class HomeController extends Controller
      */
     public function indexAction()
     {
-      $article = $this->get('core.back')->showArticles('KRMA', 'MEMBRE', 'TEAM');
-      return array( 'article' => $article );
+        $article = $this->get('core.back')->showArticles('KRMA', 'MEMBRE', 'TEAM');
+
+        return array('article' => $article);
     }
 
     /**
      * @Route("/contact", name="contact")
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      * @Method("GET")
      */
     public function contactAction()
     {
-      return $this->render('basics/contact.html.twig');
+        return $this->render('basics/contact.html.twig');
     }
 
     /**
      * @Route("/mentions", name="mentions")
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      * @Method("GET")
      */
     public function mentionsAction()
     {
-      return $this->render('basics/mentions.html.twig');
+        return $this->render('basics/mentions.html.twig');
     }
 
     /**
      * @Route("/propos", name="propos")
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      * @Method("GET")
      */
     public function proposAction()
     {
-      return $this->render('basics/equipe.html.twig');
+        return $this->render('basics/equipe.html.twig');
     }
 }

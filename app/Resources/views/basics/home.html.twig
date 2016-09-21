@@ -31,36 +31,25 @@
         <div class="col-xs-12">
           <!-- Articles -->
           <h1>Nos membres en parlent !</h1>
-          {% for article in article %}
-              <article class="card">
-                <header class="card_thumb">
-                  <a href="#">
-                    <img src="#" alt="#" />
-                  </a>
-                </header>
-                <div class="card_date">
-                  <span class="card_day">12</span>
-                  <span class="card_month">Mai</span>
-                </div>
-                <div class="card_body">
-                  <div class="card_category"><a href="#">{{ article.categorie }}</a></div>
-                  <h2 class="card_title"><a href="#">{{ article.titre|raw }}</a></h2>
-                  <div class="card_subtitle"></div>
-                  <p class="card_description">
-
-                    Nous avons construit ce site, à vous de le faire grandir et évoluer, vous avez les clés dés votre arrivée,
-                    voici la promesse faite par les membres de l'équipe, sans cette relation de confiance, nous ne pourrions
-                    jamais faire évoluer votre aventure parmi la communauté.
-                  </p>
-                </div>
-                <footer class="card_footer">
-                  <div class="card_author"><p>{{ article.auteur }}</p></div>
-                  <span class="card_link">
-                    <i class="fa fa-angle-double-right"></i>
-                  </span>
-                </footer>
-              </article>
-          {% endfor %}
+            <div class="_article_bloc">
+              {% for article in article %}
+                <article class="mdl-card">
+                  <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">title Text Goes Here</h2>
+                  </div>
+                  <div class="mdl-card__media">
+                    <img src="photo.jpg" width="220" height="140" border="0" alt="" style="padding:20px;">
+                  </div>
+                  <div class="mdl-card__supporting-text">
+                    This text might describe the photo and provide further information, such as where and
+                    when it was taken.
+                  </div>
+                  <div class="mdl-card__actions">
+                    <a href="#">Related Action</a>
+                  </div>
+                </article>
+              {% endfor %}
+            </div>
         </div>
       </div>
     </div>

@@ -13,6 +13,7 @@ class BackController extends Controller
     /**
      * @param Request $request
      * @param Article $article
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      * @Route("/equipe/admin/update/{id}", name="equipe_update", requirements={"id": "\d+"})
      * @Template("Blog\Membre\update.html.twig")
@@ -28,6 +29,7 @@ class BackController extends Controller
     /**
      * @param Request $request
      * @param Article $article
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      * @Route("/krma/admin/update/{id}", name="krma_update", requirements={"id": "\d+"})
      * @Template("Blog\krma\update.html.twig")
@@ -43,6 +45,7 @@ class BackController extends Controller
     /**
      * @param Request $request
      * @param Article $article
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/membre/admin/update/{id}", name="membre_update", requirements={"id": "\d+"})
      * @Template("Blog\Membre\update.html.twig")
@@ -57,6 +60,7 @@ class BackController extends Controller
 
     /**
      * @param $id
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route("/equipe/admin/delete/{id}", name="equipe_delete", requirements={"id": "\d+"})
      */
@@ -70,6 +74,7 @@ class BackController extends Controller
 
     /**
      * @param $id
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route("/krma/admin/delete/{id}", name="krma_delete", requirements={"id": "\d+"})
      */
@@ -77,11 +82,13 @@ class BackController extends Controller
     {
         $this->get('core.back')->deleteArticle($id);
         $this->addFlash('success', "L'article a été supprimé");
+
         return $this->redirectToRoute('krma_admin');
     }
 
     /**
      * @param $id
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route("/membre/admin/delete/{id}", name="membre_delete", requirements={"id": "\d+"})
      */
@@ -89,6 +96,7 @@ class BackController extends Controller
     {
         $this->get('core.back')->deleteArticle($id);
         $this->addFlash('success', "L'article a été supprimé");
+
         return $this->redirectToRoute('membre_admin');
     }
 }

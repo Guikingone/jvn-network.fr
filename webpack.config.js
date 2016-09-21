@@ -13,12 +13,12 @@ var path = require("path");
 var DEV_DIR = path.resolve(__dirname, "web/dev/");
 var PROD_DIR = path.resolve(__dirname, "web/prod/");
 
-var TS_DIR = path.resolve(DEV_DIR + "/Typescript");
+var ANGULAR_DIR = path.resolve(DEV_DIR + "/Angular/");
 var SASS_DIR = path.resolve(DEV_DIR + "/Sass");
 
 var config = {
     entry: {
-        'Angular': TS_DIR + "/Angular/main.ts",
+        'Angular': ANGULAR_DIR + "/main.ts",
         'sass': SASS_DIR + "/Core/main.scss"
     },
     output: {

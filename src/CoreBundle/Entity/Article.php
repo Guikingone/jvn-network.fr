@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * Article
+ * Article.
  *
  * @ORM\Table(name="article")
  * @ORM\Entity(repositoryClass="CoreBundle\Repository\ArticleRepository")
@@ -17,7 +17,6 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  */
 class Article
 {
-
     /**
      * @var int
      *
@@ -59,7 +58,6 @@ class Article
     private $contenu;
 
     /**
-     *
      * @Vich\UploadableField(mapping="article_image", fileNameProperty="imageName")
      * @ORM\JoinColumn(nullable=true)
      *
@@ -82,23 +80,23 @@ class Article
     private $updatedAt;
 
     /**
-    * @ORM\ManyToMany(targetEntity="CoreBundle\Entity\Category", cascade={"persist"})
-    */
+     * @ORM\ManyToMany(targetEntity="CoreBundle\Entity\Category", cascade={"persist"})
+     */
     private $category;
 
     /**
-    * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Commentaire", mappedBy="article", cascade={"remove", "persist"})
-    */
+     * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Commentaire", mappedBy="article", cascade={"remove", "persist"})
+     */
     private $commentaires;
 
     /**
-    * @ORM\Column(name="updatedDate", type="datetime", nullable=true)
-    */
+     * @ORM\Column(name="updatedDate", type="datetime", nullable=true)
+     */
     private $updatedDate;
 
     /**
-    * @ORM\Column (name="categorie", type="string", length=255)
-    */
+     * @ORM\Column (name="categorie", type="string", length=255)
+     */
     private $categorie;
 
     /**
@@ -112,7 +110,7 @@ class Article
     private $slug;
 
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -122,7 +120,7 @@ class Article
     }
 
     /**
-     * Set titre
+     * Set titre.
      *
      * @param string $titre
      *
@@ -136,7 +134,7 @@ class Article
     }
 
     /**
-     * Get titre
+     * Get titre.
      *
      * @return string
      */
@@ -146,7 +144,7 @@ class Article
     }
 
     /**
-     * Set auteur
+     * Set auteur.
      *
      * @param string $auteur
      *
@@ -160,7 +158,7 @@ class Article
     }
 
     /**
-     * Get auteur
+     * Get auteur.
      *
      * @return string
      */
@@ -170,7 +168,7 @@ class Article
     }
 
     /**
-     * Set datePublication
+     * Set datePublication.
      *
      * @param \DateTime $datePublication
      *
@@ -184,7 +182,7 @@ class Article
     }
 
     /**
-     * Get datePublication
+     * Get datePublication.
      *
      * @return \DateTime
      */
@@ -194,7 +192,7 @@ class Article
     }
 
     /**
-     * Set contenu
+     * Set contenu.
      *
      * @param string $contenu
      *
@@ -208,7 +206,7 @@ class Article
     }
 
     /**
-     * Get contenu
+     * Get contenu.
      *
      * @return string
      */
@@ -218,7 +216,6 @@ class Article
     }
 
     /**
-     *
      * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $image
      *
      * @return Article
@@ -229,6 +226,7 @@ class Article
         if ($image) {
             $this->updatedAt = new \DateTime('now');
         }
+
         return $this;
     }
 
@@ -261,7 +259,7 @@ class Article
     }
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -269,7 +267,7 @@ class Article
     }
 
     /**
-     * Add category
+     * Add category.
      *
      * @param \CoreBundle\Entity\Category $category
      *
@@ -283,7 +281,7 @@ class Article
     }
 
     /**
-     * Remove category
+     * Remove category.
      *
      * @param \CoreBundle\Entity\Category $category
      */
@@ -293,7 +291,7 @@ class Article
     }
 
     /**
-     * Get category
+     * Get category.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -303,7 +301,7 @@ class Article
     }
 
     /**
-     * Add commentaire
+     * Add commentaire.
      *
      * @param \CoreBundle\Entity\Commentaire $commentaire
      *
@@ -318,7 +316,7 @@ class Article
     }
 
     /**
-     * Remove commentaire
+     * Remove commentaire.
      *
      * @param \CoreBundle\Entity\Commentaire $commentaire
      */
@@ -328,7 +326,7 @@ class Article
     }
 
     /**
-     * Get commentaires
+     * Get commentaires.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -338,15 +336,15 @@ class Article
     }
 
     /**
-    * @ORM\PreUpdate
-    */
+     * @ORM\PreUpdate
+     */
     public function updateDate()
     {
-      $this->setUpdatedDate(new \Datetime);
+        $this->setUpdatedDate(new \Datetime());
     }
 
     /**
-     * Set updatedDate
+     * Set updatedDate.
      *
      * @param \DateTime $updatedAt
      *
@@ -360,7 +358,7 @@ class Article
     }
 
     /**
-     * Get updatedDate
+     * Get updatedDate.
      *
      * @return \DateTime
      */
@@ -370,7 +368,7 @@ class Article
     }
 
     /**
-     * Set categorie
+     * Set categorie.
      *
      * @param string $categorie
      *
@@ -384,7 +382,7 @@ class Article
     }
 
     /**
-     * Get categorie
+     * Get categorie.
      *
      * @return string
      */
@@ -394,7 +392,7 @@ class Article
     }
 
     /**
-     * Set slug
+     * Set slug.
      *
      * @param string $slug
      *
@@ -408,7 +406,7 @@ class Article
     }
 
     /**
-     * Get slug
+     * Get slug.
      *
      * @return string
      */
@@ -418,7 +416,7 @@ class Article
     }
 
     /**
-     * Set updatedAt
+     * Set updatedAt.
      *
      * @param \DateTime $updatedAt
      *
@@ -432,7 +430,7 @@ class Article
     }
 
     /**
-     * Get updatedAt
+     * Get updatedAt.
      *
      * @return \DateTime
      */
@@ -442,9 +440,9 @@ class Article
     }
 
     /**
-     * Set online
+     * Set online.
      *
-     * @param boolean $online
+     * @param bool $online
      *
      * @return Article
      */
@@ -456,9 +454,9 @@ class Article
     }
 
     /**
-     * Get online
+     * Get online.
      *
-     * @return boolean
+     * @return bool
      */
     public function getOnline()
     {

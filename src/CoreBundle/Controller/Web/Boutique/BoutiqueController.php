@@ -15,5 +15,7 @@ class BoutiqueController extends Controller
      * @Template("Boutique/index.html.twig")
      * @Method("GET")
      */
-    public function indexAction(){}
+    public function indexAction()
+    {
+    }
 }

@@ -5,14 +5,13 @@ namespace CoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Commentaire
+ * Commentaire.
  *
  * @ORM\Table(name="commentaire")
  * @ORM\Entity(repositoryClass="CoreBundle\Repository\CommentaireRepository")
  */
 class Commentaire
 {
-
     /**
      * @var int
      *
@@ -44,14 +43,13 @@ class Commentaire
     private $contenu;
 
     /**
-    * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\Article", cascade={"remove", "persist"}, inversedBy="commentaires")
-    * @ORM\JoinColumn(nullable=false)
-    */
+     * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\Article", cascade={"remove", "persist"}, inversedBy="commentaires")
+     * @ORM\JoinColumn(nullable=false)
+     */
     private $article;
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -61,7 +59,7 @@ class Commentaire
     }
 
     /**
-     * Set auteur
+     * Set auteur.
      *
      * @param string $auteur
      *
@@ -75,7 +73,7 @@ class Commentaire
     }
 
     /**
-     * Get auteur
+     * Get auteur.
      *
      * @return string
      */
@@ -85,7 +83,7 @@ class Commentaire
     }
 
     /**
-     * Set dateCreation
+     * Set dateCreation.
      *
      * @param \DateTime $dateCreation
      *
@@ -99,7 +97,7 @@ class Commentaire
     }
 
     /**
-     * Get dateCreation
+     * Get dateCreation.
      *
      * @return \DateTime
      */
@@ -109,7 +107,7 @@ class Commentaire
     }
 
     /**
-     * Set contenu
+     * Set contenu.
      *
      * @param string $contenu
      *
@@ -123,7 +121,7 @@ class Commentaire
     }
 
     /**
-     * Get contenu
+     * Get contenu.
      *
      * @return string
      */
@@ -133,7 +131,7 @@ class Commentaire
     }
 
     /**
-     * Set article
+     * Set article.
      *
      * @param \CoreBundle\Entity\Article $article
      *
@@ -147,7 +145,7 @@ class Commentaire
     }
 
     /**
-     * Get article
+     * Get article.
      *
      * @return \CoreBundle\Entity\Article
      */

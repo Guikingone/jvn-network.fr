@@ -7,7 +7,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-
 use CoreBundle\Entity\Sujet;
 
 /**
@@ -26,6 +25,7 @@ class ForumsController extends Controller
 
     /**
      * @param Request $request
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/administration", name="admin")
      * @Template("Forums\Admin\index.html.twig")
@@ -34,11 +34,13 @@ class ForumsController extends Controller
     {
         $admin = $this->get('core.back')->indexForums('ADMIN');
         $form = $this->get('core.back')->addSujet($request, 'ADMIN');
+
         return array('admin' => $admin, 'form' => $form->createView());
     }
 
     /**
      * @param Request $request
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/console", name="forum_console")
      * @Template("Forums\Consoles\index.html.twig")
@@ -47,11 +49,13 @@ class ForumsController extends Controller
     {
         $consoles = $this->get('core.back')->indexForums('CONSOLE');
         $form = $this->get('core.back')->addSujet($request, 'CONSOLE');
+
         return array('consoles' => $consoles, 'form' => $form->createView());
     }
 
     /**
      * @param Request $request
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/general", name="general")
      * @Template("Forums\General\index.html.twig")
@@ -60,11 +64,13 @@ class ForumsController extends Controller
     {
         $general = $this->get('core.back')->indexForums('GENERAL');
         $form = $this->get('core.back')->addSujet($request, 'GENERAL');
+
         return array('general' => $general, 'form' => $form->createView());
     }
 
     /**
      * @param Request $request
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/pc", name="pc")
      * @Template("Forums\PC\index.html.twig")
@@ -73,6 +79,7 @@ class ForumsController extends Controller
     {
         $pc = $this->get('core.back')->indexForums('PC');
         $form = $this->get('core.back')->addSujet($request, 'PC');
+
         return array('pc' => $pc, 'form' => $form->createView());
     }
 
@@ -82,8 +89,9 @@ class ForumsController extends Controller
      */
 
     /**
-     * @param Sujet $sujet
+     * @param Sujet   $sujet
      * @param Request $request
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/view/{id}", requirements={"id": "\d+"}, name="forums_view")
      * @Method("GET")
@@ -94,12 +102,14 @@ class ForumsController extends Controller
         $form = $this->get('core.back')->viewSujet($request, $sujet);
         $message = $this->getDoctrine()->getManager()
                         ->getRepository('CoreBundle:Message')->findBy(array('sujet' => $sujet));
+
         return array('sujet' => $sujet, 'message' => $message, 'form' => $form->createView());
     }
 
     /**
      * @param Request $request
-     * @param Sujet $sujet
+     * @param Sujet   $sujet
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      * @Route("/update/{id}", requirements={"id": "\d+"}, name="forums_update")
      * @Method("GET")
@@ -108,11 +118,13 @@ class ForumsController extends Controller
     public function updateAction(Request $request, Sujet $sujet)
     {
         $form = $this->get('core.back')->updateSujet($request, $sujet);
+
         return array('form' => $form->createView(), 'sujet' => $sujet);
     }
 
     /**
      * @param $id
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route("/lock/{id}", requirements={"id": "\d+"}, name="forums_lock")
      * @Method("GET")
@@ -120,30 +132,35 @@ class ForumsController extends Controller
     public function lockAction($id)
     {
         $this->get('core.back')->lockSujet($id);
+
         return $this->redirectToRoute('forums');
     }
 
     /**
      * @param $id
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route("/delete/{id}", requirements={"id": "\d+"}, name="forums_delete")
      * @Method("GET")
      */
     public function deleteAction($id)
     {
-      $this->get('core.back')->deleteSujet($id);
-      return $this->redirectToRoute('forums');
+        $this->get('core.back')->deleteSujet($id);
+
+        return $this->redirectToRoute('forums');
     }
 
     /**
      * @param $id
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route("/delete/message/{id}", requirements={"id": "\d+"}, name="forums_delete_message")
      * @Method("GET")
      */
     public function deleteMessageAction($id)
     {
-      $this->get('core.back')->deleteMessage($id);
-      return $this->redirectToRoute('forums');
+        $this->get('core.back')->deleteMessage($id);
+
+        return $this->redirectToRoute('forums');
     }
 }

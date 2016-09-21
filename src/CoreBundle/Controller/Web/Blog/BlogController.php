@@ -20,8 +20,9 @@ class BlogController extends Controller
      */
     public function krmaAction()
     {
-      $article = $this->get('core.back')->index('KRMA');
-      return array('article' => $article);
+        $article = $this->get('core.back')->index('KRMA');
+
+        return array('article' => $article);
     }
 
     /**
@@ -33,6 +34,7 @@ class BlogController extends Controller
     public function membreAction()
     {
         $article = $this->get('core.back')->index('MEMBRE');
+
         return array('article' => $article);
     }
 
@@ -45,6 +47,7 @@ class BlogController extends Controller
     public function equipeAction()
     {
         $article = $this->get('core.back')->index('TEAM');
+
         return array('article' => $article);
     }
 
@@ -64,6 +67,7 @@ class BlogController extends Controller
                             ->getManager()
                             ->getRepository('CoreBundle:Commentaire')
                             ->findBy(array('article' => $article));
+
         return array('article' => $article, 'commentaire' => $commentaire, 'form' => $form->createView());
     }
 
@@ -79,6 +83,7 @@ class BlogController extends Controller
     {
         $article = $this->get('core.back')->index('KRMA');
         $form = $this->get('core.back')->addArticle($request, 'KRMA');
+
         return array('article' => $article, 'form' => $form->createView());
     }
 
@@ -94,6 +99,7 @@ class BlogController extends Controller
     {
         $article = $this->get('core.back')->index('MEMBRE');
         $form = $this->get('core.back')->addArticle($request, 'MEMBRE');
+
         return array('article' => $article, 'form' => $form->createView());
     }
 
@@ -111,11 +117,12 @@ class BlogController extends Controller
         $form = $this->get('core.back')->addArticle($request, 'TEAM');
         $membre = $this->getDoctrine()->getManager()->getRepository('UserBundle:User')->getUser();
         $commentaire = $this->getDoctrine()->getManager()->getRepository('CoreBundle:Commentaire')->getCommentaires();
+
         return array(
             'article' => $article,
             'form' => $form->createView(),
             'membre' => $membre,
-            'commentaire' => $commentaire
+            'commentaire' => $commentaire,
         );
     }
 }

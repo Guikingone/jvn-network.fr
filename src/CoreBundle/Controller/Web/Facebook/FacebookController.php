@@ -18,8 +18,9 @@ class FacebookController extends Controller
         $redirectUrl = $this->generateUrl('facebook_authorize_redirect', array(), true);
         $url = $facebook->getRedirectLoginHelper()->getLoginUrl(array(
             'redirect_uri' => $redirectUrl,
-            'scope' => 'email', 'user_likes', 'publish_actions'
+            'scope' => 'email', 'user_likes', 'publish_actions',
         ));
+
         return $this->redirect($url);
     }
 
@@ -32,9 +33,10 @@ class FacebookController extends Controller
         $facebook_user_id = $this->get('core.facebook')->checkAccess();
         $user = $this->getUser();
         $user->setFacebook_id($facebook_user_id);
-        if(!$user->facebook_id){
+        if (!$user->facebook_id) {
             return $this->redirect('home');
         }
+
         return $this->render('User/error_facebook_id.html.twig');
     }
 }

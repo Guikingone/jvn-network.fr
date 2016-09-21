@@ -5,7 +5,7 @@ namespace CoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Sujet
+ * Sujet.
  *
  * @ORM\Table(name="sujet")
  * @ORM\Entity(repositoryClass="CoreBundle\Repository\SujetRepository")
@@ -50,14 +50,14 @@ class Sujet
     private $contenu;
 
     /**
-    * @var string
-    * @ORM\Column(name="category", type="string", length=255)
-    */
+     * @var string
+     * @ORM\Column(name="category", type="string", length=255)
+     */
     private $category;
 
     /**
-    * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Message", mappedBy="sujet", cascade={"remove", "persist"})
-    */
+     * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Message", mappedBy="sujet", cascade={"remove", "persist"})
+     */
     private $messages;
 
     /**
@@ -70,9 +70,8 @@ class Sujet
      */
     private $online;
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -82,7 +81,7 @@ class Sujet
     }
 
     /**
-     * Set titre
+     * Set titre.
      *
      * @param string $titre
      *
@@ -96,7 +95,7 @@ class Sujet
     }
 
     /**
-     * Get titre
+     * Get titre.
      *
      * @return string
      */
@@ -106,7 +105,7 @@ class Sujet
     }
 
     /**
-     * Set auteur
+     * Set auteur.
      *
      * @param string $auteur
      *
@@ -120,7 +119,7 @@ class Sujet
     }
 
     /**
-     * Get auteur
+     * Get auteur.
      *
      * @return string
      */
@@ -130,7 +129,7 @@ class Sujet
     }
 
     /**
-     * Set dateCreation
+     * Set dateCreation.
      *
      * @param \DateTime $dateCreation
      *
@@ -144,7 +143,7 @@ class Sujet
     }
 
     /**
-     * Get dateCreation
+     * Get dateCreation.
      *
      * @return \DateTime
      */
@@ -154,7 +153,7 @@ class Sujet
     }
 
     /**
-     * Set contenu
+     * Set contenu.
      *
      * @param string $contenu
      *
@@ -168,7 +167,7 @@ class Sujet
     }
 
     /**
-     * Get contenu
+     * Get contenu.
      *
      * @return string
      */
@@ -178,7 +177,7 @@ class Sujet
     }
 
     /**
-     * Set category
+     * Set category.
      *
      * @param string $category
      *
@@ -192,7 +191,7 @@ class Sujet
     }
 
     /**
-     * Get category
+     * Get category.
      *
      * @return string
      */
@@ -201,7 +200,7 @@ class Sujet
         return $this->category;
     }
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -209,7 +208,7 @@ class Sujet
     }
 
     /**
-     * Add message
+     * Add message.
      *
      * @param \CoreBundle\Entity\Message $message
      *
@@ -223,7 +222,7 @@ class Sujet
     }
 
     /**
-     * Remove message
+     * Remove message.
      *
      * @param \CoreBundle\Entity\Message $message
      */
@@ -233,7 +232,7 @@ class Sujet
     }
 
     /**
-     * Get messages
+     * Get messages.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -243,7 +242,7 @@ class Sujet
     }
 
     /**
-     * Set slug
+     * Set slug.
      *
      * @param string $slug
      *
@@ -257,7 +256,7 @@ class Sujet
     }
 
     /**
-     * Get slug
+     * Get slug.
      *
      * @return string
      */
@@ -267,9 +266,9 @@ class Sujet
     }
 
     /**
-     * Set online
+     * Set online.
      *
-     * @param boolean $online
+     * @param bool $online
      *
      * @return Sujet
      */
@@ -281,9 +280,9 @@ class Sujet
     }
 
     /**
-     * Get online
+     * Get online.
      *
-     * @return boolean
+     * @return bool
      */
     public function getOnline()
     {

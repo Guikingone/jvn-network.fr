@@ -1,27 +1,22 @@
 /* ==================================================================================================================
-    Footer
+    Community
    ================================================================================================================== */
 
-footer {
-  height: 350px;
+.community-introduction_header {
   background-color: $dark-blue;
-  position: absolute;
+  max-height: 540px;
 
-  // Footer introduction
-  .footer_intro {
+  // Community introduction text
+  .community-introduction_text {
     color: $white;
+    text-align: center;
     font-size: 15px;
-    padding-left: 158px;
-    
   }
 
-  // Footer social links
-  .footer_social {
-
-  }
-
-  // Footer newsletter forms
-  .footer_newsletter {
-
+  // Community body text
+  .community-introduction_body {
+    color: $white;
+    text-align: center;
+    font-size: 12px;
   }
 }

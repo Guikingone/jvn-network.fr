@@ -7,7 +7,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use FOS\UserBundle\Model\User as BaseUser;
 
 /**
- * User
+ * User.
  *
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="UserBundle\Repository\UserRepository")
@@ -27,7 +27,7 @@ class User extends BaseUser
     protected $facebook_id;
 
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -52,5 +52,7 @@ class User extends BaseUser
         return $this->facebook_id;
     }
 
-    public function eraseCredentials(){}
+    public function eraseCredentials()
+    {
+    }
 }

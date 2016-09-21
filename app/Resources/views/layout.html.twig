@@ -78,7 +78,8 @@
         </noscript>
         <script async src="https://cdn.ampproject.org/v0.js"></script>
         {% block stylesheets %}
-            <link href="{{ asset('dev/css/Bootstrap/bootstrap.min.css') }}" rel="stylesheet">
+            <link href="{{ asset('dev/css/Bootstrap/bootstrap.min.css') }}" rel="stylesheet" />
+            <link href="{{ asset('dev/assets/material-design-lite/material.css') }}" rel="stylesheet" />
             <link href="{{ asset('prod/app/css/main.css') }}" rel="stylesheet">
             <link href="{{ asset('dev/css/normalize.css') }}" rel="stylesheet">
             <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
@@ -114,10 +115,28 @@
         <main>
             {% block body %}{% endblock %}
         </main>
-        <footer></footer>
+        <footer>
+            <div class="footer_intro">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit metus in nulla efficitur vehicula.
+                    Quisque commodo posuere tortor. Sed vitae massa ut lacus auctor aliquet. Vivamus sagittis elit et
+                    condimentum sagittis. Morbi dapibus ornare augue, tristique dapibus arcu aliquet in.
+                    Praesent quis purus placerat, feugiat turpis non, maximus est. Phasellus vestibulum pretium ex sed mollis.
+                    Quisque lacinia placerat velit eget consequat. Donec ac libero tortor. Suspendisse mollis suscipit laoreet.
+                    Praesent vel sapien sit amet lorem vehicula lobortis at nec orci. Ut rhoncus mollis ultrices. Nunc sodales,
+                </p>
+            </div>
+            <div class="footer_social">
+
+            </div>
+            <div class="footer_newsletter">
+                
+            </div>
+        </footer>
     {% block javascripts %}
         <script src="{{ asset('dev/assets/jquery/dist/jquery.min.js')}}"></script>
         <script src="{{ asset('dev/assets/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('dev/assets/material-design-lite/material.min.js') }}"></script>
         <script src="{{ asset('js/main.js')}}"></script>
         <script src="{{ asset('js/social/social.js')}}"></script>
 

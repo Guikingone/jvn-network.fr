@@ -14,5 +14,7 @@ class CommunauteController extends Controller
      * @Template("Communaute/index.html.twig")
      * @Method("GET")
      */
-    public function indexAction(){}
+    public function indexAction()
+    {
+    }
 }
