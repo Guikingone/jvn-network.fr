@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: managers.yml }
     - { resource: services.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
@@ -67,36 +68,3 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
-
-# FOSUserBundle
-fos_user:
-    db_driver:     orm
-    firewall_name: main
-    user_class:    UserBundle\Entity\User
-    group:
-        group-class: UserBundle\Entity\Group
-    #registration:
-        #confirmation:
-            #enabled: true
-            #from_email:
-                 #address: noreply@jvn-network.fr
-                 #sender_name: Gestionnaire des comptes
-    #resetting:
-        #email:
-            #from_email:
-                #address: noreply@jvn-network.fr
-                #sender_name: Gestionnaire des comptes
-          #  template: email/resetting_password.html.twig
-    #service:
-         #mailer: fos_user.mailer.twig_swift
-
-#VichUploaderBundle
-vich_uploader:
-    db_driver: orm
-    mappings:
-        article_image:
-            uri_prefix: /img/article
-            upload_destination: '%kernel.root_dir%/../web/img/article'
-            inject_on_load: false
-            delete_on_update: true
-            delete_on_remove: true

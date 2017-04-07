@@ -1,0 +1,8 @@
+services:
+    core.article_manager:
+        class: CoreBundle\Managers\ArticleManager
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@form.factory'
+            - '@session'
+            - '@request_stack'

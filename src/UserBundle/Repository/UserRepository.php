@@ -10,13 +10,5 @@ namespace UserBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function deleteUser($id)
-    {
-        return $this->createQueryBuilder('u')
-                ->where('u.id = :id')
-                  ->setParameter('id', $id)
-                ->delete()
-                ->getQuery()
-                ->getResult();
-    }
+
 }

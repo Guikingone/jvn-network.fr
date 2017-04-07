@@ -19,7 +19,7 @@ class UserController extends Controller
     public function deleteAction($id)
     {
         /* Attention ! Cette action n'est pas réversible ! */
-      $this->getDoctrine()->getManager()->getRepository('UserBundle:User')->deleteUser($id);
+        $this->getDoctrine()->getManager()->getRepository('UserBundle:User')->deleteUser($id);
         $this->addFlash('success', "L'utilisateur avec l'id".$id.' a bien été supprimé');
 
         return $this->redirectToRoute('equipe');

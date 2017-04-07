@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the jvn-network project.
+ *
+ * (c) Guillaume Loulier <contact@guillaumeloulier.fr>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace CoreBundle\Controller\Web\Blog;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -9,6 +18,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use CoreBundle\Entity\Article;
 
+/**
+ * Class BlogController
+ *
+ * @author Guillaume Loulier <contact@guillaumeloulier.fr>
+ */
 class BlogController extends Controller
 {
     /**
@@ -20,7 +34,7 @@ class BlogController extends Controller
      */
     public function krmaAction()
     {
-        $article = $this->get('core.back')->index('KRMA');
+        $article = $this->get('core.article_manager')->getArticlesByCategory('KRMA');
 
         return array('article' => $article);
     }
@@ -33,7 +47,7 @@ class BlogController extends Controller
      */
     public function membreAction()
     {
-        $article = $this->get('core.back')->index('MEMBRE');
+        $article = $this->get('core.article_manager')->getArticlesByCategory('MEMBRE');
 
         return array('article' => $article);
     }
@@ -46,7 +60,7 @@ class BlogController extends Controller
      */
     public function equipeAction()
     {
-        $article = $this->get('core.back')->index('TEAM');
+        $article = $this->get('core.article_manager')->getArticlesByCategory('TEAM');
 
         return array('article' => $article);
     }

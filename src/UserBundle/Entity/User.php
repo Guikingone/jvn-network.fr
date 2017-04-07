@@ -1,15 +1,23 @@
 <?php
 
+/*
+ * This file is part of the jvn-network project.
+ *
+ * (c) Guillaume Loulier <contact@guillaumeloulier.fr>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * User.
  *
- * @ORM\Table(name="user")
+ * @ORM\Table(name="_user")
  * @ORM\Entity(repositoryClass="UserBundle\Repository\UserRepository")
  * @UniqueEntity(fields="email", message="Cette adresse mail est déjà utilisée !")
  */

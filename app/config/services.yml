@@ -4,7 +4,6 @@ parameters:
 #    parameter_name: value
 
 services:
-
     core.back:
         class: CoreBundle\Outils\Back
         arguments: ['@doctrine.orm.entity_manager', '@session', '@router', '@security.token_storage', '@form.factory']

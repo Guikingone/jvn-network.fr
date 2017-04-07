@@ -18,8 +18,6 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle(),
             new CoreBundle\CoreBundle(),
             new UserBundle\UserBundle(),
-            new FOS\UserBundle\FOSUserBundle(),
-            new Vich\UploaderBundle\VichUploaderBundle(),
             new \Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
         );
 

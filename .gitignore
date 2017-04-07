@@ -17,3 +17,6 @@
 
 # Compiled assets
 web/prod/app/*
+
+# IDE
+.idea/

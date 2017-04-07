@@ -17,5 +17,6 @@ class BoutiqueController extends Controller
      */
     public function indexAction()
     {
+
     }
 }
